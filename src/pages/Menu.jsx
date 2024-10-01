@@ -1,4 +1,5 @@
 import DishCard from "../components/DishCard"
+import MenuNav from "../components/MenuNav"
 
 export default function Menu() {
     const dishes = [
@@ -69,7 +70,8 @@ export default function Menu() {
     ]
     return (
         <>
-            <h1 className="PSS text-7xl text-orange-600 text-center pt-5 mb-28">BURGER SANDWICHES</h1>
+            <MenuNav />
+            <h1 id="burger" className="PSS text-7xl text-orange-600 text-center pt-5 mb-28">BURGER SANDWICHES</h1>
             <div className="flex justify-center flex-wrap gap-y-40 gap-x-12 px-2">
                 {dishes.map(d => <DishCard
                     key={d.id}

@@ -22,3 +22,7 @@ body {
 .PSS {
     font-family: 'Press Style Serif', sans-serif;
 }
+
+.sbw-none {
+    scrollbar-width: none;
+}
