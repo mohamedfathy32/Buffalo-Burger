@@ -1,17 +1,14 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import './Home.css';
+import './Home.Module.css';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 export default function Home() {
 
-
-
     return (
         <>
-
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 pagination={{ type: "progressbar" }}
@@ -64,6 +61,7 @@ export default function Home() {
                 </SwiperSlide>
 
             </Swiper>
+
         </>
     );
 }
