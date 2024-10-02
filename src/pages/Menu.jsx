@@ -1,8 +1,6 @@
-import { useEffect } from "react"
 import KeenSlider from "../components/KeenSlider"
 import MenuCategory from "../components/MenuCategory"
 import MenuNav from "../components/MenuNav"
-import { useLocation } from "react-router-dom"
 
 export default function Menu() {
     const cat_burger = [
@@ -299,19 +297,7 @@ export default function Menu() {
             price: '190'
         },
     ]
-    const location = useLocation()
 
-    useEffect(() => {
-        (() => {
-            const hash = location.hash.substring(1);
-            if (hash) {
-                const element = document.getElementById(hash);
-                if (element) {
-                    element.scrollIntoView({ behavior: "smooth", block: "center" })
-                }
-            }
-        })()
-    }, [location.hash])
     return (
         <>
             <div className="sticky top-28 z-10 w-full" ><MenuNav /></div>

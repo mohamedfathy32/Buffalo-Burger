@@ -1,5 +1,4 @@
 import DishCard from "./DishCard";
-
 // eslint-disable-next-line react/prop-types
 export default function MenuCategory({ _id, catTitle, catList }) {
     return (
