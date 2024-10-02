@@ -1,19 +1,19 @@
-import MenuCat from "../../components/MenuCat";
-import KeenSlider from "./KeenSlider";
+import KeenSlider from "../../components/KeenSlider";
+import MenuNav from "../../components/MenuNav";
+import Splash from "../../components/Splash/Splash";
 import SwiperSlider from "./SwiperSlider";
 import TopSelling from "./TopSelling";
-import Splash from "../../components/Splash/Splash";
 
 export default function Home() {
     return (
         <>
             <Splash />
             <SwiperSlider />
-            <MenuCat />
+            <div className="sticky top-28 z-10">
+                <MenuNav />
+            </div>
             <KeenSlider />
-            <TopSelling/>
-
-
+            <TopSelling />
         </>
     );
 }

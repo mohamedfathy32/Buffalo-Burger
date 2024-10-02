@@ -1,75 +1,75 @@
-import KeenSlider from "../components/KeenSlider"
-import MenuCategory from "../components/MenuCategory"
-import MenuNav from "../components/MenuNav"
+import MenuNav from "../../components/MenuNav"
+import KeenSlider from "../../components/KeenSlider"
+import MenuCategory from "./MenuCategory"
 
 export default function Menu() {
     const cat_burger = [
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
@@ -78,35 +78,35 @@ export default function Menu() {
     const cat_chicken = [
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
@@ -115,35 +115,35 @@ export default function Menu() {
     const cat_keto = [
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
@@ -152,35 +152,35 @@ export default function Menu() {
     const cat_sauces = [
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
@@ -189,35 +189,35 @@ export default function Menu() {
     const cat_appetizers = [
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
@@ -226,35 +226,35 @@ export default function Menu() {
     const cat_dessert = [
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
             price: '190'
@@ -263,35 +263,35 @@ export default function Menu() {
     const cat_drinks = [
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: '',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: '',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: '',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: '',
             price: '190'
         },
         {
             id: Date.now(),
-            image: '/baconmushroomjack.webp',
+            image: '/images/baconmushroomjack.webp',
             title: 'bacon mushroom jack',
             description: '',
             price: '190'

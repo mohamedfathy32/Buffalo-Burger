@@ -1,6 +1,6 @@
 import { FaDiamond } from "react-icons/fa6";
 
-function FranchisingRequest() {
+function FranchiseRequest() {
     return (
         <div className="bg-black min-h-screen">
             <div className="container mx-auto flex flex-col items-start px-5 lg:px-0">
@@ -68,4 +68,4 @@ function FranchisingRequest() {
     );
 }
 
-export default FranchisingRequest;
+export default FranchiseRequest;

@@ -1,4 +1,4 @@
-import DishCard from "../../components/DishCard";
+import DishCard from "../../components/DishCard"
 
 export default function TopSelling() {
     const topSelling = [
@@ -35,11 +35,11 @@ export default function TopSelling() {
 
     ]
     return (
-        <div className="bg-white px-4 my-8">
+        <div className="bg-white px-2 my-8">
             <div className="px-8 mb-28">
                 <h2 className="text-orange-600 text-2xl text-start font-bold uppercase">Top Selling</h2>
             </div>
-            <div className="flex justify-center flex-wrap gap-y-40 gap-x-12 px-2">
+            <div className="flex justify-center flex-wrap gap-4">
 
                 {topSelling.map(product => (
                     <DishCard
