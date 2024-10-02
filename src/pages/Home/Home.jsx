@@ -4,6 +4,7 @@ import "swiper/css/pagination";
 import './Home.css';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import Splash from "../../components/Splash/Splash";
 
 export default function Home() {
 
@@ -12,6 +13,7 @@ export default function Home() {
     return (
         <>
 
+            <Splash />
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 pagination={{ type: "progressbar" }}
