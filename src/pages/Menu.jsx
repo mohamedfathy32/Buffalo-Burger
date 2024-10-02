@@ -1,4 +1,5 @@
 import DishCard from "../components/DishCard"
+import KeenSlider from "../components/KeenSlider"
 import MenuNav from "../components/MenuNav"
 
 export default function Menu() {
@@ -70,8 +71,10 @@ export default function Menu() {
     ]
     return (
         <>
-            <MenuNav />
-            <h1 id="burger" className="PSS text-7xl text-orange-600 text-center pt-5 mb-28">BURGER SANDWICHES</h1>
+            <div className="sticky top-28 z-50 w-full" ><MenuNav /></div>
+            <h1 id="offers" className="PSS text-7xl uppercase text-orange-600 text-center m-6">offers</h1>
+            <div className="mx-3"><KeenSlider /></div>
+            <h1 id="burger" className="PSS text-7xl uppercase text-orange-600 text-center m-6">BURGER SANDWICHES</h1>
             <div className="flex justify-center flex-wrap gap-y-40 gap-x-12 px-2">
                 {dishes.map(d => <DishCard
                     key={d.id}

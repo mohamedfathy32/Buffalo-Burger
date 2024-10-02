@@ -15,7 +15,7 @@ export default function MenuNav() {
             <div className="w-fit min-w-full flex justify-center px-4 bg-stone-900">
                 {categories.map(cat => {
                     return (
-                        <a key={cat.title} className="w-20 h-20 m-2" href={`/Menu#${cat.target}`}>
+                        <a key={cat.title} className="w-20 h-20 m-2 hover:animate-pulse" href={`/Menu#${cat.target}`}>
                             <img src={cat.image} alt={cat.title} />
                         </a>)
                 })}
