@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-// import "./styles.css";
 
 export default function KeenSlider() {
     const [slidesPerView, setSlidesPerView] = useState(4); // عدد الصور الافتراضي
@@ -50,15 +49,26 @@ export default function KeenSlider() {
 
 
     return (
-        <div ref={sliderRef} className="keen-slider mt-1.5">
-            {slides.map(slider => (
-                <div key={slider.id} className="keen-slider__slide">
-                    <a href={slider.link}>
-                        <img src={slider.src} alt={slider.id} className="rounded-[20px] " width='450' height='300' />
-                    </a>
+        <>
+            <section className="mx-3 mt-3">
+                <div>
+                    <h3 className="text-xl h-fit font-bold uppercase text-orange-600 ">Hot offers</h3>
                 </div>
-            ))}
+                <div>
 
-        </div>
+                    <div ref={sliderRef} className="keen-slider mt-1.5">
+                        {slides.map(slider => (
+                            <div key={slider.id} className="keen-slider__slide">
+                                <a href={slider.link}>
+                                    <img src={slider.src} alt={slider.id} className="rounded-[20px] " width='450' height='300' />
+                                </a>
+                            </div>
+                        ))}
+
+                    </div>
+                </div>
+            </section>
+
+        </>
     );
 };

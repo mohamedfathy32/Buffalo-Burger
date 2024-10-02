@@ -12,6 +12,8 @@ import PrivacyPolicy from "../pages/PrivacyPolicy";
 import Signup from "../pages/Signup";
 import TermsAndConditions from "../pages/TermsAndConditions";
 import NotFound from "../pages/NotFound";
+import FindUs from "../pages/FindUs";
+import Careers from "../pages/Careers";
 
 export const router = createBrowserRouter([{
     path: '/', element: <Layout />, children: [
@@ -19,6 +21,8 @@ export const router = createBrowserRouter([{
         { path: 'AboutUs', element: <AboutUs /> },
         { path: 'CartDetails', element: <CartDetails /> },
         { path: 'FranchiseRequest', element: <FranchiseRequest /> },
+        { path: 'Careers', element: <Careers /> },
+        { path: 'FindUs', element: <FindUs /> },
         { path: 'Login', element: <Login /> },
         { path: 'Loyalty', element: <Loyalty /> },
         { path: 'Menu', element: <Menu /> },

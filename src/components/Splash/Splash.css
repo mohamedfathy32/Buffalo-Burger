@@ -1,0 +1,32 @@
+#splashChild {
+    animation: logoRotate 2s linear infinite;
+  }
+  
+  #IconNoBg {
+    animation: logoScale 3s linear infinite;
+  }
+  
+  @keyframes logoRotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+  @keyframes logoScale {
+    0% {
+      transform: scale(0.25);
+    }
+    50% {
+      transform: scale(2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  

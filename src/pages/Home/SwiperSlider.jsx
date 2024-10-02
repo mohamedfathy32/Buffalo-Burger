@@ -1,12 +1,14 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import './Home.Module.css';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
 
 export default function SwiperSlider() {
     const [images, setImages] = useState([]);
+
     useEffect(() => {
         const getImages = () => {
             const mobileImages = [

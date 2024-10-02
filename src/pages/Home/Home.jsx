@@ -1,19 +1,19 @@
-import KeenSlider from "../../components/KeenSlider";
-import SwiperSlider from "../../components/SwiperSlider";
-import './Home.Module.css';
+import MenuCat from "../../components/MenuCat";
+import KeenSlider from "./KeenSlider";
+import SwiperSlider from "./SwiperSlider";
+import TopSelling from "./TopSelling";
+import Splash from "../../components/Splash/Splash";
 
 export default function Home() {
     return (
         <>
+            <Splash />
             <SwiperSlider />
-            <section className="mx-3 mt-3">
-                <div>
-                    <h3 className="text-xl h-fit font-bold uppercase text-orange-600 ">Hot offers</h3>
-                </div>
-                <div>
-                    <KeenSlider />
-                </div>
-            </section>
+            <MenuCat />
+            <KeenSlider />
+            <TopSelling/>
+
+
         </>
     );
 }
