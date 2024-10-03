@@ -1,16 +1,14 @@
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css);
 
 @font-face {
     font-family: 'Roboto Condensed';
-    src: url(/RobotoCondensed.ttf);
+    src: url(fonts/RobotoCondensed.ttf);
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Press Style Serif';
-    src: url(/PressStyleSerif.ttf);
+    src: url(fonts/PressStyleSerif.ttf);
     font-weight: normal;
     font-style: normal;
 }

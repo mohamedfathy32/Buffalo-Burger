@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import './Splash.css';
+import './Splash.Module.css';
 
 function Splash() {
     useEffect(() => {
@@ -8,7 +8,7 @@ function Splash() {
             if (splash) {
                 splash.style.display = 'none';
             }
-        }, 2500);
+        }, 2000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -16,20 +16,20 @@ function Splash() {
     return (
         <div
             id="splashParent"
-            className="fixed inset-0 bg-black z-[1000] w-full h-full"
+            className="fixed inset-0 bg-[#00000094] z-[1000] w-full h-full"
         >
             <div
                 id="splashChild"
-                className="w-[250px] h-[250px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                className="w-[150px] h-[150px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             >
                 <img
-                    src="/public/IconBg.png"
+                    src="./splash/IconBg.png"
                     alt="IconBg"
                     id="IconBg"
                     className="w-full h-full"
                 />
                 <img
-                    src="/public/IconNoBg.png"
+                    src="./splash/IconNoBg.png"
                     alt="IconNoBg"
                     id="IconNoBg"
                     className="absolute top-[30%] left-[25%] w-1/2 h-1/2"
@@ -37,6 +37,6 @@ function Splash() {
             </div>
         </div>
     );
-};
+}
 
 export default Splash;
