@@ -12,6 +12,7 @@ import PrivacyPolicy from "../pages/PrivacyPolicy";
 import Signup from "../pages/Signup";
 import TermsAndConditions from "../pages/TermsAndConditions";
 import NotFound from "../pages/NotFound";
+import MealDetails from "../pages/Menu/MealDetails";
 
 export const router = createBrowserRouter([{
     path: '/', element: <Layout />, children: [
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([{
         { path: 'Login', element: <Login /> },
         { path: 'Loyalty', element: <Loyalty /> },
         { path: 'Menu', element: <Menu /> },
+        { path: 'MealDetails/:id', element: <MealDetails /> },
         { path: 'OurBranches', element: <OurBranches /> },
         { path: 'PrivacyPolicy', element: <PrivacyPolicy /> },
         { path: 'Signup', element: <Signup /> },
