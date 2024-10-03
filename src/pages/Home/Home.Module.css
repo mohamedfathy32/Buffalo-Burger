@@ -1,10 +1,11 @@
-
 .swiper-pagination-progressbar-fill {
   background-color: #ff5722 !important;
 }
+
 .relative {
   position: relative;
 }
+
 .swiper-button-next,
 .swiper-button-prev {
   color: #000;

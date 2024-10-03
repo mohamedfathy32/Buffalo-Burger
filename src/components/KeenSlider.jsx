@@ -33,17 +33,17 @@ export default function KeenSlider() {
     }, []);
 
     const slides = [
-        { id: 1, src: './keen-slider/keen-slider1.webp', link: '#' },
-        { id: 2, src: './keen-slider/keen-slider2.webp', link: '#' },
-        { id: 3, src: './keen-slider/keen-slider3.webp', link: '#' },
-        { id: 4, src: './keen-slider/keen-slider4.webp', link: '#' },
-        { id: 5, src: './keen-slider/keen-slider5.webp', link: '#' },
-        { id: 6, src: './keen-slider/keen-slider6.webp', link: '#' },
-        { id: 8, src: './keen-slider/keen-slider8.webp', link: '#' },
-        { id: 9, src: './keen-slider/keen-slider9.webp', link: '#' },
-        { id: 10, src: './keen-slider/keen-slider10.webp', link: '#' },
-        { id: 11, src: './keen-slider/keen-slider11.webp', link: '#' },
-        { id: 12, src: './keen-slider/keen-slider12.webp', link: '#' },
+        { id: 1, src: '/images/keen/keen-slider1.webp', link: '#' },
+        { id: 2, src: '/images/keen/keen-slider2.webp', link: '#' },
+        { id: 3, src: '/images/keen/keen-slider3.webp', link: '#' },
+        { id: 4, src: '/images/keen/keen-slider4.webp', link: '#' },
+        { id: 5, src: '/images/keen/keen-slider5.webp', link: '#' },
+        { id: 6, src: '/images/keen/keen-slider6.webp', link: '#' },
+        { id: 8, src: '/images/keen/keen-slider8.webp', link: '#' },
+        { id: 9, src: '/images/keen/keen-slider9.webp', link: '#' },
+        { id: 10, src: '/images/keen/keen-slider10.webp', link: '#' },
+        { id: 11, src: '/images/keen/keen-slider11.webp', link: '#' },
+        { id: 12, src: '/images/keen/keen-slider12.webp', link: '#' },
 
     ]
 

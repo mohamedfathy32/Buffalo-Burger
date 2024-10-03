@@ -1,14 +1,13 @@
-
 @font-face {
     font-family: 'Roboto Condensed';
-    src: url(fonts/RobotoCondensed.ttf);
+    src: url(/fonts/RobotoCondensed.ttf);
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Press Style Serif';
-    src: url(fonts/PressStyleSerif.ttf);
+    src: url(/fonts/PressStyleSerif.ttf);
     font-weight: normal;
     font-style: normal;
 }
@@ -19,4 +18,8 @@ body {
 
 .PSS {
     font-family: 'Press Style Serif', sans-serif;
+}
+
+.sbw-none {
+    scrollbar-width: none;
 }

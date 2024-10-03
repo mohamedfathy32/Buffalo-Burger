@@ -1,15 +1,15 @@
-import { FaDiamond } from "react-icons/fa6";
-
-function FranchisingRequest() {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDiamond } from '@fortawesome/free-solid-svg-icons';
+function FranchiseRequest() {
     return (
         <div className="bg-black min-h-screen">
             <div className="container mx-auto flex flex-col items-start px-5 lg:px-0">
                 <h1
-                    className="mt-4 mb-6 text-6xl PSS font-thin tracking-wider text-orange-500"
+                    className="mt-5 text-3xl font-bold text-orange-500"
+                    style={{ fontFamily: 'Piedra, serif' }}
                 >
                     DEAR PROSPECTIVE FRANCHISEE
                 </h1>
-
                 <div className="text-white mb-3">
                     <h4 className="font-bold text-xl">Thank you for your interest in Buffalo Burger!</h4>
                     <p className="text-lg">
@@ -20,43 +20,40 @@ function FranchisingRequest() {
                         pursue your journey to become a Buffalo Burger franchisee.
                     </p>
                 </div>
-
                 <div className="flex flex-col items-start mb-2">
                     <div className="flex items-center mb-1">
-                        <FaDiamond className="text-2xl text-orange-500" />
+                        <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" />
                         <h5 className="text-white ml-2">To request a franchise:</h5>
                     </div>
                     <div className="flex items-center mb-1">
-                        <FaDiamond className="text-2xl text-orange-500" />
+                        <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" />
                         <h6 className="text-white ml-2">
                             1- Download the application by clicking the button below
                         </h6>
                     </div>
                     <div className="flex items-center mb-1">
-                        <FaDiamond className="text-2xl text-orange-500" />
+                        <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" />
                         <h6 className="text-white ml-2">2- Fill in the details of either the Arabic or English form</h6>
                     </div>
                     <div className="flex items-center mb-1">
-                        <FaDiamond className="text-2xl text-orange-500" />
+                        <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" />
                         <h6 className="text-white ml-2">3- Send it on franchise@buffaloburger.com</h6>
                     </div>
                 </div>
-
                 <div className="flex flex-col lg:flex-row mb-5">
                     <button
                         type="button"
-                        className="text-white bg-orange-500 rounded px-4 py-2 mb-3 lg:mb-0 lg:mr-3"
+                        className="text-white bg-custom-orange rounded px-4 py-2 mb-3 lg:mb-0 lg:mr-3"
                     >
                         Download Arabic
                     </button>
                     <button
                         type="button"
-                        className="text-white bg-orange-500 rounded px-4 py-2"
+                        className="text-white bg-custom-orange rounded px-4 py-2"
                     >
                         Download English
                     </button>
                 </div>
-
                 <img
                     className="img-fluid mb-5"
                     style={{ width: '270px', height: '187px' }}
@@ -67,5 +64,4 @@ function FranchisingRequest() {
         </div>
     );
 }
-
-export default FranchisingRequest;
+export default FranchiseRequest;

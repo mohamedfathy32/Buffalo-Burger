@@ -7,6 +7,7 @@ export default function Header() {
             <Link to={'/CartDetails'}>CartDetails</Link>
             <Link to={'/FranchiseRequest'}>FranchiseRequest</Link>
             <Link to={'/Menu'}>Menu</Link>
+            <Link to={'/'}>Home</Link>
         </div>
     )
 }
