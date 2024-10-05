@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiamond } from '@fortawesome/free-solid-svg-icons';
 function FranchiseRequest() {
     return (
         <div className="bg-black min-h-screen">
@@ -22,21 +20,21 @@ function FranchiseRequest() {
                 </div>
                 <div className="flex flex-col items-start mb-2">
                     <div className="flex items-center mb-1">
-                        <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" />
+                        {/* <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" /> */}
                         <h5 className="text-white ml-2">To request a franchise:</h5>
                     </div>
                     <div className="flex items-center mb-1">
-                        <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" />
+                        {/* <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" /> */}
                         <h6 className="text-white ml-2">
                             1- Download the application by clicking the button below
                         </h6>
                     </div>
                     <div className="flex items-center mb-1">
-                        <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" />
+                        {/* <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" /> */}
                         <h6 className="text-white ml-2">2- Fill in the details of either the Arabic or English form</h6>
                     </div>
                     <div className="flex items-center mb-1">
-                        <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" />
+                        {/* <FontAwesomeIcon icon={faDiamond} className="text-2xl text-custom-orange" /> */}
                         <h6 className="text-white ml-2">3- Send it on franchise@buffaloburger.com</h6>
                     </div>
                 </div>
