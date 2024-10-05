@@ -1,14 +1,44 @@
-// import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FaCartShopping } from "react-icons/fa6";
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
 export default function Header() {
     const [nav, setNav] = useState(false);
 
     const handleClick = () => setNav(!nav);
+
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeTab, setActiveTab] = useState('');
+
+    const handleLoginOpen = () => {
+        setActiveTab('login')
+        setIsOpen(true);
+    }
+    const handleSignupOpen = () => {
+        setActiveTab('signup');
+        setIsOpen(true);
+    }
+
+
+
+    const handleClose = () => setIsOpen(false);
+
+    useEffect(() => {
+        const handleEsc = (event) => {
+            if (event.key === "Escape") {
+                handleClose();
+            }
+        };
+
+        window.addEventListener("keydown", handleEsc);
+
+        return () => window.removeEventListener("keydown", handleEsc);
+    }, []);
+
+
+
     return (
         // Last Header 
         // <div className="size-full flex justify-center items-center gap-3">
@@ -45,7 +75,7 @@ export default function Header() {
                         href="/CartDetails">
                         <div
                             className="flex justify-center items-center align-middle font-main text-lg font-bold hover:text-custom-orange uppercase text-white cursor-pointer">
-                            <FaCartShopping className="text-2xl mr-1"/>
+                            <FaCartShopping className="text-2xl mr-1" />
                             Cart
                         </div>
                     </a>
@@ -74,10 +104,10 @@ export default function Header() {
 
                 {/* Contents right  */}
                 <div className="hidden md:flex md:items-center gap-4">
-                    <div className="font-main text-lg font-bold text-white hover:text-custom-orange flex justify-center cursor-pointer">
+                    <div onClick={handleSignupOpen} className="font-main text-lg font-bold text-white hover:text-custom-orange flex justify-center cursor-pointer">
                         Create an account
                     </div>
-                    <div className="font-main text-lg font-bold text-white hover:text-custom-orange flex justify-center cursor-pointer">
+                    <div onClick={handleLoginOpen} className="font-main text-lg font-bold text-white hover:text-custom-orange flex justify-center cursor-pointer">
                         Login
                     </div>
                 </div>
@@ -113,6 +143,84 @@ export default function Header() {
                     <Link to={'/'}>Home</Link>
                 </div>
             </div>
+
+
+
+
+
+            {/* المربع (Modal) */}
+            {isOpen && (
+                <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+                    <div className="bg-white rounded-lg p-6 w-[40%]">
+
+
+                        {/* التبويبات للتبديل بين Login و Create Account */}
+                        <div className="flex justify-between mb-4">
+                            <button
+                                className={`px-4 py-2 w-[50%] text-center ${activeTab === 'login' ? 'border-b-2 border-[#ff5f00] text-orange-600 ' : 'text-gray-500'}`}
+                                onClick={() => setActiveTab('login')}
+                            >
+                                Login
+                            </button>
+                            <button
+                                className={`px-4 py-2 w-[50%] text-center ${activeTab === 'signup' ? 'border-b-2 border-[#ff5f00] text-orange-600 ' : 'text-gray-500'}`}
+                                onClick={() => setActiveTab('signup')}
+                            >
+                                Create an Account
+                            </button>
+                        </div>
+
+                        {/* محتوى Login */}
+                        {activeTab === 'login' && (
+                            <div>
+                                <label className="block text-gray-700 text-sm font-bold mb-2">
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="+20 xx xxx xxxxx"
+                                    className="border border-gray-300 rounded w-full py-2 px-3 mb-3 focus:outline-none focus:border-orange-500"
+                                />
+                                <p className="text-red-500 text-xs italic">
+                                    You must enter your phone number
+                                </p>
+                                <button
+                                    className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4"
+                                >
+                                    Login
+                                </button>
+                            </div>
+                        )}
+
+                        {/* محتوى Create an Account */}
+                        {activeTab === 'signup' && (
+                            <div>
+                                <label className="block text-gray-700 text-sm font-bold mb-2">
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="+20 xx xxx xxxxx"
+                                    className="border border-gray-300 rounded w-full py-2 px-3 mb-3 focus:outline-none focus:border-orange-500"
+                                />
+                                <label className="block text-gray-700 text-sm font-bold mb-2">
+                                    Password
+                                </label>
+                                <input
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    className="border border-gray-300 rounded w-full py-2 px-3 mb-3 focus:outline-none focus:border-orange-500"
+                                />
+                                <button
+                                    className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4"
+                                >
+                                    Create an Account
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
 
 
 
