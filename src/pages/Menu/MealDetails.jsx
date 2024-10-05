@@ -6,9 +6,9 @@ export default function MealDetails() {
     return (
         <>
             <div className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
-                <img src={dish.image} alt={dish.title} className=" place-items-center w-36" />
-                <div className="lg:text-start text-center md:my-6 md:mx-16 ">
-                    <h2 className="text-orange-500 font-bold text-2xl capitalize">{dish.title}</h2>
+                <img src={dish.image} alt={dish.title} className=" place-items-center w-[150px]" />
+                <div className="lg:text-start text-center md:my md:mx-16 ">
+                    <h2 className="text-orange-600 font-bold text-2xl capitalize">{dish.title}</h2>
                     <p className="text-white max-w-[500px]">{dish.description}</p>
                 </div>
             </div>
