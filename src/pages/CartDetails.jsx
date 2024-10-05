@@ -1,5 +1,5 @@
 export default function CartDetails() {
     return (
-        <div>CartDetails</div>
+        <div>hamada</div>
     )
 }

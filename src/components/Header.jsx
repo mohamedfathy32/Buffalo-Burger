@@ -1,6 +1,8 @@
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+// import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { FaCartShopping } from "react-icons/fa6";
+
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -42,10 +44,9 @@ export default function Header() {
                     <a className="p-1 undefined"
                         href="/CartDetails">
                         <div
-                            className="flex justify-center align-middle font-main text-lg font-bold hover:text-custom-orange uppercase text-white cursor-pointer">
-                            <FontAwesomeIcon icon={faCartShopping}> 
-                                Cart
-                            </FontAwesomeIcon>
+                            className="flex justify-center items-center align-middle font-main text-lg font-bold hover:text-custom-orange uppercase text-white cursor-pointer">
+                            <FaCartShopping className="text-2xl mr-1"/>
+                            Cart
                         </div>
                     </a>
                     <div className="flex justify-center items-center">
