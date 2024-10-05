@@ -42,7 +42,7 @@ export default function TopSelling() {
 
 
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -65,38 +65,26 @@ export default function TopSelling() {
     }, []);
 
     return (
-        <div className="px-2 my-8">
-            <div className="px-8">
-                <h2 className="text-orange-600 text-2xl text-start font-bold uppercase">Top Selling</h2>
-            </div>
-            {/* <div className="flex justify-center flex-wrap gap-4">
-
-                {topSelling.map(product => (
-                    <DishCard
-                        key={product.id}
-                        image={product.image}
-                        title={product.title}
-                        description={product.description}
-                        price={product.price}
-                    />
-                ))}
-            </div>  */}
-            {loading ? <Splash /> : (
-
-                <div className="flex justify-center flex-wrap gap-4">
-
-                    {products.map(product => (
-                        <DishCard
-                            key={product.id}
-                            image={product.image}
-                            title={product.title}
-                            description={product.description}
-                            price={product.price}
-                        />
-                    ))}
+        <>
+            {console.log(products)}
+            <div className="px-2 my-8">
+                <div className="px-8">
+                    <h2 className="text-orange-600 text-2xl text-start font-bold uppercase">Top Selling</h2>
                 </div>
-            )}
+                {loading ? <Splash /> : (
 
-        </div>
+                    <div className="flex justify-center flex-wrap gap-4">
+
+                        {products.map(product => (
+                            <DishCard
+                                key={product.id}
+                                dish={product}
+                            />
+                        ))}
+                    </div>
+                )}
+
+            </div>
+        </>
     )
 }
