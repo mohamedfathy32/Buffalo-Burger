@@ -61,7 +61,7 @@ const Careers = () => {
 
             {/* Employee Training Section */}
             <div className="p-5 lg:p-10">
-                <h1 className="text-7xl font-thin mb-4 text-orange-500 PSS tracking-wider"> 
+                <h1 className="text-7xl font-thin mb-4 text-orange-500 PSS tracking-wider">
                     EMPLOYEE TRAINING
                 </h1>
                 <p className="text-orange-500">
