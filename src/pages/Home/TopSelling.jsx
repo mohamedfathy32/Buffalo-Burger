@@ -83,8 +83,36 @@ export default function TopSelling() {
                         ))}
                     </div>
                 )}
-
             </div>
+{/* 
+            <div>
+                <h1>Chicken</h1>
+                <div className="flex justify-center flex-wrap gap-4">
+
+                    {products.map(product => (
+                        product.category === 'Chicken' &&
+                        <DishCard
+                            key={product.id}
+                            dish={product}
+                        />
+                    ))}
+                </div>
+            </div>
+
+
+            <div>
+                <h1>Burger</h1>
+                <div className="flex justify-center flex-wrap gap-4">
+
+                    {products.map(product => (
+                        product.category === 'Burger' &&
+                        <DishCard
+                            key={product.id}
+                            dish={product}
+                        />
+                    ))}
+                </div>
+            </div> */}
         </>
     )
 }

@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export default function Footer() {
     return (
         <>
@@ -44,21 +46,21 @@ export default function Footer() {
                     </div>
 
                     <div className="border-b border-secondary-gray-100 mr-0 md:w-1/12 md:mr-24 md:border-0 lg:border-0 lg:w-1/12 lg:mr-24 rtl:lg:text-right">
-                        <a className="p-1 block text-white hover:text-orange-500" href="/about">
+                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/AboutUs">
                             About us
-                        </a>
-                        <a className="p-1 block text-white hover:text-orange-500" href="/franchise">
+                        </NavLink>
+                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/franchise">
                             Franchise Request
-                        </a>
-                        <a className="p-1 block text-white hover:text-orange-500" href="/branch-info">
+                        </NavLink>
+                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/branch-info">
                             Our Branches
-                        </a>
-                        <a className="p-1 block text-white hover:text-orange-500" href="/privacy-policy">
+                        </NavLink>
+                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/privacy-policy">
                             Privacy policy
-                        </a>
-                        <a className="p-1 block text-white hover:text-orange-500" href="/terms-of-use">
+                        </NavLink>
+                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/terms-of-use">
                             Terms and conditions
-                        </a>
+                        </NavLink>
                     </div>
 
                     <div className="block links-group auth-group mr-0 md:w-1/12 md:mr-24 lg:w-1/12 lg:mr-24 rtl:lg:text-right">
