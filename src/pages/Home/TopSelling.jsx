@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import DishCard from "../../components/DishCard"
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../../utils/firebase";
+import { useEffect, useState } from "react";
+import { db } from "../../utils/firebaseConfig";
 import Splash from "../../components/Splash/Splash";
+import ProductCard from "../../components/ProductCard";
 
 export default function TopSelling() {
     // const topSelling = [
@@ -76,7 +76,7 @@ export default function TopSelling() {
                     <div className="flex justify-center flex-wrap gap-4">
 
                         {products.map(product => (
-                            <DishCard
+                            <ProductCard
                                 key={product.id}
                                 dish={product}
                             />
