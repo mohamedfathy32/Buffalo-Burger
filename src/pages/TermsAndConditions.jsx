@@ -89,7 +89,7 @@ export default function TermsAndConditions() {
                     [Additional information on text messages. When you opt in to any of our text message programs, you understand and consent that you will receive text messages from an automated system. You further understand that your consent is not required to make any purchase. If you wish to withdraw your consent and unsubscribe, please email us at: <span className="text-orange-500">info@saalinvest.com</span>.
                 </p>
 
-                <span className=" font-bold mb-5 mr-2 font-bold mb-5 mr-2">Offers and Loyalty Programme</span>
+                <span className="font-bold mb-5 mr-2">Offers and Loyalty Programme</span>
 
                 <p className="mb-6 break-words">
                     These terms describe the Buffalo Burger Rewards Loyalty programs
