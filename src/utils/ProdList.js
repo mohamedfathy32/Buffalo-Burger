@@ -4,15 +4,73 @@ export const productsList = [
         "title": "SHIITAKE MUSHROOM",
         "description": "Sautéed mushroom, cheddar cheese, and creamy mayonnaise spread on top of our pure beef burger patty.",
         "imageURL": "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fa76de047b66f2511962b600232c60769.png&w=256&q=75",
-        "price": "EGP 155",
+        "price": "155",
         "category": "burger",
         "topSelling": true,
         "details": {
-            "size": [],
-            "bread": [],
-            "compoOptions": [],
-            // "quantity": 0
-            "extras": []
+            "size": [
+                { '150gm': "155" },
+                { '200gm': "190" },
+                { '400gm': "280" },
+            ],
+            "bread": [
+                "white",
+                "brown"
+            ],
+            "compoOptions": [
+                {
+                    "imageURL": "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fa76de047b66f2511962b600232c60769.png&w=256&q=75",
+                    "title": "",
+                    "description": "choose sandwich only",
+                    "Price": ""
+                },
+                {
+                    "imageURL": "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F00ce021cd267db0707e68103dbfc6b77.png&w=96&q=75",
+                    "title": "onion rings combo",
+                    "description": "Onion Rings, soft drink, and a dipping sauce",
+                    "Price": "75"
+                },
+                {
+                    "imageURL": "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F5378f829aaa33e7f689eb32eaddf285c.png&w=96&q=75",
+                    "title": "Cheesy Fries Combo (French Fries)",
+                    "description": "Cheesy French Fries, soft drink and a dipping sauce",
+                    "Price": "95"
+                },
+                {
+                    "imageURL": "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fa4b4412f6682497273f06448c0797012.png&w=96&q=75",
+                    "title": "Blanco Fries Combo (French Fries)",
+                    "description": "Blanco French Fries, soft drink, and a dipping sauce",
+                    "Price": "80"
+                },
+                {
+                    "imageURL": "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F58e25ac9017639ca108175c1712b7ae3.png&w=96&q=75",
+                    "title": "French Fries Combo",
+                    "description": "French Fries, Soft Drink, and a Dipping Sauce",
+                    "Price": "55"
+                },
+                {
+                    "imageURL": "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fbb98f47136cd01807094ec287b20d23f.png&w=96&q=75",
+                    "title": "Diablo Fries Combo",
+                    "description": "Diablo fries, Soft Drink, and a dipping sauce",
+                    "Price": "70"
+                },
+            ],
+            "drinks": [
+                { "orange juice": "10" },
+                { "pure apple juice": "6" },
+                { "big cola": "" },
+                { "green cola": "11.4" },
+                { "green lemon": "11.4" },
+
+            ],
+            "extras": [
+                { "jalapeno": "10" },
+                { "beef bacon": "60" },
+                { "sauteed mushroom": "20" },
+                { "chedder cheese": "15" },
+                { "salad cup": "5" },
+                { "pickles": "5" },
+            ]
         }
     },
     {

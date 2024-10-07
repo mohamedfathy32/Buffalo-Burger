@@ -2,14 +2,12 @@ import { FormControlLabel, Radio, RadioGroup } from "@mui/material"
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
+
 export default function ProductDetails() {
     const location = useLocation()
-    const sizeList = []
     const [size, setSize] = useState('150')
     const [bread, setBread] = useState('white')
     const product = location.state?.product;
-    console.log(product);
-
     return (
         <>
             <div id="image" className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">

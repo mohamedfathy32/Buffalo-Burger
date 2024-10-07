@@ -1,13 +1,13 @@
 export default function LastSec() {
     return <>
         <div className="w-full">
-            <div className="bg-[url('../../../public/images/Home/footer-texture.png')] flex flex-col  !items-center lg:!items-start leading-none lg:leading-normal justify-center bg-[#ff5f00] p-4 lg:p-[60px] uppercase text-white font-normal  lg:tracking-wider  w-full h-[183px] ">
+            <div className="bg-[url('../../../images/Home/footer-texture.png')] flex flex-col  !items-center lg:!items-start leading-none lg:leading-normal justify-center bg-[#ff5f00] p-4 lg:p-[60px] uppercase text-white font-normal  lg:tracking-wider  w-full h-[183px] ">
                 <p className="text-[32px] font-medium  lg:text-5xl">Revolutionize Your</p>
                 <p className=" text-[32px] font-medium  lg:text-5xl">Food Delivery Experience</p>
             </div>
             <div className="relative  flex flex-col-reverse lg:flex-row  w-full h-[635px] lg:h-[309px] bg-[#1c1c1b] border-b border-b-gray-700 " >
                 <div className="w-full">
-                    <img src='/images/Home/footer-starts.png' alt="asdasd" className=" absolute top-0 lg:block w-full " />
+                    <img src='/images/Home/footer-stars.png' alt="asdasd" className=" absolute top-0 lg:block w-full " />
                     <div className="flex flex-col p-4 lg:p-[60px] w-full">
                         <div className="flex justify-center h-[362px] overflow-hidden lg:hidden relative w-full">
                             <img className="  flex h-[155%] w-full max-w-[288px]  " src='/images/Home/buffalo-app-CTA-img.png' alt="" />
@@ -29,7 +29,7 @@ export default function LastSec() {
                     </div>
                 </div>
                 <div className="max-w-[300px] max-h-[485px] overflow-hidden hidden lg:block lg:absolute right-40 -top-44">
-                    <img src='src/pages/Home/lastSec/buffalo-app-CTA-img.png' alt="" />
+                    <img src='/images/Home/buffalo-app-CTA-img.png' alt="" />
                 </div>
             </div>
         </div>
