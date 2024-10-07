@@ -456,7 +456,7 @@ export default function PrivacyPolicy() {
                 <span id="sec12" className="font-bold mb-5 mr-2" >12. Changes to our Privacy Statement</span>
 
                 <p className="mb-6 break-words">
-                    We may change this Privacy Statement from time to time. If we change the Privacy Statement, we will post the revised version here and change the 'Effective Date' listed at the top of this Statement. We encourage you to check here periodically for the most up-to-date version of our Statement.
+                    We may change this Privacy Statement from time to time. If we change the Privacy Statement, we will post the revised version here and change the &apos;Effective Date&apos; listed at the top of this Statement. We encourage you to check here periodically for the most up-to-date version of our Statement.
                 </p>
 
 
