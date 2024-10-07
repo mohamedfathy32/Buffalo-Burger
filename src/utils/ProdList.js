@@ -6,8 +6,14 @@ export const productsList = [
         "imageURL": "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fa76de047b66f2511962b600232c60769.png&w=256&q=75",
         "price": "EGP 155",
         "category": "burger",
-        "size": ['150', '200', '250'],
-        "topSelling": true
+        "topSelling": true,
+        "details": {
+            "size": [],
+            "bread": [],
+            "compoOptions": [],
+            // "quantity": 0
+            "extras": []
+        }
     },
     {
         "title": "ANIMAL STYLE",

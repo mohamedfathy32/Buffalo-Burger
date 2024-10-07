@@ -78,7 +78,7 @@ export default function TopSelling() {
                         {products.map(product => (
                             <ProductCard
                                 key={product.id}
-                                dish={product}
+                                product={product}
                             />
                         ))}
                     </div>

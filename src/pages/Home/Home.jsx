@@ -1,9 +1,9 @@
 import KeenSlider from "../../components/KeenSlider";
 import MenuNav from "../../components/MenuNav";
 import Splash from "../../components/Splash/Splash";
+import LastSec from "./LastSec";
 import SwiperSlider from "./SwiperSlider";
 import TopSelling from "./TopSelling";
-import LastSec from "./lastSec/LastSec";
 
 export default function Home() {
     return (
@@ -14,8 +14,8 @@ export default function Home() {
                 <MenuNav />
             </div>
             <KeenSlider />
-            <TopSelling/>
-            <LastSec/>
+            <TopSelling />
+            <LastSec />
         </>
     );
 }

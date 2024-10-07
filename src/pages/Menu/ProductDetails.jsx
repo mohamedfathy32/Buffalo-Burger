@@ -4,13 +4,15 @@ import { useLocation } from "react-router-dom"
 
 export default function ProductDetails() {
     const location = useLocation()
+    const sizeList = []
     const [size, setSize] = useState('150')
     const [bread, setBread] = useState('white')
     const product = location.state?.product;
+    console.log(product);
 
     return (
         <>
-            <div className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
+            <div id="image" className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={product.imageURL} alt={product.title} className=" place-items-center w-[150px] h-[150px]" />
                 <div className="lg:text-start text-center md:my md:mx-16 ">
                     <h2 className="text-orange-600 font-bold text-2xl capitalize">{product.title}</h2>
@@ -22,6 +24,7 @@ export default function ProductDetails() {
                 {/* mobileScreen */}
                 <div className="lg:hidden flex justify-center">
                     <RadioGroup value={size} onChange={(e) => { setSize(e.target.value) }} aria-labelledby="demo-radio-buttons-group-label" defaultValue="150" name="radio-buttons-group">
+                        { }
                         <FormControlLabel value="150" control={<Radio sx=
                             {{ '& .MuiSvgIcon-root': { color: '#ff5f00' }, '&.Mui-checked': { color: '#ff5f00' } }} />
                         } label="150 gm (EGP 155)" sx={{ '& .MuiTypography-root': { color: 'black' }, '& .Mui-checked + .MuiTypography-root': { color: '#ff5f00' } }} />
@@ -56,7 +59,7 @@ export default function ProductDetails() {
                 </div >
             </div>
             <div id="bread" className="w-full bg-stone-50 p-6">
-                <h2 id="size" className="font-bold uppercase text-2xl text-center mb-5">bread</h2>
+                <h2 className="font-bold uppercase text-2xl text-center mb-5">bread</h2>
                 <RadioGroup value={bread} onChange={(e) => { setBread(e.target.value) }} aria-labelledby="demo-radio-buttons-group-label" defaultValue="150" name="radio-buttons-group">
                     <div className="flex flex-col gap-2 lg:gap-8 lg:flex-row justify-center items-center">
                         <div className="bg-white rounded-xl lg:w-72 w-52 px-4 py-2">
@@ -72,7 +75,10 @@ export default function ProductDetails() {
                     </div>
                 </RadioGroup>
             </div>
-            <div id="comboOptions" className=""></div>
+            <div id="comboOptions" className="p-6">
+                <h2 className="font-bold uppercase text-2xl text-center mb-5">compo options</h2>
+                <button className="w-52 h-52 border border-black focus:border-orange-600"></button>
+            </div>
         </>
     )
 }
