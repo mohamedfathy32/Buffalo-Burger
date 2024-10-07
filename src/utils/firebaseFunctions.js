@@ -15,7 +15,7 @@ export async function getAllProducts() {
     }
     return productsArray;
 }
-
+//special
 export async function addAllProduct(list) {
     try {
         const productColl = collection(db, "product");

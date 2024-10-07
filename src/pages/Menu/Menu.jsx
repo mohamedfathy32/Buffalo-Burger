@@ -4,7 +4,6 @@ import MenuCategory from "./MenuCategory"
 import { productsList } from "../../utils/ProdList"
 
 export default function Menu() {
-
     return (
         <>
             <div className="sticky top-28 z-10 w-full" ><MenuNav /></div>
