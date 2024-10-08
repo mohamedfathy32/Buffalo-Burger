@@ -7,6 +7,7 @@ export default function ProductDetails() {
     const location = useLocation()
     const [size, setSize] = useState('150')
     const [bread, setBread] = useState('white')
+    const [comboOptions, setcomboOptions] = useState();
     const product = location.state?.product;
 
 
@@ -15,10 +16,8 @@ export default function ProductDetails() {
 
     // }
 
-    console.log(product.details);
-    for (const [key, value] of Object.entries(product.details)) {
-        console.log(key, value)
-    }
+    console.log(product.details.compoOptions);
+
 
     return (
         <>
@@ -86,8 +85,12 @@ export default function ProductDetails() {
                 </RadioGroup>
             </div>
             <div id="comboOptions" className="p-6">
-                <h2 className="font-bold uppercase text-2xl text-center mb-5">compo options</h2>
-                <button className="w-52 h-52 border border-black focus:border-orange-600"></button>
+                <h2 className="font-bold uppercase text-2xl text-center mb-5">combo options</h2>
+                {product.details.compoOptions.forEach(() => {
+                    return (
+                        <button className="w-52 h-52 border border-black focus:border-orange-600"></button>
+                    )
+                })}
             </div>
         </>
     )
