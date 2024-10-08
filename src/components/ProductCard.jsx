@@ -1,28 +1,49 @@
-import { MdAddCircleOutline } from "react-icons/md";
-import { MdRemoveCircleOutline } from "react-icons/md";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
+import { MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({ product }) {
     const navigate = useNavigate()
+    const LSQuantityKey = `quantity of ${product.title}`
+    const quantityLS = Number(localStorage.getItem(LSQuantityKey)) || 0
+    const [productQuantity, setProductQuantity] = useState(quantityLS);
+
+
+    useEffect(() => {
+        const storedQuantity = Number(localStorage.getItem(LSQuantityKey)) || 0
+        setProductQuantity(storedQuantity);
+    }, [LSQuantityKey]);
+
+
+
     function handleAddToCard() {
+        localStorage.setItem(LSQuantityKey, productQuantity)
         if (product.details)
             navigate(`/ProductDetails/${product?.title.split(' ').join('-')}`, { state: { product } })
-
-
-
-
+        else {
+            const q = productQuantity + 1
+            localStorage.setItem(LSQuantityKey, q)
+            setProductQuantity(q)
+        }
     }
 
     function increaseQuantity() {
-        console.log('hi');
+        const q = productQuantity + 1
+        localStorage.setItem(LSQuantityKey, q)
+        setProductQuantity(q)
 
     }
+
     function decreaseQuantity() {
+        if (productQuantity > 0) {
+            const q = productQuantity - 1
+            localStorage.setItem(LSQuantityKey, q)
+            setProductQuantity(q)
+        }
 
     }
 
-    localStorage.setItem('productQuantity', 0)
-    const quantity = localStorage.getItem('productQuantity')
     return (
         <div className="h-96 max-w-full w-72 md:w-80 hover:-translate-y-2 duration-1000 cursor-pointer ease-in-out">
             <div className="relative h-44">
@@ -34,20 +55,15 @@ export default function ProductCard({ product }) {
                 <p className="text-neutral-400 capitalize line-clamp-3">{product?.description}</p>
                 <div className="flex justify-between items-center mt-auto">
                     <span className="font-bold ">{product?.price}</span>
-
-                    {/* {
-                        <button onClick={handleAddToCard}>
+                    {productQuantity === 0
+                        ? <button onClick={handleAddToCard}>
                             <MdAddCircleOutline className="text-white bg-orange-600 rounded-full p-1 text-3xl" />
                         </button>
-                    } */}
-                    {product.quantity === "0" &&
-                        <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
+                        : <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
                             <MdRemoveCircleOutline onClick={decreaseQuantity} className="text-2xl" />
-                            <span className="">2</span>
+                            <span className="">{productQuantity}</span>
                             <MdAddCircleOutline onClick={increaseQuantity} className="text-2xl" />
-
-                        </div>
-                    }
+                        </div>}
                 </div>
             </div>
         </div >

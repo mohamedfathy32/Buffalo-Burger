@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
 export async function getAllProducts() {
@@ -22,7 +22,8 @@ export async function addAllProduct(list) {
         const querySnapshot = await getDocs(productColl);
         if (querySnapshot.empty) {
             for (const product of list) {
-                await addDoc(productColl, product);
+                const docRef = doc(db, 'product', product.title)
+                await setDoc(docRef, product);
             }
         } else {
             console.log("Products already exist in the database.");
