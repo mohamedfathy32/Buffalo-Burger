@@ -75,7 +75,7 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div className="hidden w-max lg:block block">
+                    <div className="hidden w-max lg:block">
                         <div className="absolute right-24 w-max rtl:right-[90%] bg-primary-gray">
                             <div className="cursor-pointer border-2 !text-white border-none rounded-lg h-max gap-2">
                                 <div className="flex flex-row justify-center items-center gap-2">

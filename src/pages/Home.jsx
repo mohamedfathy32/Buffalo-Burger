@@ -1,9 +1,9 @@
-import KeenSlider from "../../components/KeenSlider";
-import MenuNav from "../../components/MenuNav";
-import Splash from "../../components/Splash/Splash";
-import LastSec from "./LastSec";
-import SwiperSlider from "./SwiperSlider";
-import TopSelling from "./TopSelling";
+import KeenSlider from "../components/KeenSlider";
+import LastSec from "../components/LastSec";
+import MenuNav from "../components/MenuNav";
+import Splash from "../components/Splash";
+import SwiperSlider from "../components/SwiperSlider";
+import TopSelling from "../components/TopSelling";
 
 export default function Home() {
     return (

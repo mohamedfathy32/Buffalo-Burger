@@ -1,7 +1,7 @@
-import MenuNav from "../../components/MenuNav"
-import KeenSlider from "../../components/KeenSlider"
-import MenuCategory from "./MenuCategory"
-import { productsList } from "../../utils/ProdList"
+import KeenSlider from "../components/KeenSlider";
+import MenuCategory from "../components/MenuCategory";
+import MenuNav from "../components/MenuNav";
+import { productsList } from "../utils/ProdList";
 
 export default function Menu() {
     return (

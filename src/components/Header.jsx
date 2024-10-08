@@ -1,17 +1,17 @@
-import { FaCartShopping, FaEye, FaEyeSlash } from "react-icons/fa6"; 
+import { FaCartShopping, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
 export default function Header() {
-    const [nav, setNav] = useState(false); 
-    const [isOpen, setIsOpen] = useState(false); 
-    const [activeTab, setActiveTab] = useState('login'); 
-    const [showPassword, setShowPassword] = useState(false); 
-    const [phoneNumber, setPhoneNumber] = useState(''); 
-    const [password, setPassword] = useState(''); 
-    const [error, setError] = useState(''); 
+    const [nav, setNav] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeTab, setActiveTab] = useState('login');
+    const [showPassword, setShowPassword] = useState(false);
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const handleClick = () => setNav(!nav); 
+    const handleClick = () => setNav(!nav);
 
     const handleLoginOpen = () => {
         setActiveTab('login');
@@ -25,7 +25,7 @@ export default function Header() {
 
     const handleClose = () => {
         setIsOpen(false);
-        setError(''); 
+        setError('');
         setPhoneNumber('');
         setPassword('');
     };
@@ -55,21 +55,21 @@ export default function Header() {
     };
 
     const handleLogin = () => {
-        setError(''); 
+        setError('');
         if (validateInputs()) {
-            
+
             console.log('Logging in with:', phoneNumber, password);
-           
+
             handleClose();
         }
     };
 
     const handleSignup = () => {
-        setError(''); 
+        setError('');
         if (validateInputs()) {
-           
+
             console.log('Signing up with:', phoneNumber, password);
-          
+
             handleClose();
         }
     };
@@ -100,7 +100,7 @@ export default function Header() {
                     </div>
                 </div>
 
-              
+
                 <div className="flex justify-center absolute left-0 right-0 mx-auto w-52">
                     <Link to="/">
                         <img
@@ -144,7 +144,7 @@ export default function Header() {
             {isOpen && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                     <div className="bg-white rounded-lg p-6 w-[40%]">
-                     
+
                         <div className="flex justify-center mb-4">
                             <button
                                 className={`px-4 py-2 ${activeTab === 'login' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
@@ -160,7 +160,7 @@ export default function Header() {
                             </button>
                         </div>
 
-                       
+
                         {error && <div className="text-red-500 text-sm mb-3">{error}</div>}
 
                         {activeTab === 'login' && (
@@ -171,58 +171,58 @@ export default function Header() {
                                     placeholder="+20 xx xxx xxxxx"
                                     className="border border-gray-300 rounded w-full py-2 px-3 mb-3 focus:outline-none focus:border-orange-500 text-black"
                                     value={phoneNumber}
-                                    onChange={(e) => setPhoneNumber(e.target.value)} 
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
                                 />
-                                    <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                             
+                                <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+
                                 <div className="relative mb-3">
                                     <input
-                                        type={showPassword ? "text" : "password"} 
+                                        type={showPassword ? "text" : "password"}
                                         placeholder="Enter your password"
                                         className="border border-gray-300 rounded w-full py-2 px-3 focus:outline-none focus:border-orange-500 text-black"
                                         value={password}
-                                        onChange={(e) => setPassword(e.target.value)} 
+                                        onChange={(e) => setPassword(e.target.value)}
                                     />
                                     <button
                                         type="button"
                                         className="absolute right-3 top-1/2 transform -translate-y-1/2"
-                                        onClick={() => setShowPassword(!showPassword)} 
+                                        onClick={() => setShowPassword(!showPassword)}
                                     >
                                         {showPassword ? <FaEyeSlash className="text-gray-500" /> : <FaEye className="text-gray-500" />}
                                     </button>
                                 </div>
                                 <div className="flex items-center">
-                                    <Link style={{paddingLeft:430}} to="/forgot-password" className="text-sm text-black hover:text-orange-500 ml-5">Forgot Password?</Link>
+                                    <Link style={{ paddingLeft: 430 }} to="/forgot-password" className="text-sm text-black hover:text-orange-500 ml-5">Forgot Password?</Link>
                                 </div>
                                 <button onClick={handleLogin} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">Login</button>
                             </div>
                         )}
 
-                   
+
                         {activeTab === 'signup' && (
-                             <div>
-                             <label className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
-                             <input
-                                 type="text"
-                                 placeholder="+20 xx xxx xxxxx"
-                                 className="border border-gray-300 rounded w-full py-2 px-3 mb-3 focus:outline-none focus:border-orange-500 text-black"
-                                 value={phoneNumber}
-                                 onChange={(e) => setPhoneNumber(e.target.value)} 
-                             />
-                             <button onClick={handleSignup} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">Create an Account</button>
-                     
-   
-                             <div className="mt-4 text-center text-sm text-gray-500">
-                                 By continuing, I agree to the
-                                 <a href="/terms" className="text-orange-600 mx-1 hover:underline">Terms of Service</a>
-                                 and
-                                 <a href="/privacy" className="text-orange-600 mx-1 hover:underline">Privacy Policy</a>.
-                             </div>
-                         </div>
+                            <div>
+                                <label className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+                                <input
+                                    type="text"
+                                    placeholder="+20 xx xxx xxxxx"
+                                    className="border border-gray-300 rounded w-full py-2 px-3 mb-3 focus:outline-none focus:border-orange-500 text-black"
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                />
+                                <button onClick={handleSignup} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">Create an Account</button>
+
+
+                                <div className="mt-4 text-center text-sm text-gray-500">
+                                    By continuing, I agree to the
+                                    <a href="/terms" className="text-orange-600 mx-1 hover:underline">Terms of Service</a>
+                                    and
+                                    <a href="/privacy" className="text-orange-600 mx-1 hover:underline">Privacy Policy</a>.
+                                </div>
+                            </div>
                         )}
 
-                    
-                      
+
+
                     </div>
                 </div>
             )}

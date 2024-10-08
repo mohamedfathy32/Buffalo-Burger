@@ -8,6 +8,18 @@ export default function ProductDetails() {
     const [size, setSize] = useState('150')
     const [bread, setBread] = useState('white')
     const product = location.state?.product;
+
+
+
+    // if (product.details) {
+
+    // }
+
+    console.log(product.details);
+    for (const [key, value] of Object.entries(product.details)) {
+        console.log(key, value)
+    }
+
     return (
         <>
             <div id="image" className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">

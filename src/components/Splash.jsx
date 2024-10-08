@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-import './Splash.Module.css';
 
-function Splash() {
+export default function Splash() {
     useEffect(() => {
         const timer = setTimeout(() => {
             const splash = document.getElementById('splashParent');
@@ -26,7 +25,7 @@ function Splash() {
                     src="/images/splash/IconBg.png"
                     alt="IconBg"
                     id="IconBg"
-                    className="w-full h-full"
+                    className="w-full h-full animate-spin"
                 />
                 <img
                     src="/images/splash/IconNoBg.png"
@@ -38,5 +37,3 @@ function Splash() {
         </div>
     );
 }
-
-export default Splash;

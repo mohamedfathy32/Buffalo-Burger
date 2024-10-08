@@ -7,6 +7,7 @@ export const productsList = [
         "price": "155",
         "category": "burger",
         "topSelling": true,
+        "quantity": "0",
         "details": {
             "size": [
                 { '150gm': "155" },
@@ -80,7 +81,9 @@ export const productsList = [
         "price": "EGP 155",
         "category": "burger",
         "size": ['150', '200', '250'],
-        "topSelling": false
+        "topSelling": false,
+        "quantity": "0",
+
     },
     {
         "title": "BACON MUSHROOM JACK",
@@ -89,6 +92,7 @@ export const productsList = [
         "price": "EGP 190",
         "category": "burger",
         "size": ['150', '200', '250'],
+        "quantity": "0",
         "topSelling": true
     },
     {
@@ -98,6 +102,7 @@ export const productsList = [
         "price": "EGP 145",
         "category": "burger",
         "size": ['150', '200', '250'],
+        "quantity": "0",
         "topSelling": false
     },
     // {
