@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function Splash() {
+function Splash() {
     useEffect(() => {
         const timer = setTimeout(() => {
             const splash = document.getElementById('splashParent');
@@ -25,7 +25,7 @@ export default function Splash() {
                     src="/images/splash/IconBg.png"
                     alt="IconBg"
                     id="IconBg"
-                    className="w-full h-full animate-spin"
+                    className="w-full h-full"
                 />
                 <img
                     src="/images/splash/IconNoBg.png"
@@ -37,3 +37,5 @@ export default function Splash() {
         </div>
     );
 }
+
+export default Splash;
