@@ -1,4 +1,4 @@
-const Careers = () => {
+export default function Careers() {
     return (
         <div className="bg-black text-white font-sans">
             {/* Apply Now Section */}
@@ -123,5 +123,3 @@ const Careers = () => {
         </div>
     );
 };
-
-export default Careers;
