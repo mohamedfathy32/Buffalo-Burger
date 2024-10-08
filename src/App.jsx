@@ -1,13 +1,11 @@
-import './App.css'
-import FranchisingRequest from './pages/About us/franchisingRequest'
+import 'tailwindcss/tailwind.css'
+import { router } from './utils/routes'
+import { RouterProvider } from 'react-router-dom'
 
-function App() {
-
+export function App() {
   return (
     <>
-      <FranchisingRequest />
+      <RouterProvider router={router} />
     </>
   )
 }
-
-export default App
