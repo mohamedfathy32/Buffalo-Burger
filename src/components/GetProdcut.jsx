@@ -1,7 +1,7 @@
 import { collection, getDocs, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../utils/firebase";
-import DishCard from "./DishCard";
+// import DishCard from "./DishCard";
 
 export default function GetProdcut() {
 
@@ -21,20 +21,20 @@ export default function GetProdcut() {
         fetchData();
     }, []);
 
+return products;
 
 
+    // return <>
 
-    return <>
+    //     {products.map(product => (
+    //         <DishCard
+    //             key={product.id}
+    //             image={product.image}
+    //             title={product.title}
+    //             description={product.description}
+    //             price={product.price}
+    //         />
+    //     ))}
 
-        {products.map(product => (
-            <DishCard
-                key={product.id}
-                image={product.image}
-                title={product.title}
-                description={product.description}
-                price={product.price}
-            />
-        ))}
-
-    </>
+    // </>
 }

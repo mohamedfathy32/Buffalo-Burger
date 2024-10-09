@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import DishCard from "../../components/DishCard"
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../../utils/firebase";
-import Splash from "../../components/Splash/Splash";
+// import { collection, getDocs, query, where } from "firebase/firestore";
+// import { db } from "../../utils/firebase";
+// import Splash from "../../components/Splash/Splash";
+import GetProdcut from "../../components/GetProdcut";
 
 export default function TopSelling() {
     // const topSelling = [
@@ -41,28 +42,33 @@ export default function TopSelling() {
 
 
 
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    // const [products, setProducts] = useState([]);
+    // const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const q = query(collection(db, "product"), where("top-selling", "==", true));
-                const querySnapshot = await getDocs(q);
-                const productsArray = querySnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-                setProducts(productsArray);
-            } catch (error) {
-                console.error("Error fetching products: ", error);
-            } finally {
-                setLoading(false);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const q = query(collection(db, "product"), where("topSelling", "==", true));
+    //             const querySnapshot = await getDocs(q);
+    //             const productsArray = querySnapshot.docs.map((doc) => ({
+    //                 id: doc.id,
+    //                 ...doc.data(),
+    //             }));
+    //             setProducts(productsArray);
+    //         } catch (error) {
+    //             console.error("Error fetching products: ", error);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
 
-        fetchData();
-    }, []);
+    //     fetchData();
+    // }, []);
+
+
+    const products = GetProdcut();
+
+
 
     return (
         <>
@@ -71,20 +77,20 @@ export default function TopSelling() {
                 <div className="px-8">
                     <h2 className="text-orange-600 text-2xl text-start font-bold uppercase">Top Selling</h2>
                 </div>
-                {loading ? <Splash /> : (
 
-                    <div className="flex justify-center flex-wrap gap-4">
+                <div className="flex justify-center flex-wrap gap-4">
 
-                        {products.map(product => (
-                            <DishCard
-                                key={product.id}
-                                dish={product}
-                            />
-                        ))}
-                    </div>
-                )}
+                    {products.map(product => (
+                        product.topSelling &&
+                        <DishCard
+                            key={product.id}
+                            dish={product}
+                        />
+                    ))}
+                </div>
+
             </div>
-{/* 
+            {/* 
             <div>
                 <h1>Chicken</h1>
                 <div className="flex justify-center flex-wrap gap-4">

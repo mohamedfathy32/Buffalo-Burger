@@ -33,3 +33,6 @@ body {
   border-radius: 3px;
   cursor: pointer;
 }
+html {
+  scroll-behavior: smooth;
+}
