@@ -13,9 +13,9 @@ import Signup from "../pages/Signup";
 import TermsAndConditions from "../pages/TermsAndConditions";
 import NotFound from "../pages/NotFound";
 import MealDetails from "../pages/Menu/MealDetails";
-import OurStory from "../pages/OurStory";
-import OurValues from "../pages/OurValues";
-import QualityControl from "../pages/QualityControl";
+// import OurStory from "../pages/OurStory";
+// import OurValues from "../pages/OurValues";
+// import QualityControl from "../pages/QualityControl";
 
 export const router = createBrowserRouter([{
     path: '/', element: <Layout />, children: [
@@ -31,9 +31,9 @@ export const router = createBrowserRouter([{
         { path: 'PrivacyPolicy', element: <PrivacyPolicy /> },
         { path: 'Signup', element: <Signup /> },
         { path: 'TermsAndConditions', element: <TermsAndConditions /> },
-        { path: 'OurStory', element: <OurStory /> },
-        { path: 'OurValues', element: <OurValues /> },
-        { path: 'QualityControl', element: <QualityControl /> },
+        // { path: 'OurStory', element: <OurStory /> },
+        // { path: 'OurValues', element: <OurValues /> },
+        // { path: 'QualityControl', element: <QualityControl /> },
 
         { path: '*', element: <NotFound /> },
     ]

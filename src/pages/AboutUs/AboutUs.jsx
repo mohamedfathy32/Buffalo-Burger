@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useState } from "react";
 import QualityControl from "./QualityControl";
 import OurStory from "./OurStory";

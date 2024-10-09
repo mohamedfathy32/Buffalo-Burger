@@ -1,6 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
     return (
         <>
             <footer className="relative flex flex-col bg-[#1c1c1b] text-white p-6 ">
@@ -19,48 +25,48 @@ export default function Footer() {
 
                 <div className="text-base flex text-center flex-col md:flex-row md:text-left md:content-evenly md:ml-8 lg:flex-row lg:text-left lg:content-evenly lg:ml-8">
                     <div className="border-b border-secondary-gray-100 mr-0 md:w-1/12 md:mr-24 md:border-0 lg:border-0 lg:w-1/12 lg:mr-24 mainFooGroup rtl:lg:text-right">
-                        <a
+                        <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
-                            href="/branches/all/menu"
+                            to="/menu"
                         >
                             Menu
-                        </a>
-                        <a
+                        </Link>
+                        <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
-                            href="/branches/all/home"
+                            to="/"
                         >
                             Home
-                        </a>
-                        <a
+                        </Link>
+                        <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
-                            href="/cart-details"
+                            to="/CartDetails"
                         >
                             Cart details
-                        </a>
-                        <a
+                        </Link>
+                        <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
-                            href="/loyalty"
+                            to="/loyalty"
                         >
                             Loyalty
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="border-b border-secondary-gray-100 mr-0 md:w-1/12 md:mr-24 md:border-0 lg:border-0 lg:w-1/12 lg:mr-24 rtl:lg:text-right">
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/AboutUs">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/AboutUs">
                             About us
-                        </NavLink>
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/franchise">
+                        </Link>
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/FranchiseRequest">
                             Franchise Request
-                        </NavLink>
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/branch-info">
+                        </Link>
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/OurBranches">
                             Our Branches
-                        </NavLink>
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/privacy-policy">
+                        </Link>
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/PrivacyPolicy">
                             Privacy policy
-                        </NavLink>
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/terms-of-use">
+                        </Link>
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/TermsAndConditions">
                             Terms and conditions
-                        </NavLink>
+                        </Link>
                     </div>
 
                     <div className="block links-group auth-group mr-0 md:w-1/12 md:mr-24 lg:w-1/12 lg:mr-24 rtl:lg:text-right">

@@ -47,7 +47,7 @@ const Careers = () => {
                     className="w-full lg:w-1/2 flex justify-center items-center bg-cover bg-center"
                     style={{
                         backgroundImage:
-                            'url(https://pbs.twimg.com/media/EnRpwhGW4AAOSvl.jpg)',
+                            'url(https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/buffalo-family.webp)',
                     }}
                 >
                     <div className="text-center space-y-3">
@@ -61,7 +61,7 @@ const Careers = () => {
 
             {/* Employee Training Section */}
             <div className="p-5 lg:p-10">
-                <h1 className="text-7xl font-thin mb-4 text-orange-500 PSS tracking-wider"> 
+                <h1 className="text-7xl font-thin mb-4 text-orange-500 PSS tracking-wider">
                     EMPLOYEE TRAINING
                 </h1>
                 <p className="text-orange-500">
