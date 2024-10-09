@@ -1,5 +1,5 @@
 import KeenSlider from "../../components/KeenSlider";
-import MenuNav from "../../components/MenuNav";
+import MenuCat from "../../components/MenuCat";
 import Splash from "../../components/Splash/Splash";
 import SwiperSlider from "./SwiperSlider";
 import TopSelling from "./TopSelling";
@@ -11,7 +11,7 @@ export default function Home() {
             <Splash />
             <SwiperSlider />
             <div className="sticky top-28 z-10">
-                <MenuNav />
+                <MenuCat/>
             </div>
             <KeenSlider />
             <TopSelling/>
