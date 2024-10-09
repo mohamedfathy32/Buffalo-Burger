@@ -1,4 +1,4 @@
-import DishCard from "../components/DishCard"
+import DishCard from "../components/DishCard";
 
 export default function Menu() {
     const dishes = [

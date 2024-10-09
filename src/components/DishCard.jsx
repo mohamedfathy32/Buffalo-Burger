@@ -1,3 +1,4 @@
+// eslint-disable-next-line react/prop-types
 export default function DishCard({ image, title, description, price }) {
     return (
         <div className="w-72 md:w-80 max-w-full h-52 bg-neutral-100 rounded-xl p-4 pt-14 relative hover:-translate-y-2 duration-1000 cursor-pointer ease-in-out">
