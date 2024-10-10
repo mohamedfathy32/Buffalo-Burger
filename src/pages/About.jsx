@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-key */
 import { useState } from "react";
-import Careers from "../components/Careers";
-import FindUs from "../components/FindUs";
-import OurStory from "../components/OurStory";
-import OurValues from "../components/OurValues";
-import QualityControl from "../components/QualityControl";
+import Careers from "../components/About/Careers";
+import FindUs from "../components/About/FindUs";
+import OurStory from "../components/About/OurStory";
+import OurValues from "../components/About/OurValues";
+import QualityControl from "../components/About/QualityControl";
 
 
 export default function AboutUs() {

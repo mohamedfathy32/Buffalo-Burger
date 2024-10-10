@@ -1,9 +1,9 @@
 import KeenSlider from "../components/KeenSlider";
-import LastSec from "../components/LastSec";
-import MenuNav from "../components/MenuNav";
-import Splash from "../components/Splash";
-import SwiperSlider from "../components/SwiperSlider";
-import TopSelling from "../components/TopSelling";
+import MenuCat from "../components/Home/MenuCat";
+import Splash from "../../components/Splash/Splash";
+import SwiperSlider from "./SwiperSlider";
+import TopSelling from "./TopSelling";
+import LastSec from "./lastSec/LastSec";
 
 export default function Home() {
     return (
@@ -11,7 +11,7 @@ export default function Home() {
             <Splash />
             <SwiperSlider />
             <div className="sticky top-28 z-10">
-                <MenuNav />
+                <MenuCat />
             </div>
             <KeenSlider />
             <TopSelling />

@@ -1,9 +1,9 @@
 // import { useEffect, useState } from "react";
-import DishCard from "../../components/DishCard"
+import DishCard from "../DishCard"
 // import { collection, getDocs, query, where } from "firebase/firestore";
 // import { db } from "../../utils/firebase";
 // import Splash from "../../components/Splash/Splash";
-import GetProdcut from "../../components/GetProdcut";
+import GetProdcut from "../GetProdcut";
 
 export default function TopSelling() {
     // const topSelling = [

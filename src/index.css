@@ -1,5 +1,3 @@
-/* project */
-
 @font-face {
   font-family: "Roboto Condensed";
   src: url(/fonts/RobotoCondensed.ttf);
@@ -12,6 +10,10 @@
   src: url(/fonts/PressStyleSerif.ttf);
   font-weight: normal;
   font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -36,17 +38,9 @@ body {
   cursor: pointer;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 /* swiper */
 .swiper-pagination-progressbar-fill {
   background-color: #ff5722 !important;
-}
-
-.relative {
-  position: relative;
 }
 
 .swiper-button-next,
