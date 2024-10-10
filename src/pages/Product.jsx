@@ -1,7 +1,6 @@
-import { FormControlLabel, Radio, RadioGroup } from "@mui/material"
-import { useState } from "react"
-import { useLocation } from "react-router-dom"
-
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function ProductDetails() {
     const location = useLocation()

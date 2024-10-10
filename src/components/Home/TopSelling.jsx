@@ -1,9 +1,5 @@
-// import { useEffect, useState } from "react";
-import DishCard from "../DishCard"
-// import { collection, getDocs, query, where } from "firebase/firestore";
-// import { db } from "../../utils/firebase";
-// import Splash from "../../components/Splash/Splash";
-import GetProdcut from "../GetProdcut";
+import { productsList } from "../../utils/data/Products";
+import ProductCard from "../Menu/ProductCard";
 
 export default function TopSelling() {
     // const topSelling = [
@@ -66,13 +62,9 @@ export default function TopSelling() {
     // }, []);
 
 
-    const products = GetProdcut();
-
-
-
     return (
         <>
-            {console.log(products)}
+            {console.log(productsList)}
             <div className="px-2 my-8">
                 <div className="px-8">
                     <h2 className="text-orange-600 text-2xl text-start font-bold uppercase">Top Selling</h2>
@@ -80,11 +72,11 @@ export default function TopSelling() {
 
                 <div className="flex justify-center flex-wrap gap-4">
 
-                    {products.map(product => (
+                    {productsList.map(product => (
                         product.topSelling &&
-                        <DishCard
+                        <ProductCard
                             key={product.id}
-                            dish={product}
+                            product={product}
                         />
                     ))}
                 </div>

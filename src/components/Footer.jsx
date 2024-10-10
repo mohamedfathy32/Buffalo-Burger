@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -46,21 +46,21 @@ export default function Footer() {
                     </div>
 
                     <div className="border-b border-secondary-gray-100 mr-0 md:w-1/12 md:mr-24 md:border-0 lg:border-0 lg:w-1/12 lg:mr-24 rtl:lg:text-right">
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/AboutUs">
+                        <Link className="p-1 block text-white hover:text-orange-500" to="/AboutUs">
                             About us
-                        </NavLink>
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/franchise">
+                        </Link>
+                        <Link className="p-1 block text-white hover:text-orange-500" to="/franchise">
                             Franchise Request
-                        </NavLink>
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/branch-info">
+                        </Link>
+                        <Link className="p-1 block text-white hover:text-orange-500" to="/branch-info">
                             Our Branches
-                        </NavLink>
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/privacy-policy">
+                        </Link>
+                        <Link className="p-1 block text-white hover:text-orange-500" to="/privacy-policy">
                             Privacy policy
-                        </NavLink>
-                        <NavLink className="p-1 block text-white hover:text-orange-500" to="/terms-of-use">
+                        </Link>
+                        <Link className="p-1 block text-white hover:text-orange-500" to="/terms-of-use">
                             Terms and conditions
-                        </NavLink>
+                        </Link>
                     </div>
 
                     <div className="block links-group auth-group mr-0 md:w-1/12 md:mr-24 lg:w-1/12 lg:mr-24 rtl:lg:text-right">

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { useState } from "react";
 import Careers from "../components/About/Careers";
 import FindUs from "../components/About/FindUs";
@@ -6,15 +5,12 @@ import OurStory from "../components/About/OurStory";
 import OurValues from "../components/About/OurValues";
 import QualityControl from "../components/About/QualityControl";
 
-
 export default function AboutUs() {
-
     const pages = [<OurStory />, <OurValues />, <QualityControl />, <Careers />, <FindUs />];
     const [index, setIndex] = useState(0);
     const changeIndex = (i) => {
         setIndex(i);
     };
-
     return (
         <>
             <div className="bg-orange-500 p-4 d-inline-block flex justify-center text-white">
@@ -34,7 +30,6 @@ export default function AboutUs() {
                     FIND US
                 </div>
             </div>
-
             {pages[index]}
 
         </>
