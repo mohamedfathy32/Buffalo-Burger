@@ -7,28 +7,30 @@ export default function ProductDetails() {
     const location = useLocation()
     const [size, setSize] = useState('150')
     const [bread, setBread] = useState('white')
-    const [comboOptions, setcomboOptions] = useState();
+    const [CO, setCO] = useState("1");
+    const [order, setorder] = useState({
+
+    })
     const product = location.state?.product;
 
+    const comboOptions = product.details.comboOptions
+    const drinks = product.details.drinks
 
 
-    // if (product.details) {
 
-    // }
-
-    console.log(product.details.compoOptions);
-
+    function handleCombo() { }
 
     return (
         <>
-            <div id="image" className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
+            {console.log(CO)}
+            <section id="image" className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={product.imageURL} alt={product.title} className=" place-items-center w-[150px] h-[150px]" />
                 <div className="lg:text-start text-center md:my md:mx-16 ">
                     <h2 className="text-orange-600 font-bold text-2xl capitalize">{product.title}</h2>
                     <p className="text-white max-w-[500px]">{product.description}</p>
                 </div>
-            </div>
-            <div id="size" className="p-6">
+            </section>
+            <section id="size" className="p-6">
                 <h2 className="font-bold uppercase text-2xl text-center">size</h2>
                 {/* mobileScreen */}
                 <div className="lg:hidden flex justify-center">
@@ -66,8 +68,8 @@ export default function ProductDetails() {
                         <p className="text-center mt-3">+EGP125</p>
                     </div>
                 </div >
-            </div>
-            <div id="bread" className="w-full bg-stone-50 p-6">
+            </section>
+            <section id="bread" className="w-full bg-stone-50 p-6">
                 <h2 className="font-bold uppercase text-2xl text-center mb-5">bread</h2>
                 <RadioGroup value={bread} onChange={(e) => { setBread(e.target.value) }} aria-labelledby="demo-radio-buttons-group-label" defaultValue="150" name="radio-buttons-group">
                     <div className="flex flex-col gap-2 lg:gap-8 lg:flex-row justify-center items-center">
@@ -83,15 +85,40 @@ export default function ProductDetails() {
                         </div>
                     </div>
                 </RadioGroup>
-            </div>
-            <div id="comboOptions" className="p-6">
-                <h2 className="font-bold uppercase text-2xl text-center mb-5">combo options</h2>
-                {product.details.compoOptions.forEach(() => {
-                    return (
-                        <button className="w-52 h-52 border border-black focus:border-orange-600"></button>
-                    )
-                })}
-            </div>
+            </section>
+            <section id="comboOptions" className="p-6">
+                <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">combo options</h2>
+                <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3  gap-y-2 justify-items-center">
+                    {comboOptions.map((c) => {
+                        return (
+                            <button key={c.id} onClick={() => { setCO(c.id); }} className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${c.id === CO ? 'border-orange-600 bg-orange-50 ' : 'border-white bg-stone-50'}`}>
+                                <img src={c.imageURL} alt={c.title} className="w-20 h-20" />
+                                <div className="text-start ms-4">
+                                    <h3 className="font-bold text-sm">{c.title}</h3>
+                                    <p className="text-sm">{c.description}</p>
+                                </div>
+                            </button>
+                        )
+                    })}
+                </div>
+            </section>
+            {CO !== "0" &&
+                <section id="drinks" className="p-6">
+                    <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">drinks</h2>
+                    <div className="flex gap-3">
+                        {
+                            drinks.map(drink => {
+                                return (
+                                    <div key={drink.id} className="w-12 h-12 bg-orange-300">
+
+                                    </div>
+                                )
+                            })
+                        }
+
+                    </div>
+                </section>
+            }
         </>
     )
 }

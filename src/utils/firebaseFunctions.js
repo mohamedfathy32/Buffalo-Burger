@@ -1,19 +1,14 @@
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
-export async function getAllProducts() {
-    let productsArray = [];
+export async function getCollectionByName(collectionName) {
+    let collectionArray = [];
     try {
-        const productColl = collection(db, "product");
-        const productsSnapshot = await getDocs(productColl);
-        productsArray = productsSnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-        }));
-    } catch (error) {
-        console.error("Error fetching products: ", error);
-    }
-    return productsArray;
+        const collection = collection(db, collectionName);
+        const collectionSnapshot = await getDocs(collection)
+        collectionArray = collectionSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+    } catch (e) { console.log(e.message) }
+    return collectionArray;
 }
 //special
 export async function addAllProduct(list) {
