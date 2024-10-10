@@ -36,6 +36,10 @@ body {
   cursor: pointer;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* swiper */
 .swiper-pagination-progressbar-fill {
   background-color: #ff5722 !important;

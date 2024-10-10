@@ -35,10 +35,10 @@ export default function SwiperSlider() {
             setImages(window.matchMedia("(max-width: 640px)").matches ? mobileImages : desktopImages);
         };
 
-        getImages(); // استدعاء الدالة عند التحميل
+        getImages();
 
-        window.addEventListener("resize", getImages); // الاستماع للتغيرات في حجم الشاشة
-        return () => window.removeEventListener("resize", getImages); // التنظيف عند التفكيك
+        window.addEventListener("resize", getImages);
+        return () => window.removeEventListener("resize", getImages);
     }, []);
 
     return (
