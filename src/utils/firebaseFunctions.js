@@ -1,29 +1,32 @@
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, writeBatch } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
 export async function getCollectionByName(collectionName) {
     let collectionArray = [];
     try {
-        const collection = collection(db, collectionName);
-        const collectionSnapshot = await getDocs(collection)
+        const Collection = collection(db, collectionName);
+        const collectionSnapshot = await getDocs(Collection)
         collectionArray = collectionSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
     } catch (e) { console.log(e.message) }
     return collectionArray;
 }
-//special
-export async function addAllProduct(list) {
+
+export async function addCollection(collectionArray, collectionName) {
     try {
-        const productColl = collection(db, "product");
-        const querySnapshot = await getDocs(productColl);
+        const Collection = collection(db, collectionName);
+        const querySnapshot = await getDocs(Collection);
+
         if (querySnapshot.empty) {
-            for (const product of list) {
-                const docRef = doc(db, 'product', product.title)
-                await setDoc(docRef, product);
-            }
+            const batch = writeBatch(db);
+
+            collectionArray.forEach((item) => {
+                const docRef = doc(db, collectionName, item.title);
+                batch.set(docRef, item);
+            });
+
+            await batch.commit();
         } else {
-            console.log("Products already exist in the database.");
+            console.log("Products already exist in this collection.");
         }
-    } catch (error) {
-        console.error("Error adding products: ", error);
-    }
+    } catch (e) { console.error(e.message); }
 };

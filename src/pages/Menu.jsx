@@ -1,4 +1,4 @@
-import KeenSlider from "../components/KeenSlider";
+import KeenSlider from "../components/Home/KeenSlider";
 import MenuCategory from "../components/Menu/MenuCategory";
 import MenuNav from "../components/Menu/MenuNav";
 

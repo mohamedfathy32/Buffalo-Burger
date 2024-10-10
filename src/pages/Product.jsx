@@ -101,7 +101,7 @@ export default function ProductDetails() {
                     })}
                 </div>
             </section>
-            {CO !== "0" &&
+            {CO !== "1" &&
                 <section id="drinks" className="p-6">
                     <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">drinks</h2>
                     <div className="flex gap-3">

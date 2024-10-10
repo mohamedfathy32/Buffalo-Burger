@@ -9,7 +9,7 @@ export default function MenuCat() {
                         <Link
                             key={cat.category}
                             to={cat.link}>
-                            <img src={cat.image.ar} alt={cat.category} />
+                            <img src={cat.image.en} alt={cat.category} />
                         </Link>
                     </div>
                 ))}
