@@ -1,8 +1,11 @@
 import { FaCartShopping, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { MdLanguage } from "react-icons/md";
 
 export default function Header() {
+    // Drawer Nav
     const [nav, setNav] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
@@ -16,19 +19,21 @@ export default function Header() {
     const handleLoginOpen = () => {
         setActiveTab('login');
         setIsOpen(true);
-    };
-
+        // to Close Drawer
+        setNav(false);
+    }
     const handleSignupOpen = () => {
         setActiveTab('signup');
         setIsOpen(true);
+        setNav(false);
+    }
+
+    const closeWindows = () => {
+        setIsOpen(false);
+        setNav(false);
     };
 
-    const handleClose = () => {
-        setIsOpen(false);
-        setError('');
-        setPhoneNumber('');
-        setPassword('');
-    };
+    const handleClose = () => setIsOpen(false);
 
     useEffect(() => {
         const handleEsc = (event) => {
@@ -75,15 +80,23 @@ export default function Header() {
     };
 
     return (
+
+
         <>
-            <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white">
-                <div className="hidden md:flex items-center gap-4">
-                    <div className="flex items-center cursor-pointer border-none rounded-lg">
-                        <div className="flex items-center gap-2">
-                            <span className="font-main">العربية</span>
-                            <img className="w-4 h-4 rounded-full"
-                                src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
-                                alt="Arabic language" />
+            {/* New Header  */}
+
+            <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 shadow-white transition-all ease-in-out px-12">
+
+                {/* Conents Left */}
+                <div className="hidden md:flex md:items-center gap-4">
+                    <div className="bg-stone-900">
+                        <div className="cursor-pointer border-2 !text-white  border-none rounded-lg  h-max gap-2   ">
+                            <div className="flex flex-row justify-center items-center gap-2">
+                                <span className='font-main'>العربية</span>
+                                <img className="w-4 h-4 rounded-full"
+                                    src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
+                                    alt />
+                            </div>
                         </div>
                     </div>
 
@@ -132,15 +145,99 @@ export default function Header() {
                 </div>
             </nav>
 
+            {/* Drawer Section  */}
+
+            {nav && <div className="fixed inset-0 bg-black opacity-50" onClick={closeWindows}></div>}
             {nav && (
-                <div className="md:hidden bg-stone-900 shadow-md">
-                    <Link to="/" className="block px-4 py-2 hover:bg-stone-800 hover:text-custom-orange">Home</Link>
-                    <Link to="/AboutUs" className="block px-4 py-2 hover:bg-stone-800 hover:text-custom-orange">About Us</Link>
-                    <Link to="/CartDetails" className="block px-4 py-2 hover:bg-stone-800 hover:text-custom-orange">Cart</Link>
-                    <Link to="/Menu" className="block px-4 py-2 hover:bg-stone-800 hover:text-custom-orange">Menu</Link>
+                <div className="fixed top-0 left-0 w-64 h-full z-51 bg-stone-900 shadow-lg transition-transform">
+                    <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
+                        <div className="pr-3 top-14 text-primary-main cursor-pointer ">
+                        </div>
+                        <div className=" flex flex-row justify-between">
+                            <div className="flex flex-col gap-2">
+                                <div className="flex flex-col gap-1">
+                                    <p className="text-white font-bold text-lg">Login to unlock exclusive</p>
+                                    <p className="text-white text-base">Discount points and deals</p>
+                                </div>
+                            </div>
+                            <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
+                                <div className="text-white font-main font-bold">
+                                    <a className="p-1 undefined" href="/Loyalty">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="text-white flex flex-row justify-between items-center font-bold font-main ">
+                            <div className="gap-x-1 text-white flex flex-row">
+                                <MdLanguage className="inline-block mr-2 text-2xl" />
+                                Language</div>
+                            <div className="bg-primary-gray w-fit  rounded-lg">
+                                <div
+                                    className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
+                                    <div className="flex flex-row justify-center items-center gap-2"><span>العربية</span><img
+                                        className="w-4 h-4 rounded-full"
+                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
+                                        alt /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <section className="flex flex-col h-full justify-between ">
+                            <div>
+                                <div
+                                    className="flex flex-col pb-3 border-b border-b-secondary-gray-50 !space-y-4 mb-3 ">
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleLoginOpen}>Login</div>
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleSignupOpen}>Create an account</div>
+                                </div>
+                                <div className="flex flex-col !space-y-4  border-b pb-3 border-b-secondary-gray-50">
+                                    <div className="text-white font-main font-bold ">
+                                        <FaShoppingCart className="inline-block mr-2 text-2xl text-custom-orange" />
+                                        <a className="p-1 undefined" href="/CartDetails">Cart</a>
+                                    </div>
+                                    <div className="text-white font-main font-bold">
+                                        <img
+                                            className="w-7 inline-block mr-2"
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
+                                        <a className="p-1 undefined" href="/Loyalty">My Loyalty Points </a></div>
+                                </div>
+                                <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
+                                    <div className="text-white font-main font-bold">
+                                        <img
+                                            className="w-7 inline-block mr-2"
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />Feedback
+                                        Feedback </div>
+                                    <div className="text-white font-main font-bold"><a className="p-1 undefined"
+                                        href="tel:19914">
+                                        <img className="w-7 inline-block mr-2"
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/call-support-icon.svg" />Call
+                                        Call Support</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mb-8">
+                            </div>
+                        </section>
+                    </div>
                 </div>
+
+
             )}
 
+            {/* Seconed Header Delivery Address */}
+
+            <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
+                <div className="hidden md:flex space-x-4">
+                    <Link to={'/AboutUs'}>About Us</Link>
+                    <Link to={'/CartDetails'}>CartDetails</Link>
+                    <Link to={'/Menu'}>Menu</Link>
+                    <Link to={'/'}>Home</Link>
+                </div>
+            </div>
+
+
+
+
+
+            {/* Login and SignUp المربع (Modal) */}
             {isOpen && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                     <div className="bg-white rounded-lg p-6 w-[40%]">
