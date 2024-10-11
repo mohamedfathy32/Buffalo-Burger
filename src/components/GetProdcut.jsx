@@ -1,6 +1,6 @@
 import { collection, getDocs, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { db } from "../utils/firebase";
+import { db } from "../utils/firebase/firebase";
 // import DishCard from "./DishCard";
 
 export default function GetProdcut() {
