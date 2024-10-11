@@ -62,7 +62,6 @@ export default function Signup({ onClose , onSignupSuccess }) {
                     onSignupSuccess();
                     onClose();
                 }
-                // eslint-disable-next-line no-empty
             } catch (error) {
                 console.log(error)
             }
