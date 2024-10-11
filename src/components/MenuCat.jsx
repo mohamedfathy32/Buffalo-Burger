@@ -17,10 +17,10 @@ export default function MenuCat() {
 
 
     return (
-        <div className="flex items-center bg-stone-900 w-full overflow-x-scroll md:overflow-hidden scroll-with-no-display sticky z-10 top-28">
+        <div style={{scrollbarWidth: 'none'}} className="flex items-center bg-stone-900 w-full overflow-x-scroll md:overflow-hidden sticky z-10 top-28">
             <div className="flex items-center h-full px-6 py-2 mx-auto gap-4">
                 {menucat.map(cat => (
-                    <div key={cat.id} className=" cursor-pointer w-20 h-20 hover:animate-pulse">
+                    <div key={cat.id} className="cursor-pointer w-20 h-20 hover:animate-pulse">
                         <Link
                             key={cat.id}
                             to={cat.link}>
@@ -28,8 +28,6 @@ export default function MenuCat() {
                         </Link>
 
                     </div>
-
-
                 ))}
             </div>
         </div>

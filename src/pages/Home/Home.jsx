@@ -10,12 +10,10 @@ export default function Home() {
         <>
             <Splash />
             <SwiperSlider />
-            <div className="sticky top-28 z-10">
-                <MenuCat/>
-            </div>
+            <MenuCat />
             <KeenSlider />
-            <TopSelling/>
-            <LastSec/>
+            <TopSelling />
+            <LastSec />
         </>
     );
 }
