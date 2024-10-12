@@ -1,19 +1,20 @@
-import { FaCartShopping, FaEye, FaEyeSlash } from "react-icons/fa6";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Login from './Login';
+import Signup from './Signup';
+import { FaCartShopping } from "react-icons/fa6";
+import getUsernameById from "../utils/firebase/getUsernameById";
 
 export default function Header() {
     // Drawer Nav
     const [nav, setNav] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
-    const [showPassword, setShowPassword] = useState(false);
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [username, setUsername] = useState("");
+    const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
 
     const handleClick = () => setNav(!nav);
-
     const handleLoginOpen = () => {
         setActiveTab('login');
         setIsOpen(true);
@@ -26,49 +27,66 @@ export default function Header() {
 
     const handleClose = () => {
         setIsOpen(false);
-        setError('');
-        setPhoneNumber('');
-        setPassword('');
     };
+
+
+    const successfulUser = () => {
+        const userId = localStorage.getItem("userId");
+
+        if (userId) {
+            setIsLoggedIn(true);
+            getUsernameById(userId).then((name) => {
+                if (name) {
+                    setUsername(name);
+                } else {
+                    setIsLoggedIn(false);
+
+                }
+            });
+        } else {
+            setIsLoggedIn(false);
+        }
+    }
+
+
+    useEffect(() => {
+        const userId = localStorage.getItem("userId");
+
+        if (userId) {
+            setIsLoggedIn(true);
+            getUsernameById(userId).then((name) => {
+                if (name) {
+                    setUsername(name);
+                } else {
+                    setIsLoggedIn(false);
+
+                }
+            });
+        } else {
+            setIsLoggedIn(false);
+        }
+    }, []);
+
 
     useEffect(() => {
         const handleEsc = (event) => {
             if (event.key === "Escape") {
-                handleClose();
+                setIsOpen(false);
             }
         };
 
         window.addEventListener("keydown", handleEsc);
-
         return () => window.removeEventListener("keydown", handleEsc);
     }, []);
 
-    const validateInputs = () => {
-        if (!phoneNumber) {
-            setError('Phone number is required');
-            return false;
-        }
-        if (!password) {
-            setError('Password is required');
-            return false;
-        }
-        return true;
+    const toggleDropdown = () => {
+        setIsOpenDrop(!isOpenDrop); // Toggle dropdown state
     };
 
-    const handleLogin = () => {
-        setError('');
-        if (validateInputs()) {
-            console.log('Logging in with:', phoneNumber, password);
-            handleClose();
-        }
-    };
-
-    const handleSignup = () => {
-        setError('');
-        if (validateInputs()) {
-            console.log('Signing up with:', phoneNumber, password);
-            handleClose();
-        }
+    const handleLogout = () => {
+        localStorage.removeItem("userId");
+        setIsLoggedIn(false);
+        setIsOpenDrop(false); // Reset dropdown state when user logs out
     };
 
     return (
@@ -112,16 +130,54 @@ export default function Header() {
                         />
                     </Link>
                 </div>
+                {isLoggedIn ? <div className="hidden md:flex items-center gap-4">
+                    <div className="cursor-pointer text-white font-bold text-lg hover:text-orange-600" onClick={toggleDropdown}>
+                        <div className="dropdown relative">
+                            <div className="dropdown-toggle px-1 py-2.5 text-white hover:text-orange-600 text-base font-bold leading-tight uppercase 
+                            rounded transition duration-150 ease-in-out flex items-center whitespace-nowrap">
+                                <span className="truncate max-w-[14rem]">
+                                    Hello, {username}
+                                </span>
+                            </div>
+                            {isOpenDrop && ( // Conditionally render the dropdown based on isOpen state
+                                <ul className="min-w-max absolute bg-stone-900 text-base z-[51] py-2 px-2 w-full list-none text-left rounded-lg mt-1">
+                                    <li>
+                                        <a className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-primary-main border-b-[1px] text-white hover:text-primary-main" href="/profile">
+                                            My account
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-primary-main border-b-[1px] text-white hover:text-primary-main" href="/orders">
+                                            Order history
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-primary-main border-b-[1px] text-white hover:text-primary-main" href="/profile#addresses">
+                                            Saved addresses
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span
+                                            className="text-base border-b-white hover:border-b-primary-main border-b-[1px] text-white hover:text-primary-main py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
+                                            onClick={handleLogout} // Handle logout click
+                                        >
+                                            Logout
+                                        </span>
+                                    </li>
+                                </ul>
+                            )}
+                        </div>
+                    </div>
 
-                {/* Right Section */}
-                <div className="hidden md:flex items-center gap-4">
+                </div> : <div className="hidden md:flex items-center gap-4">
                     <div onClick={handleSignupOpen} className="cursor-pointer text-white font-bold text-lg hover:text-custom-orange">
                         Create an account
                     </div>
                     <div onClick={handleLoginOpen} className="cursor-pointer text-white font-bold text-lg hover:text-custom-orange">
                         Login
                     </div>
-                </div>
+                </div>}
+
 
                 {/* Mobile Hamburger */}
                 <div className="block md:hidden absolute left-6" onClick={handleClick}>
@@ -163,63 +219,8 @@ export default function Header() {
                             </button>
                         </div>
 
-                        {error && <div className="text-red-500 text-sm mb-3">{error}</div>}
-
-                        {activeTab === 'login' && (
-                            <div>
-                                <label className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
-                                <input
-                                    type="text"
-                                    placeholder="+20 xx xxx xxxxx"
-                                    className="border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none focus:border-black focus:bg-[#ffefe6] text-black"
-                                    value={phoneNumber}
-                                    onChange={(e) => setPhoneNumber(e.target.value)}
-                                />
-                                <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
-
-                                <div className="relative mb-3">
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        placeholder="Enter your password"
-                                        className="border rounded-[10px] w-full py-2 px-3 focus:outline-none focus:border-orange-500 text-black"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                    <button
-                                        type="button"
-                                        className="absolute right-3 top-1/2 transform -translate-y-1/2"
-                                        onClick={() => setShowPassword(!showPassword)}
-                                    >
-                                        {showPassword ? <FaEyeSlash className="text-gray-500" /> : <FaEye className="text-gray-500" />}
-                                    </button>
-                                </div>
-                                <div className="flex items-center">
-                                    <Link to="/forgot-password" className="text-sm text-black hover:text-orange-500 ml-5">Forgot Password?</Link>
-                                </div>
-                                <button onClick={handleLogin} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">Login</button>
-                            </div>
-                        )}
-
-                        {activeTab === 'signup' && (
-                            <div>
-                                <label className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
-                                <input
-                                    type="text"
-                                    placeholder="+20 xx xxx xxxxx"
-                                    className="border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none focus:border-black focus:bg-[#ffefe6] text-black"
-                                    value={phoneNumber}
-                                    onChange={(e) => setPhoneNumber(e.target.value)}
-                                />
-                                <button onClick={handleSignup} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">Create an Account</button>
-
-                                <div className="mt-4 text-center text-sm text-gray-500">
-                                    By continuing, I agree to the
-                                    <a href="/terms" className="text-orange-600 mx-1 hover:underline">Terms of Service</a>
-                                    and
-                                    <a href="/privacy" className="text-orange-600 mx-1 hover:underline">Privacy Policy</a>.
-                                </div>
-                            </div>
-                        )}
+                        {activeTab === 'login' && <Login onClose={handleClose} onLoginSuccess={() => successfulUser()} />}
+                        {activeTab === 'signup' && <Signup onClose={handleClose} onSignupSuccess={() => successfulUser()} />}
                     </div>
                 </div>
             )}

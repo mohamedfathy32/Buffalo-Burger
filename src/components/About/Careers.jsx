@@ -47,7 +47,7 @@ export default function Careers() {
                     className="w-full lg:w-1/2 flex justify-center items-center bg-cover bg-center"
                     style={{
                         backgroundImage:
-                            'url(https://pbs.twimg.com/media/EnRpwhGW4AAOSvl.jpg)',
+                            'url(https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/buffalo-family.webp)',
                     }}
                 >
                     <div className="text-center space-y-3">

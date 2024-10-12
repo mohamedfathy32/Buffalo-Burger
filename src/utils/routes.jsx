@@ -34,6 +34,9 @@ export const router = createBrowserRouter([{
         { path: 'Profile', element: <Profile /> },
         { path: 'Signup', element: <Signup /> },
         { path: 'TermsAndConditions', element: <TermsAndConditions /> },
+        // { path: 'OurStory', element: <OurStory /> },
+        // { path: 'OurValues', element: <OurValues /> },
+        // { path: 'QualityControl', element: <QualityControl /> },
 
         { path: '*', element: <NotFound /> },
     ]
