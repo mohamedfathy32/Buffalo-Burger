@@ -1,4 +1,4 @@
-export const extrasList = [
+export const extras = [
     {
         title: "jalapeno",
         price: "10"
