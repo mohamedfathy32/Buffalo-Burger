@@ -1,6 +1,5 @@
 export default function OurValues() {
     return (
-
         <div id="values" className="bg-stone-900">
             <div className="container mx-auto py-10">
                 <div className="flex flex-wrap justify-center items-center pb-5 border-b-4 border-orange-500">
@@ -175,6 +174,5 @@ export default function OurValues() {
                 </div>
             </div>
         </div>
-
     );
 };

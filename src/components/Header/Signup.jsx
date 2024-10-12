@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { authRegister } from "../utils/firebase/auth";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../utils/firebase/firebase";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { db, register } from "../../utils/firebase.config";
+import { useState } from "react";
 
-export default function Signup({ onClose , onSignupSuccess }) {
+export default function Signup({ onClose, onSignupSuccess }) {
     const [username, setUsername] = useState(""); // State for username
     const [email, setEmail] = useState(""); // State for email
     const [password, setPassword] = useState(""); // State for password
@@ -51,7 +50,7 @@ export default function Signup({ onClose , onSignupSuccess }) {
     const handleSignup = async () => {
         if (validateInputs()) { // Validate inputs
             try {
-                const res = await authRegister(email, password); // Attempt to register user
+                const res = await register(email, password); // Attempt to register user
                 if (res.uid) {
                     // تخزين بيانات المستخدم في Firestore
                     await setDoc(doc(db, "users", res.uid), {

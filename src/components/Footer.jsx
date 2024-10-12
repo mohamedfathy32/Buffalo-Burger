@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
+    const location = useLocation()
+
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -9,7 +11,7 @@ export default function Footer() {
     }
     return (
         <>
-            <footer className="relative flex flex-col bg-[#1c1c1b] text-white p-6 ">
+            <footer className={`${location.pathname.includes('ProductDetails') || location.pathname.includes('CartDetails') ? 'hidden' : 'flex'} relative  flex-col bg-[#1c1c1b] text-white p-6`}>
                 <div className="w-fit mx-auto m-auto my-4 md:flex md:flex-row rtl:md:justify-end md:justify-start md:ml-0 rtl:md:mr-0 lg:flex rtl:lg:justify-end lg:flex-row lg:justify-start lg:ml-0 rtl:lg:mr-0">
                     <img
                         alt="Buffalo Burger logo"
@@ -52,19 +54,19 @@ export default function Footer() {
                     </div>
 
                     <div className="border-b border-secondary-gray-100 mr-0 md:w-1/12 md:mr-24 md:border-0 lg:border-0 lg:w-1/12 lg:mr-24 rtl:lg:text-right">
-                        <Link className="p-1 block text-white hover:text-orange-500" to="/AboutUs">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/AboutUs">
                             About us
                         </Link>
-                        <Link className="p-1 block text-white hover:text-orange-500" to="/franchise">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/FranchiseRequest">
                             Franchise Request
                         </Link>
-                        <Link className="p-1 block text-white hover:text-orange-500" to="/branch-info">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/OurBranches">
                             Our Branches
                         </Link>
-                        <Link className="p-1 block text-white hover:text-orange-500" to="/privacy-policy">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/PrivacyPolicy">
                             Privacy policy
                         </Link>
-                        <Link className="p-1 block text-white hover:text-orange-500" to="/terms-of-use">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/TermsAndConditions">
                             Terms and conditions
                         </Link>
                     </div>

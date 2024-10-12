@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { menuCategories } from "../../utils/data/menuCategories";
+import { menuCategoriesList } from "../../utils/data";
 
 export default function MenuNav() {
     const [categories, setcategories] = useState([]);
     useEffect(() => {
         // (async () => {
-        //     setcategories(await getCollectionByName('menuCategories'))
+        //     setcategories(await getCollectionByName('menuCategoriesList'))
         // })()
-        setcategories(menuCategories)
+        setcategories(menuCategoriesList)
     }, []);
     return (
         <div className="overflow-x-scroll sbw-none">

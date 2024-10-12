@@ -1,4 +1,4 @@
-function FranchiseRequest() {
+export default function FranchiseRequest() {
     return (
         <div className="bg-black min-h-screen">
             <div className="container mx-auto flex flex-col items-start px-5 lg:px-0">
@@ -62,4 +62,3 @@ function FranchiseRequest() {
         </div>
     );
 }
-export default FranchiseRequest;

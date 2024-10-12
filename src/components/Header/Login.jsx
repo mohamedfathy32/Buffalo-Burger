@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { authLogin } from "../utils/firebase/auth";
-import ResetPassword from "./ResetPassword";
+import { login } from "../../utils/firebase";
 
-export default function Login({ onClose , onLoginSuccess }) {
+export default function Login({ onClose, onLoginSuccess }) {
     const [email, setEmail] = useState(""); // State for storing the email
     const [password, setPassword] = useState(""); // State for storing the password
     const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
@@ -42,7 +41,7 @@ export default function Login({ onClose , onLoginSuccess }) {
     const handleLogin = async () => {
         setError({ email: "", password: "" }); // Reset errors
         if (validateInputs()) { // Validate inputs
-            const res = await authLogin(email, password); // Attempt to log in
+            const res = await login(email, password); // Attempt to log in
             if (res.uid) {
                 localStorage.setItem("userId", res.uid);
                 onLoginSuccess();
@@ -50,7 +49,6 @@ export default function Login({ onClose , onLoginSuccess }) {
             }
         }
     };
-
 
     const handleResetPasswordClick = () => {
         setResetPasswordVisible(true); // تغيير الحالة لعرض نموذج إعادة تعيين كلمة المرور
@@ -96,7 +94,6 @@ export default function Login({ onClose , onLoginSuccess }) {
                     <button onClick={handleLogin} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">Login</button>
                 </>
             )}
-
         </div >
     );
 }

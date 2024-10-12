@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 export default function NotFound() {
     return <>
         <div className=" bg-[#1c1c1b] relative z-10">

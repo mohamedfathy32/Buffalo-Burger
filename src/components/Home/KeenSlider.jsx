@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import { useEffect, useState } from "react";
 
 export default function KeenSlider() {
     const [slidesPerView, setSlidesPerView] = useState(4); // عدد الصور الافتراضي

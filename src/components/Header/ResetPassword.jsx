@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../utils/firebase/firebase";
+import { useState } from "react";
+import { auth } from "../../utils/firebase.config";
 
 export default function ResetPassword() {
     const [email, setEmail] = useState(""); // حالة لتخزين البريد الإلكتروني
@@ -11,7 +11,6 @@ export default function ResetPassword() {
             setMessage("Please enter your email."); // تحقق من إدخال البريد الإلكتروني
             return;
         }
-
         try {
             await sendPasswordResetEmail(auth, email); // إرسال البريد الإلكتروني لإعادة تعيين كلمة المرور
             setMessage("Check your email for the password reset link."); // رسالة نجاح
@@ -33,7 +32,6 @@ export default function ResetPassword() {
             <button onClick={handleResetPassword} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">
                 Reset Password
             </button>
-
             {message && <div className="mt-4 text-gray-700">{message}</div>} {/* عرض الرسالة */}
         </div>
     );

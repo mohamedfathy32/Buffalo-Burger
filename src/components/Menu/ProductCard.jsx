@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -46,7 +47,7 @@ export default function ProductCard({ product }) {
     return (
         <div className="h-96 max-w-full w-72 md:w-80 hover:-translate-y-2 duration-1000 cursor-pointer ease-in-out">
             <div className="relative h-44">
-                <img src={product?.imageURL} alt={product?.title} className="w-44 h-44 absolute top-10 start-0" />
+                <img src={product?.image} alt={product?.title} className="w-44 h-44 absolute top-10 start-0" />
                 <div className="w-44 h-44 absolute top-10 start-0"></div>
             </div>
             <div className="bg-neutral-50 rounded-xl p-4 pb-2 pt-14 flex flex-col h-52">

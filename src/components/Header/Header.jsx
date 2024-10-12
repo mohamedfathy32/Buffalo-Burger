@@ -1,9 +1,11 @@
+import { FaCartShopping } from "react-icons/fa6";
+import { FaShoppingCart } from "react-icons/fa";
+import { MdLanguage } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Login from './Login';
-import Signup from './Signup';
-import { FaCartShopping } from "react-icons/fa6";
-import getUsernameById from "../utils/firebase/getUsernameById";
+import Login from "../../pages/Login";
+import Signup from "../../pages/Signup";
+import { getUsernameById } from "../../utils/firebase";
 
 export default function Header() {
     // Drawer Nav
@@ -13,13 +15,15 @@ export default function Header() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
+    function closeWindows() { }
 
     const handleClick = () => setNav(!nav);
     const handleLoginOpen = () => {
         setActiveTab('login');
         setIsOpen(true);
-    };
-
+        // to Close Drawer
+        setNav(false);
+    }
     const handleSignupOpen = () => {
         setActiveTab('signup');
         setIsOpen(true);
@@ -92,7 +96,6 @@ export default function Header() {
     return (
         <>
             <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white">
-                {/* Left Section */}
                 <div className="hidden md:flex items-center gap-4">
                     <div className="flex items-center cursor-pointer border-none rounded-lg">
                         <div className="flex items-center gap-2">
@@ -116,7 +119,7 @@ export default function Header() {
                     </div>
                 </div>
 
-                {/* Logo */}
+
                 <div className="flex justify-center absolute left-0 right-0 mx-auto w-52">
                     <Link to="/">
                         <img
@@ -179,7 +182,6 @@ export default function Header() {
                 </div>}
 
 
-                {/* Mobile Hamburger */}
                 <div className="block md:hidden absolute left-6" onClick={handleClick}>
                     <button className="flex flex-col items-center justify-center gap-1">
                         <span className="block bg-custom-orange w-6 h-[3px] rounded"></span>
@@ -189,18 +191,99 @@ export default function Header() {
                 </div>
             </nav>
 
-            {/* Drawer Section */}
-            {nav && <div className="fixed inset-0 bg-black opacity-50" onClick={handleClick}></div>}
+            {/* Drawer Section  */}
+
+            {nav && <div className="fixed inset-0 bg-black opacity-50" onClick={closeWindows}></div>}
             {nav && (
-                <div className="md:hidden bg-stone-900 shadow-md">
-                    <Link to="/" className="block px-4 py-2 hover:bg-stone-800 hover:text-custom-orange">Home</Link>
-                    <Link to="/AboutUs" className="block px-4 py-2 hover:bg-stone-800 hover:text-custom-orange">About Us</Link>
-                    <Link to="/CartDetails" className="block px-4 py-2 hover:bg-stone-800 hover:text-custom-orange">Cart</Link>
-                    <Link to="/Menu" className="block px-4 py-2 hover:bg-stone-800 hover:text-custom-orange">Menu</Link>
+                <div className="fixed top-0 left-0 w-64 h-full z-51 bg-stone-900 shadow-lg transition-transform">
+                    <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
+                        <div className="pr-3 top-14 text-primary-main cursor-pointer ">
+                        </div>
+                        <div className=" flex flex-row justify-between">
+                            <div className="flex flex-col gap-2">
+                                <div className="flex flex-col gap-1">
+                                    <p className="text-white font-bold text-lg">Login to unlock exclusive</p>
+                                    <p className="text-white text-base">Discount points and deals</p>
+                                </div>
+                            </div>
+                            <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
+                                <div className="text-white font-main font-bold">
+                                    <a className="p-1 undefined" href="/Loyalty">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="text-white flex flex-row justify-between items-center font-bold font-main ">
+                            <div className="gap-x-1 text-white flex flex-row">
+                                <MdLanguage className="inline-block mr-2 text-2xl" />
+                                Language</div>
+                            <div className="bg-primary-gray w-fit  rounded-lg">
+                                <div
+                                    className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
+                                    <div className="flex flex-row justify-center items-center gap-2"><span>العربية</span><img
+                                        className="w-4 h-4 rounded-full"
+                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
+                                        alt /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <section className="flex flex-col h-full justify-between ">
+                            <div>
+                                <div
+                                    className="flex flex-col pb-3 border-b border-b-secondary-gray-50 !space-y-4 mb-3 ">
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleLoginOpen}>Login</div>
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleSignupOpen}>Create an account</div>
+                                </div>
+                                <div className="flex flex-col !space-y-4  border-b pb-3 border-b-secondary-gray-50">
+                                    <div className="text-white font-main font-bold ">
+                                        <FaShoppingCart className="inline-block mr-2 text-2xl text-custom-orange" />
+                                        <a className="p-1 undefined" href="/CartDetails">Cart</a>
+                                    </div>
+                                    <div className="text-white font-main font-bold">
+                                        <img
+                                            className="w-7 inline-block mr-2"
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
+                                        <a className="p-1 undefined" href="/Loyalty">My Loyalty Points </a></div>
+                                </div>
+                                <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
+                                    <div className="text-white font-main font-bold">
+                                        <img
+                                            className="w-7 inline-block mr-2"
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />Feedback
+                                        Feedback </div>
+                                    <div className="text-white font-main font-bold"><a className="p-1 undefined"
+                                        href="tel:19914">
+                                        <img className="w-7 inline-block mr-2"
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/call-support-icon.svg" />Call
+                                        Call Support</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mb-8">
+                            </div>
+                        </section>
+                    </div>
                 </div>
+
+
             )}
 
-            {/* Modal Section */}
+            {/* Seconed Header Delivery Address */}
+
+            <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
+                <div className="hidden md:flex space-x-4">
+                    <Link to={'/AboutUs'}>About Us</Link>
+                    <Link to={'/CartDetails'}>CartDetails</Link>
+                    <Link to={'/Menu'}>Menu</Link>
+                    <Link to={'/'}>Home</Link>
+                </div>
+            </div>
+
+
+
+
+
+            {/* Login and SignUp المربع (Modal) */}
             {isOpen && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                     <div className="bg-white rounded-lg p-6 w-[40%]">

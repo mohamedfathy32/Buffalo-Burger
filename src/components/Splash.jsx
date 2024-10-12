@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-function Splash() {
+export default function Splash() {
     useEffect(() => {
         const timer = setTimeout(() => {
             const splash = document.getElementById('splashParent');
             if (splash) {
                 splash.style.display = 'none';
             }
-        }, 2000);
+        }, 500);
 
         return () => clearTimeout(timer);
     }, []);
@@ -37,5 +37,3 @@ function Splash() {
         </div>
     );
 }
-
-export default Splash;

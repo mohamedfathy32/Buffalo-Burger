@@ -1,29 +1,48 @@
-import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import { Checkbox, FormControlLabel, FormGroup, Radio, RadioGroup } from "@mui/material";
+import { useEffect, useState } from "react";
+import { MdShoppingCart } from "react-icons/md";
+import { useLocation, useNavigate } from "react-router-dom";
+import { comboOptionsList, drinksList, extrasList } from "../utils/data";
 
 export default function ProductDetails() {
     const location = useLocation()
+    const navigate = useNavigate()
     const [size, setSize] = useState('150')
     const [bread, setBread] = useState('white')
-    const [CO, setCO] = useState("1");
-    const [order, setorder] = useState({
-
-    })
+    const [CO, setCO] = useState("no combo");
+    const [drink, setDrink] = useState("Orange Juice");
+    const [extras, setExtras] = useState([]);
     const product = location.state?.product;
+    const [order, setOrder] = useState(() => {
+        const savedOrder = localStorage.getItem('order');
+        return savedOrder ? JSON.parse(savedOrder) : {};
+    });
 
-    const comboOptions = product.details.comboOptions
-    const drinks = product.details.drinks
+    useEffect(() => {
+        const newOrder = {
+            product: product?.title,
+            size,
+            bread,
+            combo: CO,
+            drink: CO !== 'no combo' ? drink : null,
+            extras,
+            // price:size.price+bread+combo+
+        };
+
+        setOrder(newOrder);
+        localStorage.setItem('order', JSON.stringify(newOrder));
+    }, [size, bread, CO, drink, extras, product]);
 
 
 
-    function handleCombo() { }
-
+    function addtocart() {
+        navigate('/CartDetails')
+    }
     return (
         <>
-            {console.log(CO)}
             <section id="image" className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
-                <img src={product.imageURL} alt={product.title} className=" place-items-center w-[150px] h-[150px]" />
+                <img src={product.image} alt={product.title} className=" place-items-center w-[150px] h-[150px]" />
                 <div className="lg:text-start text-center md:my md:mx-16 ">
                     <h2 className="text-orange-600 font-bold text-2xl capitalize">{product.title}</h2>
                     <p className="text-white max-w-[500px]">{product.description}</p>
@@ -34,7 +53,6 @@ export default function ProductDetails() {
                 {/* mobileScreen */}
                 <div className="lg:hidden flex justify-center">
                     <RadioGroup value={size} onChange={(e) => { setSize(e.target.value) }} aria-labelledby="demo-radio-buttons-group-label" defaultValue="150" name="radio-buttons-group">
-                        { }
                         <FormControlLabel value="150" control={<Radio sx=
                             {{ '& .MuiSvgIcon-root': { color: '#ff5f00' }, '&.Mui-checked': { color: '#ff5f00' } }} />
                         } label="150 gm (EGP 155)" sx={{ '& .MuiTypography-root': { color: 'black' }, '& .Mui-checked + .MuiTypography-root': { color: '#ff5f00' } }} />
@@ -88,12 +106,12 @@ export default function ProductDetails() {
             <section id="comboOptions" className="p-6">
                 <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">combo options</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3  gap-y-2 justify-items-center">
-                    {comboOptions.map((c) => {
+                    {comboOptionsList.map((c) => {
                         return (
-                            <button key={c.id} onClick={() => { setCO(c.id); }} className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${c.id === CO ? 'border-orange-600 bg-orange-50 ' : 'border-white bg-stone-50'}`}>
-                                <img src={c.imageURL} alt={c.title} className="w-20 h-20" />
+                            <button key={c.title} onClick={() => { setCO(c.title); }} className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${c.title === CO ? 'border-orange-600 bg-orange-50 ' : 'border-white bg-stone-50'}`}>
+                                <img src={c.image} alt={c.title} className="w-20 h-20" />
                                 <div className="text-start ms-4">
-                                    <h3 className="font-bold text-sm">{c.title}</h3>
+                                    <h3 className="font-bold text-sm capitalize">{c.title}</h3>
                                     <p className="text-sm">{c.description}</p>
                                 </div>
                             </button>
@@ -101,23 +119,65 @@ export default function ProductDetails() {
                     })}
                 </div>
             </section>
-            {CO !== "1" &&
+            {CO !== "no combo" &&
                 <section id="drinks" className="p-6">
                     <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">drinks</h2>
-                    <div className="flex gap-3">
-                        {
-                            drinks.map(drink => {
-                                return (
-                                    <div key={drink.id} className="w-12 h-12 bg-orange-300">
-
+                    <div className="w-fit m-auto">
+                        <RadioGroup value={drink} onChange={(e) => { setDrink(e.target.value) }} aria-labelledby="demo-radio-buttons-group-label" defaultValue="Orange Juice" name="radio-buttons-group">
+                            <div className="flex flex-col lg:flex-wrap xl:flex-row gap-3">
+                                {drinksList.map(drink => {
+                                    return <div key={drink.id}>
+                                        <FormControlLabel
+                                            value={drink.title} label={`${drink.title} (EGP ${drink.price})`}
+                                            control={<Radio sx={{ '& .MuiSvgIcon-root': { color: '#ff5f00' }, '&.Mui-checked': { color: '#ff5f00' } }} />}
+                                            sx={{ '& .MuiTypography-root': { color: 'black' }, '& .Mui-checked + .MuiTypography-root': { color: '#ff5f00' } }} />
                                     </div>
-                                )
-                            })
-                        }
-
+                                })}
+                            </div>
+                        </RadioGroup>
                     </div>
-                </section>
+                </section >
             }
+            <section id="extras" className="p-6">
+                {console.log(extras)
+                }
+                <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">Extras</h2>
+                <div className="flex justify-center">
+                    <FormGroup aria-labelledby="demo-radio-buttons-group-label" name="extras-group">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 justify-items-start bg-stone-50 rounded-xl p-8">
+                            {extrasList.map((extra) => (
+                                <div key={extra.title} className="w-full p-4 bg-white rounded-lg">
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox checked={extras.includes(extra.title)} onChange={(e) => {
+                                                if (e.target.checked) {
+                                                    setExtras([...extras, extra.title]);
+                                                }
+                                                else {
+                                                    setExtras(extras.filter((item) => item !== extra.title))
+                                                }
+                                            }} sx={{ '& .MuiSvgIcon-root': { color: '#ff5f00' }, '&.Mui-checked': { color: '#ff5f00' }, }} />}
+                                        label={`${extra.title} (EGP ${extra.price})`}
+                                        sx={{
+                                            '& .MuiTypography-root': { color: 'black', '&:hover': { color: '#ff5f00', } }, '& .Mui-checked + .MuiTypography-root': { color: '#ff5f00' }
+                                        }} />
+                                </div>))}
+                        </div>
+                    </FormGroup>
+                </div>
+            </section>
+            <section id="total" className="w-full p-4 flex flex-col lg:flex-row-reverse sticky bottom-0 justify-center items-center gap-6 bg-gray-50">
+                <div className="flex justify-center gap-3 items-center">
+                    <div>
+                        <h2 className="capitalize text-2xl font-bold">total</h2>
+                        <span className="capitalize text-sm text-gray-500">including VAT</span>
+                    </div>
+                    <span className="text-lg font-bold mt-auto mb-2">EGP 170</span>
+                </div>
+                <button onClick={addtocart} className="px-12 py-3 flex justify-center items-center gap-1 bg-orange-600 rounded-lg text-white text-xl uppercase">
+                    <MdShoppingCart className="text-2xl" /> add to cart
+                </button>
+            </section>
         </>
     )
 }

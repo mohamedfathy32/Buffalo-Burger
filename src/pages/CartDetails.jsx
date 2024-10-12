@@ -1,10 +1,10 @@
 import { CiCircleMinus } from "react-icons/ci";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import DishCard from "../components/DishCard";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import ProductCard from "../components/Menu/ProductCard";
 
 export default function CartDetails() {
 
@@ -204,11 +204,12 @@ export default function CartDetails() {
                                         key={product.id}
                                         style={{ height: 500 }}
                                         className="pt-28 px-10 flex items-center justify-center rounded-md">
-                                        <DishCard
+                                        <ProductCard
                                             key={product.id}
-                                            image={product.image}
-                                            title={product.title}
-                                            price={product.price}
+                                            // image={product.image}
+                                            // title={product.title}
+                                            // price={product.price}
+                                            product={product}
                                         />
                                     </div>
                                 ))}
