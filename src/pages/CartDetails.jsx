@@ -1,12 +1,81 @@
 import { CiCircleMinus } from "react-icons/ci";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import DishCard from "../components/DishCard";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 
 export default function CartDetails() {
+
+    var settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: true,
+        nextArrow: (
+            <div>
+                <div className="next-slick-arrow text-orange-500">
+                    <FaArrowAltCircleRight className="text-xl" />
+                </div>
+            </div>
+        ),
+
+        prevArrow: (
+            <div>
+                <div className="prev-slick-arrow text-orange-500">
+                    <FaArrowAltCircleRight className="text-xl" />
+                </div>
+            </div>
+        )
+    };
+
+    const products = [
+        {
+            id: 1, title: 'Shiitake Mushroom', price: '280',
+            description: 'Sautéed mushroom, cheddar cheese, and creamy mayonnaise spread on top of our pure beef burger..',
+            image: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fa76de047b66f2511962b600232c60769.png&w=256&q=75'
+        },
+
+        {
+            id: 2, title: 'Bacon Mushroom Jack', price: '190',
+            description: 'Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.',
+            image: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fd845c9309b0d95d8c5d945b6b2552491.png&w=256&q=75'
+        },
+
+        {
+            id: 3, title: 'Caesar Salad', price: '169',
+            description: 'Fresh lettuce with pieces of grilled chicken topped with croutons bread and parmesan cheese with..',
+            image: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb969e186dcb089185c6d63d6774d02d6.png&w=384&q=75'
+        },
+
+        {
+            id: 4, title: 'Chicken Buster', price: '135',
+            description: 'Chicken strips with Buffalo sauce and melted cheddar cheese.',
+            image: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F5f9673352a1f5fafd00e3e2ae90af631.png&w=384&q=75'
+        },
+
+        {
+            id: 5, title: 'Apple Pie', price: '30',
+            description: 'Apple & cinnamon pie',
+            image: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Ff5afb2abb2f7e443a2d999d1c13164d2.png&w=256&q=75'
+        },
+
+        {
+            id: 6, title: 'Chicken Fries', price: '80',
+            description: '10 Pieces of Chicken Fries served with Ranch Cup',
+            image: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb666406ac37bf44f8b31849ec0ee48ed.png&w=384&q=75'
+        },
+
+    ];
+
     return (
         <>
-            <div className="flex min-h-[100vh] gap-4 mx-4 md:mx-[60px] md:my-7 lg:flex-row flex-col">
+            <div className="flex min-h-[100vh] gap-4 mx-4 md:mx-[60px] lg:flex-row flex-col">
                 {/* Left */}
-                <div className="flex flex-col md:flex-row w-full justify-between gap-x-8 my-8">
+                <div className="lg:w-2/3 flex flex-col md:flex-row w-full justify-between gap-x-8 my-8">
 
                     <div className="w-full">
 
@@ -123,15 +192,36 @@ export default function CartDetails() {
 
                             </div>
 
-
                         </div>
+
+                        {/* 'You might add' Title */}
+                        <div className="mt-4 mb-4 text-[28px] text-center md:text-left md:text-3xl font-bold md:ml-8">YOU MIGHT LIKE TO ADD</div>
+                        {/* Slider should be here */}
+                        <div className="w-full my-6">
+                            <Slider {...settings} >
+                                {products.map(product => (
+                                    <div
+                                        key={product.id}
+                                        style={{ height: 500 }}
+                                        className="pt-28 px-10 flex items-center justify-center rounded-md">
+                                        <DishCard
+                                            key={product.id}
+                                            image={product.image}
+                                            title={product.title}
+                                            price={product.price}
+                                        />
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
+
 
                     </div>
 
                 </div>
 
                 {/* Right */}
-                <div className="flex flex-col py-6">
+                <div className="lg:w-1/3 flex flex-col py-6">
                     {/* Special Requests */}
                     <div className=" w-full bg-gray-100  p-4 my-2 mx-0 rounded-xl md:p-6 lg:p-6">
                         <div className="w-full flex flex-col">
