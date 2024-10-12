@@ -22,3 +22,28 @@ body {
 .PSS {
     font-family: 'Press Style Serif', sans-serif;
 }
+
+
+.slick-prev,
+.slick-next {
+    display: none;
+}
+
+/* Custom Arrows */
+.next-slick-arrow,
+.prev-slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.next-slick-arrow {
+    right: 0px;
+}
+
+.prev-slick-arrow {
+    left: 0px;
+    transform: rotate(180deg);
+}
