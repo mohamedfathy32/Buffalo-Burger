@@ -1,4 +1,4 @@
-export default function QualityControl() {
+export default function Quality() {
     return (
         <div id="quality" className="bg-stone-900">
             <div className="container mx-auto py-10 ">

@@ -1,6 +1,5 @@
 export const productsList = [
     //burger
-    //////////////////////////////////////////
     {
         title: "shiitake mushroom",
         description: "Sautéed mushroom, cheddar cheese, and creamy mayonnaise spread on top of our pure beef burger patty.",
@@ -23,7 +22,6 @@ export const productsList = [
             extras: true
         },
     },
-    ///////////////////////////////////
     {
         title: "ANIMAL STYLE",
         description: "Crispy onion rings, topped with semi dijon mustard, creamy Buffalo sauce, and cheddar cheese.",
@@ -686,7 +684,6 @@ export const drinksList = [
         price: 11.4
     }
 ]
-
 
 export const offersList = [
     {

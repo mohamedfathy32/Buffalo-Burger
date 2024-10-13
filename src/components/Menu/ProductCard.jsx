@@ -20,7 +20,7 @@ export default function ProductCard({ product }) {
     function handleAddToCard() {
         localStorage.setItem(LSQuantityKey, productQuantity)
         if (product.details)
-            navigate(`/ProductDetails/${product?.title.split(' ').join('-')}`, { state: { product } })
+            navigate(`/Product/${product?.title.split(' ').join('-')}`, { state: { product } })
         else {
             const q = productQuantity + 1
             localStorage.setItem(LSQuantityKey, q)

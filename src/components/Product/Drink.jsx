@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material"
-import { useLocation } from "react-router-dom"
 import { drinksList } from "../../utils/data"
+import { useLocation } from "react-router-dom"
 
-export default function Drinks({ productDrink, onDrinkChange }) {
+export default function Drink({ productDrink, onDrinkChange }) {
     const location = useLocation()
     const isDrink = location.state.product.details.drinks
 

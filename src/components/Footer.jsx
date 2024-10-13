@@ -24,49 +24,41 @@ export default function Footer() {
                         style={{ color: "transparent" }}
                     />
                 </div>
-
                 <div className="text-base flex text-center flex-col md:flex-row md:text-left md:content-evenly md:ml-8 lg:flex-row lg:text-left lg:content-evenly lg:ml-8">
                     <div className="border-b border-secondary-gray-100 mr-0 md:w-1/12 md:mr-24 md:border-0 lg:border-0 lg:w-1/12 lg:mr-24 mainFooGroup rtl:lg:text-right">
                         <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
-                            to="/menu"
-                        >
-                            Menu
+                            to="/Menu">Menu
+                        </Link>
+                        <Link onClick={scrollToTop}
+                            className="p-1 block text-white hover:text-orange-500" to="/">Home
                         </Link>
                         <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
-                            to="/"
-                        >
-                            Home
-                        </Link>
-                        <Link onClick={scrollToTop}
-                            className="p-1 block text-white hover:text-orange-500"
-                            to="/CartDetails"
-                        >
+                            to="/Cart">
                             Cart details
                         </Link>
                         <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
-                            to="/loyalty"
-                        >
+                            to="/Loyalty">
                             Loyalty
                         </Link>
                     </div>
 
                     <div className="border-b border-secondary-gray-100 mr-0 md:w-1/12 md:mr-24 md:border-0 lg:border-0 lg:w-1/12 lg:mr-24 rtl:lg:text-right">
-                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/AboutUs">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/About">
                             About us
                         </Link>
-                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/FranchiseRequest">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/Franchise">
                             Franchise Request
                         </Link>
-                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/OurBranches">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/Branches">
                             Our Branches
                         </Link>
-                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/PrivacyPolicy">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/Privacy">
                             Privacy policy
                         </Link>
-                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/TermsAndConditions">
+                        <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/Terms">
                             Terms and conditions
                         </Link>
                     </div>
@@ -93,8 +85,7 @@ export default function Footer() {
                                     <img
                                         className="w-4 h-4 rounded-full"
                                         src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
-                                        alt=""
-                                    />
+                                        alt="" />
                                 </div>
                             </div>
                         </div>
@@ -104,47 +95,38 @@ export default function Footer() {
                         <p>© 2022 Buffalo Burger inc.</p>
                         <div
                             id="socialWrapper"
-                            className="p-4 md:p-0 w-full justify-center gap-4 flex md:w-36 md:justify-evenly lg:flex lg:w-36 lg:justify-evenly"
-                        >
+                            className="p-4 md:p-0 w-full justify-center gap-4 flex md:w-36 md:justify-evenly lg:flex lg:w-36 lg:justify-evenly">
                             <a
                                 target="_blank"
                                 className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
-                                href="https://www.facebook.com/BuffaloBurger"
-                            >
+                                href="https://www.facebook.com/BuffaloBurger">
                                 <img
                                     src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/facebook.png"
-                                    alt="facebook"
-                                />
+                                    alt="facebook" />
                             </a>
                             <a
                                 target="_blank"
                                 className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
-                                href="https://www.instagram.com/buffalo_burger"
-                            >
+                                href="https://www.instagram.com/buffalo_burger">
                                 <img
                                     src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/inst.png"
-                                    alt="instagram"
-                                />
+                                    alt="instagram" />
                             </a>
                             <a
                                 target="_blank"
                                 className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
-                                href="https://twitter.com/buffalo_burger"
-                            >
+                                href="https://twitter.com/buffalo_burger">
                                 <img
                                     src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/newTwitter.png"
-                                    alt="twitter"
-                                />
+                                    alt="twitter" />
                             </a>
                             <a
                                 target="_blank"
                                 className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
-                                href="https://www.linkedin.com/company/35516936/admin"
-                            >
+                                href="https://www.linkedin.com/company/35516936/admin">
                                 <img
                                     src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/linkedin.png"
-                                    alt="linkedin"
-                                />
+                                    alt="linkedin" />
                             </a>
                         </div>
                     </div>

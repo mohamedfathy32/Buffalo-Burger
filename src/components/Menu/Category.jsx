@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import { productsList } from "../../utils/data";
 import ProductCard from "./ProductCard";
 
+/* eslint-disable react/prop-types */
 export default function MenuCategory({ title, category }) {
     return (
         <>

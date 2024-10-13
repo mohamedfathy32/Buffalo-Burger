@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import ResetPassModal from "./ResetPass";
 import { login } from "../../utils/firebase";
 
-export default function Login({ onClose, onLoginSuccess }) {
+export default function LoginModal({ onClose, onLoginSuccess }) {
     const [email, setEmail] = useState(""); // State for storing the email
     const [password, setPassword] = useState(""); // State for storing the password
     const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
@@ -57,7 +58,7 @@ export default function Login({ onClose, onLoginSuccess }) {
     return (
         <div>
             {isResetPasswordVisible ? (
-                <ResetPassword />
+                <ResetPassModal />
             ) : (
                 <>
                     <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>

@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useLocation } from "react-router-dom";
 import { comboOptionsList } from "../../utils/data";
 
-export default function ComboOptions({ productComboOption, onCOChange }) {
+export default function ComboOption({ productComboOption, onCOChange }) {
     const location = useLocation()
     const isComboOptions = location.state.product.details.comboOptions
     return (

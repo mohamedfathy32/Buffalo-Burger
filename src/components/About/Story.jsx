@@ -1,4 +1,4 @@
-export default function OurStory() {
+export default function Story() {
     return (
         <div id="story" className="content bg-stone-900 text-white py-10">
             <div className="pt-12 px-24 md:x-24 flex flex-col md:w-full md:flex-row">

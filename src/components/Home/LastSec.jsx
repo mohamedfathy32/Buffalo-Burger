@@ -1,4 +1,4 @@
-export default function LastSec() {
+export default function LastSection() {
     return <>
         <div className="w-full">
             <div className="bg-[url('../../../images/Home/footer-texture.png')] flex flex-col  !items-center lg:!items-start leading-none lg:leading-normal justify-center bg-[#ff5f00] p-4 lg:p-[60px] uppercase text-white font-normal  lg:tracking-wider  w-full h-[183px] ">

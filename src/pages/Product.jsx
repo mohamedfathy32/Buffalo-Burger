@@ -1,14 +1,13 @@
 /* eslint-disable no-unused-vars */
-import { Checkbox, FormControlLabel, FormGroup, Radio, RadioGroup } from "@mui/material";
 import { useEffect, useState } from "react";
 import { MdShoppingCart } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
-import { extrasList } from "../utils/data";
 import Size from "../components/Product/Size";
-import Drinks from "../components/Product/Drinks";
-import ComboOptions from "../components/Product/ComboOptions";
-
-export default function ProductDetails() {
+import { Checkbox, FormControlLabel, FormGroup, Radio, RadioGroup } from "@mui/material";
+import ComboOption from "../components/Product/ComboOption";
+import Drink from "../components/Product/Drink";
+import { extrasList } from "../utils/data";
+export default function ProductPage() {
     const location = useLocation()
     const navigate = useNavigate()
     const product = location.state?.product;
@@ -44,7 +43,7 @@ export default function ProductDetails() {
     // }
 
     function addtocart() {
-        navigate('/CartDetails')
+        navigate('/Cart')
     }
     return (
         <>
@@ -73,9 +72,9 @@ export default function ProductDetails() {
                     </div>
                 </RadioGroup>
             </section>
-            <ComboOptions productComboOption={CO} onCOChange={(co) => { setCO(co) }} />
+            <ComboOption productComboOption={CO} onCOChange={(co) => { setCO(co) }} />
             {CO !== "" &&
-                <Drinks productDrink={drink} onDrinkChange={(drink) => { setDrink(drink) }} />
+                <Drink productDrink={drink} onDrinkChange={(drink) => { setDrink(drink) }} />
             }
             <section id="extras" className="p-6">
                 <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">Extras</h2>

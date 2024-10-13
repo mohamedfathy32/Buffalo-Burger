@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function NotFound() {
+export default function NotFoundPage() {
     return <>
         <div className=" bg-[#1c1c1b] relative z-10">
             <div className="container flex flex-col-reverse lg:flex-row justify-between items-center py-12">

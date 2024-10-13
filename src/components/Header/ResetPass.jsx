@@ -1,8 +1,8 @@
 import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../utils/firebase";
 import { useState } from "react";
-import { auth } from "../../utils/firebase.config";
 
-export default function ResetPassword() {
+export default function ResetPassModal() {
     const [email, setEmail] = useState(""); // حالة لتخزين البريد الإلكتروني
     const [message, setMessage] = useState(""); // حالة لتخزين رسالة النجاح أو الخطأ
 

@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { doc, setDoc } from "firebase/firestore";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { db, register } from "../../utils/firebase";
+import { Link } from "react-router-dom";
 
-export default function Signup({ onClose, onSignupSuccess }) {
+export default function SignupModal({ onClose, onSignupSuccess }) {
     const [username, setUsername] = useState(""); // State for username
     const [email, setEmail] = useState(""); // State for email
     const [password, setPassword] = useState(""); // State for password
@@ -118,9 +118,9 @@ export default function Signup({ onClose, onSignupSuccess }) {
 
             <div className="mt-4 text-center text-sm text-gray-500">
                 By continuing, I agree to the
-                <Link to="/TermsAndConditions" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>Terms of Service</Link>
+                <Link to="/Terms" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>Terms of Service</Link>
                 and
-                <Link to="/PrivacyPolicy" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>Privacy Policy</Link>.
+                <Link to="/Privacy" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>Privacy Policy</Link>.
             </div>
         </div>
     );

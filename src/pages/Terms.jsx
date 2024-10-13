@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import Splash from "../components/Splash";
 
-export default function TermsAndConditions() {
+export default function TermsPage() {
     return (
         <>
             <Splash />
             <div className="w-full flex justify-center items-center uppercase py-2 gap-2">
 
                 <span className="font-bold text-orange-500">Terms and conditions</span>
-                <Link className="font-bold" to={'/PrivacyPolicy'}>Privacy policy</Link>
+                <Link className="font-bold" to={'/Privacy'}>Privacy policy</Link>
             </div>
 
             <h1 className="text-7xl PSS text-center bg-gray-300 font-medium uppercase p-4">

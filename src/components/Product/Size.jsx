@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material"
 import { useLocation } from "react-router-dom"
 

@@ -1,4 +1,4 @@
-export default function OurBranches() {
+export default function BranchesPage() {
     return (
         <div>OurBranches</div>
     )

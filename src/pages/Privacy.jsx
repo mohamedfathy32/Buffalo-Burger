@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import Splash from "../components/Splash";
 
-export default function PrivacyPolicy() {
+export default function PrivacyPage() {
     return (
         <>
             <Splash />
             <div className="w-full flex justify-center items-center uppercase py-2 gap-2">
 
-                <Link className="font-bold" to={'/TermsAndConditions'}>Terms and conditions</Link>
+                <Link className="font-bold" to={'/Terms'}>Terms and conditions</Link>
                 <span className="font-bold text-orange-500">Privacy policy</span>
 
             </div>

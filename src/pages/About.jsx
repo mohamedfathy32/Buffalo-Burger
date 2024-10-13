@@ -2,12 +2,12 @@
 import { useState } from "react";
 import Careers from "../components/About/Careers";
 import FindUs from "../components/About/FindUs";
-import OurStory from "../components/About/OurStory";
-import OurValues from "../components/About/OurValues";
-import QualityControl from "../components/About/QualityControl";
+import Quality from "../components/About/Quality";
+import Story from "../components/About/Story";
+import Values from "../components/About/Values";
 
-export default function AboutUs() {
-    const pages = [<OurStory />, <OurValues />, <QualityControl />, <Careers />, <FindUs />];
+export default function AboutPage() {
+    const pages = [<Story />, <Values />, <Quality />, <Careers />, <FindUs />];
     const [index, setIndex] = useState(0);
     const changeIndex = (i) => {
         setIndex(i);

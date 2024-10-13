@@ -1,8 +1,8 @@
-import KeenSlider from "../components/Home/KeenSlider";
-import MenuCategory from "../components/Menu/MenuCategory";
-import MenuNav from "../components/Menu/MenuNav";
+import KeenSlider from "../components/Home/Keen";
+import MenuCategory from "../components/Menu/Category";
+import MenuNav from "../components/Menu/Nav";
 
-export default function Menu() {
+export default function MenuPage() {
     return (
         <>
             <div className="sticky top-28 z-10 w-full" ><MenuNav /></div>

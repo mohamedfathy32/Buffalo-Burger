@@ -2,10 +2,10 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdLanguage } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { getUsernameById } from "../../utils/firebase";
-import Login from "./Login";
-import Signup from "./Signup";
+import { Link } from "react-router-dom";
+import LoginModal from "./Login";
+import SignupModal from "./Signup";
 
 export default function Header() {
     // Drawer Nav
@@ -110,7 +110,7 @@ export default function Header() {
                         <span className="text-base">My Loyalty Points</span>
                     </div>
 
-                    <Link to="/CartDetails" className="flex items-center text-white hover:text-custom-orange font-bold text-lg uppercase">
+                    <Link to="/Cart" className="flex items-center text-white hover:text-custom-orange font-bold text-lg uppercase">
                         <FaCartShopping className="text-2xl mr-1" />
                         Cart
                     </Link>
@@ -272,8 +272,8 @@ export default function Header() {
 
             <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
                 <div className="hidden md:flex space-x-4">
-                    <Link to={'/AboutUs'}>About Us</Link>
-                    <Link to={'/CartDetails'}>CartDetails</Link>
+                    <Link to={'/About'}>About Us</Link>
+                    <Link to={'/Cart'}>CartDetails</Link>
                     <Link to={'/Menu'}>Menu</Link>
                     <Link to={'/'}>Home</Link>
                 </div>
@@ -302,8 +302,8 @@ export default function Header() {
                             </button>
                         </div>
 
-                        {activeTab === 'login' && <Login onClose={handleClose} onLoginSuccess={() => successfulUser()} />}
-                        {activeTab === 'signup' && <Signup onClose={handleClose} onSignupSuccess={() => successfulUser()} />}
+                        {activeTab === 'login' && <LoginModal onClose={handleClose} onLoginSuccess={() => successfulUser()} />}
+                        {activeTab === 'signup' && <SignupModal onClose={handleClose} onSignupSuccess={() => successfulUser()} />}
                     </div>
                 </div>
             )}

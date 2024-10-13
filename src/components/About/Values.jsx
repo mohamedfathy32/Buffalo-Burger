@@ -1,4 +1,4 @@
-export default function OurValues() {
+export default function Values() {
     return (
         <div id="values" className="bg-stone-900">
             <div className="container mx-auto py-10">
