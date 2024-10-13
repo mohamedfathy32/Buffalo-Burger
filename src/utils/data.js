@@ -686,3 +686,13 @@ export const drinksList = [
         price: 11.4
     }
 ]
+
+
+export const offersList = [
+    {
+        title: "4 in the box",
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fe71df04a4ffdedd9f80e9abb339da238.png&w=256&q=75",
+        dexcriop: "4 200gm sandwiches with 4 hero fries and your choice of 4 drinks."
+    },
+
+]

@@ -3,9 +3,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdLanguage } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Login from "../../pages/Login";
-import Signup from "../../pages/Signup";
 import { getUsernameById } from "../../utils/firebase";
+import Login from "./Login";
+import Signup from "./Signup";
 
 export default function Header() {
     // Drawer Nav

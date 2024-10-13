@@ -2,8 +2,8 @@
 import { doc, setDoc } from "firebase/firestore";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { db, register } from "../../utils/firebase.config";
 import { useState } from "react";
+import { db, register } from "../../utils/firebase";
 
 export default function Signup({ onClose, onSignupSuccess }) {
     const [username, setUsername] = useState(""); // State for username
