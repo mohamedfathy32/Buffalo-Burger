@@ -75,7 +75,7 @@ export default function CartDetails() {
         <>
             <div className="flex min-h-[100vh] gap-4 mx-4 md:mx-[60px] lg:flex-row flex-col">
                 {/* Left */}
-                <div className="lg:w-2/3 flex flex-col md:flex-row w-full justify-between gap-x-8 my-8">
+                <div className="lg:w-2/3 flex flex-col md:flex-row w-full justify-between gap-x-8 my-8 lg:mb-8 mb-0">
 
                     <div className="w-full">
 
@@ -122,7 +122,7 @@ export default function CartDetails() {
 
                                 <div className="w-1/3 flex justify-around">
 
-                                    <div className="w-1/3 flex justify-end">
+                                    <div className="w-1/3 flex justify-end mt-3">
                                         <button>
                                             <CiCircleMinus className="text-2xl" />
                                         </button>
@@ -152,7 +152,7 @@ export default function CartDetails() {
 
                                 <div className="w-1/3 flex justify-around">
 
-                                    <div className="w-1/3 flex justify-end">
+                                    <div className="w-1/3 flex justify-end mt-3">
                                         <button>
                                             <CiCircleMinus className="text-2xl" />
                                         </button>
@@ -177,7 +177,7 @@ export default function CartDetails() {
 
                                 <div className="w-1/3 flex justify-around">
 
-                                    <div className="w-1/3 flex justify-end">
+                                    <div className="w-1/3 flex justify-end mt-3">
                                         <button>
                                             <CiCircleMinus className="text-2xl" />
                                         </button>
@@ -221,7 +221,7 @@ export default function CartDetails() {
                 </div>
 
                 {/* Right */}
-                <div className="lg:w-1/3 flex flex-col py-6">
+                <div className="lg:w-1/3 flex flex-col lg:py-6 py-0">
                     {/* Special Requests */}
                     <div className=" w-full bg-gray-100  p-4 my-2 mx-0 rounded-xl md:p-6 lg:p-6">
                         <div className="w-full flex flex-col">
