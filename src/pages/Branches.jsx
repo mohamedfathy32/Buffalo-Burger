@@ -1,5 +1,7 @@
 export default function BranchesPage() {
     return (
-        <div>OurBranches</div>
+        <>
+            <div>OurBranches2</div>
+        </>
     )
 }

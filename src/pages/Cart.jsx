@@ -5,15 +5,19 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from "../components/Menu/ProductCard";
+import { useEffect, useState } from "react";
 
 export default function CartPage() {
+
+    const [slidesToShow, setSlidesToShow] = useState(3);
+    const [slidesToScroll, setSlidesToScroll] = useState(3);
 
     var settings = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow,
+        slidesToScroll,
         arrows: true,
         nextArrow: (
             <div>
@@ -31,6 +35,29 @@ export default function CartPage() {
             </div>
         )
     };
+
+    useEffect(() => {
+        const updateSlidesToShow = () => {
+            if (window.innerWidth > 600) {
+                setSlidesToShow(3);
+                setSlidesToScroll(slidesToShow);
+            }
+            else if (window.innerWidth >= 480) {
+                setSlidesToShow(2);
+                setSlidesToScroll(slidesToShow);
+            }
+            else {
+                setSlidesToShow(1);
+                setSlidesToScroll(slidesToShow);
+            }
+        };
+
+        updateSlidesToShow();
+
+        window.addEventListener("resize", updateSlidesToShow); // Handle resize
+        return () => window.removeEventListener("resize", updateSlidesToShow);
+
+    }, []);
 
     const products = [
         {
@@ -198,7 +225,7 @@ export default function CartPage() {
                         <div className="mt-4 mb-4 text-[28px] text-center md:text-left md:text-3xl font-bold md:ml-8">YOU MIGHT LIKE TO ADD</div>
                         {/* Slider should be here */}
                         <div className="w-full my-6">
-                            <Slider {...settings} >
+                            <Slider {...settings}  >
                                 {products.map(product => (
                                     <div
                                         key={product.id}
