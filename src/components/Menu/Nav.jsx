@@ -4,7 +4,7 @@ import { menuCategoriesList } from "../../utils/data"
 export default function MenuNav() {
     const location = useLocation()
     return (
-        <div className="overflow-x-scroll sbw-none">
+        <div className="overflow-x-scroll sbw-none sticky top-28 z-10">
             <div className="w-fit min-w-full flex justify-center px-4 bg-stone-900">
                 {menuCategoriesList.map(cat =>
                     location.pathname.includes('Menu')
