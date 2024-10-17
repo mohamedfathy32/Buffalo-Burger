@@ -21,8 +21,8 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
         if (!username) {
             newError.username = "Username is required"; // Check if username is provided
             isValid = false;
-        } else if (!/^[a-zA-Z0-9]{3,}$/.test(username)) { // Check username format
-            newError.username = "Username must be at least 3 characters long and contain only letters and numbers";
+        } else if (!/^[a-zA-Z0-9\s]{3,}$/.test(username)) { // Check username format
+            newError.username = "Username must be at least 3 characters long and contain only letters, numbers, and spaces ";
             isValid = false;
         }
 
@@ -52,10 +52,9 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
             try {
                 const res = await register(email, password); // Attempt to register user
                 if (res.uid) {
-                    // تخزين بيانات المستخدم في Firestore
                     await setDoc(doc(db, "users", res.uid), {
                         email: email,
-                        username: username // تخزين اسم المستخدم
+                        username: username 
                     });
                     localStorage.setItem("userId", res.uid);
                     onSignupSuccess();

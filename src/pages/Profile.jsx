@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { logedContext } from "../isLoged";
 import { useNavigate } from "react-router-dom";
-import { getUserInfoById } from "../utils/firebase";
+import { getUserInfoById, updateUserProfile } from "../utils/firebase";
 
 export default function ProfilePage() {
     const [username, setUsername] = useState('');
@@ -12,6 +12,7 @@ export default function ProfilePage() {
         email: useremail,
     });
     const [isChanged, setIsChanged] = useState(false);
+    const userId = localStorage.getItem("userId");
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -34,11 +35,11 @@ export default function ProfilePage() {
 
         // After saving, reset isChanged to false
         setIsChanged(false);
+        updateUserProfile(userId, formData.fullName,formData.email);
     };
 
     useEffect(() => {
         const fetchUserInfo = async () => {
-            const userId = localStorage.getItem("userId");
             if (userId) {
                 const userInfo = await getUserInfoById(userId);
                 if (userInfo) {

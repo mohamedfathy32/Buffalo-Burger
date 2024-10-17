@@ -1,6 +1,18 @@
 import { initializeApp } from "firebase/app";
-import { collection, doc, getDoc, getDocs, getFirestore, writeBatch } from "firebase/firestore";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+  updateDoc,
+  writeBatch,
+} from "firebase/firestore";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDF3h_8mHGGs4REC-nJ2Fgk3ofBu5E9cwI",
@@ -9,12 +21,12 @@ const firebaseConfig = {
   storageBucket: "buffalo-burger-73090.appspot.com",
   messagingSenderId: "813583745340",
   appId: "1:813583745340:web:1dcf4735da6b53193fde39",
-  measurementId: "G-NFHVQGTH7D"
+  measurementId: "G-NFHVQGTH7D",
 };
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-export const auth = getAuth(app)
+export const auth = getAuth(app);
 
 /////////////////////////////////////////////////////
 // function for getting all items in any collectionn
@@ -22,9 +34,14 @@ export async function getCollectionByName(collectionName) {
   let collectionArray = [];
   try {
     const Collection = collection(db, collectionName);
-    const collectionSnapshot = await getDocs(Collection)
-    collectionArray = collectionSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-  } catch (e) { console.log(e.message) }
+    const collectionSnapshot = await getDocs(Collection);
+    collectionArray = collectionSnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+  } catch (e) {
+    console.log(e.message);
+  }
   return collectionArray;
 }
 
@@ -47,8 +64,10 @@ export async function addCollection(collectionArray, collectionName) {
     } else {
       console.log("Products already exist in this collection.");
     }
-  } catch (e) { console.error(e.message); }
-};
+  } catch (e) {
+    console.error(e.message);
+  }
+}
 
 ////////////////////////////////////
 //function to get username by userID
@@ -57,7 +76,7 @@ export async function getUsernameById(userId) {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    return docSnap.data().username; 
+    return docSnap.data().username;
   } else {
     console.log("No such document!");
     return null;
@@ -73,7 +92,7 @@ export async function getUserInfoById(userId) {
     const data = docSnap.data();
     return {
       username: data.username,
-      email: data.email
+      email: data.email,
     };
   } else {
     console.log("No such document!");
@@ -81,10 +100,23 @@ export async function getUserInfoById(userId) {
   }
 }
 
+//////////////
+// function udpate user profile
 
+export async function updateUserProfile(userId, newUsername, newEmail) {
+  try {
+    const userDocRef = doc(db, "users", userId);
 
+    await updateDoc(userDocRef, {
+      username: newUsername,
+      email: newEmail,
+    });
 
-
+    console.log("User profile updated successfully in Firestore!");
+  } catch (error) {
+    console.error("Error updating user profile in Firestore: ", error);
+  }
+}
 
 //////
 //auth
@@ -97,7 +129,7 @@ export async function login(email, password) {
     .catch((error) => {
       alert(error.message);
     });
-};
+}
 
 export async function register(email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
@@ -108,4 +140,4 @@ export async function register(email, password) {
     .catch((error) => {
       alert(error.message);
     });
-};
+}
