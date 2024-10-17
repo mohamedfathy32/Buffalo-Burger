@@ -27,7 +27,7 @@ export const productsList = [
         title: "ANIMAL STYLE",
         description: "Crispy onion rings, topped with semi dijon mustard, creamy Buffalo sauce, and cheddar cheese.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F36db94ef11461ebb6d1712215b530fb5.png&w=256&q=75",
-        price: "EGP 155",
+        price: 155,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false,
@@ -37,7 +37,7 @@ export const productsList = [
         title: "BACON MUSHROOM JACK",
         description: "Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fd845c9309b0d95d8c5d945b6b2552491.png&w=256&q=75",
-        price: "EGP 190",
+        price: 190,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: true
@@ -46,7 +46,7 @@ export const productsList = [
         title: "OLD SCHOOL",
         description: "Pure beef burger patty, topped with our signature Buffalo sauce and cheddar cheese.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fb4a9bce0163404b97f76e9cec638bb08.png&w=256&q=75",
-        price: "EGP 145",
+        price: 145,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -55,7 +55,7 @@ export const productsList = [
         title: "BLUE CHEESE",
         description: "Crumbles of creamy French blue cheese top our famous burger patty with our signature mayonnaise sauce.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fb75ecb94aa633b1545de1318f9ca6d00.png&w=256&q=75",
-        price: "EGP 150",
+        price: 150,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -64,7 +64,7 @@ export const productsList = [
         title: "THE RASTAFARI",
         description: "Crispy cheddar jalapeño bites, on a grilled burger patty with Cheddar cheese and creamy Buffalo sauce.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fff183e68e89cbe5674dfb3c8e7b1a26b.png&w=256&q=75",
-        price: "EGP 170",
+        price: 170,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -73,7 +73,7 @@ export const productsList = [
         title: "THE MUSCULAR",
         description: "Pure beef burger, topped with crispy cheese and creamy Buffalo sauce. Only for the serious eaters.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F802131a7b4dd1d3a1ca23625a53082c3.png&w=256&q=75",
-        price: "EGP 175",
+        price: 175,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -82,7 +82,7 @@ export const productsList = [
         title: "THE SECRET BURGER",
         description: "Flamed burger patty with crispy onion and BBQ sauce with caramelized onion, topped with crispy secret cheese, and creamy Buffalo sauce.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Ff887f2ac7f1212f18ade68c61ca6075c.png&w=256&q=75",
-        price: "EGP 180",
+        price: 180,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -91,7 +91,7 @@ export const productsList = [
         title: "HITCHHIKER",
         description: "Crispy mini Mozzarella bites, loaded with ketchup and mustard drops, beef bacon, and creamy Buffalo sauce on top of our pure beef burger patty.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F28ef9f8e1a9beb94215ed3bad733fe3c.png&w=256&q=75",
-        price: "EGP 190",
+        price: 190,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -100,7 +100,7 @@ export const productsList = [
         title: "X URBAN",
         description: "A juicy burger patty with cheddar cheese, beef bacon, crispy onion rings with BBQ sauce, and caramelized onions.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F3cd5acc623e770c0388edf1d1c2c486b.png&w=256&q=75",
-        price: "EGP 195",
+        price: 195,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -109,7 +109,7 @@ export const productsList = [
         title: "DOUBLE JAB",
         description: "Crispy cheese stuffed with beef bacon, topped with crispy onion, BBQ sauce, grilled burger patty, and smoked cheese sauce with mushroom.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F1dc8ed21ded6112b74fd79ed9cac077c.png&w=256&q=75",
-        price: "EGP 205",
+        price: 205,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -118,7 +118,7 @@ export const productsList = [
         title: "CHARVROILED BBQ",
         description: "Grilled burger topped with sweet onion, BBQ sauce, creamy Charbroiled sauce, and Swiss cheese.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F52c2c0cb4355e196903e8a64ebe94da0.png&w=256&q=75",
-        price: "EGP 150",
+        price: 150,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -127,7 +127,7 @@ export const productsList = [
         title: "CHOLO'S",
         description: "Pickled sliced jalapeños, Buffalo sauce and cheddar cheese on top of our pure beef burger patty.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fce05d752c3ce86256f7c58445c8c2c90.png&w=256&q=75",
-        price: "EGP 150",
+        price: 150,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -136,7 +136,7 @@ export const productsList = [
         title: "GRUNGY",
         description: "Pure beef burger patty, topped with our custom Grungy sauce, cheddar cheese, tomatoes, onion.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fde19c6b5cbb03bfc24ea31e5b0259121.png&w=256&q=75",
-        price: "EGP 145",
+        price: 145,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -145,7 +145,7 @@ export const productsList = [
         title: "TRUFFLE BEEF BURGER",
         description: "Flame grilled burger with Sautéed mushroom, crispy onion, truffle sauce, and cheddar cheese.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fc189b5157ba5d891611ca27130e99ca8.png&w=256&q=75",
-        price: "EGP 165",
+        price: 165,
         category: "burger",
         size: ['150', '200', '250'],
         topSelling: false
@@ -155,7 +155,7 @@ export const productsList = [
         title: "RASTAFARI CHICKEN",
         description: "Crispy cheddar jalapeño bites, with chicken strips, cheddar cheese and creamy Buffalo sauce.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Ff3da7a1ac56e2121f21e49b5b2e1622f.png&w=256&q=75",
-        price: "EGP 145",
+        price: 145,
         category: "chicken",
         size: ['150', '200', '250'],
         topSelling: false
@@ -164,7 +164,7 @@ export const productsList = [
         title: "CHICKEN DITCH",
         description: "Chicken strips topped with beef bacon, sautéed mushroom, cheddar cheese, and our custom Secret sauce.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Ffce09e6a80b59a8cf77275475988c79a.png&w=256&q=75",
-        price: "EGP 185",
+        price: 185,
         category: "chicken",
         size: ['150', '200', '250'],
         topSelling: false
@@ -173,7 +173,7 @@ export const productsList = [
         title: "CHOLO'S CHICKEN",
         description: "Chicken strips with pickled sliced jalapeños, Buffalo sauce, and melted cheddar cheese.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F730e9ce3b48956379c62c9ca72ac2b42.png&w=256&q=75",
-        price: "EGP 140",
+        price: 140,
         category: "chicken",
         size: ['150', '200', '250'],
         topSelling: false
@@ -182,7 +182,7 @@ export const productsList = [
         title: "CHICKEN BUSTER",
         description: "Chicken strips with Buffalo sauce and melted cheddar cheese.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F5f9673352a1f5fafd00e3e2ae90af631.png&w=256&q=75",
-        price: "EGP 135",
+        price: 135,
         category: "chicken",
         size: ['150', '200', '250'],
         topSelling: true,
@@ -191,7 +191,7 @@ export const productsList = [
         title: "CHICKEN CRUSH",
         description: "Your choice of grilled or fried chicken with cheddar cheese, tomato, onion and mayo dijon.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8ae609f040a825addd016fc7ec08d7a9.png&w=256&q=75",
-        price: "EGP 150",
+        price: 150,
         category: "chicken",
         size: ['150', '200', '250'],
         topSelling: false
@@ -201,7 +201,7 @@ export const productsList = [
         title: "KETO LETTUCE WRAP",
         description: "Pure beef burger embedded in fresh whole romaine lettuce with cheddar cheese. Served with our..",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F107de22f659cd70e480e6ac560ef7d59.png&w=256&q=75",
-        price: "EGP 165",
+        price: 165,
         category: "keto",
         size: ['150', '200', '250'],
         topSelling: false
@@ -210,7 +210,7 @@ export const productsList = [
         title: "KETO SHIITAKE MUSHROOM",
         description: "Sautéed fresh mushroom, cheddar cheese, and beef burger patty embedded in fresh whole romaine.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F084465fc13ed66144c17a5bc9f37524d.png&w=256&q=75",
-        price: "EGP 170",
+        price: 170,
         category: "keto",
         size: ['150', '200', '250'],
         topSelling: false
@@ -219,7 +219,7 @@ export const productsList = [
         title: "SKINNY BUFFALO",
         description: "A grilled lean burger patty on a multi-grain bread bun with Thousand Island sauce.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F933b3b93e79dc4ecae3d0af378b4ec84.png&w=256&q=75",
-        price: "EGP 145",
+        price: 145,
         category: "keto",
         size: ['150', '200', '250'],
         topSelling: false
@@ -229,7 +229,7 @@ export const productsList = [
         title: "LARGE FRENCH FRIES",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fea4bf95a863a674e0ae15fe02cafcebd.png&w=256&q=75",
-        price: "EGP 35",
+        price: 35,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -238,7 +238,7 @@ export const productsList = [
         title: "BUFFALO FRIES",
         description: "French Fries with Ketchup, Mayonnaise and fresh onion.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8451f4eff364a68c8f9ed01d0fdb5b84.png&w=256&q=75",
-        price: "EGP 60",
+        price: 60,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -247,7 +247,7 @@ export const productsList = [
         title: "COLESLAW",
         description: "Fried Buffalo Wings Served with Ranch Sauce or Wings Sauce.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F00e14cb2b9b112c1ec40d7697e4ce5a3.png&w=256&q=75",
-        price: "EGP 75",
+        price: 75,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -256,7 +256,7 @@ export const productsList = [
         title: "FRIED BUFFALO WINGS",
         description: "Sautéed mushroom, cheddar cheese, and creamy mayonnaise spread on top of our pure beef burger patty.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F5542a555dd006d63d373c6a23f57ca00.png&w=256&q=75",
-        price: "EGP 80",
+        price: 80,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -265,7 +265,7 @@ export const productsList = [
         title: "CHEDDAR JALAPENO BITES",
         description: "Served with Ranch sauce.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Faae91c5c0548fc3be5a977beaacf5f76.png&w=256&q=75",
-        price: "EGP 70",
+        price: 70,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -274,7 +274,7 @@ export const productsList = [
         title: "MOZZARELLA BITES",
         description: "Served with Ranch sauce.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8171f754ddaf57e6a3c4501b28abc209.png&w=256&q=75",
-        price: "EGP 120",
+        price: 120,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -283,7 +283,7 @@ export const productsList = [
         title: "BACON FRIES",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F0a8f39bde7dc27f249a1b1d36d73ebe3.png&w=256&q=75",
-        price: "EGP 75",
+        price: 75,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -292,7 +292,7 @@ export const productsList = [
         title: "CHEESY FRIES",
         description: "Served with Thousand Island sauce",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F4550b3ccfea85ef780f441ae4c83bc56.png&w=256&q=75",
-        price: "EGP 70",
+        price: 70,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -301,7 +301,7 @@ export const productsList = [
         title: "CHEESE ONION BOMB",
         description: "Whole onion rings stuffed with cheese, served with free sauce",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F0a8f39bde7dc27f249a1b1d36d73ebe3.png&w=256&q=75",
-        price: "EGP 75",
+        price: 75,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -310,7 +310,7 @@ export const productsList = [
         title: "ONION RINGS",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F4550b3ccfea85ef780f441ae4c83bc56.png&w=256&q=75",
-        price: "EGP 70",
+        price: 70,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -319,7 +319,7 @@ export const productsList = [
         title: "MUNCH BOX",
         description: "Box of 4 side items (Fried chicken wings - Onion rings - Mozzarella sticks)",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F6e98465e852f3ec7285c670f94caf2ec.png&w=256&q=75",
-        price: "EGP 40",
+        price: 40,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -328,7 +328,7 @@ export const productsList = [
         title: "HAND CUT WEDGES",
         description: "Sautéed mushroom, cheddar cheese, and creamy mayonnaise spread on top of our pure beef burger patty.",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F831265fd3bdbbb29dd966336ff579422.png&w=256&q=75",
-        price: "EGP 225",
+        price: 225,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -337,7 +337,7 @@ export const productsList = [
         title: "CHICKEN TENDERS",
         description: "Pieces of Chicken Tenders Served with Ranch sauce",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F2e08dbc9ce048332a0b11bc8b165e009.png&w=256&q=75",
-        price: "EGP 95",
+        price: 95,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -346,7 +346,7 @@ export const productsList = [
         title: "Chicken Fries",
         description: "10 Pieces of Chicken Fries served with Ranch Cup",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb666406ac37bf44f8b31849ec0ee48ed.png&w=256&q=75",
-        price: "EGP 80",
+        price: 80,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -355,7 +355,7 @@ export const productsList = [
         title: "DIABLO FRIES",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F3eac81c9e5cb012fc7eae7578a8ffeab.png&w=256&q=75",
-        price: "EGP 45",
+        price: 45,
         category: "appetizers",
         size: ['150', '200', '250'],
         topSelling: false
@@ -365,7 +365,7 @@ export const productsList = [
         title: "MUSTARD",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fd657260b7da71715c209e2d9355def36.png&w=256&q=75",
-        price: "EGP 5",
+        price: 5,
         category: "sauces",
         size: '',
         topSelling: false
@@ -374,7 +374,7 @@ export const productsList = [
         title: "KETCHUP",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F41a277c946e35a12ad0227b2572e917c.png&w=256&q=75",
-        price: "EGP 2.5",
+        price: 2.5,
         category: "sauces",
         size: '',
         topSelling: false
@@ -383,7 +383,7 @@ export const productsList = [
         title: "CHEDDAR CHEESE SAUCE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F1bb8e64ccb038d875244c1ea2bbb2891.png&w=256&q=75",
-        price: "EGP 20",
+        price: 20,
         category: "sauces",
         size: '',
         topSelling: false
@@ -392,7 +392,7 @@ export const productsList = [
         title: "BUFFALO SAUCE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8bf4273178b92fdb18438b2413e0fe4e.png&w=256&q=75",
-        price: "EGP 10",
+        price: 10,
         category: "sauces",
         size: '',
         topSelling: false
@@ -401,7 +401,7 @@ export const productsList = [
         title: "MAYONNAISE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8e388f1948e7754daa467a2348ff09c9.png&w=256&q=75",
-        price: "EGP 5",
+        price: 5,
         category: "sauces",
         size: '',
         topSelling: false
@@ -410,7 +410,7 @@ export const productsList = [
         title: "RANCH SAUCE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F80033c188b6c87f8ef4e026182907e1e.png&w=256&q=75",
-        price: "EGP 10",
+        price: 10,
         category: "sauces",
         size: '',
         topSelling: false
@@ -419,7 +419,7 @@ export const productsList = [
         title: "THOUSAND ISLAND SAUCE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fc264684275c150adc27ad6626141be67.png&w=256&q=75",
-        price: "EGP 10",
+        price: 10,
         category: "sauces",
         size: '',
         topSelling: false
@@ -428,7 +428,7 @@ export const productsList = [
         title: "BBQ SAUCE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F730c25fef19002ab4d0306c3dc6357a2.png&w=256&q=75",
-        price: "EGP 10",
+        price: 10,
         category: "sauces",
         size: '',
         topSelling: false
@@ -439,7 +439,7 @@ export const productsList = [
         title: "BLUEBERRY CHEESECAKE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F3c45b0dfba0fd0664b7fde22592a5fa8.png&w=256&q=75",
-        price: "EGP 75",
+        price: 75,
         category: "desserts",
         size: '',
         topSelling: false
@@ -448,7 +448,7 @@ export const productsList = [
         title: "LOTUS CHEESECAKE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F32e21a32d4e55705d9b3235bb02e804c.png&w=256&q=75",
-        price: "EGP 75",
+        price: 75,
         category: "desserts",
         size: '',
         topSelling: false
@@ -457,7 +457,7 @@ export const productsList = [
         title: "APPLE PIE",
         description: "Apple & cinnamon pie",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Ff5afb2abb2f7e443a2d999d1c13164d2.png&w=256&q=75",
-        price: "EGP 25",
+        price: 25,
         category: "desserts",
         size: '',
         topSelling: false
@@ -466,7 +466,7 @@ export const productsList = [
         title: "COOKIE SLICE",
         description: "cookie slice",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F4da287b4d273f703a9ea8f30ff5183f5.png&w=256&q=75",
-        price: "EGP 75",
+        price: 75,
         category: "desserts",
         size: '',
         topSelling: false
@@ -476,7 +476,7 @@ export const productsList = [
         title: "ORANGE JUICE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F0de776208dca33c7a7c1274c3468a4ac.png&w=256&q=75",
-        price: "EGP 20",
+        price: 20,
         category: "drinks",
         size: '',
         topSelling: false
@@ -485,7 +485,7 @@ export const productsList = [
         title: "PURE APPLE JUICE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F9f9d227549b8d0c81257dded1ebe0c7d.png&w=256&q=75",
-        price: "EGP 15",
+        price: 15,
         category: "drinks",
         size: '',
         topSelling: false
@@ -494,7 +494,7 @@ export const productsList = [
         title: "WATER BOTTLE",
         description: "",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb4c9969a147297e6f3e852c84d7c319f.png&w=256&q=75",
-        price: "EGP 10",
+        price: 10,
         category: "drinks",
         size: '',
         topSelling: false
@@ -503,7 +503,7 @@ export const productsList = [
         title: "BIG COLA",
         description: "Big Cola",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F6edb0b9192937d5ca1bc10c593aad455.png&w=256&q=75",
-        price: "EGP 15",
+        price: 15,
         category: "drinks",
         size: '',
         topSelling: false
@@ -512,7 +512,7 @@ export const productsList = [
         title: "GREEN COLA",
         description: "Green Cola Can",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F38665d2e749bab3015013ee18b624b30.png&w=256&q=75",
-        price: "EGP 25",
+        price: 25,
         category: "drinks",
         size: '',
         topSelling: false
@@ -521,7 +521,7 @@ export const productsList = [
         title: "GREEN LEMON",
         description: "Green Lemon Can",
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fc77f8008403cc8299bf0f30f387493ce.png&w=256&q=75",
-        price: "EGP 25",
+        price: 25,
         priceInCombo: "11.4",
         category: "drinks",
         size: '',
