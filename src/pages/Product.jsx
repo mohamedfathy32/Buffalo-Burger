@@ -60,9 +60,10 @@ export default function ProductPage() {
         const newCartItem = {
             id: Date.now(),
             image: CO ? product.imageWithCombo : product.image,
-            title: `${product.title}, ${CO}`,
-            description: `${extras.length ? extras.join(', ') : ''}, ${drink}, ${bread}`,
+            title: `${product.title} ${CO}`,
+            description: `${drink} ${extras.length ? extras.join(', ') : ''} ${bread}`,
             quantity: 1,
+            price: product.price,
             totalPrice: totalPrice,
         };
 

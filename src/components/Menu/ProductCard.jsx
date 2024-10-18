@@ -34,6 +34,7 @@ export default function ProductCard({ product }) {
                 image: product.image,
                 title: product.title,
                 quantity: 1,
+                price: product.price,
                 totalPrice: product.price
             });
         }
@@ -57,14 +58,14 @@ export default function ProductCard({ product }) {
                 <h2 className="font-semibold text-lg uppercase">{product?.title}</h2>
                 <p className="text-neutral-400 capitalize line-clamp-3">{product?.description}</p>
                 <div className="flex justify-between items-center mt-auto">
-                    <span className="font-bold">{product?.price}</span>
+                    <span className="font-bold">EGP {product?.price}</span>
                     {productQuantity === 0 || product.details
                         ? <button onClick={() => {
                             product.details
                                 ? navigate(`/Product/${product.title.split(' ').join('-')}`, { state: { product } })
                                 : updateCart(1)
                         }}>
-                            <MdAddCircleOutline className="text-white bg-orange-600 rounded-full p-1 text-3xl" />
+                            <MdAddCircleOutline className="text-white bg-orange-600 rounded-full p-1 text-[32px]" />
                         </button>
                         : <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
                             <MdRemoveCircleOutline onClick={() => updateCart(-1)} className="text-2xl" />

@@ -103,7 +103,7 @@ export const productsList = [
         price: 195,
         category: "burger",
         size: ['150', '200', '250'],
-        topSelling: false
+        topSelling: true
     },
     {
         title: "DOUBLE JAB",
@@ -112,7 +112,7 @@ export const productsList = [
         price: 205,
         category: "burger",
         size: ['150', '200', '250'],
-        topSelling: false
+        topSelling: true
     },
     {
         title: "CHARVROILED BBQ",
