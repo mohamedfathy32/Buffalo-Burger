@@ -1,9 +1,9 @@
 import { FaCartShopping } from "react-icons/fa6";
 
 import { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-import { MdLanguage} from "react-icons/md";
+import { MdLanguage } from "react-icons/md";
+import OrderComponent from "./OrderComponent";
 
 export default function Header() {
     // Drawer Nav
@@ -11,9 +11,22 @@ export default function Header() {
 
     const handleClick = () => setNav(!nav);
 
+    const [isOrderOpen, setIsOrderOpen] = useState(false);
 
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('');
+
+    //Order componenet
+    const toggleOrder = () => {
+        setIsOrderOpen(!isOrderOpen);
+    };
+
+    const openOrder = () => setIsOrderOpen(true);
+    const closeOrder = () => setIsOrderOpen(false);
+
+
+
+
 
     const handleLoginOpen = () => {
         setActiveTab('login')
@@ -26,12 +39,12 @@ export default function Header() {
         setIsOpen(true);
         setNav(false);
     }
-    
+
     const closeWindows = () => {
         setIsOpen(false);
         setNav(false);
-      };
-      
+    };
+
     const handleClose = () => setIsOpen(false);
 
     useEffect(() => {
@@ -129,76 +142,76 @@ export default function Header() {
 
             {nav && <div className="fixed inset-0 bg-black opacity-50" onClick={closeWindows}></div>}
             {nav && (
-                    <div className="fixed top-0 left-0 w-64 h-full z-51 bg-stone-900 shadow-lg transition-transform">
-                        <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
-                            <div className="pr-3 top-14 text-primary-main cursor-pointer ">
-                            </div>
-                            <div className=" flex flex-row justify-between">
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex flex-col gap-1">
-                                        <p className="text-white font-bold text-lg">Login to unlock exclusive</p>
-                                        <p className="text-white text-base">Discount points and deals</p>
-                                    </div>
-                                </div>
-                                <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
-                                    <div className="text-white font-main font-bold">
-                                        <a className="p-1 undefined" href="/Loyalty">
-                                        </a>
-                                    </div>
+                <div className="fixed top-0 left-0 w-64 h-full z-51 bg-stone-900 shadow-lg transition-transform">
+                    <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
+                        <div className="pr-3 top-14 text-primary-main cursor-pointer ">
+                        </div>
+                        <div className=" flex flex-row justify-between">
+                            <div className="flex flex-col gap-2">
+                                <div className="flex flex-col gap-1">
+                                    <p className="text-white font-bold text-lg">Login to unlock exclusive</p>
+                                    <p className="text-white text-base">Discount points and deals</p>
                                 </div>
                             </div>
-                            <div className="text-white flex flex-row justify-between items-center font-bold font-main ">
-                                <div className="gap-x-1 text-white flex flex-row">
-                                <MdLanguage className="inline-block mr-2 text-2xl"  />
+                            <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
+                                <div className="text-white font-main font-bold">
+                                    <a className="p-1 undefined" href="/Loyalty">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="text-white flex flex-row justify-between items-center font-bold font-main ">
+                            <div className="gap-x-1 text-white flex flex-row">
+                                <MdLanguage className="inline-block mr-2 text-2xl" />
                                 Language</div>
-                                <div className="bg-primary-gray w-fit  rounded-lg">
-                                    <div
-                                        className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
-                                        <div className="flex flex-row justify-center items-center gap-2"><span>العربية</span><img
-                                            className="w-4 h-4 rounded-full"
-                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
-                                            alt /></div>
-                                    </div>
+                            <div className="bg-primary-gray w-fit  rounded-lg">
+                                <div
+                                    className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
+                                    <div className="flex flex-row justify-center items-center gap-2"><span>العربية</span><img
+                                        className="w-4 h-4 rounded-full"
+                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
+                                        alt /></div>
                                 </div>
                             </div>
-                            <section className="flex flex-col h-full justify-between ">
-                                <div>
-                                    <div
-                                        className="flex flex-col pb-3 border-b border-b-secondary-gray-50 !space-y-4 mb-3 ">
-                                        <div className="text-white font-main font-bold cursor-pointer" onClick={handleLoginOpen }>Login</div>
-                                        <div className="text-white font-main font-bold cursor-pointer" onClick={handleSignupOpen }>Create an account</div>
+                        </div>
+                        <section className="flex flex-col h-full justify-between ">
+                            <div>
+                                <div
+                                    className="flex flex-col pb-3 border-b border-b-secondary-gray-50 !space-y-4 mb-3 ">
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleLoginOpen}>Login</div>
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleSignupOpen}>Create an account</div>
+                                </div>
+                                <div className="flex flex-col !space-y-4  border-b pb-3 border-b-secondary-gray-50">
+                                    <div className="text-white font-main font-bold ">
+                                        <FaShoppingCart className="inline-block mr-2 text-2xl text-custom-orange" />
+                                        <a className="p-1 undefined" href="/CartDetails">Cart</a>
                                     </div>
-                                    <div className="flex flex-col !space-y-4  border-b pb-3 border-b-secondary-gray-50">
-                                        <div className="text-white font-main font-bold ">
-                                            <FaShoppingCart className="inline-block mr-2 text-2xl text-custom-orange" />
-                                            <a className="p-1 undefined" href="/CartDetails">Cart</a>
-                                        </div>
-                                        <div className="text-white font-main font-bold">
-                                            <img
+                                    <div className="text-white font-main font-bold">
+                                        <img
                                             className="w-7 inline-block mr-2"
                                             src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
-                                            <a className="p-1 undefined" href="/Loyalty">My Loyalty Points </a></div>
-                                    </div>
-                                    <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
-                                        <div className="text-white font-main font-bold">
-                                            <img 
+                                        <a className="p-1 undefined" href="/Loyalty">My Loyalty Points </a></div>
+                                </div>
+                                <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
+                                    <div className="text-white font-main font-bold">
+                                        <img
                                             className="w-7 inline-block mr-2"
                                             src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />Feedback
                                         Feedback </div>
-                                        <div className="text-white font-main font-bold"><a className="p-1 undefined"
-                                            href="tel:19914">
-                                                <img className="w-7 inline-block mr-2"
-                                                src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/call-support-icon.svg" />Call
-                                            Call Support</a>
-                                        </div>
+                                    <div className="text-white font-main font-bold"><a className="p-1 undefined"
+                                        href="tel:19914">
+                                        <img className="w-7 inline-block mr-2"
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/call-support-icon.svg" />Call
+                                        Call Support</a>
                                     </div>
                                 </div>
-                                <div className="mb-8">
-                                </div>
-                            </section>
-                        </div>
+                            </div>
+                            <div className="mb-8">
+                            </div>
+                        </section>
                     </div>
-          
+                </div>
+
 
             )}
 
@@ -206,10 +219,12 @@ export default function Header() {
 
             <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
                 <div className="hidden md:flex space-x-4">
-                    <Link to={'/AboutUs'}>About Us</Link>
-                    <Link to={'/CartDetails'}>CartDetails</Link>
-                    <Link to={'/Menu'}>Menu</Link>
-                    <Link to={'/'}>Home</Link>
+                    <button onClick={openOrder} className="p-4 bg-orange-500 text-white">
+                        Order Now
+                    </button>
+                    <OrderComponent open={isOrderOpen} close={closeOrder} />
+                    
+
                 </div>
             </div>
 
