@@ -1,8 +1,14 @@
 export const productsList = [
     //burger
     {
-        title: "shiitake mushroom",
-        description: "Sautéed mushroom, cheddar cheese, and creamy mayonnaise spread on top of our pure beef burger patty.",
+        title: {
+            en: "shiitake mushroom",
+            ar: "شيتاكي مشروم"
+        },
+        description: {
+            en: "Sautéed mushroom, cheddar cheese, and creamy mayonnaise spread on top of our pure beef burger patty.",
+            ar: "قطع المشروم السوتيه مع المايونيز الكريمي وجبنة شيدر وبرجر اللحم الصافي."
+        },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fa76de047b66f2511962b600232c60769.png&w=256&q=75",
         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F74cd2faaa22109ae867c94197aa6b5fc.png&w=96&q=75",
         price: 155,
@@ -10,13 +16,14 @@ export const productsList = [
         topSelling: true,
         details: {
             size: [
-                { title: '150gm', price: 155 },
-                { title: '200gm', price: 190 },
-                { title: '400gm', price: 280 }
+                { title: '150', price: 155 },
+                { title: '200', price: 190 },
+                { title: '400', price: 280 }
             ],
             bread: [
-                { title: 'white', price: 0 },
-                { title: 'brown', price: 5 }
+                { title: { en: 'white', ar: 'عيش ابيض' }, price: 0 },
+                { title: { en: 'brown', ar: 'عيش بني' }, price: 5 },
+                { title: { en: 'lettuce bun', ar: 'خبز الخس' }, price: 30 }
             ],
             comboOptions: true,
             drinks: true,
@@ -598,66 +605,66 @@ export const menuCategoriesList = [
 
 export const comboOptionsList = [
     {
-        title: "",
+        title: { en: "no combo", ar: "لا اضافة" },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fa76de047b66f2511962b600232c60769.png&w=256&q=75",
-        description: "Choose sandwich only",
+        description: { en: "Choose sandwich only", ar: "ساندوش فقط" },
         price: 0
     },
     {
-        title: "onion rings combo",
+        title: { en: "onion rings combo", ar: "حلقات البصل المقرمشة" },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F00ce021cd267db0707e68103dbfc6b77.png&w=96&q=75",
-        description: "Onion Rings, soft drink, and a dipping sauce",
+        description: { en: "Onion Rings, soft drink, and a dipping sauce", ar: "حلقات البصل المقرمشة مع مشروب غازي و صوص" },
         price: 75
     },
     {
-        title: "cheesy fries combo (french fries)",
+        title: { en: "cheesy fries combo (french fries)", ar: "(تشيزي فرايز كومبو(فريتش فرايز" },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F5378f829aaa33e7f689eb32eaddf285c.png&w=96&q=75",
-        description: "Cheesy French Fries, soft drink and a dipping sauce",
+        description: { en: "Cheesy French Fries, soft drink and a dipping sauce", ar: "تشيزي فرينش فرايز مع مشروب غازي و صوص" },
         price: 95
     },
     {
-        title: "blanco fries combo (rench fries)",
+        title: { en: "blanco fries combo (rench fries)", ar: "(بلانكو فرايز كومبو (فريتش فرايز" },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fa4b4412f6682497273f06448c0797012.png&w=96&q=75",
-        description: "Blanco French Fries, soft drink, and a dipping sauce",
+        description: { en: "Blanco French Fries, soft drink, and a dipping sauce", ar: "بلانكو فرينش فرايز مع مشروب غازي و صوص" },
         price: 80
     },
     {
-        title: "french fries combo",
+        title: { en: "french fries combo", ar: "كومبو فرينش فرايز" },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F58e25ac9017639ca108175c1712b7ae3.png&w=96&q=75",
-        description: "French Fries, Soft Drink, and a Dipping Sauce",
+        description: { en: "French Fries, Soft Drink, and a Dipping Sauce", ar: "فرينش فرايز مع مشروب غازي و صوص" },
         price: 55
     },
     {
-        title: "diablo fries combo",
+        title: { en: "diablo fries combo", ar: "ديابلو فرايز" },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fbb98f47136cd01807094ec287b20d23f.png&w=96&q=75",
-        description: "Diablo fries, Soft Drink, and a dipping sauce",
+        description: { en: "Diablo fries, Soft Drink, and a dipping sauce", ar: "ديابلو فرايز مع مشروب غازي و صوص" },
         price: 70
     },
 ]
 
 export const extrasList = [
     {
-        title: "jalapeño",
+        title: { en: "jalapeño", ar: "هالپينيو" },
         price: 10
     },
     {
-        title: "beef bacon",
+        title: { en: "beef bacon", ar: "بيكون بقري" },
         price: 60
     },
     {
-        title: "sautéed mushroom",
+        title: { en: "sautéed mushroom", ar: "مشروم سوتية" },
         price: 25
     },
     {
-        title: "chedder cheese",
+        title: { en: "chedder cheese", ar: "جبنة شيدر" },
         price: 15
     },
     {
-        title: "salad cup",
+        title: { en: "salad cup", ar: "علبة سلطة" },
         price: 5
     },
     {
-        title: "pickles",
+        title: { en: "pickles", ar: "مخلل" },
         price: 5
     },
 
@@ -665,23 +672,23 @@ export const extrasList = [
 
 export const drinksList = [
     {
-        title: "orange juice",
+        title: { en: "orange juice", ar: "عصير برتقال" },
         price: 10
     },
     {
-        title: "pure apple juice",
+        title: { en: "pure apple juice", ar: "عصير تفاح بيور" },
         price: 6
     },
     {
-        title: "big cola",
+        title: { en: "big cola", ar: "بيج كولا" },
         price: 0
     },
     {
-        title: "green cola",
+        title: { en: "green cola", ar: "جرين كولا" },
         price: 11.4
     },
     {
-        title: "green lemon",
+        title: { en: "green lemon", ar: "جرين ليمون" },
         price: 11.4
     }
 ]

@@ -55,7 +55,7 @@ export default function Header() {
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
         setCart(storedCart);
-    }, [cart]);
+    }, []);
 
     useEffect(() => {
         const userId = localStorage.getItem("userId");
