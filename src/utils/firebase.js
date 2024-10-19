@@ -103,13 +103,12 @@ export async function getUserInfoById(userId) {
 //////////////
 // function udpate user profile
 
-export async function updateUserProfile(userId, newUsername, newEmail) {
+export async function updateUserProfile(userId, newUsername) {
   try {
     const userDocRef = doc(db, "users", userId);
 
     await updateDoc(userDocRef, {
       username: newUsername,
-      email: newEmail,
     });
 
     console.log("User profile updated successfully in Firestore!");

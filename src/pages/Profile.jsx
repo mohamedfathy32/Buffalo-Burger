@@ -35,7 +35,7 @@ export default function ProfilePage() {
 
         // After saving, reset isChanged to false
         setIsChanged(false);
-        updateUserProfile(userId, formData.fullName, formData.email);
+        updateUserProfile(userId, formData.fullName);
         alert("Saved changes");
     };
 
