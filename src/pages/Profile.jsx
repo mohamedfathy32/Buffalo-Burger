@@ -35,7 +35,8 @@ export default function ProfilePage() {
 
         // After saving, reset isChanged to false
         setIsChanged(false);
-        updateUserProfile(userId, formData.fullName,formData.email);
+        updateUserProfile(userId, formData.fullName, formData.email);
+        alert("Saved changes");
     };
 
     useEffect(() => {
@@ -127,7 +128,6 @@ export default function ProfilePage() {
                                                         type="email"
                                                         name="email"
                                                         value={formData.email}
-                                                        onChange={handleInputChange}
                                                         autoComplete="off"
                                                         required
                                                         className="bg-white focus:border-transparent focus:bg-[#ffefe6] disabled:cursor-not-allowed disabled:bg-[#CCCCCC] disabled:text-black rounded-[10px] py-3 px-2 w-full ring-0"
