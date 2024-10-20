@@ -93,6 +93,7 @@ export async function getUserInfoById(userId) {
     return {
       username: data.username,
       email: data.email,
+      phoneNumber: data.phone,
     };
   } else {
     console.log("No such document!");

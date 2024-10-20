@@ -6,9 +6,10 @@ import { getUserInfoById, updateUserProfile } from "../utils/firebase";
 export default function ProfilePage() {
     const [username, setUsername] = useState('');
     const [useremail, setUseremail] = useState('');
+    const [userphone, setUserphone] = useState('');
     const [formData, setFormData] = useState({
         fullName: username,
-        phoneNumber: "01094976357",
+        phoneNumber: userphone,
         email: useremail,
     });
     const [isChanged, setIsChanged] = useState(false);
@@ -23,7 +24,7 @@ export default function ProfilePage() {
 
         // Check if the form data has been changed
         setIsChanged(
-            value !== (name === "fullName" ? username : name === "phoneNumber" ? "01094976357" : useremail)
+            value !== (name === "fullName" ? username : name === "phoneNumber" ? userphone : useremail)
         );
     };
 
@@ -46,9 +47,10 @@ export default function ProfilePage() {
                 if (userInfo) {
                     setUsername(userInfo.username);
                     setUseremail(userInfo.email);
+                    setUserphone(userInfo.phoneNumber);
                     setFormData({
                         fullName: userInfo.username,
-                        phoneNumber: userInfo.phoneNumber || "01094976357",
+                        phoneNumber: userInfo.phoneNumber || "010",
                         email: userInfo.email,
                     });
                 }

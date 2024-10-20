@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 export default function SignupModal({ onClose, onSignupSuccess }) {
     const [username, setUsername] = useState(""); // State for username
     const [email, setEmail] = useState(""); // State for email
+    const [phone, setPhone] = useState(""); // State for email
     const [password, setPassword] = useState(""); // State for password
     const [showPassword, setShowPassword] = useState(false);
 
@@ -16,7 +17,7 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
     // Function to validate user inputs
     const validateInputs = () => {
         let isValid = true; // Flag to check overall validity
-        const newError = { username: "", email: "", password: "" }; // Reset error messages
+        const newError = { username: "", phone: "",email: "", password: "" }; // Reset error messages
 
         if (!username) {
             newError.username = "Username is required"; // Check if username is provided
@@ -25,7 +26,13 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
             newError.username = "Username must be at least 3 characters long and contain only letters, numbers, and spaces ";
             isValid = false;
         }
-
+        if (!phone) {
+            newError.phone = "phone is required"; // Check if phone is provided
+            isValid = false;
+        } else if (!/^(01)(0|1|2)[0-9]{8}$/.test(phone)) { // Check phone format
+            newError.phone = "please enter a valid phone number";
+            isValid = false;
+        }
         if (!email) {
             newError.email = "Email is required"; // Check if email is provided
             isValid = false;
@@ -54,7 +61,8 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
                 if (res.uid) {
                     await setDoc(doc(db, "users", res.uid), {
                         email: email,
-                        username: username 
+                        username: username,
+                        phone: phone
                     });
                     localStorage.setItem("userId", res.uid);
                     onSignupSuccess();
@@ -78,6 +86,19 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
                 onChange={(e) => setUsername(e.target.value)} // Update username state on change
             />
             {error.username && <div className="text-red-500 text-sm mb-3">{error.username}</div>} {/* Display username error message */}
+
+
+            <label className="block text-gray-700 text-sm font-bold mb-2">Phone number</label>
+            <input
+                type="text"
+                placeholder="Enter your Phone"
+                className={`text-black border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none
+                     ${error.phone ? 'border-red-500 bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'}`}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)} // Update phone state on change
+            />
+            {error.phone && <div className="text-red-500 text-sm mb-3">{error.phone}</div>} {/* Display email error message */}
+
 
             <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
             <input

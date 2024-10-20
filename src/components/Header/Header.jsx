@@ -16,6 +16,8 @@ export default function Header() {
     const { isLoggedIn, setIsLoggedIn } = useContext(logedContext);
     const [username, setUsername] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
+    const [cart, setCart] = useState([])
+
     function closeWindows() { setNav(false) }
 
     const handleClick = () => setNav(!nav);
@@ -51,6 +53,16 @@ export default function Header() {
             setIsLoggedIn(false);
         }
     }
+
+
+    useEffect(() => {
+        const addToCart = () => {
+            const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+            setCart(storedCart);
+        }
+        addToCart()
+    }, []);
+
 
 
     useEffect(() => {
@@ -116,7 +128,7 @@ export default function Header() {
                         Cart
                     </Link>
                     <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
-                        0
+                        {cart.length}
                     </div>
                 </div>
 
