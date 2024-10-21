@@ -662,35 +662,165 @@ export const drinksList = [
 ]
 
 export const offersList = [
-    {
-        title: "4 in the box",
-        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fe71df04a4ffdedd9f80e9abb339da238.png&w=256&q=75",
-        dexcriop: "4 200gm sandwiches with 4 hero fries and your choice of 4 drinks."
+  {
+    title: "Buff One",
+    images: {
+      swiperWeb:
+        "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/c65d20d5c77eb0b08dcb3d2639fd13d1.png",
+      swiperMobile:
+        "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/e66d5a6bf26725009930c11643a762db.png",
+      keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fffaf41774acf69dbf5495e170f3e6347.png&w=640&q=75",
+      details:
+        "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fb645ddd7acf4b9a0cb96aaebd9824b97.png&w=256&q=75",
     },
+    description: "Your choice of a 150gm sandwich with French Fries",
+    price: 105,
 
-]
+    tab: [
+      {
+        title: "choice",
+        details: {
+          titleL: "Extras",
+          description: "Apple Pie (EGP 20.00)",
+          price: 20,
+        },
+      },
+      {
+        title: "fries",
+        details: {
+          friseSmail: true,
+          friesLarge: true,
+          quantity: 1,
+        },
+      },
+    ],
+  },
 
-export const topSellingList = [
-    'shiitake mushroom',
-    'bacon mashroom jack',
-    'chicken buster',
-    'apple pie',
-    'chicken fries'
-]
-
-export const breadList = [
-
-    {
-        title: { en: 'white', ar: 'عيش ابيض' },
-        price: 0
+  {
+    title: "Buff Two",
+    images: {
+      swiperWeb:
+        "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/a70b771aa3afd58d2b04cb6b348c26b6.png",
+      swiperMobile:
+        "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/85be0753aafcd1d7aacaabd15c6cc61b.png",
+      keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F2a193572c206bd7113450bccbdbadd83.png&w=640&q=75",
+      details:
+        "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F128404621aefddb18dfb39461e4bc1fe.png&w=256&q=75",
     },
-    {
-        title: { en: 'brown', ar: 'عيش بني' },
-        price: 5
-    },
-    {
-        title: { en: 'lettuce bun', ar: 'خبز الخس' },
-        price: 30
-    }
+    description:
+      "Your choice of a 150gm sandwich with regular chicken sandwich, French fries and a Soft Drink",
+    price: 105,
+    tab: [
+      { title: "choice" },
+      {
+        title: "fries",
+        details: {
+          friseSmail: true,
+          friesLarge: true,
+          quantity: 1,
+        },
+      },
+      {
+        title: "drink",
+        details: {
+          quantity: 1,
+          drink: [
+            { title: "Big cola", price: 0 },
+            { title: "Pure Apple Juice (EGP 6.00)", price: 6 },
+          ],
+        },
+      },
+      { title: "extraItem" },
+    ],
+  },
 
-]
+  {
+    title: "4 in the box",
+    images: {
+      swiperWeb:
+        "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/20f582541433e4713c3743e382a9b4f9.png",
+      swiperMobile:
+        "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/f7f4d68734f3e45afe055da6a25fa33b.png",
+      keen: "http://localhost:5173/images/keen/keen-slider12.webp",
+      details:
+        "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fe71df04a4ffdedd9f80e9abb339da238.png&w=256&q=75",
+    },
+    description:
+      "4 200gm sandwiches with 4 hero fries and your choice of 4 drinks.",
+    price: 699,
+    tab: [
+      { title: "choice1" },
+      { title: "choice2" },
+      { title: "choice3" },
+      { title: "choice4" },
+      {
+        title: "fries",
+        details: {
+          friseSmail: true,
+          friesLarge: false,
+          quantity: 4,
+        },
+      },
+      {
+        title: "drinks",
+        details: {
+          quantity: 4,
+          drink: [
+            { title: "Big cola", price: 0 },
+            { title: "Pure Apple Juice (EGP 6.00)", price: 6 },
+            { title: "Orange Juice (EGP 10.00)", price: 10 },
+          ],
+        },
+      },
+    ],
+  },
+
+  {
+    title: "Agmad 3",
+    images: {
+      swiperWeb:
+        "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/a1974b69b81f2fca482f886fab76948a.png",
+      swiperMobile:
+        "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/ad67aac59f375f0b1be848ef61f2ae51.png",
+      keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F8288ee9df2e386a185aa76e6f8cee25b.png&w=640&q=75",
+      details:
+        "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Ffe22c8d92581c5639cd057fa7080bc7e.png&w=256&q=75",
+    },
+    description: "3 200gm sandwiches with 3 hero fries & 3 drinks.",
+    price: 470,
+
+    tab: [
+      { title: "choice1" },
+      { title: "choice2" },
+      { title: "choice3" },
+      {
+        title: "fries",
+        details: {
+          friseSmail: true,
+          friesLarge: false,
+          quantity: 3,
+        },
+      },
+      {
+        title: "drinks",
+        details: {
+          quantity: 3,
+          drink: [
+            { title: "Big cola", price: 0 },
+            { title: "Pure Apple Juice (EGP 6.00)", price: 6 },
+            { title: "Orange Juice (EGP 10.00)", price: 10 },
+          ],
+        },
+      },
+    ],
+  },
+];
+
+export const productOffers = [
+  "shiitake mushroom",
+  "Keto Lettuce Wrap",
+  "ANIMAL STYLE",
+  "Old School",
+  "Cholo's Chicken",
+  "Chicken Buster",
+];

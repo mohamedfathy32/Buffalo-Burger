@@ -1,11 +1,12 @@
 import { FaCartShopping } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdLanguage } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getUsernameById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
+import { logedContext } from "../../isLoged";
 import { useTranslation } from "react-i18next";
 
 export default function Header() {
@@ -13,19 +14,19 @@ export default function Header() {
     const [nav, setNav] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { isLoggedIn, setIsLoggedIn } = useContext(logedContext);
     const [username, setUsername] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
     const [cart, setCart] = useState([])
 
+
     const { t, i18n } = useTranslation()
 
-    function closeWindows() { }
+    function closeWindows() { setNav(false) }
     const handleClick = () => setNav(!nav);
     const handleLoginOpen = () => {
         setActiveTab('login');
         setIsOpen(true);
-        // to Close Drawer
         setNav(false);
     }
     const handleSignupOpen = () => {
@@ -55,10 +56,17 @@ export default function Header() {
             setIsLoggedIn(false);
         }
     }
+
+
     useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCart(storedCart);
+        const addToCart = () => {
+            const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+            setCart(storedCart);
+        }
+        addToCart()
     }, []);
+
+
 
     useEffect(() => {
         const userId = localStorage.getItem("userId");
@@ -83,6 +91,7 @@ export default function Header() {
         const handleEsc = (event) => {
             if (event.key === "Escape") {
                 setIsOpen(false);
+                setNav(false)
             }
         };
 
@@ -151,26 +160,26 @@ export default function Header() {
                                 </span>
                             </div>
                             {isOpenDrop && ( // Conditionally render the dropdown based on isOpen state
-                                <ul className="min-w-max absolute bg-stone-900 text-base z-[51] py-2 px-2 w-full list-none text-left rounded-lg mt-1">
+                                <ul className="min-w-max absolute bg-stone-900 text-base z-[51] py-2 ps-2 w-full list-none text-left rounded-lg mt-1">
                                     <li>
-                                        <a className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-primary-main border-b-[1px] text-white hover:text-primary-main" href="/profile">
+                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile">
                                             My account
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-primary-main border-b-[1px] text-white hover:text-primary-main" href="/orders">
+                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/orders">
                                             Order history
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-primary-main border-b-[1px] text-white hover:text-primary-main" href="/profile#addresses">
+                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile#addresses">
                                             Saved addresses
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
                                         <span
-                                            className="text-base border-b-white hover:border-b-primary-main border-b-[1px] text-white hover:text-primary-main py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
-                                            onClick={handleLogout} // Handle logout click
+                                            className="text-base border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600 py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
+                                            onClick={handleLogout}
                                         >
                                             Logout
                                         </span>
@@ -203,7 +212,7 @@ export default function Header() {
 
             {nav && <div className="fixed inset-0 bg-black opacity-50" onClick={closeWindows}></div>}
             {nav && (
-                <div className="fixed top-0 left-0 w-64 h-full z-51 bg-stone-900 shadow-lg transition-transform">
+                <div className="fixed top-0 left-0 w-64 h-full z-51 bg-stone-900 shadow-lg transition duration-1000">
                     <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
                         <div className="pr-3 top-14 text-primary-main cursor-pointer ">
                         </div>
