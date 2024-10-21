@@ -6,7 +6,8 @@ import { getUsernameById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
-import { logedContext } from "../../isLoged";
+import { useTranslation } from "react-i18next";
+import { CartContext, logedContext } from "../../utils/context";
 
 export default function Header() {
     // Drawer Nav
@@ -16,10 +17,13 @@ export default function Header() {
     const { isLoggedIn, setIsLoggedIn } = useContext(logedContext);
     const [username, setUsername] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
-    const [cart, setCart] = useState([])
+    // const [cart, setCart] = useState([])
+
+    const { cartCounter, setCartCounter } = useContext(CartContext)
+
+    const { t, i18n } = useTranslation()
 
     function closeWindows() { setNav(false) }
-
     const handleClick = () => setNav(!nav);
     const handleLoginOpen = () => {
         setActiveTab('login');
@@ -56,11 +60,9 @@ export default function Header() {
 
 
     useEffect(() => {
-        const addToCart = () => {
-            const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-            setCart(storedCart);
-        }
-        addToCart()
+        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        setCartCounter(storedCart.length);
+
     }, []);
 
 
@@ -105,14 +107,15 @@ export default function Header() {
         setIsLoggedIn(false);
         setIsOpenDrop(false); // Reset dropdown state when user logs out
     };
+    console.log(i18n.language)
 
     return (
         <>
             <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white">
                 <div className="hidden md:flex items-center gap-4">
                     <div className="flex items-center cursor-pointer border-none rounded-lg">
-                        <div className="flex items-center gap-2">
-                            <span className="font-main">العربية</span>
+                        <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex items-center gap-2">
+                            <span className="font-main">{t('languageButton')}</span>
                             <img className="w-4 h-4 rounded-full"
                                 src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
                                 alt="Arabic language" />
@@ -128,7 +131,7 @@ export default function Header() {
                         Cart
                     </Link>
                     <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
-                        {cart.length}
+                        {cartCounter}
                     </div>
                 </div>
 

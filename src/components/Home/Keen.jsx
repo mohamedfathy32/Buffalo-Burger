@@ -1,10 +1,11 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { offersList } from "../../utils/data";
 
 export default function KeenSlider() {
+    const { pathname } = useLocation()
     const [slidesPerView, setSlidesPerView] = useState(4); // عدد الصور الافتراضي
     const [sliderRef] = useKeenSlider({
         loop: true,
@@ -42,7 +43,7 @@ export default function KeenSlider() {
         <>
             <section className="mx-3 mt-3">
                 <div>
-                    <h3 className="text-xl h-fit font-bold uppercase text-orange-600 ">Hot offers</h3>
+                    {pathname.includes('Menu') ? '' : <h3 className="text-xl h-fit font-bold uppercase text-orange-600 ">Hot offers</h3>}
                 </div>
                 <div>
 
