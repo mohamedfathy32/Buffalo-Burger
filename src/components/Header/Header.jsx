@@ -6,6 +6,7 @@ import { getUsernameById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
     // Drawer Nav
@@ -16,8 +17,10 @@ export default function Header() {
     const [username, setUsername] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
     const [cart, setCart] = useState([])
-    function closeWindows() { }
 
+    const { t, i18n } = useTranslation()
+
+    function closeWindows() { }
     const handleClick = () => setNav(!nav);
     const handleLoginOpen = () => {
         setActiveTab('login');
@@ -96,14 +99,15 @@ export default function Header() {
         setIsLoggedIn(false);
         setIsOpenDrop(false); // Reset dropdown state when user logs out
     };
+    console.log(i18n.language)
 
     return (
         <>
             <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white">
                 <div className="hidden md:flex items-center gap-4">
                     <div className="flex items-center cursor-pointer border-none rounded-lg">
-                        <div className="flex items-center gap-2">
-                            <span className="font-main">العربية</span>
+                        <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex items-center gap-2">
+                            <span className="font-main">{t('languageButton')}</span>
                             <img className="w-4 h-4 rounded-full"
                                 src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
                                 alt="Arabic language" />
