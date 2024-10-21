@@ -6,8 +6,8 @@ import { getUsernameById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
-import { logedContext } from "../../isLoged";
 import { useTranslation } from "react-i18next";
+import { CartContext, logedContext } from "../../utils/context";
 
 export default function Header() {
     // Drawer Nav
@@ -17,8 +17,9 @@ export default function Header() {
     const { isLoggedIn, setIsLoggedIn } = useContext(logedContext);
     const [username, setUsername] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
-    const [cart, setCart] = useState([])
+    // const [cart, setCart] = useState([])
 
+    const { cartCounter, setCartCounter } = useContext(CartContext)
 
     const { t, i18n } = useTranslation()
 
@@ -59,11 +60,9 @@ export default function Header() {
 
 
     useEffect(() => {
-        const addToCart = () => {
-            const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-            setCart(storedCart);
-        }
-        addToCart()
+        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        setCartCounter(storedCart.length);
+
     }, []);
 
 
@@ -132,7 +131,7 @@ export default function Header() {
                         Cart
                     </Link>
                     <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
-                        {cart.length}
+                        {cartCounter}
                     </div>
                 </div>
 

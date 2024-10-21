@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdShoppingCart } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { extrasList, comboOptionsList, breadList } from "../utils/data";
@@ -8,8 +8,11 @@ import ComboOption from "../components/Product/ComboOption";
 import Drink from "../components/Product/Drink";
 import Extras from "../components/Product/Extras";
 import { useTranslation } from "react-i18next";
+import { CartContext } from "../utils/context";
 
 export default function ProductPage() {
+    const { setCartCounter } = useContext(CartContext)
+
     const { t, i18n } = useTranslation()
 
     const navigate = useNavigate()
@@ -26,7 +29,6 @@ export default function ProductPage() {
         const savedOrder = localStorage.getItem('order');
         return savedOrder ? JSON.parse(savedOrder) : {};
     });
-
     useEffect(() => {
         const calculateTotalPrice = () => {
             const selectedSize = product?.details.size.find(s => s.title === size);
@@ -41,9 +43,7 @@ export default function ProductPage() {
 
             return (selectedSize?.price || 0) + (selectedBread?.price || 0) + comboPrice + extrasTotal;
         };
-
         setTotalPrice(calculateTotalPrice());
-
         const newOrder = {
             product: product?.title.en,
             size,
@@ -56,10 +56,8 @@ export default function ProductPage() {
         setOrder(newOrder);
         localStorage.setItem('order', JSON.stringify(newOrder));
     }, [size, bread, CO, drink, extras, product]);
-
     const addToCart = () => {
         const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-
         const newCartItem = {
             id: Date.now(),
             image: CO ? product.imageWithCombo : product.image,
@@ -74,8 +72,8 @@ export default function ProductPage() {
         localStorage.setItem('cart', JSON.stringify(existingCart));
         localStorage.removeItem('order');
         navigate('/Cart');
+        setCartCounter(existingCart.length)
     };
-
     return (
         <>
             <div dir={i18n.language === 'en' ? 'ltr' : 'rtl'}>
@@ -86,7 +84,6 @@ export default function ProductPage() {
                         <p className="text-white max-w-[500px]">{i18n.language === 'en' ? product.description.en : product.description.ar}</p>
                     </div>
                 </section>
-
                 <Size selectedSize={size} onSizeChange={setSize} />
                 <Bread selectedBread={bread} onBreadChange={setBread} />
                 <ComboOption selectedComboOption={CO} onComobOptionChange={setCO} />

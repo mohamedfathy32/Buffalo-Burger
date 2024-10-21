@@ -16,7 +16,7 @@ export default function CartPage() {
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(savedCart);
-    }, [cart]);
+    }, []);
 
     const handleQuantity = (id, change) => {
         const updatedCart = cart.map(item => item.id === id
