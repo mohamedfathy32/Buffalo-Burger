@@ -3,11 +3,13 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUserInfoById, updateUserProfile } from "../utils/firebase";
 import { logedContext } from "../utils/context";
+import { useTranslation } from "react-i18next";
 
 export default function ProfilePage() {
     const [username, setUsername] = useState('');
     const [useremail, setUseremail] = useState('');
     const [userphone, setUserphone] = useState('');
+    const { t } = useTranslation()
     const [formData, setFormData] = useState({
         fullName: username,
         phoneNumber: userphone,
@@ -75,30 +77,30 @@ export default function ProfilePage() {
             <div className="w-full flex justify-center px-2 md:px-10 pt-7 pb-2">
                 <div className="w-full flex flex-col md:w-3/5">
                     <div className="flex bg-black rounded-t-md p-3">
-                        <h1 className="PSS text-white tracking-wider uppercase text-5xl">Account</h1>
+                        <h1 className="PSS text-white tracking-wider uppercase text-5xl">{t("Account")}</h1>
                     </div>
                     <div className="w-full flex flex-col p-1 md:p-4">
                         <div className="flex w-full flex-col md:flex-row">
                             <div className="flex flex-row md:justify-start justify-center items-start px-2 gap-x-4 md:flex-col border-[1px] border-[#f2f2f2] bg-transparent text-center w-full md:w-[30%] pt-5">
                                 <p className=" text-base pl-2 cursor-pointer font-bold text-[#1c1c1b] uppercase border-[#ff5f00] border-b-2 md:border-l-2 md:border-b-0">
-                                    Profile details
+                                    {t("Profile details")}
                                 </p>
                                 <p className=" text-base pl-2 cursor-pointer font-bold text-[#1c1c1b] uppercase">
-                                    Address book
+                                    {t("Address book")}
                                 </p>
                                 <p className=" text-base pl-2 cursor-pointer font-bold text-[#1c1c1b] uppercase">
-                                    Change password
+                                    {t("Change password")}
                                 </p>
                             </div>
                             <section className="w-full bg-transparent h-full">
                                 <div className="flex flex-col h-full mx-auto py-8 px-8">
                                     <p className=" text-2xl hidden md:block font-bold text-[#1c1c1b]">
-                                        Profile details
+                                        {t("Profile details")}
                                     </p>
                                     <div className="flex flex-col gap-4 w-full">
                                         <form onSubmit={handleSubmit}>
                                             <div className="flex flex-col">
-                                                <p className="text-base pb-2 text-[#000]">Full name</p>
+                                                <p className="text-base pb-2 text-[#000]">{t("Full name")}</p>
                                                 <div className="flex flex-col">
                                                     <input
                                                         type="text"
@@ -112,7 +114,7 @@ export default function ProfilePage() {
                                                 </div>
                                             </div>
                                             <div className="flex flex-col">
-                                                <p className="text-base pb-2 text-[#000]">Phone number</p>
+                                                <p className="text-base pb-2 text-[#000]">{t("Phone number")}</p>
                                                 <div className="flex flex-col">
                                                     <input
                                                         type="text"
@@ -125,7 +127,7 @@ export default function ProfilePage() {
                                                 </div>
                                             </div>
                                             <div className="flex flex-col">
-                                                <p className="text-base pb-2 text-[#000]">E-mail</p>
+                                                <p className="text-base pb-2 text-[#000]">{t("E-mail")}</p>
                                                 <div className="flex flex-col">
                                                     <input
                                                         type="email"
@@ -143,7 +145,7 @@ export default function ProfilePage() {
                                                     disabled={!isChanged} // Enable button only if the data has been changed
                                                     className="bg-[#ff5f00] text-white h-9 px-4 font-main text-lg rounded-[10px] disabled:bg-[#ffcfb3]"
                                                 >
-                                                    Save changes
+                                                    {t("Save changes")}
                                                 </button>
                                             </div>
                                         </form>

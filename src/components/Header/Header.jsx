@@ -3,6 +3,7 @@ import { MdShoppingBasket } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdLoyalty } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
+import { MdLogout } from "react-icons/md";
 import { useContext, useEffect, useState } from "react";
 import { getUserInfoById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
@@ -48,11 +49,12 @@ export default function Header() {
         const userId = localStorage.getItem("userId");
 
         if (userId) {
-            setIsLoggedIn(true);
             const userInfo = await getUserInfoById(userId);
             if (userInfo) {
                 setUsername(userInfo.username);
+                console.log(userInfo.username)
                 setUserphone(userInfo.phoneNumber);
+                setIsLoggedIn(true);
             }
         } else {
             setIsLoggedIn(false);
@@ -75,8 +77,12 @@ export default function Header() {
                 const userInfo = await getUserInfoById(userId);
                 if (userInfo) {
                     setUsername(userInfo.username);
+                    console.log(userInfo.username)
                     setUserphone(userInfo.phoneNumber);
+                    setIsLoggedIn(true);
                 }
+            } else {
+                setIsLoggedIn(false)
             }
         };
 
@@ -105,7 +111,7 @@ export default function Header() {
         setIsLoggedIn(false);
         setIsOpenDrop(false); // Reset dropdown state when user logs out
     };
-    console.log(i18n.language)
+
 
     return (
         <>
@@ -219,7 +225,7 @@ export default function Header() {
 
             {nav && <div className="fixed inset-0 bg-black opacity-50" onClick={closeWindows}></div>}
             {nav && (
-                <div className="fixed top-0 start-0 w-64 h-full z-51 bg-stone-900 shadow-lg transition duration-1000">
+                <div className="fixed top-0 start-0 w-64 h-full z-51 bg-[#1c1c1b] shadow-lg transition duration-1000">
                     <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
                         <div className="pr-3 top-14 text-primary-main cursor-pointer ">
                         </div>
@@ -227,11 +233,11 @@ export default function Header() {
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-1">
                                     <p className="text-white font-bold text-lg">
-                                        {isLoggedIn ? `${t("Hello")}, ${username}` : 'Login to unlock exclusive'}
+                                        {isLoggedIn ? `${t("Hello")}, ${username}` : `${t("Login to unlock exclusive")}`}
 
                                     </p>
-                                    <p className="text-white text-base">
-                                        {isLoggedIn ? `${userphone}` : 'Discount points and deals'}
+                                    <p className="text-white text-base font-bold">
+                                        {isLoggedIn ? `${userphone}` : `${t("Discount points and deals")}`}
                                     </p>
                                 </div>
                             </div>
@@ -278,7 +284,7 @@ export default function Header() {
                                             <img
                                                 className="w-7 inline-block mr-2"
                                                 src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/my-orders-icon.svg" />
-                                            <Link className="p-1 undefined" to="/Loyalty">{t("Order history")}
+                                            <Link className="p-1 undefined" to="/OrderHistory">{t("Order history")}
 
                                             </Link>
                                         </div>
@@ -286,14 +292,14 @@ export default function Header() {
                                             <img
                                                 className="w-7 inline-block mr-2"
                                                 src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/saved-address-icon.svg" />
-                                            <Link className="p-1 undefined" to="/Loyalty">{t("Saved addresses")}
+                                            <Link className="p-1 undefined" to="/Profile">{t("Saved addresses")}
 
                                             </Link>
                                         </div>
                                         <div className="text-white font-main font-bold">
                                             <IoSettingsSharp className="inline-block mr-2 text-2xl text-[#ff5f00]" />
 
-                                            <Link className="p-1 undefined" to="/Loyalty">{t("My account")}
+                                            <Link className="p-1 undefined" to="/Profile">{t("My account")}
 
                                             </Link>
                                         </div>
@@ -328,8 +334,14 @@ export default function Header() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mb-8">
-                            </div>
+                            {isLoggedIn == false ?'':
+
+                                <div className="mb-8">
+                                    <div onClick={handleLogout} className="flex justify-between text-white font-main font-bold">
+                                        <div>{t("Logout")}</div>
+                                        <MdLogout className="text-2xl" />
+                                    </div>
+                                </div> }
                         </section>
                     </div>
                 </div>
@@ -340,11 +352,11 @@ export default function Header() {
             {/* Seconed Header Delivery Address */}
 
             <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
-                <div className="hidden md:flex space-x-4">
-                    <Link to={'/About'}>About Us</Link>
-                    <Link to={'/Cart'}>CartDetails</Link>
-                    <Link to={'/Menu'}>Menu</Link>
-                    <Link to={'/'}>Home</Link>
+                <div className="hidden md:flex">
+                    <Link className="me-4 hover:text-orange-600" to={'/About'}>About Us</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/Cart'}>CartDetails</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/Menu'}>Menu</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/'}>Home</Link>
                 </div>
             </div>
 
