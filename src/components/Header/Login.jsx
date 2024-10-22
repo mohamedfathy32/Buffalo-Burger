@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import ResetPassModal from "./ResetPass";
 import { login } from "../../utils/firebase";
 import { useTranslation } from "react-i18next";
+
 export default function LoginModal({ onClose, onLoginSuccess }) {
     const [email, setEmail] = useState(""); // State for storing the email
     const [password, setPassword] = useState(""); // State for storing the password
