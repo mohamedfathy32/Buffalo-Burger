@@ -9,8 +9,8 @@ import { getUserInfoById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
-import { useTranslation } from "react-i18next";
 import { CartContext, logedContext } from "../../utils/context";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
     // Drawer Nav
@@ -219,135 +219,134 @@ export default function Header() {
                         <span className="block bg-[#ff5f00] w-6 h-[3px] rounded"></span>
                     </button>
                 </div>
+                <div className="block md:hidden absolute right-6" onClick={handleClick}>
+                    <button className="bottom-0 bg-orange-500 text-white flex justify-center items-center rounded-full relative">
+                        <MdShoppingBasket className="text-4xl p-2" />
+                    </button>
+                </div>
             </nav>
 
             {/* Drawer Section  */}
 
-            {nav && <div className="fixed inset-0 bg-black opacity-50" onClick={closeWindows}></div>}
-            {nav && (
-                <div className="fixed top-0 start-0 w-64 h-full z-51 bg-[#1c1c1b] shadow-lg transition duration-1000">
-                    <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
-                        <div className="pr-3 top-14 text-primary-main cursor-pointer ">
+            {nav && <div className="fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ease-in-out" onClick={closeWindows}></div>}
+            <div className={`fixed top-0 start-0 w-64 h-full z-50 bg-[#1c1c1b] shadow-lg transition-transform duration-500 ease-in-out transform ${nav ? 'translate-x-0' : i18n.language == 'ar' ? 'translate-x-full' : '-translate-x-full'}`}>
+                <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
+                    <div className="pr-3 top-14 text-primary-main cursor-pointer "></div>
+                    <div className=" flex flex-row justify-between">
+                        <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-1">
+                                <p className="text-white font-bold text-lg">
+                                    {isLoggedIn ? `${t("Hello")}, ${username}` : `${t("Login to unlock exclusive")}`}
+                                </p>
+                                <p className="text-white text-base font-bold">
+                                    {isLoggedIn ? `${userphone}` : `${t("Discount points and deals")}`}
+                                </p>
+                            </div>
                         </div>
-                        <div className=" flex flex-row justify-between">
-                            <div className="flex flex-col gap-2">
-                                <div className="flex flex-col gap-1">
-                                    <p className="text-white font-bold text-lg">
-                                        {isLoggedIn ? `${t("Hello")}, ${username}` : `${t("Login to unlock exclusive")}`}
+                        <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
+                            <div className="text-white font-main font-bold">
+                                <Link className="p-1 undefined" href="/Loyalty">
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="text-white flex flex-row justify-between items-center font-bold font-main ">
+                        <div className="gap-x-1 text-white flex flex-row">
+                            <BsGlobe className="inline-block mr-2 text-xl font-bold" />
+                            {t("Language")}
+                        </div>
+                        <div className="bg-primary-gray w-fit  rounded-lg">
+                            <div
+                                className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
+                                <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex flex-row justify-center items-center gap-2">
+                                    <span>
+                                        {t("languageButton")}
+                                    </span>
+                                    <img
+                                        className="w-4 h-4 rounded-full"
+                                        src={i18n.language == 'en' ? "https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png" : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/uk-flag.png'}
+                                        alt="Arabic language" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section className="flex flex-col h-full justify-between ">
+                        <div>
 
-                                    </p>
-                                    <p className="text-white text-base font-bold">
-                                        {isLoggedIn ? `${userphone}` : `${t("Discount points and deals")}`}
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
-                                <div className="text-white font-main font-bold">
-                                    <Link className="p-1 undefined" href="/Loyalty">
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="text-white flex flex-row justify-between items-center font-bold font-main ">
-                            <div className="gap-x-1 text-white flex flex-row">
-                                <BsGlobe className="inline-block mr-2 text-xl font-bold" />
-                                {t("Language")}
-                            </div>
-                            <div className="bg-primary-gray w-fit  rounded-lg">
+                            {isLoggedIn == false ?
                                 <div
-                                    className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
-                                    <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex flex-row justify-center items-center gap-2">
-                                        <span>
-                                            {t("languageButton")}
-                                        </span>
-                                        <img
-                                            className="w-4 h-4 rounded-full"
-                                            src={i18n.language == 'en' ? "https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png" : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/uk-flag.png'}
-                                            alt="Arabic language" />
+                                    className="flex flex-col pb-3 border-b border-b-secondary-gray-50 !space-y-4 mb-3 ">
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleLoginOpen}>{t("Login")}
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <section className="flex flex-col h-full justify-between ">
-                            <div>
-
-                                {isLoggedIn == false ?
-                                    <div
-                                        className="flex flex-col pb-3 border-b border-b-secondary-gray-50 !space-y-4 mb-3 ">
-                                        <div className="text-white font-main font-bold cursor-pointer" onClick={handleLoginOpen}>{t("Login")}
-                                        </div>
-                                        <div className="text-white font-main font-bold cursor-pointer" onClick={handleSignupOpen}>{t("Create an account")}</div>
-                                    </div> : ''}
-                                <div className="flex flex-col !space-y-4  border-b pb-3 border-b-secondary-gray-50">
-                                    {isLoggedIn && <>
-                                        <div className="text-white font-main font-bold">
-                                            <img
-                                                className="w-7 inline-block mr-2"
-                                                src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/my-orders-icon.svg" />
-                                            <Link className="p-1 undefined" to="/OrderHistory">{t("Order history")}
-
-                                            </Link>
-                                        </div>
-                                        <div className="text-white font-main font-bold">
-                                            <img
-                                                className="w-7 inline-block mr-2"
-                                                src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/saved-address-icon.svg" />
-                                            <Link className="p-1 undefined" to="/Profile">{t("Saved addresses")}
-
-                                            </Link>
-                                        </div>
-                                        <div className="text-white font-main font-bold">
-                                            <IoSettingsSharp className="inline-block mr-2 text-2xl text-[#ff5f00]" />
-
-                                            <Link className="p-1 undefined" to="/Profile">{t("My account")}
-
-                                            </Link>
-                                        </div>
-                                    </>
-                                    }
-                                    <div className="text-white font-main font-bold ">
-                                        <MdShoppingBasket className="inline-block mr-2 text-2xl text-[#ff5f00]" />
-                                        <Link className="p-1 undefined" href="/CartDetails">{t("Cart")}</Link>
-                                    </div>
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleSignupOpen}>{t("Create an account")}</div>
+                                </div> : ''}
+                            <div className="flex flex-col !space-y-4  border-b pb-3 border-b-secondary-gray-50">
+                                {isLoggedIn && <>
                                     <div className="text-white font-main font-bold">
                                         <img
                                             className="w-7 inline-block mr-2"
-                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
-                                        <Link className="p-1 undefined" to="/Loyalty">{t("My Loyalty Points")}
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/my-orders-icon.svg" />
+                                        <Link className="p-1 undefined" to="/OrderHistory">{t("Order history")}
 
                                         </Link>
                                     </div>
-                                </div>
-                                <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
                                     <div className="text-white font-main font-bold">
                                         <img
                                             className="w-7 inline-block mr-2"
-                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
-                                        {t("Feedback")}
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/saved-address-icon.svg" />
+                                        <Link className="p-1 undefined" to="/Profile">{t("Saved addresses")}
+
+                                        </Link>
                                     </div>
-                                    <div className="text-white font-main font-bold"><Link className="p-1 undefined"
-                                        href="tel:19914">
-                                        <img className="w-7 inline-block mr-2"
-                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/call-support-icon.svg" />
-                                        {t("Call Support")}
+                                    <div className="text-white font-main font-bold">
+                                        <IoSettingsSharp className="inline-block mr-2 text-2xl text-[#ff5f00]" />
+
+                                        <Link className="p-1 undefined" to="/Profile">{t("My account")}
+
+                                        </Link>
+                                    </div>
+                                </>
+                                }
+                                <div className="text-white font-main font-bold ">
+                                    <MdShoppingBasket className="inline-block mr-2 text-2xl text-[#ff5f00]" />
+                                    <Link className="p-1 undefined" href="/CartDetails">{t("Cart")}</Link>
+                                </div>
+                                <div className="text-white font-main font-bold">
+                                    <img
+                                        className="w-7 inline-block mr-2"
+                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
+                                    <Link className="p-1 undefined" to="/Loyalty">{t("My Loyalty Points")}
+
                                     </Link>
-                                    </div>
                                 </div>
                             </div>
-                            {isLoggedIn == false ?'':
+                            <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
+                                <div className="text-white font-main font-bold">
+                                    <img
+                                        className="w-7 inline-block mr-2"
+                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
+                                    {t("Feedback")}
+                                </div>
+                                <div className="text-white font-main font-bold"><Link className="p-1 undefined"
+                                    href="tel:19914">
+                                    <img className="w-7 inline-block mr-2"
+                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/call-support-icon.svg" />
+                                    {t("Call Support")}
+                                </Link>
+                                </div>
+                            </div>
+                        </div>
+                        {isLoggedIn == false ? '' :
 
-                                <div className="mb-8">
-                                    <div onClick={handleLogout} className="flex justify-between text-white font-main font-bold">
-                                        <div>{t("Logout")}</div>
-                                        <MdLogout className="text-2xl" />
-                                    </div>
-                                </div> }
-                        </section>
-                    </div>
+                            <div className="mb-8">
+                                <div onClick={handleLogout} className="flex justify-between text-white font-main font-bold">
+                                    <div>{t("Logout")}</div>
+                                    <MdLogout className="text-2xl" />
+                                </div>
+                            </div>}
+                    </section>
                 </div>
-
-
-            )}
+            </div>
 
             {/* Seconed Header Delivery Address */}
 
