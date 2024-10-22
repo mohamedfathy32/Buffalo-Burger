@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
 import { useTranslation } from "react-i18next";
-
 import { CartContext, logedContext } from "../../utils/context";
 
 export default function Header() {
