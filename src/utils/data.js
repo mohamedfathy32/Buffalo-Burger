@@ -742,7 +742,7 @@ export const offersList = [
                 "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/20f582541433e4713c3743e382a9b4f9.png",
             swiperMobile:
                 "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/f7f4d68734f3e45afe055da6a25fa33b.png",
-            keen: "http://localhost:5173/images/keen/keen-slider12.webp",
+            keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F65ded6536caaf8d6487414ed50705c67.png&w=1080&q=75",
             details:
                 "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fe71df04a4ffdedd9f80e9abb339da238.png&w=256&q=75",
         },

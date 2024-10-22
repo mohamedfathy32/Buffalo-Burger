@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import ResetPassModal from "./ResetPass";
 import { login } from "../../utils/firebase";
+import { useTranslation } from "react-i18next";
 
 export default function LoginModal({ onClose, onLoginSuccess }) {
     const [email, setEmail] = useState(""); // State for storing the email
@@ -10,6 +11,7 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
     const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
     const [error, setError] = useState({ email: "", password: "" }); // State for storing error messages
     const [isResetPasswordVisible, setResetPasswordVisible] = useState(false); // حالة لعرض نموذج إعادة تعيين كلمة المرور
+    const { t, i18n } = useTranslation()
 
     // Function to validate inputs
     const validateInputs = () => {
@@ -61,28 +63,28 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                 <ResetPassModal />
             ) : (
                 <>
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                    <label className="block text-gray-700 text-sm font-bold mb-2">{t("Email")}</label>
                     <input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder={i18n.language == 'en' ? "Enter your email" : "أدخل بريدك الإلكتروني"}
                         className={`text-black border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none ${error.email ? 'border-red-500 bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'}`}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)} // Update email state on change
                     />
                     {error.email && <div className="text-red-500 text-sm mb-3">{error.email}</div>} {/* Display email error message */}
 
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                    <label className="block text-gray-700 text-sm font-bold mb-2">{t("Password")}</label>
                     <div className="relative mb-3">
                         <input
                             type={showPassword ? "text" : "password"}
-                            placeholder="Enter your password"
+                            placeholder={i18n.language == 'en' ? "Enter your password" : "أدخل كلمة المرور الخاصة بك"}
                             className={`text-black border rounded-[10px] w-full py-2 px-3 focus:outline-none ${error.password ? 'border-red-500 bg-red-100' : 'focus:border-orange-500'}`}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)} // Update password state on change
                         />
                         <button
                             type="button"
-                            className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                            className="absolute end-3 top-1/2 transform -translate-y-1/2"
                             onClick={() => setShowPassword(!showPassword)}
                         >
                             {showPassword ? <FaEyeSlash className="text-gray-500" /> : <FaEye className="text-gray-500" />}
@@ -90,9 +92,11 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                     </div>
                     {error.password && <div className="text-red-500 text-sm mb-3">{error.password}</div>} {/* Display password error message */}
                     <div className="flex items-center justify-end">
-                        <p onClick={handleResetPasswordClick} className="text-sm text-black hover:text-orange-500 text-end">Forgot Password?</p>
+                        <p onClick={handleResetPasswordClick} className="text-sm cursor-pointer text-black hover:text-orange-500 text-end">{i18n.language == 'en' ? "Forgot Password?" : 'نسيت كلمة السر ؟'}</p>
                     </div>
-                    <button onClick={handleLogin} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">Login</button>
+                    <button onClick={handleLogin} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">
+                        {t("Login")}
+                    </button>
                 </>
             )}
         </div >
