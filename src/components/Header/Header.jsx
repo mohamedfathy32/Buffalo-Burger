@@ -234,7 +234,6 @@ export default function Header() {
                                 <div className="flex flex-col gap-1">
                                     <p className="text-white font-bold text-lg">
                                         {isLoggedIn ? `${t("Hello")}, ${username}` : `${t("Login to unlock exclusive")}`}
-
                                     </p>
                                     <p className="text-white text-base font-bold">
                                         {isLoggedIn ? `${userphone}` : `${t("Discount points and deals")}`}
