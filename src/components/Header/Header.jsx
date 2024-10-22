@@ -8,8 +8,8 @@ import { getUserInfoById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
-import { useTranslation } from "react-i18next";
 import { CartContext, logedContext } from "../../utils/context";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
     // Drawer Nav
