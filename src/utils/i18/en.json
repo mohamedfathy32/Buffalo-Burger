@@ -23,5 +23,15 @@
     "My account": "My account",
     "Feedback": "Feedback",
     "Call Support": "Call Support",
-    "Hello": "Hello"
+    "Hello": "Hello",
+    "Logout":"Logout",
+    "Change password":"Change password",
+    "Address book":"Address book",
+    "Profile details":"Profile details",
+    "Account":"Account",
+    "E-mail":"E-mail",
+    "Full name":"Full name",
+    "Save changes":"Save changes",
+    "Login to unlock exclusive":"Login to unlock exclusive",
+    "Discount points and deals":"Discount points and deals"
 }
