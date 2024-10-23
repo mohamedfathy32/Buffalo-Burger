@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";

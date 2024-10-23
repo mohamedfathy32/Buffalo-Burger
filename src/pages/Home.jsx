@@ -2,7 +2,7 @@ import KeenSlider from "../components/Home/Keen";
 import LastSection from "../components/Home/LastSec";
 import SwiperSlider from "../components/Home/Swiper";
 import TopSelling from "../components/Home/TopSelling";
-import MenuNav from "../components/Menu/Nav";
+import MenuNav from "../components/Home/Nav";
 import Splash from "../components/Splash";
 
 export default function HomePage() {

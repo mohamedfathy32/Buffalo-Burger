@@ -14,12 +14,12 @@ export default function Drink({ selectedDrink, onDrinkChange }) {
         <section className="p-6">
             <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">{t('drinks')}</h2>
             <div className="w-fit m-auto">
-                <RadioGroup value={selectedDrink} onChange={(e) => onDrinkChange(e.target.value)} aria-labelledby="demo-radio-buttons-group-label" name="radio-buttons-group">
+                <RadioGroup value={selectedDrink || null} onChange={(e) => onDrinkChange(e.target.value)} aria-labelledby="demo-radio-buttons-group-label" name="radio-buttons-group">
                     <div className="flex flex-col capitalize lg:flex-wrap xl:flex-row gap-3">
                         {drinksList.map(drink =>
-                            <div key={drink.title.en}>
-                                <FormControlLabel value={drink.title.en} label={`${i18n.language === 'en' ? drink.title.en : drink.title.ar} ${drink.price === 0 ? '' : `(${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${drink.price})`}`} control={<Radio sx={radioStyles} />} sx={labelStyles} />
-                            </div>)}
+                            <FormControlLabel key={drink.title.en} value={drink.title[i18n.language]} control={<Radio sx={radioStyles} />} sx={labelStyles}
+                                label={`${drink.title[i18n.language]} ${drink.price === 0 ? '' : `(${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${drink.price})`}`}
+                            />)}
                     </div>
                 </RadioGroup>
             </div>

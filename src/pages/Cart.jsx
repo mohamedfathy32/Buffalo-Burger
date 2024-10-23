@@ -4,18 +4,21 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProductCard from "../components/Menu/ProductCard";
+import ProductCard from "../components/ProductCard";
 import { productsList } from "../utils/data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../utils/firebase";
+import { Counter } from "../utils/context";
 
 export default function CartPage() {
     const [cart, setCart] = useState([]);
+    const { setCounter } = useContext(Counter)
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(savedCart);
+        setCounter(savedCart.length)
     }, []);
 
     const handleQuantity = (id, change) => {

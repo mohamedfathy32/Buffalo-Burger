@@ -24,15 +24,15 @@ export default function Extras({ selectedExtras, onExtrasChange }) {
     };
 
     return (isExtras &&
-        <section className="p-6">
+        <section className="p-6 mb-48">
             <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">{t('extras')}</h2>
             <div className="flex justify-center">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 justify-items-start bg-stone-50 rounded-xl p-8">
                     {extrasList.map((extra) => (
                         <div key={extra.title.en} className="w-full p-4 capitalize bg-white rounded-lg">
-                            <FormControlLabel control={<Checkbox checked={selectedExtras.includes(extra.title.en)}
-                                onChange={(e) => handleExtraChange(extra.title.en, e.target.checked)} sx={checkboxStyles} />}
-                                label={`${i18n.language === 'en' ? extra.title.en : extra.title.ar} (${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${extra.price})`} sx={labelStyles} />
+                            <FormControlLabel control={<Checkbox checked={selectedExtras.includes(extra.title[i18n.language])}
+                                onChange={(e) => handleExtraChange(extra.title[i18n.language], e.target.checked)} sx={checkboxStyles} />}
+                                label={`${extra.title[i18n.language]} (${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${extra.price})`} sx={labelStyles} />
                         </div>))}
                 </div>
             </div>

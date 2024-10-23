@@ -22,9 +22,9 @@ export default function Size({ selectedSize, onSizeChange }) {
             <h2 className="font-bold uppercase text-2xl text-center mb-6">{t('size')}</h2>
             {/* Mobile Screen */}
             <div className="lg:hidden flex justify-center">
-                <RadioGroup value={selectedSize} onChange={(e) => onSizeChange(e.target.value)} aria-labelledby="demo-radio-buttons-group-label" defaultValue={sizesList[0].title} name="radio-buttons-group">
-                    {sizesList.map(size => (<FormControlLabel key={size.title} value={size.title}
-                        control={<Radio sx={radioStyles} />} label={`${size.title}${i18n.language === 'en' ? 'gm' : 'جرام'} (${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${size.price})`} sx={labelStyles} />
+                <RadioGroup value={selectedSize} onChange={(e) => onSizeChange(e.target.value)} aria-labelledby="demo-radio-buttons-group-label" defaultValue={sizesList[0].title[i18n.language]} name="radio-buttons-group">
+                    {sizesList.map(size => (<FormControlLabel key={size.title[i18n.language]} value={size.title[i18n.language]}
+                        control={<Radio sx={radioStyles} />} label={`${size.title[i18n.language]} (${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${size.price})`} sx={labelStyles} />
                     ))}
                 </RadioGroup>
             </div>
@@ -32,10 +32,10 @@ export default function Size({ selectedSize, onSizeChange }) {
             {/* Large Screen */}
             <div className="hidden lg:flex justify-center items-center gap-x-12">
                 {sizesList.map(size => (
-                    <div key={size.title} className="relative cursor-pointer" onClick={() => onSizeChange(size.title)}>
-                        <img src={size.title === selectedSize ? 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/weight.svg' : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/weight-1.svg'} alt={size.title} />
-                        <p className={`text-white absolute top-7 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'}`}>{size.title}</p>
-                        <div className={`absolute w-3 h-3 rounded-full top-1.5 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'} ${size.title === selectedSize ? 'bg-orange-600' : 'bg-white'}`}></div>
+                    <div key={size.title.en} className="relative cursor-pointer" onClick={() => onSizeChange(size.title[i18n.language])}>
+                        <img src={size.title[i18n.language] === selectedSize ? 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/weight.svg' : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/weight-1.svg'} alt={size.title[i18n.language]} />
+                        <p className={`text-white absolute top-7 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'}`}>{size.title[i18n.language]}</p>
+                        <div className={`absolute w-3 h-3 rounded-full top-1.5 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'} ${size.title[i18n.language] === selectedSize ? 'bg-orange-600' : 'bg-white'}`}></div>
                         <p className="text-center mt-3">{size.price === 155 ? <br /> : size.price > 0 ? `+${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${size.price - 155}` : ''}</p>
                     </div>))}
             </div>

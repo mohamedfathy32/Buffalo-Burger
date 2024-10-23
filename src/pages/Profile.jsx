@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { getUserInfoById, updateUserProfile } from "../utils/firebase";
-import { logedContext } from "../utils/context";
+import { LogedContext } from "../utils/context";
 
 export default function ProfilePage() {
     const [username, setUsername] = useState('');
@@ -61,7 +61,7 @@ export default function ProfilePage() {
         fetchUserInfo();
     }, []);
 
-    const { isLoggedIn } = useContext(logedContext);
+    const { isLoggedIn } = useContext(LogedContext);
     const navigate = useNavigate();
 
     useEffect(() => {

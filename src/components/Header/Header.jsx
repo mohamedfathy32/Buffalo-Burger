@@ -7,29 +7,32 @@ import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
 import { useTranslation } from "react-i18next";
-import { CartContext, logedContext } from "../../utils/context";
+import { Counter, LogedContext } from "../../utils/context";
 
 export default function Header() {
     // Drawer Nav
     const [nav, setNav] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
-    const { isLoggedIn, setIsLoggedIn } = useContext(logedContext);
+    const { isLoggedIn, setIsLoggedIn } = useContext(LogedContext);
+    const { counter, setCounter } = useContext(Counter)
     const [username, setUsername] = useState("");
-    const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
-    // const [cart, setCart] = useState([])
-
-    const { cartCounter, setCartCounter } = useContext(CartContext)
-
+    const [isOpenDrop, setIsOpenDrop] = useState(false);
     const { t, i18n } = useTranslation()
 
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
+    setCounter(cart.length)
+
     function closeWindows() { setNav(false) }
+
     const handleClick = () => setNav(!nav);
+
     const handleLoginOpen = () => {
         setActiveTab('login');
         setIsOpen(true);
         setNav(false);
     }
+
     const handleSignupOpen = () => {
         setActiveTab('signup');
         setIsOpen(true);
@@ -38,7 +41,6 @@ export default function Header() {
     const handleClose = () => {
         setIsOpen(false);
     };
-
 
     const successfulUser = () => {
         const userId = localStorage.getItem("userId");
@@ -50,7 +52,6 @@ export default function Header() {
                     setUsername(name);
                 } else {
                     setIsLoggedIn(false);
-
                 }
             });
         } else {
@@ -58,18 +59,8 @@ export default function Header() {
         }
     }
 
-
-    useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCartCounter(storedCart.length);
-
-    }, []);
-
-
-
     useEffect(() => {
         const userId = localStorage.getItem("userId");
-
         if (userId) {
             setIsLoggedIn(true);
             getUsernameById(userId).then((name) => {
@@ -77,14 +68,12 @@ export default function Header() {
                     setUsername(name);
                 } else {
                     setIsLoggedIn(false);
-
                 }
             });
         } else {
             setIsLoggedIn(false);
         }
     }, []);
-
 
     useEffect(() => {
         const handleEsc = (event) => {
@@ -93,7 +82,6 @@ export default function Header() {
                 setNav(false)
             }
         };
-
         window.addEventListener("keydown", handleEsc);
         return () => window.removeEventListener("keydown", handleEsc);
     }, []);
@@ -107,35 +95,36 @@ export default function Header() {
         setIsLoggedIn(false);
         setIsOpenDrop(false); // Reset dropdown state when user logs out
     };
-    console.log(i18n.language)
+
+    function changeLang() {
+        const lang = i18n.language === 'en' ? 'ar' : 'en'
+        i18n.changeLanguage(lang)
+        localStorage.setItem('lang', lang)
+    }
 
     return (
         <>
             <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white">
                 <div className="hidden md:flex items-center gap-4">
                     <div className="flex items-center cursor-pointer border-none rounded-lg">
-                        <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex items-center gap-2">
+                        <div onClick={changeLang} className="flex items-center gap-2">
                             <span className="font-main">{t('languageButton')}</span>
                             <img className="w-4 h-4 rounded-full"
                                 src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
                                 alt="Arabic language" />
                         </div>
                     </div>
-
                     <div className="hidden lg:block bg-custom-orange p-2 text-white rounded-md cursor-pointer">
                         <span className="text-base">My Loyalty Points</span>
                     </div>
-
                     <Link to="/Cart" className="flex items-center text-white hover:text-custom-orange font-bold text-lg uppercase">
                         <FaCartShopping className="text-2xl mr-1" />
                         Cart
                     </Link>
                     <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
-                        {cartCounter}
+                        {counter}
                     </div>
                 </div>
-
-
                 <div className="flex justify-center absolute left-0 right-0 mx-auto w-52">
                     <Link to="/">
                         <img
@@ -178,16 +167,13 @@ export default function Header() {
                                     <li>
                                         <span
                                             className="text-base border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600 py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
-                                            onClick={handleLogout}
-                                        >
-                                            Logout
+                                            onClick={handleLogout}>Logout
                                         </span>
                                     </li>
                                 </ul>
                             )}
                         </div>
                     </div>
-
                 </div> : <div className="hidden md:flex items-center gap-4">
                     <div onClick={handleSignupOpen} className="cursor-pointer text-white font-bold text-lg hover:text-custom-orange">
                         Create an account
@@ -196,8 +182,6 @@ export default function Header() {
                         Login
                     </div>
                 </div>}
-
-
                 <div className="block md:hidden absolute left-6" onClick={handleClick}>
                     <button className="flex flex-col items-center justify-center gap-1">
                         <span className="block bg-custom-orange w-6 h-[3px] rounded"></span>
@@ -206,9 +190,7 @@ export default function Header() {
                     </button>
                 </div>
             </nav>
-
             {/* Drawer Section  */}
-
             {nav && <div className="fixed inset-0 bg-black opacity-50" onClick={closeWindows}></div>}
             {nav && (
                 <div className="fixed top-0 left-0 w-64 h-full z-51 bg-stone-900 shadow-lg transition duration-1000">
@@ -280,12 +262,8 @@ export default function Header() {
                         </section>
                     </div>
                 </div>
-
-
             )}
-
             {/* Seconed Header Delivery Address */}
-
             <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
                 <div className="hidden md:flex space-x-4">
                     <Link to={'/About'}>About Us</Link>
@@ -294,11 +272,6 @@ export default function Header() {
                     <Link to={'/'}>Home</Link>
                 </div>
             </div>
-
-
-
-
-
             {/* Login and SignUp المربع (Modal) */}
             {isOpen && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
@@ -306,15 +279,11 @@ export default function Header() {
                         <div className="flex justify-between mb-4">
                             <button
                                 className={`w-[50%] text-center px-4 py-2 ${activeTab === 'login' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
-                                onClick={() => setActiveTab('login')}
-                            >
-                                Login
+                                onClick={() => setActiveTab('login')}>Login
                             </button>
                             <button
                                 className={`w-[50%] text-center px-4 py-2 ${activeTab === 'signup' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
-                                onClick={() => setActiveTab('signup')}
-                            >
-                                Create an Account
+                                onClick={() => setActiveTab('signup')}>Create an Account
                             </button>
                         </div>
 

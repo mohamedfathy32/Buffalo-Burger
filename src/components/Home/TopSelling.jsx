@@ -1,5 +1,5 @@
 import { productsList, topSellingList } from "../../utils/data";
-import ProductCard from "../Menu/ProductCard";
+import ProductCard from "../ProductCard";
 
 export default function TopSelling() {
     return (
