@@ -1,13 +1,18 @@
 import { FaCartShopping } from "react-icons/fa6";
-import { FaShoppingCart } from "react-icons/fa";
-import { MdLanguage } from "react-icons/md";
+import { MdShoppingBasket } from "react-icons/md";
+import { IoSettingsSharp } from "react-icons/io5";
+import { MdLoyalty } from "react-icons/md";
+import { BsGlobe } from "react-icons/bs";
+import { MdLogout } from "react-icons/md";
 import { useContext, useEffect, useState } from "react";
-import { getUsernameById } from "../../utils/firebase";
+import { getUserInfoById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
 import { useTranslation } from "react-i18next";
 import { Counter, LogedContext } from "../../utils/context";
+import { CartContext, logedContext } from "../../utils/context";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
     // Drawer Nav
@@ -17,14 +22,18 @@ export default function Header() {
     const { isLoggedIn, setIsLoggedIn } = useContext(LogedContext);
     const { counter, setCounter } = useContext(Counter)
     const [username, setUsername] = useState("");
+    const [userphone, setUserphone] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false);
     const { t, i18n } = useTranslation()
 
-    const cart = JSON.parse(localStorage.getItem('cart')) || []
+    // const cart = JSON.parse(localStorage.getItem('cart')) || []
     setCounter(cart.length)
 
-    function closeWindows() { setNav(false) }
+    const { cartCounter, setCartCounter } = useContext(CartContext)
 
+    const { t, i18n } = useTranslation()
+
+    function closeWindows() { setNav(false) }
     const handleClick = () => setNav(!nav);
 
     const handleLoginOpen = () => {
@@ -36,43 +45,56 @@ export default function Header() {
     const handleSignupOpen = () => {
         setActiveTab('signup');
         setIsOpen(true);
+        setNav(false);
     };
 
     const handleClose = () => {
         setIsOpen(false);
     };
 
-    const successfulUser = () => {
+
+    const successfulUser = async () => {
         const userId = localStorage.getItem("userId");
 
         if (userId) {
-            setIsLoggedIn(true);
-            getUsernameById(userId).then((name) => {
-                if (name) {
-                    setUsername(name);
-                } else {
-                    setIsLoggedIn(false);
-                }
-            });
+            const userInfo = await getUserInfoById(userId);
+            if (userInfo) {
+                setUsername(userInfo.username);
+                console.log(userInfo.username)
+                setUserphone(userInfo.phoneNumber);
+                setIsLoggedIn(true);
+            }
         } else {
             setIsLoggedIn(false);
         }
     }
 
+
+    useEffect(() => {
+        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        setCartCounter(storedCart.length);
+
+    }, []);
+
+
+
     useEffect(() => {
         const userId = localStorage.getItem("userId");
-        if (userId) {
-            setIsLoggedIn(true);
-            getUsernameById(userId).then((name) => {
-                if (name) {
-                    setUsername(name);
-                } else {
-                    setIsLoggedIn(false);
+        const fetchUserInfo = async () => {
+            if (userId) {
+                const userInfo = await getUserInfoById(userId);
+                if (userInfo) {
+                    setUsername(userInfo.username);
+                    console.log(userInfo.username)
+                    setUserphone(userInfo.phoneNumber);
+                    setIsLoggedIn(true);
                 }
-            });
-        } else {
-            setIsLoggedIn(false);
-        }
+            } else {
+                setIsLoggedIn(false)
+            }
+        };
+
+        fetchUserInfo();
     }, []);
 
     useEffect(() => {
@@ -96,33 +118,40 @@ export default function Header() {
         setIsOpenDrop(false); // Reset dropdown state when user logs out
     };
 
-    function changeLang() {
-        const lang = i18n.language === 'en' ? 'ar' : 'en'
-        i18n.changeLanguage(lang)
-        localStorage.setItem('lang', lang)
-    }
 
     return (
         <>
-            <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white">
+            <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white"
+                onClick={() => {
+                    if (isOpen) {
+                        setNav(false);
+                        setIsOpen(false)
+                    }
+                }}
+            >
                 <div className="hidden md:flex items-center gap-4">
                     <div className="flex items-center cursor-pointer border-none rounded-lg">
-                        <div onClick={changeLang} className="flex items-center gap-2">
+                        <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex items-center gap-2">
                             <span className="font-main">{t('languageButton')}</span>
                             <img className="w-4 h-4 rounded-full"
-                                src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
+                                src={i18n.language == 'en' ? "https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png" : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/uk-flag.png'}
                                 alt="Arabic language" />
                         </div>
                     </div>
-                    <div className="hidden lg:block bg-custom-orange p-2 text-white rounded-md cursor-pointer">
-                        <span className="text-base">My Loyalty Points</span>
+
+                    <div className="hidden lg:block bg-[#ff5f00] p-2 text-white rounded-md cursor-pointer">
+                        <span className="text-base flex items-center">
+                            <MdLoyalty className="text-lg" />
+                            {t("My Loyalty Points")}
+                        </span>
                     </div>
-                    <Link to="/Cart" className="flex items-center text-white hover:text-custom-orange font-bold text-lg uppercase">
+
+                    <Link to="/Cart" className="flex items-center text-white hover:text-[#ff5f00] font-bold text-lg uppercase">
                         <FaCartShopping className="text-2xl mr-1" />
-                        Cart
+                        {t("Cart")}
                     </Link>
                     <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
-                        {counter}
+                        {cartCounter}
                     </div>
                 </div>
                 <div className="flex justify-center absolute left-0 right-0 mx-auto w-52">
@@ -134,7 +163,7 @@ export default function Header() {
                             width={212}
                             height={44}
                             className="mx-auto"
-                            onClick={() => setIsOpen(false)}
+
                         />
                     </Link>
                 </div>
@@ -144,30 +173,32 @@ export default function Header() {
                             <div className="dropdown-toggle px-1 py-2.5 text-white hover:text-orange-600 text-base font-bold leading-tight uppercase 
                             rounded transition duration-150 ease-in-out flex items-center whitespace-nowrap">
                                 <span className="truncate max-w-[14rem]">
-                                    Hello, {username}
+                                    {t("Hello")}, {username}
                                 </span>
                             </div>
                             {isOpenDrop && ( // Conditionally render the dropdown based on isOpen state
                                 <ul className="min-w-max absolute bg-stone-900 text-base z-[51] py-2 ps-2 w-full list-none text-left rounded-lg mt-1">
                                     <li>
                                         <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile">
-                                            My account
+                                            {t("My account")}
                                         </Link>
                                     </li>
                                     <li>
                                         <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/orders">
-                                            Order history
+                                            {t("Order history")}
                                         </Link>
                                     </li>
                                     <li>
                                         <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile#addresses">
-                                            Saved addresses
+                                            {t("Saved addresses")}
                                         </Link>
                                     </li>
                                     <li>
                                         <span
                                             className="text-base border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600 py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
-                                            onClick={handleLogout}>Logout
+                                            onClick={handleLogout}
+                                        >
+                                            {t("Logout")}
                                         </span>
                                     </li>
                                 </ul>
@@ -175,115 +206,173 @@ export default function Header() {
                         </div>
                     </div>
                 </div> : <div className="hidden md:flex items-center gap-4">
-                    <div onClick={handleSignupOpen} className="cursor-pointer text-white font-bold text-lg hover:text-custom-orange">
-                        Create an account
+                    <div onClick={handleSignupOpen} className="cursor-pointer text-white font-bold text-lg hover:text-[#ff5f00]">
+                        {t("Create an account")}
                     </div>
-                    <div onClick={handleLoginOpen} className="cursor-pointer text-white font-bold text-lg hover:text-custom-orange">
-                        Login
+                    <div onClick={handleLoginOpen} className="cursor-pointer text-white font-bold text-lg hover:text-[#ff5f00]">
+                        {t("Login")}
                     </div>
                 </div>}
                 <div className="block md:hidden absolute left-6" onClick={handleClick}>
                     <button className="flex flex-col items-center justify-center gap-1">
-                        <span className="block bg-custom-orange w-6 h-[3px] rounded"></span>
-                        <span className="block bg-custom-orange w-6 h-[3px] rounded"></span>
-                        <span className="block bg-custom-orange w-6 h-[3px] rounded"></span>
+                        <span className="block bg-[#ff5f00] w-6 h-[3px] rounded"></span>
+                        <span className="block bg-[#ff5f00] w-6 h-[3px] rounded"></span>
+                        <span className="block bg-[#ff5f00] w-6 h-[3px] rounded"></span>
+                    </button>
+                </div>
+                <div className="block md:hidden absolute right-6" onClick={handleClick}>
+                    <button className="bottom-0 bg-orange-500 text-white flex justify-center items-center rounded-full relative">
+                        <MdShoppingBasket className="text-4xl p-2" />
                     </button>
                 </div>
             </nav>
             {/* Drawer Section  */}
-            {nav && <div className="fixed inset-0 bg-black opacity-50" onClick={closeWindows}></div>}
-            {nav && (
-                <div className="fixed top-0 left-0 w-64 h-full z-51 bg-stone-900 shadow-lg transition duration-1000">
-                    <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
-                        <div className="pr-3 top-14 text-primary-main cursor-pointer ">
-                        </div>
-                        <div className=" flex flex-row justify-between">
-                            <div className="flex flex-col gap-2">
-                                <div className="flex flex-col gap-1">
-                                    <p className="text-white font-bold text-lg">Login to unlock exclusive</p>
-                                    <p className="text-white text-base">Discount points and deals</p>
-                                </div>
-                            </div>
-                            <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
-                                <div className="text-white font-main font-bold">
-                                    <a className="p-1 undefined" href="/Loyalty">
-                                    </a>
-                                </div>
+
+            {nav && <div className="fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ease-in-out" onClick={closeWindows}></div>}
+            <div className={`fixed top-0 start-0 w-64 h-full z-50 bg-[#1c1c1b] shadow-lg transition-transform duration-500 ease-in-out transform ${nav ? 'translate-x-0' : i18n.language == 'ar' ? 'translate-x-full' : '-translate-x-full'}`}>
+                <div className="h-screen flex flex-col gap-4 bg-primary-gray px-4 w-[260px]">
+                    <div className="pr-3 top-14 text-primary-main cursor-pointer "></div>
+                    <div className=" flex flex-row justify-between">
+                        <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-1">
+                                <p className="text-white font-bold text-lg">
+                                    {isLoggedIn ? `${t("Hello")}, ${username}` : `${t("Login to unlock exclusive")}`}
+                                </p>
+                                <p className="text-white text-base font-bold">
+                                    {isLoggedIn ? `${userphone}` : `${t("Discount points and deals")}`}
+                                </p>
                             </div>
                         </div>
-                        <div className="text-white flex flex-row justify-between items-center font-bold font-main ">
-                            <div className="gap-x-1 text-white flex flex-row">
-                                <MdLanguage className="inline-block mr-2 text-2xl" />
-                                Language</div>
-                            <div className="bg-primary-gray w-fit  rounded-lg">
-                                <div
-                                    className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
-                                    <div className="flex flex-row justify-center items-center gap-2"><span>العربية</span><img
+                        <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
+                            <div className="text-white font-main font-bold">
+                                <Link className="p-1 undefined" href="/Loyalty">
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="text-white flex flex-row justify-between items-center font-bold font-main ">
+                        <div className="gap-x-1 text-white flex flex-row">
+                            <BsGlobe className="inline-block mr-2 text-xl font-bold" />
+                            {t("Language")}
+                        </div>
+                        <div className="bg-primary-gray w-fit  rounded-lg">
+                            <div
+                                className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
+                                <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex flex-row justify-center items-center gap-2">
+                                    <span>
+                                        {t("languageButton")}
+                                    </span>
+                                    <img
                                         className="w-4 h-4 rounded-full"
-                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
-                                        alt /></div>
+                                        src={i18n.language == 'en' ? "https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png" : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/uk-flag.png'}
+                                        alt="Arabic language" />
                                 </div>
                             </div>
                         </div>
-                        <section className="flex flex-col h-full justify-between ">
-                            <div>
+                    </div>
+                    <section className="flex flex-col h-full justify-between ">
+                        <div>
+
+                            {isLoggedIn == false ?
                                 <div
                                     className="flex flex-col pb-3 border-b border-b-secondary-gray-50 !space-y-4 mb-3 ">
-                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleLoginOpen}>Login</div>
-                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleSignupOpen}>Create an account</div>
-                                </div>
-                                <div className="flex flex-col !space-y-4  border-b pb-3 border-b-secondary-gray-50">
-                                    <div className="text-white font-main font-bold ">
-                                        <FaShoppingCart className="inline-block mr-2 text-2xl text-custom-orange" />
-                                        <a className="p-1 undefined" href="/CartDetails">Cart</a>
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleLoginOpen}>{t("Login")}
+                                    </div>
+                                    <div className="text-white font-main font-bold cursor-pointer" onClick={handleSignupOpen}>{t("Create an account")}</div>
+                                </div> : ''}
+                            <div className="flex flex-col !space-y-4  border-b pb-3 border-b-secondary-gray-50">
+                                {isLoggedIn && <>
+                                    <div className="text-white font-main font-bold">
+                                        <img
+                                            className="w-7 inline-block mr-2"
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/my-orders-icon.svg" />
+                                        <Link className="p-1 undefined" to="/OrderHistory">{t("Order history")}
+
+                                        </Link>
                                     </div>
                                     <div className="text-white font-main font-bold">
                                         <img
                                             className="w-7 inline-block mr-2"
-                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
-                                        <a className="p-1 undefined" href="/Loyalty">My Loyalty Points </a></div>
-                                </div>
-                                <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
-                                    <div className="text-white font-main font-bold">
-                                        <img
-                                            className="w-7 inline-block mr-2"
-                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />Feedback
-                                        Feedback </div>
-                                    <div className="text-white font-main font-bold"><a className="p-1 undefined"
-                                        href="tel:19914">
-                                        <img className="w-7 inline-block mr-2"
-                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/call-support-icon.svg" />Call
-                                        Call Support</a>
+                                            src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/saved-address-icon.svg" />
+                                        <Link className="p-1 undefined" to="/Profile">{t("Saved addresses")}
+
+                                        </Link>
                                     </div>
+                                    <div className="text-white font-main font-bold">
+                                        <IoSettingsSharp className="inline-block mr-2 text-2xl text-[#ff5f00]" />
+
+                                        <Link className="p-1 undefined" to="/Profile">{t("My account")}
+
+                                        </Link>
+                                    </div>
+                                </>
+                                }
+                                <div className="text-white font-main font-bold ">
+                                    <MdShoppingBasket className="inline-block mr-2 text-2xl text-[#ff5f00]" />
+                                    <Link className="p-1 undefined" href="/CartDetails">{t("Cart")}</Link>
+                                </div>
+                                <div className="text-white font-main font-bold">
+                                    <img
+                                        className="w-7 inline-block mr-2"
+                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
+                                    <Link className="p-1 undefined" to="/Loyalty">{t("My Loyalty Points")}
+
+                                    </Link>
                                 </div>
                             </div>
+                            <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
+                                <div className="text-white font-main font-bold">
+                                    <img
+                                        className="w-7 inline-block mr-2"
+                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
+                                    {t("Feedback")}
+                                </div>
+                                <div className="text-white font-main font-bold"><Link className="p-1 undefined"
+                                    href="tel:19914">
+                                    <img className="w-7 inline-block mr-2"
+                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/call-support-icon.svg" />
+                                    {t("Call Support")}
+                                </Link>
+                                </div>
+                            </div>
+                        </div>
+                        {isLoggedIn == false ? '' :
+
                             <div className="mb-8">
-                            </div>
-                        </section>
-                    </div>
+                                <div onClick={handleLogout} className="flex justify-between text-white font-main font-bold">
+                                    <div>{t("Logout")}</div>
+                                    <MdLogout className="text-2xl" />
+                                </div>
+                            </div>}
+                    </section>
                 </div>
-            )}
+            </div>
+
             {/* Seconed Header Delivery Address */}
             <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
-                <div className="hidden md:flex space-x-4">
-                    <Link to={'/About'}>About Us</Link>
-                    <Link to={'/Cart'}>CartDetails</Link>
-                    <Link to={'/Menu'}>Menu</Link>
-                    <Link to={'/'}>Home</Link>
+                <div className="hidden md:flex">
+                    <Link className="me-4 hover:text-orange-600" to={'/About'}>About Us</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/Cart'}>CartDetails</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/Menu'}>Menu</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/'}>Home</Link>
                 </div>
             </div>
             {/* Login and SignUp المربع (Modal) */}
             {isOpen && (
-                <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-                    <div className="bg-white rounded-lg p-6 w-[40%]">
+                <div className="fixed top-16 w-[100%] h-screen items-center flex  justify-center z-50 bg-black bg-opacity-50 ">
+                    <div className="bg-white rounded-lg p-6 w-[80%] sm:w-[40%] ">
                         <div className="flex justify-between mb-4">
                             <button
                                 className={`w-[50%] text-center px-4 py-2 ${activeTab === 'login' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
-                                onClick={() => setActiveTab('login')}>Login
+                                onClick={() => setActiveTab('login')}
+                            >
+                                {t("Login")}
                             </button>
                             <button
                                 className={`w-[50%] text-center px-4 py-2 ${activeTab === 'signup' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
-                                onClick={() => setActiveTab('signup')}>Create an Account
+                                onClick={() => setActiveTab('signup')}
+                            >
+                                {t("Create an account")}
                             </button>
                         </div>
 

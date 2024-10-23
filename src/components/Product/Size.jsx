@@ -1,7 +1,12 @@
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
+export default function Size({ selectedSize, onSizeChange }) {
+    const { t, i18n } = useTranslation()
+    const { state } = useLocation();
+    const sizesList = state.product.details.size || [];
 export default function Size({ selectedSize, onSizeChange }) {
     const { t, i18n } = useTranslation()
     const { state } = useLocation();
@@ -19,6 +24,7 @@ export default function Size({ selectedSize, onSizeChange }) {
 
     return (
         <section className="p-6">
+            <h2 className="font-bold uppercase text-2xl text-center mb-6">{t('size')}</h2>
             <h2 className="font-bold uppercase text-2xl text-center mb-6">{t('size')}</h2>
             {/* Mobile Screen */}
             <div className="lg:hidden flex justify-center">
