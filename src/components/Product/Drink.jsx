@@ -9,7 +9,6 @@ export default function Drink({ selectedDrink, onDrinkChange }) {
     const isDrink = state?.product.details.drinks || false;
     const radioStyles = { '& .MuiSvgIcon-root': { color: '#ff5f00' }, '&.Mui-checked': { color: '#ff5f00' } };
     const labelStyles = { '& .MuiTypography-root': { color: 'black' }, '& .Mui-checked + .MuiTypography-root': { color: '#ff5f00' } };
-
     return (isDrink &&
         <section className="p-6">
             <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">{t('drinks')}</h2>

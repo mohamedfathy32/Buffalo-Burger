@@ -19,11 +19,9 @@ export default function ProductCard({ product }) {
     const updateCart = (change) => {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         const existingProduct = cart.find(item => item.title.en === product?.title?.en);
-
         if (existingProduct) {
             existingProduct.quantity += change;
             existingProduct.totalPrice = existingProduct.price * existingProduct.quantity;
-
             if (existingProduct.quantity <= 0) {
                 cart = cart.filter(item => item.title.en !== product.title.en);
             }
@@ -35,13 +33,11 @@ export default function ProductCard({ product }) {
                 quantity: 1,
                 price: product?.price,
                 totalPrice: product?.price
-            });
+            })
         }
-
         cart.length > 0
             ? localStorage.setItem('cart', JSON.stringify(cart))
             : localStorage.removeItem('cart');
-
         setProductQuantity(prev => prev + change);
         setCartCounter(cart.length);
     };

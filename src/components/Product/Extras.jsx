@@ -7,7 +7,6 @@ export default function Extras({ selectedExtras, onExtrasChange }) {
     const { t, i18n } = useTranslation()
     const { state } = useLocation()
     const isExtras = state.product.details.extras || false
-
     const handleExtraChange = (extraTitle, isChecked) => {
         const updatedExtras = isChecked
             ? [...selectedExtras, extraTitle]
@@ -22,7 +21,6 @@ export default function Extras({ selectedExtras, onExtrasChange }) {
         '& .MuiTypography-root': { color: 'black', '&:hover': { color: '#ff5f00' }, },
         '& .Mui-checked + .MuiTypography-root': { color: '#ff5f00', },
     };
-
     return (isExtras &&
         <section className="p-6 mb-48">
             <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">{t('extras')}</h2>

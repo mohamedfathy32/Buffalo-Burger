@@ -6,7 +6,6 @@ export default function ComboOption({ selectedComboOption, onComobOptionChange }
     const { t, i18n } = useTranslation()
     const { state } = useLocation();
     const isComboOptions = state.product.details.comboOptions || false;
-
     return (isComboOptions &&
         <section className="p-6">
             <h2 className="font-bold uppercase text-2xl text-center mb-5 w-full">{t('comboOptions')}</h2>

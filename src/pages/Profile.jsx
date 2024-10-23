@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-
 import { useNavigate } from "react-router-dom";
 import { getUserInfoById, updateUserProfile } from "../utils/firebase";
-import { logedContext } from "../utils/context";
+import { LogedContext } from "../utils/context";
 import { useTranslation } from "react-i18next";
 
 export default function ProfilePage() {

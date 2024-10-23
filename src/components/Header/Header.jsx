@@ -11,8 +11,6 @@ import LoginModal from "./Login";
 import SignupModal from "./Signup";
 import { useTranslation } from "react-i18next";
 import { Counter, LogedContext } from "../../utils/context";
-import { CartContext, logedContext } from "../../utils/context";
-import { useTranslation } from "react-i18next";
 
 export default function Header() {
     // Drawer Nav
@@ -24,13 +22,6 @@ export default function Header() {
     const [username, setUsername] = useState("");
     const [userphone, setUserphone] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false);
-    const { t, i18n } = useTranslation()
-
-    // const cart = JSON.parse(localStorage.getItem('cart')) || []
-    setCounter(cart.length)
-
-    const { cartCounter, setCartCounter } = useContext(CartContext)
-
     const { t, i18n } = useTranslation()
 
     function closeWindows() { setNav(false) }
@@ -72,7 +63,7 @@ export default function Header() {
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCartCounter(storedCart.length);
+        setCounter(storedCart.length);
 
     }, []);
 
@@ -118,6 +109,11 @@ export default function Header() {
         setIsOpenDrop(false); // Reset dropdown state when user logs out
     };
 
+    function changeLang() {
+        const lang = i18n.language === 'en' ? 'ar' : 'en'
+        i18n.changeLanguage(lang)
+        localStorage.setItem('lang', lang)
+    }
 
     return (
         <>
@@ -131,7 +127,7 @@ export default function Header() {
             >
                 <div className="hidden md:flex items-center gap-4">
                     <div className="flex items-center cursor-pointer border-none rounded-lg">
-                        <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex items-center gap-2">
+                        <div onClick={changeLang} className="flex items-center gap-2">
                             <span className="font-main">{t('languageButton')}</span>
                             <img className="w-4 h-4 rounded-full"
                                 src={i18n.language == 'en' ? "https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png" : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/uk-flag.png'}
@@ -151,7 +147,7 @@ export default function Header() {
                         {t("Cart")}
                     </Link>
                     <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
-                        {cartCounter}
+                        {counter}
                     </div>
                 </div>
                 <div className="flex justify-center absolute left-0 right-0 mx-auto w-52">
@@ -258,7 +254,7 @@ export default function Header() {
                         <div className="bg-primary-gray w-fit  rounded-lg">
                             <div
                                 className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
-                                <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex flex-row justify-center items-center gap-2">
+                                <div onClick={changeLang} className="flex flex-row justify-center items-center gap-2">
                                     <span>
                                         {t("languageButton")}
                                     </span>
