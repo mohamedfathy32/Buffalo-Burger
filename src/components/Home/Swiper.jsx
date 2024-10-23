@@ -35,14 +35,13 @@ export default function SwiperSlider() {
                 pagination={{ type: "progressbar" }}
                 navigation={true}
                 key={i18n.language == 'ar' ? 'ar' : 'en'}
-                // dir={i18n.language == 'ar' ? 'ar' : 'en'}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
             >
                 {offersList.map(slide => (
-                    <SwiperSlide key={slide.title} onClick={() => { nav(`/Offer/${slide.title}`, { state: slide }) }}>
+                    <SwiperSlide key={slide.title} onClick={() => { nav(`/Offer/${slide.title.split(' ').join('-')}`, { state: slide }) }}>
                         <img src={mobile ? slide.images.swiperMobile : slide.images.swiperWeb} alt={`Slide ${slide.id}`} />
                     </SwiperSlide>
                 ))}

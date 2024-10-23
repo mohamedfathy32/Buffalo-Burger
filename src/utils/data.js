@@ -679,7 +679,7 @@ export const offersList = [
 
         tab: [
             {
-                title: "choice",
+                title: {en:"choice" , ar:"choice"},
                 details: {
                     titleL: "Extras",
                     description: "Apple Pie (EGP 20.00)",
@@ -820,7 +820,7 @@ export const offersList = [
 export const productOffers = [
     "shiitake mushroom",
     "Keto Lettuce Wrap",
-    "ANIMAL STYLE",
+    "animal style",
     "Old School",
     "Cholo's Chicken",
     "Chicken Buster",

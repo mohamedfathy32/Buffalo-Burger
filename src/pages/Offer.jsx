@@ -3,11 +3,13 @@ import { useLocation } from "react-router-dom";
 
 export default function OfferPage() {
     const [index, setIndex] = useState(0);
+
     const location = useLocation();
     const offer = location.state;
 
     return (
         <>
+            {/* {console.log(offer)} */}
             <section id="image" className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={offer.images.details} alt={offer.title} className="place-items-center w-[150px] h-[150px]" />
                 <div className="lg:text-start text-center md:my md:mx-16">
@@ -33,10 +35,17 @@ export default function OfferPage() {
                     ))}
                 </div>
 
-                    <div className="p-4">
-                        <h3 className="text-xl font-bold">تفاصيل {offer.tab[index].title}</h3>
-                        <p>{offer.tab[index].content}</p>
-                    </div>
+                <div className="p-4">
+                    <h3 className="text-xl font-bold"> {offer.tab[index].title}</h3>
+                    {offer.tab[index].title.includes('choice') && <div>
+                        choise list
+                    </div>}
+                    {offer.tab[index].title == 'fries' && <div>
+                        {offer.tab[index].details.quantity}
+                    </div>}
+                    {offer.tab[index].title == 'drink' && <div>
+                    </div>}
+                </div>
             </div>
         </>
     );
