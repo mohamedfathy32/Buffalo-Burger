@@ -1,4 +1,4 @@
-export const productsList = [
+export const productList = [
     //Burger Sandwiches
     {
         title: {
@@ -557,29 +557,29 @@ export const productsList = [
             extras: true
         },
     },
-    {
-        title: {
-            en: "",
-            ar: ""
-        },
-        description: {
-            en: "",
-            ar: ""
-        },
-        image: "",
-        imageWithCombo: "",
-        price: 0,
-        category: "chicken sandwiches",
-        details: {
-            size: [
-                { title: '', price: 0 }
-            ],
-            bread: true,
-            comboOptions: true,
-            drinks: true,
-            extras: true
-        },
-    },
+    // {
+    //     title: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     description: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     image: "",
+    //     imageWithCombo: "",
+    //     price: 0,
+    //     category: "chicken sandwiches",
+    //     details: {
+    //         size: [
+    //             { title: '', price: 0 }
+    //         ],
+    //         bread: true,
+    //         comboOptions: true,
+    //         drinks: true,
+    //         extras: true
+    //     },
+    // },
     //Keto & Light Sandwiches
     {
         title: {
@@ -629,28 +629,28 @@ export const productsList = [
             extras: true
         },
     },
-    {
-        title: {
-            en: "",
-            ar: ""
-        },
-        description: {
-            en: "",
-            ar: ""
-        },
-        image: "",
-        imageWithCombo: "",
-        price: 0,
-        category: "keto & light sandwiches",
-        details: {
-            size: [
-                { title: '', price: 0 }
-            ],
-            comboOptions: true,
-            drinks: true,
-            extras: true
-        },
-    },
+    // {
+    //     title: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     description: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     image: "",
+    //     imageWithCombo: "",
+    //     price: 0,
+    //     category: "keto & light sandwiches",
+    //     details: {
+    //         size: [
+    //             { title: '', price: 0 }
+    //         ],
+    //         comboOptions: true,
+    //         drinks: true,
+    //         extras: true
+    //     },
+    // },
     //Appetizers
     {
         title: {
@@ -679,19 +679,19 @@ export const productsList = [
         price: 60,
         category: "appetizers",
     },
-    {
-        title: {
-            en: "",
-            ar: ""
-        },
-        description: {
-            en: "",
-            ar: ""
-        },
-        image: "",
-        price: 0,
-        category: "",
-    },
+    // {
+    //     title: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     description: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     image: "",
+    //     price: 0,
+    //     category: "",
+    // },
     //Sauces
     {
         title: {
@@ -704,22 +704,22 @@ export const productsList = [
     },
     {
         title: {
-            en: "Ketchup",
+            en: "ketchup",
             ar: "كاتشب"
         },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F41a277c946e35a12ad0227b2572e917c.png&w=256&q=75",
         price: 2.3,
         category: "sauces",
     },
-    {
-        title: {
-            en: "",
-            ar: ""
-        },
-        image: "",
-        price: 2,
-        category: "sauces",
-    },
+    // {
+    //     title: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     image: "",
+    //     price: 2,
+    //     category: "sauces",
+    // },
     //Desserts
     {
         title: {
@@ -739,29 +739,29 @@ export const productsList = [
         price: 75,
         category: "desserts",
     },
-    {
-        title: {
-            en: "",
-            ar: ""
-        },
-        description: {
-            en: "",
-            ar: ""
-        },
-        image: "",
-        imageWithCombo: "",
-        price: 0,
-        category: "desserts",
-        details: {
-            size: [
-                { title: '', price: 0 }
-            ],
-            bread: true,
-            comboOptions: true,
-            drinks: true,
-            extras: true
-        },
-    },
+    // {
+    //     title: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     description: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     image: "",
+    //     imageWithCombo: "",
+    //     price: 0,
+    //     category: "desserts",
+    //     details: {
+    //         size: [
+    //             { title: '', price: 0 }
+    //         ],
+    //         bread: true,
+    //         comboOptions: true,
+    //         drinks: true,
+    //         extras: true
+    //     },
+    // },
     //Drinks
     {
         title: {
@@ -781,15 +781,15 @@ export const productsList = [
         price: 15,
         category: "drinks",
     },
-    {
-        title: {
-            en: "",
-            ar: ""
-        },
-        image: "",
-        price: 1,
-        category: "drinks",
-    },
+    // {
+    //     title: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     image: "",
+    //     price: 1,
+    //     category: "drinks",
+    // },
 ]
 
 export const menuCategoriesList = [
@@ -855,7 +855,7 @@ export const menuCategoriesList = [
 export const comboOptionsList = [
     {
         title: { en: "no combo", ar: "لا اضافة" },
-        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fa76de047b66f2511962b600232c60769.png&w=256&q=75",
+        image: "",
         description: { en: "Choose sandwich only", ar: "ساندوش فقط" },
         price: 0
     },
@@ -944,166 +944,144 @@ export const drinksList = [
 
 export const offersList = [
     {
-        title: "Buff One",
-        images: {
-            swiperWeb:
-                "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/c65d20d5c77eb0b08dcb3d2639fd13d1.png",
-            swiperMobile:
-                "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/e66d5a6bf26725009930c11643a762db.png",
-            keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fffaf41774acf69dbf5495e170f3e6347.png&w=640&q=75",
-            details:
-                "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fb645ddd7acf4b9a0cb96aaebd9824b97.png&w=256&q=75",
+        title: {
+            en: '4 in the box',
+            ar: 'فور ان ذا بوكس'
         },
-        description: "Your choice of a 150gm sandwich with French Fries",
-        price: 105,
-
-        tab: [
-            {
-                title: "choice",
-                details: {
-                    titleL: "Extras",
-                    description: "Apple Pie (EGP 20.00)",
-                    price: 20,
-                },
-            },
-            {
-                title: "fries",
-                details: {
-                    friseSmail: true,
-                    friesLarge: true,
-                    quantity: 1,
-                },
-            },
-        ],
-    },
-
-    {
-        title: "Buff Two",
-        images: {
-            swiperWeb:
-                "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/a70b771aa3afd58d2b04cb6b348c26b6.png",
-            swiperMobile:
-                "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/85be0753aafcd1d7aacaabd15c6cc61b.png",
-            keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F2a193572c206bd7113450bccbdbadd83.png&w=640&q=75",
-            details:
-                "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F128404621aefddb18dfb39461e4bc1fe.png&w=256&q=75",
+        description: {
+            en: "4 200gm sandwiches with 4 hero fries and your choice of 4 drinks.",
+            ar: '4 ساندوتشات 200 جرام، 4 بطاطس هيروز و4 مشروب'
         },
-        description:
-            "Your choice of a 150gm sandwich with regular chicken sandwich, French fries and a Soft Drink",
-        price: 105,
-        tab: [
-            { title: "choice" },
-            {
-                title: "fries",
-                details: {
-                    friseSmail: true,
-                    friesLarge: true,
-                    quantity: 1,
-                },
-            },
-            {
-                title: "drink",
-                details: {
-                    quantity: 1,
-                    drink: [
-                        { title: "Big cola", price: 0 },
-                        { title: "Pure Apple Juice (EGP 6.00)", price: 6 },
-                    ],
-                },
-            },
-            { title: "extraItem" },
-        ],
-    },
-
-    {
-        title: "4 in the box",
-        images: {
-            swiperWeb:
-                "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/20f582541433e4713c3743e382a9b4f9.png",
-            swiperMobile:
-                "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/f7f4d68734f3e45afe055da6a25fa33b.png",
-            keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F65ded6536caaf8d6487414ed50705c67.png&w=1080&q=75",
-            details:
-                "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fe71df04a4ffdedd9f80e9abb339da238.png&w=256&q=75",
-        },
-        description:
-            "4 200gm sandwiches with 4 hero fries and your choice of 4 drinks.",
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fe71df04a4ffdedd9f80e9abb339da238.png&w=256&q=75",
+        swiperWebImage: "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/20f582541433e4713c3743e382a9b4f9.png",
+        swiperMobileImage: "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/f7f4d68734f3e45afe055da6a25fa33b.png",
+        keenImage: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F65ded6536caaf8d6487414ed50705c67.png&w=640&q=75",
         price: 699,
-        tab: [
-            { title: "choice1" },
-            { title: "choice2" },
-            { title: "choice3" },
-            { title: "choice4" },
-            {
-                title: "fries",
-                details: {
-                    friseSmail: true,
-                    friesLarge: false,
-                    quantity: 4,
-                },
-            },
-            {
-                title: "drinks",
-                details: {
-                    quantity: 4,
-                    drink: [
-                        { title: "Big cola", price: 0 },
-                        { title: "Pure Apple Juice (EGP 6.00)", price: 6 },
-                        { title: "Orange Juice (EGP 10.00)", price: 10 },
-                    ],
-                },
-            },
+        choicesNumber: 4,
+        availableProducts: ['shiitake mushroom', 'keto lettuce wrap', 'animal style', 'old school', "cholo's chicken", 'chicken buster'],
+        availableFries: [{ title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 }],
+        availableDrinks: [
+            { title: { en: 'big cola', ar: 'بيج كولا' }, price: 0 },
+            { title: { en: 'pure apple juice', ar: 'عصير تفاح بيور' }, price: 6 },
+            { title: { en: 'orange juice', ar: 'عصير برتقال' }, price: 10 }
+        ],
+        tabs: [
+            { title: { en: "choice 1", ar: 'الاختيار 1' } },
+            { title: { en: "choice 2", ar: 'الاختيار 2' } },
+            { title: { en: "choice 3", ar: 'الاختيار 3' } },
+            { title: { en: "choice 4", ar: 'الاختيار 4' } },
+            { title: { en: "fries", ar: 'البطاطس' } },
+            { title: { en: "drinks", ar: 'المشروبات' } },
         ],
     },
-
     {
-        title: "Agmad 3",
-        images: {
-            swiperWeb:
-                "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/a1974b69b81f2fca482f886fab76948a.png",
-            swiperMobile:
-                "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/ad67aac59f375f0b1be848ef61f2ae51.png",
-            keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F8288ee9df2e386a185aa76e6f8cee25b.png&w=640&q=75",
-            details:
-                "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Ffe22c8d92581c5639cd057fa7080bc7e.png&w=256&q=75",
+        title: {
+            en: 'agmad 3',
+            ar: 'أجمد 3'
         },
-        description: "3 200gm sandwiches with 3 hero fries & 3 drinks.",
+        description: {
+            en: '3 200gm sandwiches with 3 hero fries & 3 drinks.',
+            ar: '3 ساندوتشات 200جرام مع 3 بطاطس هيروز و3 مشروب'
+        },
+        image: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Ffe22c8d92581c5639cd057fa7080bc7e.png&w=256&q=75',
+        swiperWebImage: 'https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/a1974b69b81f2fca482f886fab76948a.png',
+        swiperMobileImage: 'https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/ad67aac59f375f0b1be848ef61f2ae51.png',
+        keenImage: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F8288ee9df2e386a185aa76e6f8cee25b.png&w=640&q=75',
         price: 470,
-
-        tab: [
-            { title: "choice1" },
-            { title: "choice2" },
-            { title: "choice3" },
-            {
-                title: "fries",
-                details: {
-                    friseSmail: true,
-                    friesLarge: false,
-                    quantity: 3,
-                },
-            },
-            {
-                title: "drinks",
-                details: {
-                    quantity: 3,
-                    drink: [
-                        { title: "Big cola", price: 0 },
-                        { title: "Pure Apple Juice (EGP 6.00)", price: 6 },
-                        { title: "Orange Juice (EGP 10.00)", price: 10 },
-                    ],
-                },
-            },
+        choicesNumber: 3,
+        availableProducts: ['old school', "cholo's chicken", 'shiitake mushroom', 'animal style', 'old school', "cholo's chicken", 'chicken buster'],
+        availableFries: [{ title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 }],
+        availableDrinks: [
+            { title: { en: 'big cola', ar: 'بيج كولا' }, price: 0 },
+            { title: { en: 'pure apple juice', ar: 'عصير تفاح بيور' }, price: 6 },
+            { title: { en: 'orange juice', ar: 'عصير برتقال' }, price: 10 }
+        ],
+        tabs: [
+            { title: { en: "choice 1", ar: 'الاختيار 1' } },
+            { title: { en: "choice 2", ar: 'الاختيار 2' } },
+            { title: { en: "choice 3", ar: 'الاختيار 3' } },
+            { title: { en: "fries", ar: 'البطاطس' } },
+            { title: { en: "drinks", ar: 'المشروبات' } },
         ],
     },
+    // {
+    //     title: "Buff One",
+    //     images: {
+    //         swiperWeb:
+    //             "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/c65d20d5c77eb0b08dcb3d2639fd13d1.png",
+    //         swiperMobile:
+    //             "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/e66d5a6bf26725009930c11643a762db.png",
+    //         keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fffaf41774acf69dbf5495e170f3e6347.png&w=640&q=75",
+    //         details:
+    //             "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fb645ddd7acf4b9a0cb96aaebd9824b97.png&w=256&q=75",
+    //     },
+    //     description: "Your choice of a 150gm sandwich with French Fries",
+    //     price: 105,
+    //     tab: [
+    //         {
+    //             title: "choice",
+    //             details: {
+    //                 titleL: "Extras",
+    //                 description: "Apple Pie (EGP 20.00)",
+    //                 price: 20,
+    //             },
+    //         },
+    //         {
+    //             title: "fries",
+    //             details: {
+    //                 friseSmail: true,
+    //                 friesLarge: true,
+    //                 quantity: 1,
+    //             },
+    //         },
+    //     ],
+    // },
+    // {
+    //     title: "Buff Two",
+    //     images: {
+    //         swiperWeb:
+    //             "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/a70b771aa3afd58d2b04cb6b348c26b6.png",
+    //         swiperMobile:
+    //             "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/85be0753aafcd1d7aacaabd15c6cc61b.png",
+    //         keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F2a193572c206bd7113450bccbdbadd83.png&w=640&q=75",
+    //         details:
+    //             "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F128404621aefddb18dfb39461e4bc1fe.png&w=256&q=75",
+    //     },
+    //     description:
+    //         "Your choice of a 150gm sandwich with regular chicken sandwich, French fries and a Soft Drink",
+    //     price: 105,
+    //     tab: [
+    //         { title: "choice" },
+    //         {
+    //             title: "fries",
+    //             details: {
+    //                 friseSmail: true,
+    //                 friesLarge: true,
+    //                 quantity: 1,
+    //             },
+    //         },
+    //         {
+    //             title: "drink",
+    //             details: {
+    //                 quantity: 1,
+    //                 drink: [
+    //                     { title: "Big cola", price: 0 },
+    //                     { title: "Pure Apple Juice (EGP 6.00)", price: 6 },
+    //                 ],
+    //             },
+    //         },
+    //         { title: "extraItem" },
+    //     ],
+    // },
 ]
 
 export const productOffers = [
-    "shiitake mushroom",
-    "Keto Lettuce Wrap",
-    "ANIMAL STYLE",
-    "Old School",
-    "Cholo's Chicken",
-    "Chicken Buster",
+    'shiitake mushroom',
+    'keto lettuce wrap',
+    'animal style',
+    'old school',
+    "cholo's chicken",
+    'chicken buster'
 ]
 
 export const topSellingList = [

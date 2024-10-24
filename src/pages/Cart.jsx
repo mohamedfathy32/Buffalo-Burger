@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from "../components/ProductCard";
-import { productsList } from "../utils/data";
+import { productList } from "../utils/data";
 import { useState, useEffect, useContext } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../utils/firebase";
@@ -108,7 +108,7 @@ export default function CartPage() {
                         <div className="mt-4 mb-4 text-[28px] text-center md:text-left md:text-3xl font-bold md:ml-8">YOU MIGHT LIKE TO ADD</div>
                         <div className="w-full my-6">
                             <Slider {...sliderSettings} >
-                                {productsList.map(product => product.topSelling &&
+                                {productList.map(product => product.topSelling &&
                                     <div key={product.title} style={{ height: 500 }} className="pt-28 px-10 flex items-center justify-center rounded-md">
                                         <ProductCard key={product.id} product={product} />
                                     </div>

@@ -25,7 +25,7 @@ export default function ProductPage() {
     const [totalPrice, setTotalPrice] = useState(product.price);
 
     const calculateTotalPrice = () => {
-        const selectedSize = product?.details.size.find(s => s.title[i18n.language] === size);
+        const selectedSize = product?.details.size.find(s => s.title[i18n.language] === size) || product.details.size[0].title[i18n.language];
         const selectedBread = breadList.find(b => b.title[i18n.language] === bread);
         const selectedComboOption = comboOptionsList.find(c => c.title[i18n.language] === CO);
         const selectedDrink = CO !== 'no combo' ? drinksList.find(d => d.title[i18n.language] === drink) : 0;
@@ -48,20 +48,23 @@ export default function ProductPage() {
     }, [size, bread, CO, drink, extras, product]);
 
     const addToCart = () => {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push({
-            id: Date.now(),
-            image: CO ? (product.imageWithCombo || '/images/not-found.webp') : (product.image || '/images/not-found.webp'),
-            title: `${product.title[i18n.language]} ${(CO === 'no combo' || CO === 'لا اضافة') ? '' : CO}`,
-            description: `${drink === null ? '' : drink} ${extras.length ? extras.join(', ') : ''} ${(bread === 'white' || bread === 'عيش ابيض') ? '' : bread}`,
-            quantity: 1,
-            price: totalPrice,
-            totalPrice: totalPrice
-        });
-        localStorage.removeItem('order')
-        localStorage.setItem('cart', JSON.stringify(cart));
-        setCounter(cart.length);
-        navigate(-1);
+        if (CO !== 'no combo' && drink === null) { return }
+        else {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({
+                id: Date.now(),
+                image: CO ? (product.imageWithCombo || '/images/not-found.webp') : (product.image || '/images/not-found.webp'),
+                title: `${product.title[i18n.language]} ${(CO === 'no combo' || CO === 'لا اضافة') ? '' : CO}`,
+                description: `${drink === null ? '' : drink} ${extras.length ? extras.join(', ') : ''} ${(bread === 'white' || bread === 'عيش ابيض') ? '' : bread}`,
+                quantity: 1,
+                price: totalPrice,
+                totalPrice: totalPrice
+            });
+            localStorage.removeItem('order')
+            localStorage.setItem('cart', JSON.stringify(cart));
+            setCounter(cart.length);
+            navigate(-1);
+        }
     };
 
     return (
@@ -75,7 +78,7 @@ export default function ProductPage() {
             </section>
             <Size selectedSize={size} onSizeChange={setSize} />
             <Bread selectedBread={bread} onBreadChange={setBread} />
-            <ComboOption selectedComboOption={CO} onComobOptionChange={setCO} />
+            <ComboOption selectedComboOption={CO} onComobOptionChange={setCO} noComboImage={product.image} />
             {(CO !== 'no combo' && CO !== 'لا اضافة') && <Drink selectedDrink={drink} onDrinkChange={setDrink} />}
             <Extras selectedExtras={extras} onExtrasChange={setExtras} />
             <section id="total" className="w-full p-4 flex flex-col lg:flex-row-reverse fixed bottom-0 justify-center items-center gap-6 bg-gray-50">

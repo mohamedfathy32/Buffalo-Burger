@@ -1,11 +1,14 @@
 import { useTranslation } from "react-i18next";
 import KeenSlider from "../components/Home/Keen";
 import MenuNav from "../components/Home/Nav";
-import { menuCategoriesList, productsList } from "../utils/data";
+import { menuCategoriesList } from "../utils/data";
 import ProductCard from "../components/ProductCard";
+import { useContext } from "react";
+import { ProductsList } from "../utils/context";
 
 export default function MenuPage() {
     const { i18n } = useTranslation()
+    const { productsList } = useContext(ProductsList)
     return (
         <>
             <MenuNav />

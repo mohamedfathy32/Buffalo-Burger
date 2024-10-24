@@ -3,7 +3,6 @@ import Header from "./Header/Header";
 import Footer from "./Footer";
 import { useTranslation } from "react-i18next";
 
-
 export default function Layout() {
     const { i18n } = useTranslation()
     return (
