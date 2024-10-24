@@ -135,7 +135,7 @@ export default function CartPage() {
                             </div>
                             <div className="flex justify-between">
                                 <span>Vat :</span>
-                                <span>EGP {(getTotalPrice() * 0.14)}</span>
+                                <span>EGP {(getTotalPrice() * 0.14).toFixed(2)}</span>
                             </div>
                             <div className="flex justify-between border-t border-dashed border-t-gray-400 pt-3 my-1">
                                 <span className="text-xl text-orange-500 font-bold">TOTAL </span>
