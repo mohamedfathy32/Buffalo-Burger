@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
 import { useTranslation } from "react-i18next";
-import { Counter, LogedContext } from "../../utils/context";
+import { CartCounterContext, LogedContext } from "../../utils/context";
 
 export default function Header() {
     // Drawer Nav
@@ -18,7 +18,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
     const { isLoggedIn, setIsLoggedIn } = useContext(LogedContext);
-    const { counter, setCounter } = useContext(Counter)
+    const { cartCounter } = useContext(CartCounterContext)
     const [username, setUsername] = useState("");
     const [userphone, setUserphone] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false);
@@ -59,15 +59,6 @@ export default function Header() {
             setIsLoggedIn(false);
         }
     }
-
-
-    useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCounter(storedCart.length);
-
-    }, []);
-
-
 
     useEffect(() => {
         const userId = localStorage.getItem("userId");
@@ -147,7 +138,7 @@ export default function Header() {
                         {t("Cart")}
                     </Link>
                     <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
-                        {counter}
+                        {cartCounter}
                     </div>
                 </div>
                 <div className="flex justify-center absolute left-0 right-0 mx-auto w-52">

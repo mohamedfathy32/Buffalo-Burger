@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
-import { productList } from "../utils/data";
+import { ProductsContext } from "../utils/context";
 
 export default function OfferPage() {
+    const { products } = useContext(ProductsContext)
     const { state } = useLocation();
     const { i18n } = useTranslation()
     const [tabIndex, setTabIndex] = useState(0);
@@ -52,7 +53,7 @@ export default function OfferPage() {
             <div className="p-4">
                 {offer.tabs[tabIndex].title.en.includes('choice 1') &&
                     <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-y-2 justify-items-center">
-                        {productList.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
+                        {products.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
                             <button key={product.title.en} onClick={() => setOrder({ ...order, choice1: product.title[i18n.language] })} className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${product.title[i18n.language] === order.choice1 ? 'border-orange-600 bg-orange-50' : 'border-white bg-stone-50'}`}>
                                 <img src={product.image || '/images/not-found.webp'} alt={product.title[i18n.language]} className="w-20 h-20" />
                                 <div className="text-start ms-4">
@@ -65,7 +66,7 @@ export default function OfferPage() {
                 }
                 {offer.tabs[tabIndex].title.en.includes('choice 2') &&
                     <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-y-2 justify-items-center">
-                        {productList.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
+                        {products.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
                             <button key={product.title.en} onClick={() => setOrder({ ...order, choice2: product.title[i18n.language] })} className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${product.title[i18n.language] === order.choice2 ? 'border-orange-600 bg-orange-50' : 'border-white bg-stone-50'}`}>
                                 <img src={product.image || '/images/not-found.webp'} alt={product.title[i18n.language]} className="w-20 h-20" />
                                 <div className="text-start ms-4">
@@ -78,7 +79,7 @@ export default function OfferPage() {
                 }
                 {offer.tabs[tabIndex].title.en.includes('choice 3') &&
                     <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-y-2 justify-items-center">
-                        {productList.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
+                        {products.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
                             <button key={product.title.en} onClick={() => setOrder({ ...order, choice3: product.title[i18n.language] })} className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${product.title[i18n.language] === order.choice3 ? 'border-orange-600 bg-orange-50' : 'border-white bg-stone-50'}`}>
                                 <img src={product.image || '/images/not-found.webp'} alt={product.title[i18n.language]} className="w-20 h-20" />
                                 <div className="text-start ms-4">
@@ -91,7 +92,7 @@ export default function OfferPage() {
                 }
                 {offer.tabs[tabIndex].title.en.includes('choice 4') &&
                     <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-y-2 justify-items-center">
-                        {productList.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
+                        {products.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
                             <button key={product.title.en} onClick={() => setOrder({ ...order, choice4: product.title[i18n.language] })} className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${product.title[i18n.language] === order.choice4 ? 'border-orange-600 bg-orange-50' : 'border-white bg-stone-50'}`}>
                                 <img src={product.image || '/images/not-found.webp'} alt={product.title[i18n.language]} className="w-20 h-20" />
                                 <div className="text-start ms-4">
@@ -104,7 +105,7 @@ export default function OfferPage() {
                 }
                 {offer.tabs[tabIndex].title.en.includes('choice 5') &&
                     <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-y-2 justify-items-center">
-                        {productList.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
+                        {products.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
                             <button key={product.title.en} onClick={() => setOrder({ ...order, choice5: product.title[i18n.language] })} className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${product.title[i18n.language] === order.choice5 ? 'border-orange-600 bg-orange-50' : 'border-white bg-stone-50'}`}>
                                 <img src={product.image || '/images/not-found.webp'} alt={product.title[i18n.language]} className="w-20 h-20" />
                                 <div className="text-start ms-4">
@@ -117,7 +118,7 @@ export default function OfferPage() {
                 }
                 {offer.tabs[tabIndex].title.en.includes('choice 6') &&
                     <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-y-2 justify-items-center">
-                        {productList.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
+                        {products.map(product => offer.availableProducts.map(avail => avail === product.title.en &&
                             <button key={product.title.en} onClick={() => setOrder({ ...order, choice4: product.title[i18n.language] })} className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${product.title[i18n.language] === order.choice4 ? 'border-orange-600 bg-orange-50' : 'border-white bg-stone-50'}`}>
                                 <img src={product.image || '/images/not-found.webp'} alt={product.title[i18n.language]} className="w-20 h-20" />
                                 <div className="text-start ms-4">

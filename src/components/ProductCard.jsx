@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { Counter } from "../utils/context";
+import { CartCounterContext } from "../utils/context";
 
 export default function ProductCard({ product }) {
-    const { setCartCounter } = useContext(Counter);
+    const { setCartCounter } = useContext(CartCounterContext);
     const { i18n } = useTranslation();
     const navigate = useNavigate();
     const [productQuantity, setProductQuantity] = useState(0);

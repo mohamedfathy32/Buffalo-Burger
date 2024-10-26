@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { MdShoppingCart } from "react-icons/md";
 import { extrasList, comboOptionsList, breadList, drinksList } from "../utils/data";
-import { Counter } from "../utils/context";
+import { CartCounterContext } from "../utils/context";
 import Size from "../components/Product/Size";
 import Bread from "../components/Product/Bread";
 import ComboOption from "../components/Product/ComboOption";
@@ -11,7 +11,7 @@ import Drink from "../components/Product/Drink";
 import Extras from "../components/Product/Extras";
 
 export default function ProductPage() {
-    const { setCounter } = useContext(Counter);
+    const { setCartCounter } = useContext(CartCounterContext);
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const { state } = useLocation();
@@ -25,7 +25,7 @@ export default function ProductPage() {
     const [totalPrice, setTotalPrice] = useState(product.price);
 
     const calculateTotalPrice = () => {
-        const selectedSize = product?.details.size.find(s => s.title[i18n.language] === size) || product.details.size[0].title[i18n.language];
+        const selectedSize = product?.details.size.find(s => s.title[i18n.language] === size);
         const selectedBread = breadList.find(b => b.title[i18n.language] === bread);
         const selectedComboOption = comboOptionsList.find(c => c.title[i18n.language] === CO);
         const selectedDrink = CO !== 'no combo' ? drinksList.find(d => d.title[i18n.language] === drink) : 0;
@@ -33,21 +33,21 @@ export default function ProductPage() {
         return (selectedSize?.price || 0) + (selectedBread?.price || 0) + (selectedComboOption?.price || 0) + (selectedDrink?.price || 0) + extrasTotal;
     };
 
-    useEffect(() => {
-        const newTotalPrice = calculateTotalPrice();
-        setTotalPrice(newTotalPrice);
-        const order = {
-            product: product?.title[i18n.language],
-            bread,
-            CO,
-            drink: (CO === 'no combo' || CO === 'لا اضافة') ? null : drink,
-            extras: extras,
-            price: newTotalPrice
-        };
-        localStorage.setItem('order', JSON.stringify(order));
-    }, [size, bread, CO, drink, extras, product]);
+    // useEffect(() => {
+    //     const newTotalPrice = calculateTotalPrice();
+    //     setTotalPrice(newTotalPrice);
+    //     const order = {
+    //         product: product?.title[i18n.language],
+    //         bread,
+    //         CO,
+    //         drink: (CO === 'no combo' || CO === 'لا اضافة') ? null : drink,
+    //         extras: extras,
+    //         price: newTotalPrice
+    //     };
+    //     localStorage.setItem('order', JSON.stringify(order));
+    // }, [size, bread, CO, drink, extras, product]);
 
-    const addToCart = () => {
+    function addToCart() {
         if (CO !== 'no combo' && drink === null) { return }
         else {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -62,7 +62,7 @@ export default function ProductPage() {
             });
             localStorage.removeItem('order')
             localStorage.setItem('cart', JSON.stringify(cart));
-            setCounter(cart.length);
+            setCartCounter(cart.length);
             navigate(-1);
         }
     };

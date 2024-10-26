@@ -4,11 +4,11 @@ import MenuNav from "../components/Home/Nav";
 import { menuCategoriesList } from "../utils/data";
 import ProductCard from "../components/ProductCard";
 import { useContext } from "react";
-import { ProductsList } from "../utils/context";
+import { ProductsContext } from "../utils/context";
 
 export default function MenuPage() {
     const { i18n } = useTranslation()
-    const { productsList } = useContext(ProductsList)
+    const { products } = useContext(ProductsContext)
     return (
         <>
             <MenuNav />
@@ -23,7 +23,7 @@ export default function MenuPage() {
                 : <div key={cat.title.en} >
                     <h1 id={cat.title.en?.split(' ').join('')} className="PSS text-7xl uppercase text-orange-600 text-center m-6">{cat.title[i18n.language]}</h1>
                     <div className="flex justify-center flex-wrap gap-12 px-2 pb-6">
-                        {productsList.map(product => product.category === cat.title.en && <ProductCard product={product} key={product.title.en} />)}
+                        {products.map(product => product.category === cat.title.en && <ProductCard product={product} key={product.title.en} />)}
                     </div>
                 </div>
             )}

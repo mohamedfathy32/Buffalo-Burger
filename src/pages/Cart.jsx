@@ -5,23 +5,22 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from "../components/ProductCard";
-import { productList } from "../utils/data";
 import { useState, useEffect, useContext } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../utils/firebase";
-import { Counter } from "../utils/context";
+import { CartCounterContext, ProductsContext } from "../utils/context";
 
 export default function CartPage() {
     const [cart, setCart] = useState([]);
-    const { setCounter } = useContext(Counter)
+    const { setCartCounter } = useContext(CartCounterContext)
+    const { products } = useContext(ProductsContext)
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(savedCart);
-        setCounter(savedCart.length)
     }, []);
 
-    const handleQuantity = (id, change) => {
+    function handleQuantity(id, change) {
         const updatedCart = cart.map(item => item.id === id
             ? { ...item, quantity: item.quantity + change, totalPrice: (item.quantity + change) * item.price }
             : item
@@ -34,18 +33,20 @@ export default function CartPage() {
             localStorage.setItem("cart", JSON.stringify(updatedCart));
         }
         setCart(updatedCart);
+        setCartCounter(updatedCart.length);
     };
 
-    const getTotalPrice = () => {
+    function getTotalPrice() {
         return cart.reduce((total, item) => total + item.totalPrice, 0);
     };
 
-    const handleCheckout = async () => {
+    async function handleCheckout() {
         try {
             await addDoc(collection(db, "cart"), { cart });
             alert("Cart successfully checked out!");
             setCart([]);
             localStorage.removeItem("cart");
+            setCartCounter(0);
         } catch (error) {
             console.error("Error checking out: ", error);
         }
@@ -81,9 +82,9 @@ export default function CartPage() {
                         {cart.map(item =>
                             <div key={item.id} className="w-full flex lg:flex-row flex-col ml-auto items-center mb-3">
                                 <div className="w-11/12 lg:w-2/3 flex items-center bg-white p-2 mx-4 rounded-[10px] rounded-b-none md:rounded-b-[10px]">
-                                    <img alt={item.title} src={item.image} className="w-20 h-20" />
+                                    <img alt={item.title.en} src={item.image} className="w-20 h-20" />
                                     <div className="ms-4 capitalize">
-                                        <p className="font-bold">{item.title}</p>
+                                        <p className="font-bold">{item.title.en}</p>
                                         <p className="text-gray-400 text-sm">{item.description}</p>
                                     </div>
                                 </div>
@@ -108,8 +109,8 @@ export default function CartPage() {
                         <div className="mt-4 mb-4 text-[28px] text-center md:text-left md:text-3xl font-bold md:ml-8">YOU MIGHT LIKE TO ADD</div>
                         <div className="w-full my-6">
                             <Slider {...sliderSettings} >
-                                {productList.map(product => product.topSelling &&
-                                    <div key={product.title} style={{ height: 500 }} className="pt-28 px-10 flex items-center justify-center rounded-md">
+                                {products.map(product => product.topSelling &&
+                                    <div key={product.title.en} style={{ height: 500 }} className="pt-28 px-10 flex items-center justify-center rounded-md">
                                         <ProductCard key={product.id} product={product} />
                                     </div>
                                 )}
