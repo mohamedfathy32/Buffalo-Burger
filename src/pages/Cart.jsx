@@ -105,7 +105,7 @@ export default function CartPage() {
                             </div>
                         )}
                     </div>
-                    {cart.length !== 0 && <>
+                    {/* {cart.length !== 0 && <>
                         <div className="mt-4 mb-4 text-[28px] text-center md:text-left md:text-3xl font-bold md:ml-8">YOU MIGHT LIKE TO ADD</div>
                         <div className="w-full my-6">
                             <Slider {...sliderSettings} >
@@ -116,7 +116,7 @@ export default function CartPage() {
                                 )}
                             </Slider>
                         </div>
-                    </>}
+                    </>} */}
                 </div>
             </div >
             {cart.length !== 0 &&

@@ -3,12 +3,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { MdShoppingCart } from "react-icons/md";
 import { extrasList, comboOptionsList, breadList, drinksList } from "../utils/data";
-import { CartCounterContext } from "../utils/context";
 import Size from "../components/Product/Size";
 import Bread from "../components/Product/Bread";
 import ComboOption from "../components/Product/ComboOption";
 import Drink from "../components/Product/Drink";
 import Extras from "../components/Product/Extras";
+import { CartCounterContext } from "../utils/context";
 
 export default function ProductPage() {
     const { setCartCounter } = useContext(CartCounterContext);
@@ -33,38 +33,37 @@ export default function ProductPage() {
         return (selectedSize?.price || 0) + (selectedBread?.price || 0) + (selectedComboOption?.price || 0) + (selectedDrink?.price || 0) + extrasTotal;
     };
 
-    // useEffect(() => {
-    //     const newTotalPrice = calculateTotalPrice();
-    //     setTotalPrice(newTotalPrice);
-    //     const order = {
-    //         product: product?.title[i18n.language],
-    //         bread,
-    //         CO,
-    //         drink: (CO === 'no combo' || CO === 'لا اضافة') ? null : drink,
-    //         extras: extras,
-    //         price: newTotalPrice
-    //     };
-    //     localStorage.setItem('order', JSON.stringify(order));
+    useEffect(() => {
+        const newTotalPrice = calculateTotalPrice();
+        setTotalPrice(newTotalPrice);
+        // const order = {
+        //     product: product?.title[i18n.language],
+        //     bread,
+        //     CO,
+        //     drink: (CO === 'no combo' || CO === 'لا اضافة') ? null : drink,
+        //     extras: extras,
+        //     price: newTotalPrice
+        // };
+        // localStorage.setItem('order', JSON.stringify(order));
+    }, []);
     // }, [size, bread, CO, drink, extras, product]);
 
     function addToCart() {
-        if (CO !== 'no combo' && drink === null) { return }
-        else {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push({
-                id: Date.now(),
-                image: CO ? (product.imageWithCombo || '/images/not-found.webp') : (product.image || '/images/not-found.webp'),
-                title: `${product.title[i18n.language]} ${(CO === 'no combo' || CO === 'لا اضافة') ? '' : CO}`,
-                description: `${drink === null ? '' : drink} ${extras.length ? extras.join(', ') : ''} ${(bread === 'white' || bread === 'عيش ابيض') ? '' : bread}`,
-                quantity: 1,
-                price: totalPrice,
-                totalPrice: totalPrice
-            });
-            localStorage.removeItem('order')
-            localStorage.setItem('cart', JSON.stringify(cart));
-            setCartCounter(cart.length);
-            navigate(-1);
-        }
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({
+            id: Date.now(),
+            image: CO ? (product.imageWithCombo || '/images/not-found.webp') : (product.image || '/images/not-found.webp'),
+            title: `${product.title[i18n.language]} ${(CO === 'no combo' || CO === 'لا اضافة') ? '' : CO}`,
+            description: `${drink === null ? '' : drink} ${extras.length ? extras.join(', ') : ''} ${(bread === 'white' || bread === 'عيش ابيض') ? '' : bread}`,
+            quantity: 1,
+            price: totalPrice,
+            totalPrice: totalPrice
+        });
+        localStorage.removeItem('order')
+        localStorage.setItem('cart', JSON.stringify(cart));
+        setCartCounter(cart.length);
+        navigate(-1);
+
     };
 
     return (

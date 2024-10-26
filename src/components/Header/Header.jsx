@@ -10,14 +10,14 @@ import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
 import { useTranslation } from "react-i18next";
-import { CartCounterContext, LogedContext } from "../../utils/context";
+import { CartCounterContext, LoggedContext } from "../../utils/context";
 
 export default function Header() {
     // Drawer Nav
     const [nav, setNav] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
-    const { isLoggedIn, setIsLoggedIn } = useContext(LogedContext);
+    const { isLoggedIn, setIsLoggedIn } = useContext(LoggedContext);
     const { cartCounter } = useContext(CartCounterContext)
     const [username, setUsername] = useState("");
     const [userphone, setUserphone] = useState("");

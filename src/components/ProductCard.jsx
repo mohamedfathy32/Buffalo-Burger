@@ -48,7 +48,7 @@ export default function ProductCard({ product }) {
                 <img src={product?.image || '/images/not-found.webp'} alt={product?.title?.[i18n.language]} className="w-44 h-44 absolute top-10 start-0" />
             </div>
             <div className="bg-neutral-100 rounded-xl p-4 pb-2 pt-14 flex flex-col h-52">
-                <h2 className="font-semibold text-lg uppercase">{product?.title?.[i18n.language]}</h2>
+                <h2 className="font-bold text-lg uppercase">{product?.title?.[i18n.language]}</h2>
                 <p className="text-neutral-400 capitalize line-clamp-3">{product?.description?.[i18n.language]}</p>
                 <div className="flex justify-between items-center mt-auto">
                     <span className="font-bold">{i18n.language === 'en' ? 'EGP' : 'ج.م'} {product?.price}</span>
