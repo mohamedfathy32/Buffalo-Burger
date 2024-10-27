@@ -1,697 +1,697 @@
-// export const productList = [
-//     //Burger Sandwiches
-//     {
-//         title: {
-//             en: "shiitake mushroom",
-//             ar: "شيتاكي مشروم"
-//         },
-//         description: {
-//             en: "Sautéed mushroom, cheddar cheese, and creamy mayonnaise spread on top of our pure beef burger patty.",
-//             ar: "قطع المشروم السوتيه مع المايونيز الكريمي وجبنة شيدر وبرجر اللحم الصافي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fa76de047b66f2511962b600232c60769.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F74cd2faaa22109ae867c94197aa6b5fc.png&w=96&q=75",
-//         price: 155,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 155
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 190
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 280
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "animal style",
-//             ar: "أنيمال ستايل"
-//         },
-//         description: {
-//             en: "Crispy onion rings, topped with semi dijon mustard, creamy Buffalo sauce, and cheddar cheese.",
-//             ar: "حلقات البصل المقرمش والمسطرده الديجون وصوص البافالو الكريمي والجبنة الشيدر مع قطعة البرجر."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F36db94ef11461ebb6d1712215b530fb5.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F6cd290903deedb6347df502aba2b8843.png&w=96&q=75",
-//         price: 155,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 155
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 180
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 285
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "bacon mashroom jack",
-//             ar: "بيكون مشروم جاك"
-//         },
-//         description: {
-//             en: "Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.",
-//             ar: "قطع من البيكون البقري مع صوص المايونيز الكريمي والجبنة الشيدر والمشروم السوتيه وبرجر اللحم الصافي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fd845c9309b0d95d8c5d945b6b2552491.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fa830818b9c2be087c3e82c8254e07d38.png&w=96&q=75",
-//         price: 190,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 190
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 225
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 310
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "old school",
-//             ar: "أولد سكول"
-//         },
-//         description: {
-//             en: "Pure beef burger patty, topped with our signature Buffalo sauce and cheddar cheese.",
-//             ar: "برجر اللحم الصافي مع الجبنة الشيدر وصوص البافالو الكريمي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fb4a9bce0163404b97f76e9cec638bb08.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F810731292319ccf9b4f95fdd307156a8.png&w=96&q=75",
-//         price: 145,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 145
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 175
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 270
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "blue cheese",
-//             ar: "بلو تشيز"
-//         },
-//         description: {
-//             en: "Crumbles of creamy French blue cheese top our famous burger patty with our signature mayonnaise sauce.",
-//             ar: "جبنة البلو ثشييز مع صوص المايونيز الكريمي وبرجر اللحم الصافي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fb75ecb94aa633b1545de1318f9ca6d00.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F85b5367216d70c4e1b293057cf7d55a0.png&w=96&q=75",
-//         price: 150,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 150
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 185
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 285
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "the rastafari",
-//             ar: "راستافاري"
-//         },
-//         description: {
-//             en: "Crispy cheddar jalapeño bites, on a grilled burger patty with and creamy Buffalo sauce.",
-//             ar: "ايتس الجبنة الشيدر المحشوه بالهالپنيو وصوص البافالو الكريمي و الجبنة الشيدر مع قطعة البرجر."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fff183e68e89cbe5674dfb3c8e7b1a26b.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F39b4bc4ac9ed3dbf77b5b78dc85c6c64.png&w=96&q=75",
-//         price: 170,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 170
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 200
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 290
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "the muscular",
-//             ar: "ماسكيولار"
-//         },
-//         description: {
-//             en: "Pure beef burger, topped with crispy cheese and creamy Buffalo sauce. Only for the serious eaters.",
-//             ar: "جبنة كريسبي مع صوص البافالو والبرجر المشـوي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F802131a7b4dd1d3a1ca23625a53082c3.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F9faf0d7460569c9b188a2852ed06eb69.png&w=96&q=75",
-//         price: 175,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 175
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 205
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 300
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "the secret burger",
-//             ar: "سيكريت برجر"
-//         },
-//         description: {
-//             en: "Flamed burger patty with crispy onion and BBQ sauce with caramelized onion, topped with crispy secret cheese, and creamy Buffalo sauce.",
-//             ar: "برجر مشوي مع البصل الكريسبي وصوص الباربيكيو بالبصل المكرمل والجبنة السيكريت الكريسبي وصوص البافالو الكريمي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Ff887f2ac7f1212f18ade68c61ca6075c.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F36b2064b77c0e650866ecfd38f58d2fe.png&w=96&q=75",
-//         price: 180,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 180
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 220
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 300
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "hitchhiker",
-//             ar: "هيتش هيكر"
-//         },
-//         description: {
-//             en: "Crispy mini Mozzarella bites, loaded with ketchup and mustard drops, beef bacon, and creamy Buffalo sauce on top of our pure beef burger patty.",
-//             ar: "قطع من الجبنة الموتزاريلا الكريسبي الصغيرة مع البيكون البقري والبرجر والكاتشاب والمسطرده وصوص البافالو الكريمي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F28ef9f8e1a9beb94215ed3bad733fe3c.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F0fdbf2d021adf7bf2813383fe7aa7486.png&w=96&q=75",
-//         price: 190,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 190
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 225
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 305
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "x urban",
-//             ar: "اكس اربن"
-//         },
-//         description: {
-//             en: "A juicy burger patty with cheddar cheese, beef bacon, crispy onion rings with BBQ sauce, and caramelized onions.",
-//             ar: "الجبنة الشيدر مع حلقات البصل المقرمشة وصوص الباربيكيو مع البيكون البقري، البصل المكرمل الحلو والبرجر المشـوي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F3cd5acc623e770c0388edf1d1c2c486b.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F21faf7eef8f63e4d4cafb5159bdfeddc.png&w=96&q=75",
-//         price: 195,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 195
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 230
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 305
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "double jab",
-//             ar: "دوبل جاب"
-//         },
-//         description: {
-//             en: "Crispy cheese stuffed with beef bacon, topped with crispy onion, BBQ sauce, grilled burger patty, and smoked cheese sauce with mushroom.",
-//             ar: "جبنة الموتزاريلا الكريسبي محشوة بداخلها البيكون البقري مع البصل المقرمش وصوص الباربيكيو وصوص الجبنة المدخنة والمشروم وبرجر مشوي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F1dc8ed21ded6112b74fd79ed9cac077c.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F24ad89a44a5e836bb3e29e3a67eb8eea.png&w=96&q=75",
-//         price: 205,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 205
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 235
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 310
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "charbroiled bbq",
-//             ar: "تشاربرويلد باربيكيو"
-//         },
-//         description: {
-//             en: "Grilled burger topped with sweet onion, BBQ sauce, creamy Charbroiled sauce, and Swiss cheese.",
-//             ar: "برجر لحم صافي مع البصل المكرمل الحلو وصوص الباربيكيو والجبنة الشيدر."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F52c2c0cb4355e196903e8a64ebe94da0.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb6684111dcea5eb86bac661aba7811e4.png&w=96&q=75",
-//         price: 150,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 150
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 175
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 270
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "cholo's",
-//             ar: "تشولوز"
-//         },
-//         description: {
-//             en: "Pickled sliced jalapeños, Buffalo sauce and cheddar cheese on top of our pure beef burger patty.",
-//             ar: "شرائح هالپينيو مع صوص بافالو والجبنة الشيدر وبرجر اللحم."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fce05d752c3ce86256f7c58445c8c2c90.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Ff2b8dce25890e3a24674cf18a682fc85.png&w=96&q=75",
-//         price: 150,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 150
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 175
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 270
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "grungy",
-//             ar: "جرانچي"
-//         },
-//         description: {
-//             en: "Pure beef burger patty, topped with our custom Grungy sauce, cheddar cheese, tomatoes, onion",
-//             ar: "برجر اللحم الصافي مع الجبنة الشيدر وصوص الجرانچي مع طماطم، وبصل."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fde19c6b5cbb03bfc24ea31e5b0259121.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F9396c6d13b01f90dd62c9dc2285536d4.png&w=96&q=75",
-//         price: 145,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 145
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 175
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 270
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "truffle beef burger",
-//             ar: "ترافل بيف برجر"
-//         },
-//         description: {
-//             en: "Flame grilled burger with Sautéed mushroom, crispy onion, truffle sauce, and cheddar cheese.",
-//             ar: "قطع المشروم السوتيه و البصل الكرسبى والجبنة شيدر مع صوص الترافل وبرجر اللحم الصافي"
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fc189b5157ba5d891611ca27130e99ca8.png&w=256&q=75",
-//         imageWithCombo: "",
-//         price: 165,
-//         category: "burger sandwiches",
-//         details: {
-//             size: [
-//                 {
-//                     title: { en: '150 gm', ar: '150 جرام' },
-//                     price: 165
-//                 },
-//                 {
-//                     title: { en: '200 gm', ar: '200 جرام' },
-//                     price: 200
-//                 },
-//                 {
-//                     title: { en: '400 gm', ar: '400 جرام' },
-//                     price: 290
-//                 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     //Chicken Sandwiches
-//     {
-//         title: {
-//             en: "rastafari chicken",
-//             ar: "راستافاري تشيكن"
-//         },
-//         description: {
-//             en: "Crispy cheddar jalapeño bites, with chicken strips, and creamy Buffalo sauce.",
-//             ar: "الدجاج الاستريبس المقرمشة بايتس الجبنة الشيدر المحشوه بالهالپينيو وصوص البافالو الكريمي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Ff3da7a1ac56e2121f21e49b5b2e1622f.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F99ebd80cfccf052eda62d8ddc44150e6.png&w=96&q=75",
-//         price: 145,
-//         category: "chicken sandwiches",
-//         details: {
-//             size: [
-//                 { title: 'strips', price: 145 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "chicken ditch",
-//             ar: "تشيكن ديتش"
-//         },
-//         description: {
-//             en: "Chicken strips topped with beef bacon, sautéed mushroom, cheddar cheese, and our custom Secret sauce.",
-//             ar: "الدجاج الاستريبس المقرمشة مع البيكون البقري، مشروم سوتيه مع الجبنة الشيدر وصوص السيكريت."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Ffce09e6a80b59a8cf77275475988c79a.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F4ede78d3e294a748aed8c8271a85ce1f.png&w=96&q=75",
-//         price: 185,
-//         category: "chicken sandwiches",
-//         details: {
-//             size: [
-//                 { title: 'strips', price: 185 }
-//             ],
-//             bread: true,
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     //Keto & Light Sandwiches
-//     {
-//         title: {
-//             en: "keto lettuce wrap",
-//             ar: "كيتو ليتوس راب"
-//         },
-//         description: {
-//             en: "Pure beef burger embedded in fresh whole romaine lettuce with cheddar cheese. Served with our signature Buffalo sauce in a cup.",
-//             ar: "برجر اللحم الصافي داخل قطعه كامله من خس الكابوتشا مع الجبنة الشيدر ويقدم مع كب صوص البافالو الكريمي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F107de22f659cd70e480e6ac560ef7d59.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb17bb7cb01e0ca925ec2be3981c5a469.png&w=96&q=75",
-//         price: 165,
-//         category: "keto & light sandwiches",
-//         details: {
-//             size: [
-//                 { title: '150', price: 165 },
-//                 { title: '200', price: 190 },
-//                 { title: '400', price: 275 },
-//             ],
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     {
-//         title: {
-//             en: "keto shiitake mushroom",
-//             ar: "كيتو شيتاكي مشروم"
-//         },
-//         description: {
-//             en: "Sautéed fresh mushroom, cheddar cheese, and beef burger patty embedded in fresh whole romaine lettuce. Served with our mayonnaise sauce in a cup.",
-//             ar: "مشروم سوتيه مع الجبنة الشيدر وبرجر اللحم الصافي داخل قطعه كامله من خس الكابوتشا ويقدم مع كب صوص المايونيز الكريمي."
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F084465fc13ed66144c17a5bc9f37524d.png&w=256&q=75",
-//         imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F4b6ee42795b83a048f883167c4580dd2.png&w=96&q=75",
-//         price: 170,
-//         category: "keto & light sandwiches",
-//         details: {
-//             size: [
-//                 { title: '150', price: 170 },
-//                 { title: '200', price: 205 },
-//                 { title: '400', price: 280 },
-//             ],
-//             comboOptions: true,
-//             drinks: true,
-//             extras: true
-//         },
-//     },
-//     //Appetizers
-//     {
-//         title: {
-//             en: "Large French Fries",
-//             ar: "فرينش فرايز لارج"
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fea4bf95a863a674e0ae15fe02cafcebd.png&w=256&q=75",
-//         price: 40,
-//         category: "appetizers",
-//         details: {
-//             size: [
-//                 { title: '1 size', price: 40 },
-//             ],
-//         },
-//     },
-//     {
-//         title: {
-//             en: "blanco fries",
-//             ar: "بلانكو فرايز"
-//         },
-//         description: {
-//             en: "French Fries with Ketchup, Mayonnaise and fresh onion",
-//             ar: "فرينش فرايز مع كاتشاب ومايونيز وقطع البصل الفريش"
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8451f4eff364a68c8f9ed01d0fdb5b84.png&w=256&q=75",
-//         price: 60,
-//         category: "appetizers",
-//     },
-//     //Sauces
-//     {
-//         title: {
-//             en: "mustard",
-//             ar: "مستردة"
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fd657260b7da71715c209e2d9355def36.png&w=256&q=75",
-//         price: 5,
-//         category: "sauces",
-//     },
-//     {
-//         title: {
-//             en: "ketchup",
-//             ar: "كاتشب"
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F41a277c946e35a12ad0227b2572e917c.png&w=256&q=75",
-//         price: 2.3,
-//         category: "sauces",
-//     },
-//     //Desserts
-//     {
-//         title: {
-//             en: "blueberry cheesecake",
-//             ar: "بلوبيري تشييزكيك"
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F3c45b0dfba0fd0664b7fde22592a5fa8.png&w=256&q=75",
-//         price: 75,
-//         category: "desserts",
-//     },
-//     {
-//         title: {
-//             en: "lotus cheesecake",
-//             ar: "لوتس تشييزكيك"
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F32e21a32d4e55705d9b3235bb02e804c.png&w=256&q=75",
-//         price: 75,
-//         category: "desserts",
-//     },
-//     //Drinks
-//     {
-//         title: {
-//             en: "orange juice",
-//             ar: "عصير برتقال"
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F0de776208dca33c7a7c1274c3468a4ac.png&w=256&q=75",
-//         price: 30,
-//         category: "drinks",
-//     },
-//     {
-//         title: {
-//             en: "Pure Apple Juice",
-//             ar: "عصير تفاح بيور"
-//         },
-//         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F9f9d227549b8d0c81257dded1ebe0c7d.png&w=256&q=75",
-//         price: 15,
-//         category: "drinks",
-//     },
-// ]
+export const productList = [
+    //Burger Sandwiches
+    {
+        title: {
+            en: "shiitake mushroom",
+            ar: "شيتاكي مشروم"
+        },
+        description: {
+            en: "Sautéed mushroom, cheddar cheese, and creamy mayonnaise spread on top of our pure beef burger patty.",
+            ar: "قطع المشروم السوتيه مع المايونيز الكريمي وجبنة شيدر وبرجر اللحم الصافي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fa76de047b66f2511962b600232c60769.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F74cd2faaa22109ae867c94197aa6b5fc.png&w=96&q=75",
+        price: 155,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 155
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 190
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 280
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "animal style",
+            ar: "أنيمال ستايل"
+        },
+        description: {
+            en: "Crispy onion rings, topped with semi dijon mustard, creamy Buffalo sauce, and cheddar cheese.",
+            ar: "حلقات البصل المقرمش والمسطرده الديجون وصوص البافالو الكريمي والجبنة الشيدر مع قطعة البرجر."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F36db94ef11461ebb6d1712215b530fb5.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F6cd290903deedb6347df502aba2b8843.png&w=96&q=75",
+        price: 155,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 155
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 180
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 285
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "bacon mashroom jack",
+            ar: "بيكون مشروم جاك"
+        },
+        description: {
+            en: "Beef bacon with fresh sautéed mushroom, cheddar cheese, and creamy mayonnaise.",
+            ar: "قطع من البيكون البقري مع صوص المايونيز الكريمي والجبنة الشيدر والمشروم السوتيه وبرجر اللحم الصافي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fd845c9309b0d95d8c5d945b6b2552491.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fa830818b9c2be087c3e82c8254e07d38.png&w=96&q=75",
+        price: 190,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 190
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 225
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 310
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "old school",
+            ar: "أولد سكول"
+        },
+        description: {
+            en: "Pure beef burger patty, topped with our signature Buffalo sauce and cheddar cheese.",
+            ar: "برجر اللحم الصافي مع الجبنة الشيدر وصوص البافالو الكريمي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fb4a9bce0163404b97f76e9cec638bb08.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F810731292319ccf9b4f95fdd307156a8.png&w=96&q=75",
+        price: 145,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 145
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 175
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 270
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "blue cheese",
+            ar: "بلو تشيز"
+        },
+        description: {
+            en: "Crumbles of creamy French blue cheese top our famous burger patty with our signature mayonnaise sauce.",
+            ar: "جبنة البلو ثشييز مع صوص المايونيز الكريمي وبرجر اللحم الصافي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fb75ecb94aa633b1545de1318f9ca6d00.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F85b5367216d70c4e1b293057cf7d55a0.png&w=96&q=75",
+        price: 150,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 150
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 185
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 285
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "the rastafari",
+            ar: "راستافاري"
+        },
+        description: {
+            en: "Crispy cheddar jalapeño bites, on a grilled burger patty with and creamy Buffalo sauce.",
+            ar: "ايتس الجبنة الشيدر المحشوه بالهالپنيو وصوص البافالو الكريمي و الجبنة الشيدر مع قطعة البرجر."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Fff183e68e89cbe5674dfb3c8e7b1a26b.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F39b4bc4ac9ed3dbf77b5b78dc85c6c64.png&w=96&q=75",
+        price: 170,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 170
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 200
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 290
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "the muscular",
+            ar: "ماسكيولار"
+        },
+        description: {
+            en: "Pure beef burger, topped with crispy cheese and creamy Buffalo sauce. Only for the serious eaters.",
+            ar: "جبنة كريسبي مع صوص البافالو والبرجر المشـوي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F802131a7b4dd1d3a1ca23625a53082c3.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F9faf0d7460569c9b188a2852ed06eb69.png&w=96&q=75",
+        price: 175,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 175
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 205
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 300
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "the secret burger",
+            ar: "سيكريت برجر"
+        },
+        description: {
+            en: "Flamed burger patty with crispy onion and BBQ sauce with caramelized onion, topped with crispy secret cheese, and creamy Buffalo sauce.",
+            ar: "برجر مشوي مع البصل الكريسبي وصوص الباربيكيو بالبصل المكرمل والجبنة السيكريت الكريسبي وصوص البافالو الكريمي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Ff887f2ac7f1212f18ade68c61ca6075c.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F36b2064b77c0e650866ecfd38f58d2fe.png&w=96&q=75",
+        price: 180,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 180
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 220
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 300
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "hitchhiker",
+            ar: "هيتش هيكر"
+        },
+        description: {
+            en: "Crispy mini Mozzarella bites, loaded with ketchup and mustard drops, beef bacon, and creamy Buffalo sauce on top of our pure beef burger patty.",
+            ar: "قطع من الجبنة الموتزاريلا الكريسبي الصغيرة مع البيكون البقري والبرجر والكاتشاب والمسطرده وصوص البافالو الكريمي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F28ef9f8e1a9beb94215ed3bad733fe3c.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F0fdbf2d021adf7bf2813383fe7aa7486.png&w=96&q=75",
+        price: 190,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 190
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 225
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 305
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "x urban",
+            ar: "اكس اربن"
+        },
+        description: {
+            en: "A juicy burger patty with cheddar cheese, beef bacon, crispy onion rings with BBQ sauce, and caramelized onions.",
+            ar: "الجبنة الشيدر مع حلقات البصل المقرمشة وصوص الباربيكيو مع البيكون البقري، البصل المكرمل الحلو والبرجر المشـوي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F3cd5acc623e770c0388edf1d1c2c486b.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F21faf7eef8f63e4d4cafb5159bdfeddc.png&w=96&q=75",
+        price: 195,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 195
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 230
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 305
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "double jab",
+            ar: "دوبل جاب"
+        },
+        description: {
+            en: "Crispy cheese stuffed with beef bacon, topped with crispy onion, BBQ sauce, grilled burger patty, and smoked cheese sauce with mushroom.",
+            ar: "جبنة الموتزاريلا الكريسبي محشوة بداخلها البيكون البقري مع البصل المقرمش وصوص الباربيكيو وصوص الجبنة المدخنة والمشروم وبرجر مشوي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F1dc8ed21ded6112b74fd79ed9cac077c.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F24ad89a44a5e836bb3e29e3a67eb8eea.png&w=96&q=75",
+        price: 205,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 205
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 235
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 310
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "charbroiled bbq",
+            ar: "تشاربرويلد باربيكيو"
+        },
+        description: {
+            en: "Grilled burger topped with sweet onion, BBQ sauce, creamy Charbroiled sauce, and Swiss cheese.",
+            ar: "برجر لحم صافي مع البصل المكرمل الحلو وصوص الباربيكيو والجبنة الشيدر."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F52c2c0cb4355e196903e8a64ebe94da0.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb6684111dcea5eb86bac661aba7811e4.png&w=96&q=75",
+        price: 150,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 150
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 175
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 270
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "cholo's",
+            ar: "تشولوز"
+        },
+        description: {
+            en: "Pickled sliced jalapeños, Buffalo sauce and cheddar cheese on top of our pure beef burger patty.",
+            ar: "شرائح هالپينيو مع صوص بافالو والجبنة الشيدر وبرجر اللحم."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fce05d752c3ce86256f7c58445c8c2c90.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Ff2b8dce25890e3a24674cf18a682fc85.png&w=96&q=75",
+        price: 150,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 150
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 175
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 270
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "grungy",
+            ar: "جرانچي"
+        },
+        description: {
+            en: "Pure beef burger patty, topped with our custom Grungy sauce, cheddar cheese, tomatoes, onion",
+            ar: "برجر اللحم الصافي مع الجبنة الشيدر وصوص الجرانچي مع طماطم، وبصل."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fde19c6b5cbb03bfc24ea31e5b0259121.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F9396c6d13b01f90dd62c9dc2285536d4.png&w=96&q=75",
+        price: 145,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 145
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 175
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 270
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "truffle beef burger",
+            ar: "ترافل بيف برجر"
+        },
+        description: {
+            en: "Flame grilled burger with Sautéed mushroom, crispy onion, truffle sauce, and cheddar cheese.",
+            ar: "قطع المشروم السوتيه و البصل الكرسبى والجبنة شيدر مع صوص الترافل وبرجر اللحم الصافي"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fc189b5157ba5d891611ca27130e99ca8.png&w=256&q=75",
+        imageWithCombo: "",
+        price: 165,
+        category: "burger sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 165
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 200
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 290
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    //Chicken Sandwiches
+    {
+        title: {
+            en: "rastafari chicken",
+            ar: "راستافاري تشيكن"
+        },
+        description: {
+            en: "Crispy cheddar jalapeño bites, with chicken strips, and creamy Buffalo sauce.",
+            ar: "الدجاج الاستريبس المقرمشة بايتس الجبنة الشيدر المحشوه بالهالپينيو وصوص البافالو الكريمي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Ff3da7a1ac56e2121f21e49b5b2e1622f.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F99ebd80cfccf052eda62d8ddc44150e6.png&w=96&q=75",
+        price: 145,
+        category: "chicken sandwiches",
+        details: {
+            size: [
+                { title: 'strips', price: 145 }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "chicken ditch",
+            ar: "تشيكن ديتش"
+        },
+        description: {
+            en: "Chicken strips topped with beef bacon, sautéed mushroom, cheddar cheese, and our custom Secret sauce.",
+            ar: "الدجاج الاستريبس المقرمشة مع البيكون البقري، مشروم سوتيه مع الجبنة الشيدر وصوص السيكريت."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2Ffce09e6a80b59a8cf77275475988c79a.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F4ede78d3e294a748aed8c8271a85ce1f.png&w=96&q=75",
+        price: 185,
+        category: "chicken sandwiches",
+        details: {
+            size: [
+                { title: 'strips', price: 185 }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    //Keto & Light Sandwiches
+    {
+        title: {
+            en: "keto lettuce wrap",
+            ar: "كيتو ليتوس راب"
+        },
+        description: {
+            en: "Pure beef burger embedded in fresh whole romaine lettuce with cheddar cheese. Served with our signature Buffalo sauce in a cup.",
+            ar: "برجر اللحم الصافي داخل قطعه كامله من خس الكابوتشا مع الجبنة الشيدر ويقدم مع كب صوص البافالو الكريمي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F107de22f659cd70e480e6ac560ef7d59.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb17bb7cb01e0ca925ec2be3981c5a469.png&w=96&q=75",
+        price: 165,
+        category: "keto & light sandwiches",
+        details: {
+            size: [
+                { title: '150', price: 165 },
+                { title: '200', price: 190 },
+                { title: '400', price: 275 },
+            ],
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "keto shiitake mushroom",
+            ar: "كيتو شيتاكي مشروم"
+        },
+        description: {
+            en: "Sautéed fresh mushroom, cheddar cheese, and beef burger patty embedded in fresh whole romaine lettuce. Served with our mayonnaise sauce in a cup.",
+            ar: "مشروم سوتيه مع الجبنة الشيدر وبرجر اللحم الصافي داخل قطعه كامله من خس الكابوتشا ويقدم مع كب صوص المايونيز الكريمي."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F084465fc13ed66144c17a5bc9f37524d.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F4b6ee42795b83a048f883167c4580dd2.png&w=96&q=75",
+        price: 170,
+        category: "keto & light sandwiches",
+        details: {
+            size: [
+                { title: '150', price: 170 },
+                { title: '200', price: 205 },
+                { title: '400', price: 280 },
+            ],
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    //Appetizers
+    {
+        title: {
+            en: "Large French Fries",
+            ar: "فرينش فرايز لارج"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fea4bf95a863a674e0ae15fe02cafcebd.png&w=256&q=75",
+        price: 40,
+        category: "appetizers",
+        details: {
+            size: [
+                { title: '1 size', price: 40 },
+            ],
+        },
+    },
+    {
+        title: {
+            en: "blanco fries",
+            ar: "بلانكو فرايز"
+        },
+        description: {
+            en: "French Fries with Ketchup, Mayonnaise and fresh onion",
+            ar: "فرينش فرايز مع كاتشاب ومايونيز وقطع البصل الفريش"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8451f4eff364a68c8f9ed01d0fdb5b84.png&w=256&q=75",
+        price: 60,
+        category: "appetizers",
+    },
+    //Sauces
+    {
+        title: {
+            en: "mustard",
+            ar: "مستردة"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fd657260b7da71715c209e2d9355def36.png&w=256&q=75",
+        price: 5,
+        category: "sauces",
+    },
+    {
+        title: {
+            en: "ketchup",
+            ar: "كاتشب"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F41a277c946e35a12ad0227b2572e917c.png&w=256&q=75",
+        price: 2.3,
+        category: "sauces",
+    },
+    //Desserts
+    {
+        title: {
+            en: "blueberry cheesecake",
+            ar: "بلوبيري تشييزكيك"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F3c45b0dfba0fd0664b7fde22592a5fa8.png&w=256&q=75",
+        price: 75,
+        category: "desserts",
+    },
+    {
+        title: {
+            en: "lotus cheesecake",
+            ar: "لوتس تشييزكيك"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F32e21a32d4e55705d9b3235bb02e804c.png&w=256&q=75",
+        price: 75,
+        category: "desserts",
+    },
+    //Drinks
+    {
+        title: {
+            en: "orange juice",
+            ar: "عصير برتقال"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F0de776208dca33c7a7c1274c3468a4ac.png&w=256&q=75",
+        price: 30,
+        category: "drinks",
+    },
+    {
+        title: {
+            en: "Pure Apple Juice",
+            ar: "عصير تفاح بيور"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F9f9d227549b8d0c81257dded1ebe0c7d.png&w=256&q=75",
+        price: 15,
+        category: "drinks",
+    },
+]
 
 export const menuCategoriesList = [
     {
@@ -858,7 +858,7 @@ export const offersList = [
         keenImage: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F65ded6536caaf8d6487414ed50705c67.png&w=640&q=75",
         price: 699,
         choicesNumber: 4,
-        availableProducts: ['shiitake mushroom', 'keto lettuce wrap', 'animal style', 'old school', "cholo's chicken", 'chicken buster'],
+        availableProducts: ['shiitake mushroom', 'animal style', 'old school', "cholo's", 'chicken buster', 'charbroiled bbq'],
         availableFries: [{ title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 }],
         availableDrinks: [
             { title: { en: 'big cola', ar: 'بيج كولا' }, price: 0 },
@@ -889,7 +889,7 @@ export const offersList = [
         keenImage: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F8288ee9df2e386a185aa76e6f8cee25b.png&w=640&q=75',
         price: 470,
         choicesNumber: 3,
-        availableProducts: ['old school', "cholo's chicken", 'shiitake mushroom', 'animal style', 'old school', "cholo's chicken", 'chicken buster'],
+        availableProducts: ['old school', "cholo's", 'shiitake mushroom', 'animal style', 'old school', 'chicken buster'],
         availableFries: [{ title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 }],
         availableDrinks: [
             { title: { en: 'big cola', ar: 'بيج كولا' }, price: 0 },
@@ -974,15 +974,6 @@ export const offersList = [
     //     ],
     // },
 ]
-
-// export const productOffers = [
-//     'shiitake mushroom',
-//     'keto lettuce wrap',
-//     'animal style',
-//     'old school',
-//     "cholo's chicken",
-//     'chicken buster'
-// ]
 
 export const topSellingList = [
     'shiitake mushroom',

@@ -12,7 +12,7 @@ export default function ProductCard({ product }) {
 
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const existingProduct = cart.find(item => item.title.en === product.title.en);
+        const existingProduct = cart.find(item => item.title.en === product?.title.en);
         if (existingProduct) setProductQuantity(existingProduct.quantity);
     }, []);
 

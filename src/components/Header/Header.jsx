@@ -5,12 +5,13 @@ import { MdLoyalty } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
 import { useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { CartCounterContext, LoggedContext } from "../../utils/context";
 import { getUserInfoById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
-import { useTranslation } from "react-i18next";
-import { CartCounterContext, LoggedContext } from "../../utils/context";
+
 
 export default function Header() {
     // Drawer Nav
@@ -18,7 +19,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
     const { isLoggedIn, setIsLoggedIn } = useContext(LoggedContext);
-    const { cartCounter } = useContext(CartCounterContext)
+    const { cartCounter, setCartCounter } = useContext(CartCounterContext)
     const [username, setUsername] = useState("");
     const [userphone, setUserphone] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false);
@@ -59,6 +60,11 @@ export default function Header() {
             setIsLoggedIn(false);
         }
     }
+
+    useEffect(() => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || []
+        setCartCounter(cart.length);
+    }, []);
 
     useEffect(() => {
         const userId = localStorage.getItem("userId");
@@ -171,7 +177,7 @@ export default function Header() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/orders">
+                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/OrderHistory">
                                             {t("Order history")}
                                         </Link>
                                     </li>

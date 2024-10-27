@@ -19,7 +19,7 @@ export function App() {
       }
     }
     get()
-  }, []);
+  });
 
   return (
     <>

@@ -43,8 +43,6 @@ export async function getCollectionByName(collectionName) {
 // function for adding full list to any collectionn(empty)
 export async function addCollection(collectionArray, collectionName) {
   try {
-    const Collection = collection(db, collectionName);
-    const querySnapshot = await getDocs(Collection);
     const batch = writeBatch(db);
     collectionArray.forEach((item, index) => {
       const docRef = doc(db, collectionName, item.title.en);

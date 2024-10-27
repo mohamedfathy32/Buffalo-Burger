@@ -1,19 +1,18 @@
+import { useState, useEffect, useContext } from "react";
 import { CiCircleMinus } from "react-icons/ci";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaArrowAltCircleRight } from "react-icons/fa";
-import Slider from "react-slick";
+import { CartCounterContext } from "../utils/context";
+import { db } from "../utils/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { useTranslation } from "react-i18next";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProductCard from "../components/ProductCard";
-import { useState, useEffect, useContext } from "react";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../utils/firebase";
-import { CartCounterContext, ProductsContext } from "../utils/context";
 
 export default function CartPage() {
     const [cart, setCart] = useState([]);
     const { setCartCounter } = useContext(CartCounterContext)
-    const { products } = useContext(ProductsContext)
+    const { i18n } = useTranslation()
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -23,15 +22,10 @@ export default function CartPage() {
     function handleQuantity(id, change) {
         const updatedCart = cart.map(item => item.id === id
             ? { ...item, quantity: item.quantity + change, totalPrice: (item.quantity + change) * item.price }
-            : item
-        )
-            .filter(item => item.quantity > 0);
+            : item).filter(item => item.quantity > 0);
 
-        if (updatedCart.length === 0) {
-            localStorage.removeItem("cart");
-        } else {
-            localStorage.setItem("cart", JSON.stringify(updatedCart));
-        }
+        if (updatedCart.length === 0) { localStorage.removeItem("cart"); }
+        else { localStorage.setItem("cart", JSON.stringify(updatedCart)); }
         setCart(updatedCart);
         setCartCounter(updatedCart.length);
     };
@@ -41,8 +35,14 @@ export default function CartPage() {
     };
 
     async function handleCheckout() {
+        const userID = localStorage.getItem('userId')
+        const date1 = new Date();
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+        const date = date1.toLocaleString('en-US', options);
+
+        const totalPrice = getTotalPrice()
         try {
-            await addDoc(collection(db, "cart"), { cart });
+            await addDoc(collection(db, "cart"), { cart, userID, date, totalPrice });
             alert("Cart successfully checked out!");
             setCart([]);
             localStorage.removeItem("cart");
@@ -52,7 +52,7 @@ export default function CartPage() {
         }
     };
 
-    const sliderSettings = {
+    const { ...filteredSliderSettings } = {
         dots: false,
         infinite: true,
         speed: 500,
@@ -64,7 +64,7 @@ export default function CartPage() {
     };
 
     return (
-        <div className="flex min-h-[100vh] gap-4 mx-4 md:mx-[60px] lg:flex-row flex-col">
+        <div className="flex min-h-[100vh] gap-4 mx-4 md:mx-[60px] lg:flex-row flex-col" >
             <div className="lg:w-2/3 flex flex-col md:flex-row w-full justify-between gap-x-8 my-8">
                 <div className="w-full">
                     <div className="bg-gray-100 flex flex-col pb-6 rounded-[20px] lg:min-w-[512px] w-[100%] lg:w-full">
@@ -82,10 +82,10 @@ export default function CartPage() {
                         {cart.map(item =>
                             <div key={item.id} className="w-full flex lg:flex-row flex-col ml-auto items-center mb-3">
                                 <div className="w-11/12 lg:w-2/3 flex items-center bg-white p-2 mx-4 rounded-[10px] rounded-b-none md:rounded-b-[10px]">
-                                    <img alt={item.title.en} src={item.image} className="w-20 h-20" />
+                                    <img alt={item.title[i18n.language]} src={item.image} className="w-20 h-20" />
                                     <div className="ms-4 capitalize">
-                                        <p className="font-bold">{item.title.en}</p>
-                                        <p className="text-gray-400 text-sm">{item.description}</p>
+                                        <p className="font-bold">{item.title?.[i18n.language]}</p>
+                                        <p className="text-gray-400 text-sm">{(item.description?.ar === '' || item.description?.en === '') ? '' : item.description?.[i18n.language]}</p>
                                     </div>
                                 </div>
                                 <div className="w-1/3 flex justify-around">
@@ -99,24 +99,12 @@ export default function CartPage() {
                                         </button>
                                     </div>
                                     <div className="w-1/3 lg:flex justify-center font-bold">
-                                        <span>{item.totalPrice}</span>
+                                        <span>{(item.totalPrice).toFixed(2)}</span>
                                     </div>
                                 </div>
                             </div>
                         )}
                     </div>
-                    {/* {cart.length !== 0 && <>
-                        <div className="mt-4 mb-4 text-[28px] text-center md:text-left md:text-3xl font-bold md:ml-8">YOU MIGHT LIKE TO ADD</div>
-                        <div className="w-full my-6">
-                            <Slider {...sliderSettings} >
-                                {products.map(product => product.topSelling &&
-                                    <div key={product.title.en} style={{ height: 500 }} className="pt-28 px-10 flex items-center justify-center rounded-md">
-                                        <ProductCard key={product.id} product={product} />
-                                    </div>
-                                )}
-                            </Slider>
-                        </div>
-                    </>} */}
                 </div>
             </div >
             {cart.length !== 0 &&
@@ -132,15 +120,15 @@ export default function CartPage() {
                         <div className="w-full flex flex-col">
                             <div className="flex justify-between">
                                 <span>Sub total :</span>
-                                <span>EGP {getTotalPrice() - getTotalPrice() * 0.14}</span>
+                                <span>EGP {(getTotalPrice() - getTotalPrice() * 0.14).toFixed(2)}</span>
                             </div>
                             <div className="flex justify-between">
                                 <span>Vat :</span>
-                                <span>EGP {(getTotalPrice() * 0.14)}</span>
+                                <span>EGP {(getTotalPrice() * 0.14).toFixed(2)}</span>
                             </div>
                             <div className="flex justify-between border-t border-dashed border-t-gray-400 pt-3 my-1">
                                 <span className="text-xl text-orange-500 font-bold">TOTAL </span>
-                                <span className="text-xl text-orange-500 font-bold">EGP {(getTotalPrice())}</span>
+                                <span className="text-xl text-orange-500 font-bold">EGP {(getTotalPrice().toFixed(2))}</span>
                             </div>
                             <div>
                                 <span className="text-gray-400 text-xs">Including VAT</span>
