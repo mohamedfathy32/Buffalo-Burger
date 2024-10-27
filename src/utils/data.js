@@ -526,7 +526,10 @@ export const productList = [
         category: "chicken sandwiches",
         details: {
             size: [
-                { title: 'strips', price: 145 }
+                {
+                    title: { en: 'strips', ar: 'ستربس' },
+                    price: 145
+                }
             ],
             bread: true,
             comboOptions: true,
@@ -549,7 +552,62 @@ export const productList = [
         category: "chicken sandwiches",
         details: {
             size: [
-                { title: 'strips', price: 185 }
+                {
+                    title: { en: 'strips', ar: 'ستربس' },
+                    price: 185
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "cholo's chicken",
+            ar: "تشولوز تشيكن"
+        },
+        description: {
+            en: "Chicken strips with pickled sliced jalapeños, Buffalo sauce, and melted cheddar cheese.",
+            ar: "الدجاج الاستريبس المقرمشة مع شرائح الهالپينيو وصوص البافالو الكريمي والجبنة الشيدر."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F730e9ce3b48956379c62c9ca72ac2b42.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb9d0d1bd5deb3d2fd5f2ce2d7e919be4.png&w=96&q=75",
+        price: 140,
+        category: "chicken sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: 'strips', ar: 'ستربس' },
+                    price: 140
+                }
+            ],
+            bread: true,
+            comboOptions: true,
+            drinks: true,
+            extras: true
+        },
+    },
+    {
+        title: {
+            en: "chicken buster",
+            ar: "تشيكن باستر"
+        },
+        description: {
+            en: "Chicken strips with Buffalo sauce and melted cheddar cheese.",
+            ar: "الدجاج الاستريبس المقرمشة مع صوص البافالو والجبنة الشيدر."
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3-accelerate.amazonaws.com%2Fmenu_items%2F5f9673352a1f5fafd00e3e2ae90af631.png&w=256&q=75",
+        imageWithCombo: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fd6b163ac3d9b6d40d5beca8f354c7946.png&w=96&q=75",
+        price: 135,
+        category: "chicken sandwiches",
+        details: {
+            size: [
+                {
+                    title: { en: 'strips', ar: 'ستربس' },
+                    price: 135
+                }
             ],
             bread: true,
             comboOptions: true,
@@ -573,9 +631,18 @@ export const productList = [
         category: "keto & light sandwiches",
         details: {
             size: [
-                { title: '150', price: 165 },
-                { title: '200', price: 190 },
-                { title: '400', price: 275 },
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 165
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 190
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 275
+                }
             ],
             comboOptions: true,
             drinks: true,
@@ -597,9 +664,18 @@ export const productList = [
         category: "keto & light sandwiches",
         details: {
             size: [
-                { title: '150', price: 170 },
-                { title: '200', price: 205 },
-                { title: '400', price: 280 },
+                {
+                    title: { en: '150 gm', ar: '150 جرام' },
+                    price: 170
+                },
+                {
+                    title: { en: '200 gm', ar: '200 جرام' },
+                    price: 205
+                },
+                {
+                    title: { en: '400 gm', ar: '400 جرام' },
+                    price: 280
+                }
             ],
             comboOptions: true,
             drinks: true,
@@ -615,11 +691,6 @@ export const productList = [
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fea4bf95a863a674e0ae15fe02cafcebd.png&w=256&q=75",
         price: 40,
         category: "appetizers",
-        details: {
-            size: [
-                { title: '1 size', price: 40 },
-            ],
-        },
     },
     {
         title: {
@@ -633,6 +704,122 @@ export const productList = [
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8451f4eff364a68c8f9ed01d0fdb5b84.png&w=256&q=75",
         price: 60,
         category: "appetizers",
+    },
+    {
+        title: {
+            en: "coleslaw",
+            ar: "كول سلو"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8747ba64511bf652a671d38c60f9b59c.png&w=256&q=75",
+        price: 30,
+        category: "appetizers",
+    },
+    {
+        title: {
+            en: "fried buffalo wings",
+            ar: "بافالو وينجز مقلية"
+        },
+        description: {
+            en: "Fried Buffalo Wings Served with Ranch Sauce or Wings Sauce",
+            ar: "بافالو وينجز مقلية تقدم مع صوص الرانش أو الوينجز"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F00e14cb2b9b112c1ec40d7697e4ce5a3.png&w=256&q=75",
+        price: 80,
+        category: "appetizers",
+    },
+    {
+        title: {
+            en: "cheddar jalapeño bites",
+            ar: "بايتس الشيدر الهلابينيو"
+        },
+        description: {
+            en: "Served with Ranch sauce",
+            ar: "يقدم مع صوص الرانش"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F5542a555dd006d63d373c6a23f57ca00.png&w=256&q=75",
+        price: 80,
+        category: "appetizers",
+    },
+    {
+        title: {
+            en: "mozzarella bites",
+            ar: "موتزاريلا بايتس"
+        },
+        description: {
+            en: "Served with Ranch sauce",
+            ar: "يقدم مع صوص الرانش"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Faae91c5c0548fc3be5a977beaacf5f76.png&w=256&q=75",
+        price: 75,
+        category: "appetizers",
+
+    },
+    {
+        title: {
+            en: "bacon fries",
+            ar: "فرايز بيكون"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8171f754ddaf57e6a3c4501b28abc209.png&w=256&q=75",
+        price: 125,
+        category: "appetizers",
+    },
+    {
+        title: {
+            en: "cheesy fries",
+            ar: "تشيزي فرايز"
+        },
+        description: {
+            en: "Served with Thousand Island sauce",
+            ar: "يقدم مع صوص ثاوزند أيلاند"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F0a8f39bde7dc27f249a1b1d36d73ebe3.png&w=256&q=75",
+        price: 80,
+        category: "appetizers",
+    },
+    {
+        title: {
+            en: "curly fries",
+            ar: "بطاطس كيرلي"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Ff10d108fdd43ee873757254f053584b0.png&w=256&q=75",
+        price: 65,
+        category: "appetizers",
+        details: {
+            size: [
+                {
+                    title: { en: '1 Size', ar: 'حجم واحد' },
+                    price: 65
+                }
+            ],
+            comboOptions: true,
+            drinks: true,
+        },
+    },
+    {
+        title: {
+            en: "cheese onion bomb",
+            ar: "حلقات البصل المحشية جبنة"
+        },
+        description: {
+            en: "Whole onion rings stuffed with cheese, served with free sauce",
+            ar: "حلقات بصل كاملة محشية بالجبنة ، تقدم مع صوص مجانا"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F4550b3ccfea85ef780f441ae4c83bc56.png&w=256&q=75",
+        price: 70,
+        category: "appetizers",
+    },
+    {
+        title: {
+            en: "chicken fries",
+            ar: "تشيكن فريز"
+        },
+        description: {
+            en: "10 Pieces of Chicken Fries served with Ranch Cup",
+            ar: "10 قطع من تشيكن فريز تقدم مع رانش صوص"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fce02a48e1f2548e603770011c8e5f4e6.png&w=256&q=75",
+        price: 80,
+        category: "appetizers"
     },
     //Sauces
     {
@@ -653,6 +840,29 @@ export const productList = [
         price: 2.3,
         category: "sauces",
     },
+    // {
+    //     title: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     description: {
+    //         en: "",
+    //         ar: ""
+    //     },
+    //     image: "",
+    //     imageWithCombo: "",
+    //     price: 1,
+    //     category: "sauces",
+    //     details: {
+    //         size: [
+    //             { title: 'strips', price: 145 }
+    //         ],
+    //         bread: true,
+    //         comboOptions: true,
+    //         drinks: true,
+    //         extras: true
+    //     },
+    // },
     //Desserts
     {
         title: {
