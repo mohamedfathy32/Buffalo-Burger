@@ -9,12 +9,12 @@ import { useTranslation } from "react-i18next";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
 export default function CartPage() {
     const [cart, setCart] = useState([]);
     const nav = useNavigate()
-    const { t } = useTranslation()    const { setCartCounter } = useContext(CartCounterContext)
+    const { t } = useTranslation()
+    const { setCartCounter } = useContext(CartCounterContext)
     const { i18n } = useTranslation()
 
     useEffect(() => {

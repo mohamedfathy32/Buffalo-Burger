@@ -11,8 +11,8 @@ import { getUserInfoById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
-import { CartContext, logedContext } from "../../utils/context";
-import { useTranslation } from "react-i18next";
+// import { CartContext, logedContext } from "../../utils/context";
+// import { useTranslation } from "react-i18next";
 import CartDrawer from "../CartDrawer";
 
 export default function Header() {
@@ -28,7 +28,7 @@ export default function Header() {
     const [cartDrawer, setCartDrawer] = useState(false)
     // const [cart, setCart] = useState([])
 
-    const { cartCounter, setCartCounter } = useContext(CartContext)
+    // const { cartCounter, setCartCounter } = useContext(CartContext)
 
     const { t, i18n } = useTranslation()
 

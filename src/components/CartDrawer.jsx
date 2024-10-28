@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { MdShoppingBasket } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
-import { CartContext } from '../utils/context'
+import { CartCounterContext } from '../utils/context'
 
 // eslint-disable-next-line react/prop-types
 export default function CartDrawer({ cartDrawer, closeWindows}) {
     const navigate = useNavigate()
     const { t, i18n } = useTranslation()
 
-    const { cartCounter } = useContext(CartContext);
+    const { cartCounter } = useContext(CartCounterContext);
 
     const gotocart = ()=>{
         navigate('/cart')
