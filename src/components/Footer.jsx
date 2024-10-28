@@ -11,7 +11,7 @@ export default function Footer() {
     }
     return (
         <>
-            <footer className={`${location.pathname.includes('Product') || location.pathname.includes('Cart') ? 'hidden' : 'flex'} relative  flex-col bg-[#1c1c1b] text-white p-6`}>
+            <footer className={`${location.pathname.includes('Product') || location.pathname.includes('Cart') ? 'hidden' : 'flex'} relative  flex-col bg-stone-900 text-white p-6`}>
                 <div className="w-fit mx-auto m-auto my-4 md:flex md:flex-row rtl:md:justify-end md:justify-start md:ml-0 rtl:md:mr-0 lg:flex rtl:lg:justify-end lg:flex-row lg:justify-start lg:ml-0 rtl:lg:mr-0">
                     <img
                         alt="Buffalo Burger logo"

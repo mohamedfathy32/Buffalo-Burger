@@ -5,6 +5,8 @@ import { MdLoyalty } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
 import { useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { CartCounterContext, LoggedContext } from "../../utils/context";
 import { getUserInfoById } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import LoginModal from "./Login";
@@ -18,7 +20,8 @@ export default function Header() {
     const [nav, setNav] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
-    const { isLoggedIn, setIsLoggedIn } = useContext(logedContext);
+    const { isLoggedIn, setIsLoggedIn } = useContext(LoggedContext);
+    const { cartCounter, setCartCounter } = useContext(CartCounterContext)
     const [username, setUsername] = useState("");
     const [userphone, setUserphone] = useState("");
     const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
@@ -31,11 +34,13 @@ export default function Header() {
 
     function closeWindows() { setNav(false); setCartDrawer(false); }
     const handleClick = () => setNav(!nav);
+
     const handleLoginOpen = () => {
         setActiveTab('login');
         setIsOpen(true);
         setNav(false);
     }
+
     const handleSignupOpen = () => {
         setActiveTab('signup');
         setIsOpen(true);
@@ -63,14 +68,10 @@ export default function Header() {
         }
     }
 
-
     useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCartCounter(storedCart.length);
-
+        const cart = JSON.parse(localStorage.getItem("cart")) || []
+        setCartCounter(cart.length);
     }, []);
-
-
 
     useEffect(() => {
         const userId = localStorage.getItem("userId");
@@ -91,7 +92,6 @@ export default function Header() {
         fetchUserInfo();
     }, []);
 
-
     useEffect(() => {
         const handleEsc = (event) => {
             if (event.key === "Escape") {
@@ -99,7 +99,6 @@ export default function Header() {
                 setNav(false)
             }
         };
-
         window.addEventListener("keydown", handleEsc);
         return () => window.removeEventListener("keydown", handleEsc);
     }, []);
@@ -114,6 +113,11 @@ export default function Header() {
         setIsOpenDrop(false); // Reset dropdown state when user logs out
     };
 
+    function changeLang() {
+        const lang = i18n.language === 'en' ? 'ar' : 'en'
+        i18n.changeLanguage(lang)
+        localStorage.setItem('lang', lang)
+    }
 
     return (
         <>
@@ -127,7 +131,7 @@ export default function Header() {
             >
                 <div className="hidden md:flex items-center gap-4">
                     <div className="flex items-center cursor-pointer border-none rounded-lg">
-                        <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex items-center gap-2">
+                        <div onClick={changeLang} className="flex items-center gap-2">
                             <span className="font-main">{t('languageButton')}</span>
                             <img className="w-4 h-4 rounded-full"
                                 src={i18n.language == 'en' ? "https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png" : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/uk-flag.png'}
@@ -150,8 +154,6 @@ export default function Header() {
                         {cartCounter}
                     </div>
                 </div>
-
-
                 <div className="flex justify-center absolute left-0 right-0 mx-auto w-52">
                     <Link to="/">
                         <img
@@ -182,7 +184,7 @@ export default function Header() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/orders">
+                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/OrderHistory">
                                             {t("Order history")}
                                         </Link>
                                     </li>
@@ -203,7 +205,6 @@ export default function Header() {
                             )}
                         </div>
                     </div>
-
                 </div> : <div className="hidden md:flex items-center gap-4">
                     <div onClick={handleSignupOpen} className="cursor-pointer text-white font-bold text-lg hover:text-[#ff5f00]">
                         {t("Create an account")}
@@ -212,8 +213,6 @@ export default function Header() {
                         {t("Login")}
                     </div>
                 </div>}
-
-
                 <div className="block md:hidden absolute left-6" onClick={handleClick}>
                     <button className="flex flex-col items-center justify-center gap-1">
                         <span className="block bg-[#ff5f00] w-6 h-[3px] rounded"></span>
@@ -227,7 +226,6 @@ export default function Header() {
                     </button>
                 </div> */}
             </nav>
-
             {/* Drawer Section  */}
 
             {nav && <div className="fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ease-in-out" onClick={closeWindows}></div>}
@@ -362,7 +360,6 @@ export default function Header() {
             />
 
             {/* Seconed Header Delivery Address */}
-
             <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
                 <div className="hidden md:flex">
                     <Link className="me-4 hover:text-orange-600" to={'/About'}>About Us</Link>
@@ -371,11 +368,6 @@ export default function Header() {
                     <Link className="me-4 hover:text-orange-600" to={'/'}>Home</Link>
                 </div>
             </div>
-
-
-
-
-
             {/* Login and SignUp المربع (Modal) */}
             {isOpen && (
                 <div className="fixed top-16 w-[100%] h-screen items-center flex  justify-center z-50 bg-black bg-opacity-50 ">

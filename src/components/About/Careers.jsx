@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+
 export default function Careers() {
+    useEffect(() => { return }, [])
     return (
         <div className="bg-black text-white font-sans">
             {/* Apply Now Section */}

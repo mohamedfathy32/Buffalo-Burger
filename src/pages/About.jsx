@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { useState } from "react";
 import Careers from "../components/About/Careers";
 import FindUs from "../components/About/FindUs";
