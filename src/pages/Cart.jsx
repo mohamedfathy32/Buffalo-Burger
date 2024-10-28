@@ -40,9 +40,9 @@ export default function CartPage() {
         const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
         const date = date1.toLocaleString('en-US', options);
 
-        const totalPrice = getTotalPrice()
+
         try {
-            await addDoc(collection(db, "cart"), { cart, userID, date, totalPrice });
+            await addDoc(collection(db, "cart"), { Cart: cart, userID, Date: date, TotalPrice: getTotalPrice() });
             alert("Cart successfully checked out!");
             setCart([]);
             localStorage.removeItem("cart");

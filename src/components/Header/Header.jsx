@@ -73,7 +73,6 @@ export default function Header() {
                 const userInfo = await getUserInfoById(userId);
                 if (userInfo) {
                     setUsername(userInfo.username);
-                    console.log(userInfo.username)
                     setUserphone(userInfo.phoneNumber);
                     setIsLoggedIn(true);
                 }

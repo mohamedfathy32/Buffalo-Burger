@@ -1067,9 +1067,10 @@ export const offersList = [
         swiperMobileImage: "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/f7f4d68734f3e45afe055da6a25fa33b.png",
         keenImage: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F65ded6536caaf8d6487414ed50705c67.png&w=640&q=75",
         price: 699,
-        choicesNumber: 4,
-        availableProducts: ['shiitake mushroom', 'animal style', 'old school', "cholo's", 'chicken buster', 'charbroiled bbq'],
-        availableFries: [{ title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 }],
+        availableProducts: ['shiitake mushroom', 'animal style', 'old school', "cholo's", 'charbroiled bbq'],
+        availableFries: [
+            { title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 }
+        ],
         availableDrinks: [
             { title: { en: 'big cola', ar: 'بيج كولا' }, price: 0 },
             { title: { en: 'pure apple juice', ar: 'عصير تفاح بيور' }, price: 6 },
@@ -1098,8 +1099,7 @@ export const offersList = [
         swiperMobileImage: 'https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/ad67aac59f375f0b1be848ef61f2ae51.png',
         keenImage: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F8288ee9df2e386a185aa76e6f8cee25b.png&w=640&q=75',
         price: 470,
-        choicesNumber: 3,
-        availableProducts: ['old school', "cholo's", 'shiitake mushroom', 'animal style', 'old school', 'chicken buster'],
+        availableProducts: ['old school', "cholo's", 'shiitake mushroom', 'animal style'],
         availableFries: [{ title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 }],
         availableDrinks: [
             { title: { en: 'big cola', ar: 'بيج كولا' }, price: 0 },
