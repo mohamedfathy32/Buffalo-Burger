@@ -78,7 +78,7 @@ export default function CartPage() {
                                 <span className="w-1/2 text-gray-400 text-center ml-6">Total</span>
                             </div>
                         </div>
-                        {cart.length === 0 && <div className="mx-auto text-sm">There are no items in your cart</div>}
+                        {cart.length === 0 && <div className="mx-auto text-sm">{t("There are no items in your cart")}</div>}
                         {cart.map(item =>
                             <div key={item.id} className="w-full flex lg:flex-row flex-col ml-auto items-center mb-3">
                                 <div className="w-11/12 lg:w-2/3 flex items-center bg-white p-2 mx-4 rounded-[10px] rounded-b-none md:rounded-b-[10px]">
@@ -135,7 +135,7 @@ export default function CartPage() {
                             </div>
                         </div>
                     </div>
-                    <button className="p-3 uppercase border border-orange-500 rounded-lg text-orange-500 font-bold my-1" onClick={() => { }}>+ add more items</button>
+                    <button className="p-3 uppercase border border-orange-500 rounded-lg text-orange-500 font-bold my-1" onClick={() => { nav('/menu') }}>+ add more items</button>
                     <button className="p-3 uppercase bg-orange-500 rounded-lg font-bold text-white my-1" onClick={handleCheckout}>Checkout</button>
                 </div>
             }

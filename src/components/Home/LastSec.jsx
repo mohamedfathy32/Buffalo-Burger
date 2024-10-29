@@ -28,7 +28,7 @@ export default function LastSection() {
                         </div>
                     </div>
                 </div>
-                <div className="max-w-[300px] max-h-[485px] overflow-hidden hidden lg:block lg:absolute right-40 -top-44">
+                <div className="max-w-[300px] max-h-[485px] overflow-hidden hidden lg:block lg:absolute end-40 -top-44">
                     <img src='/images/Home/buffalo-app-CTA-img.png' alt="" />
                 </div>
             </div>
