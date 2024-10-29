@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import ResetPassModal from "./ResetPass";

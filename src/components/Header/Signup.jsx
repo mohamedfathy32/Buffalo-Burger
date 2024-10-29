@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
@@ -14,12 +13,12 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
     const [showPassword, setShowPassword] = useState(false);
 
     const [error, setError] = useState({ username: "", email: "", password: "" }); // State for error messages
-    const { t , i18n} = useTranslation()
+    const { t, i18n } = useTranslation()
 
     // Function to validate user inputs
     const validateInputs = () => {
         let isValid = true; // Flag to check overall validity
-        const newError = { username: "", phone: "",email: "", password: "" }; // Reset error messages
+        const newError = { username: "", phone: "", email: "", password: "" }; // Reset error messages
 
         if (!username) {
             newError.username = "Username is required"; // Check if username is provided
@@ -81,7 +80,7 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
             <label className="block text-gray-700 text-sm font-bold mb-2">{t("Username")}</label>
             <input
                 type="text"
-                placeholder={i18n.language == 'en' ?"Enter your username":'أدخل اسم المستخدم الخاص بك'}
+                placeholder={i18n.language == 'en' ? "Enter your username" : 'أدخل اسم المستخدم الخاص بك'}
                 className={`text-black border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none
                      ${error.username ? 'border-red-500 bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'} `}
                 value={username}
@@ -93,7 +92,7 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
             <label className="block text-gray-700 text-sm font-bold mb-2">{t("Phone number")}</label>
             <input
                 type="text"
-                placeholder={i18n.language == 'en' ?"Enter your Phone":'أدخل رقم هاتفك'}
+                placeholder={i18n.language == 'en' ? "Enter your Phone" : 'أدخل رقم هاتفك'}
                 className={`text-black border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none
                      ${error.phone ? 'border-red-500 bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'}`}
                 value={phone}
@@ -105,7 +104,7 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
             <label className="block text-gray-700 text-sm font-bold mb-2">{t("Email")}</label>
             <input
                 type="email"
-                placeholder={i18n.language == 'en' ?"Enter your email":"أدخل بريدك الإلكتروني"}
+                placeholder={i18n.language == 'en' ? "Enter your email" : "أدخل بريدك الإلكتروني"}
                 className={`text-black border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none
                      ${error.email ? 'border-red-500 bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'}`}
                 value={email}
@@ -118,7 +117,7 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
 
                 <input
                     type={showPassword ? "text" : "password"}
-                    placeholder={i18n.language == 'en' ?"Enter your password":"أدخل كلمة المرور الخاصة بك"}
+                    placeholder={i18n.language == 'en' ? "Enter your password" : "أدخل كلمة المرور الخاصة بك"}
                     className={`text-black border rounded-[10px] w-full py-2 px-3 focus:outline-none
                      ${error.password ? 'border-red-500 bg-red-100' : 'focus:border-orange-500'}`}
                     value={password}
@@ -135,14 +134,14 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
             {error.password && <div className="text-red-500 text-sm mb-3">{error.password}</div>} {/* Display password error message */}
 
             <button onClick={handleSignup} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">
-            {t("Create an account")}
+                {t("Create an account")}
             </button>
 
             <div className="mt-4 text-center text-sm text-gray-500">
-                {i18n.language == 'en' ?"By continuing, I agree to the":"أوافق على "}
-                <Link to="/Terms" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ?'Terms of Service':'شروط الخدمة'}</Link>
-                {i18n.language == 'en' ?'and':'و'}
-                <Link to="/Privacy" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ?'Privacy Policy':'سياسة الخصوصية'}</Link>.
+                {i18n.language == 'en' ? "By continuing, I agree to the" : "أوافق على "}
+                <Link to="/Terms" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Terms of Service' : 'شروط الخدمة'}</Link>
+                {i18n.language == 'en' ? 'and' : 'و'}
+                <Link to="/Privacy" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}</Link>.
             </div>
         </div>
     );

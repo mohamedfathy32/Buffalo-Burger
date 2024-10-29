@@ -1,20 +1,34 @@
 import 'tailwindcss/tailwind.css'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './utils/routes'
-import { useState } from 'react';
-import { CartProvider, logedContext, LogedProvider } from './utils/context';
+import { useEffect, useState } from 'react';
+import { CartCounterProvider, LoggedProvider, ProductsProvider } from './utils/context';
+import { getCollectionByName } from './utils/firebase';
 
 export function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(logedContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cartCounter, setCartCounter] = useState(0);
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    async function get() {
+      if (products.length == 0) {
+        let res = await getCollectionByName('product')
+        setProducts(res)
+      }
+    }
+    get()
+  }, [products.length]);
 
   return (
     <>
-      <CartProvider value={{ cartCounter, setCartCounter }}>
-        <LogedProvider value={{ isLoggedIn, setIsLoggedIn }}>
-          <RouterProvider router={router} />
-        </LogedProvider>
-      </CartProvider>
+      <ProductsProvider value={{ products, setProducts }}>
+        <CartCounterProvider value={{ cartCounter, setCartCounter }}>
+          <LoggedProvider value={{ isLoggedIn, setIsLoggedIn }}>
+            <RouterProvider router={router} />
+          </LoggedProvider>
+        </CartCounterProvider>
+      </ProductsProvider>
     </>
   )
 }
