@@ -1,36 +1,29 @@
+import { useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import { MdShoppingBasket } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdLoyalty } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
-import { useContext, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { CartCounterContext, LoggedContext } from "../../utils/context";
 import { getUserInfoById } from "../../utils/firebase";
-import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
-import { CartContext, logedContext } from "../../utils/context";
-import { useTranslation } from "react-i18next";
 import CartDrawer from "../CartDrawer";
 
 export default function Header() {
-    // Drawer Nav
+    const { cartCounter, setCartCounter } = useContext(CartCounterContext)
+    const { isLoggedIn, setIsLoggedIn } = useContext(LoggedContext);
+    const { t, i18n } = useTranslation()
     const [nav, setNav] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
-    const { isLoggedIn, setIsLoggedIn } = useContext(LoggedContext);
-    const { cartCounter, setCartCounter } = useContext(CartCounterContext)
     const [username, setUsername] = useState("");
     const [userphone, setUserphone] = useState("");
-    const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
+    const [isOpenDrop, setIsOpenDrop] = useState(false);
     const [cartDrawer, setCartDrawer] = useState(false)
-    // const [cart, setCart] = useState([])
-
-    const { cartCounter, setCartCounter } = useContext(CartContext)
-
-    const { t, i18n } = useTranslation()
 
     function closeWindows() { setNav(false); setCartDrawer(false); }
     const handleClick = () => setNav(!nav);
@@ -103,13 +96,13 @@ export default function Header() {
     }, []);
 
     const toggleDropdown = () => {
-        setIsOpenDrop(!isOpenDrop); // Toggle dropdown state
+        setIsOpenDrop(!isOpenDrop);
     };
 
     const handleLogout = () => {
         localStorage.removeItem("userId");
         setIsLoggedIn(false);
-        setIsOpenDrop(false); // Reset dropdown state when user logs out
+        setIsOpenDrop(false);
     };
 
     function changeLang() {
@@ -175,7 +168,7 @@ export default function Header() {
                                     {t("Hello")}, {username}
                                 </span>
                             </div>
-                            {isOpenDrop && ( // Conditionally render the dropdown based on isOpen state
+                            {isOpenDrop && (
                                 <ul className="min-w-max absolute bg-stone-900 text-base z-[51] py-2 ps-2 w-full list-none text-start rounded-lg mt-1">
                                     <li>
                                         <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile">

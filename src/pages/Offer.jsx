@@ -102,6 +102,18 @@ export default function OfferPage() {
         '& .Mui-checked + .MuiTypography-root': { color: '#ff5f00' }
     };
 
+
+    const [drinkSelection, setDrinkSelection] = useState(
+        Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableDrinks[0].title[lang])
+    );
+
+    // Update `drinkSelection` when `lang` changes
+    useEffect(() => {
+        setDrinkSelection(
+            Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableDrinks[0].title[lang])
+        );
+    }, [lang, offer]);
+
     return (
         <>
             <section className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
@@ -169,21 +181,35 @@ export default function OfferPage() {
                         {offer.tabs.filter(tab => tab.title.en.includes('choice')).map((_, i) => (
                             <div key={i}>
                                 <h2 className="font-bold uppercase text-2xl text-center mb-5">{i + 1} Drink</h2>
-                                <RadioGroup defaultValue={offer.availableDrinks[0].title[lang]} name={`drink-${i}`}
+                                <RadioGroup
+                                    value={drinkSelection[i]}
+                                    name={`drink-${i}`}
                                     onChange={(e) => {
                                         const selectedDrink = offer.availableDrinks.find(drink => drink.title[lang] === e.target.value);
-                                        setOrder(prevOrder => ({ ...prevOrder, [`drink${i + 1}`]: selectedDrink.title }));
-                                    }}>
-                                    {offer.availableDrinks.map((drink) => (
-                                        <div key={drink.title.en} className="flex flex-col gap-2 lg:gap-8 lg:flex-row justify-center items-center">
-                                            <FormControlLabel
-                                                value={drink.title[lang]}
-                                                control={<Radio sx={radioStyles} />}
-                                                sx={labelStyles}
-                                                label={`${drink.title[lang]} ${drink.price === 0 ? '' : `  ( ${drink.price} ${lang === 'en' ? 'EGP' : 'ج.م'} )`}`}
-                                            />
+                                        setDrinkSelection(prev => {
+                                            const newSelection = [...prev];
+                                            newSelection[i] = selectedDrink.title[lang];
+                                            return newSelection;
+                                        });
+                                        setOrder(prevOrder => ({
+                                            ...prevOrder,
+                                            [`drink${i + 1}`]: selectedDrink.title
+                                        }));
+                                    }}
+                                >
+                                    <div className="flex justify-center items-center">
+                                        <div className="flex flex-col gap-2 lg:gap-8 lg:flex-row">
+                                            {offer.availableDrinks.map((drink) => (
+                                                <FormControlLabel
+                                                    key={drink.title.en}
+                                                    value={drink.title[lang]}
+                                                    control={<Radio sx={radioStyles} />}
+                                                    sx={labelStyles}
+                                                    label={`${drink.title[lang]} ${drink.price === 0 ? '' : `(${drink.price} ${lang === 'en' ? 'EGP' : 'ج.م'})`}`}
+                                                />
+                                            ))}
                                         </div>
-                                    ))}
+                                    </div>
                                 </RadioGroup>
                             </div>
                         ))}

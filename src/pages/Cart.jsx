@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 export default function CartPage() {
     const [cart, setCart] = useState([]);
     const { setCartCounter } = useContext(CartCounterContext)
-    const { i18n } = useTranslation()
+    const { t, i18n } = useTranslation()
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
