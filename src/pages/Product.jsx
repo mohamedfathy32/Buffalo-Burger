@@ -64,7 +64,8 @@ export default function ProductPage() {
         cart.push(cartItem);
         localStorage.setItem('cart', JSON.stringify(cart));
         setCartCounter(cart.length);
-        navigate(-1);
+        navigate('/Menu')
+        window.scrollTo({ top: 0, });
     }
 
 

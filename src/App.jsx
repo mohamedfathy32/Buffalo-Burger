@@ -15,11 +15,10 @@ export function App() {
       if (products.length == 0) {
         let res = await getCollectionByName('product')
         setProducts(res)
-        console.log('request sent')
       }
     }
     get()
-  });
+  }, [products.length]);
 
   return (
     <>

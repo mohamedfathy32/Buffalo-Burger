@@ -1,36 +1,29 @@
+import { useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import { MdShoppingBasket } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdLoyalty } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
-import { useContext, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { CartCounterContext, LoggedContext } from "../../utils/context";
 import { getUserInfoById } from "../../utils/firebase";
-import { Link } from "react-router-dom";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
-// import { CartContext, logedContext } from "../../utils/context";
-// import { useTranslation } from "react-i18next";
 import CartDrawer from "../CartDrawer";
 
 export default function Header() {
-    // Drawer Nav
+    const { cartCounter, setCartCounter } = useContext(CartCounterContext)
+    const { isLoggedIn, setIsLoggedIn } = useContext(LoggedContext);
+    const { t, i18n } = useTranslation()
     const [nav, setNav] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('login');
-    const { isLoggedIn, setIsLoggedIn } = useContext(LoggedContext);
-    const { cartCounter, setCartCounter } = useContext(CartCounterContext)
     const [username, setUsername] = useState("");
     const [userphone, setUserphone] = useState("");
-    const [isOpenDrop, setIsOpenDrop] = useState(false); // State to manage dropdown visibility
+    const [isOpenDrop, setIsOpenDrop] = useState(false);
     const [cartDrawer, setCartDrawer] = useState(false)
-    // const [cart, setCart] = useState([])
-
-    // const { cartCounter, setCartCounter } = useContext(CartContext)
-
-    const { t, i18n } = useTranslation()
 
     function closeWindows() { setNav(false); setCartDrawer(false); }
     const handleClick = () => setNav(!nav);
@@ -80,7 +73,6 @@ export default function Header() {
                 const userInfo = await getUserInfoById(userId);
                 if (userInfo) {
                     setUsername(userInfo.username);
-                    console.log(userInfo.username)
                     setUserphone(userInfo.phoneNumber);
                     setIsLoggedIn(true);
                 }
@@ -104,13 +96,13 @@ export default function Header() {
     }, []);
 
     const toggleDropdown = () => {
-        setIsOpenDrop(!isOpenDrop); // Toggle dropdown state
+        setIsOpenDrop(!isOpenDrop);
     };
 
     const handleLogout = () => {
         localStorage.removeItem("userId");
         setIsLoggedIn(false);
-        setIsOpenDrop(false); // Reset dropdown state when user logs out
+        setIsOpenDrop(false);
     };
 
     function changeLang() {
@@ -176,7 +168,7 @@ export default function Header() {
                                     {t("Hello")}, {username}
                                 </span>
                             </div>
-                            {isOpenDrop && ( // Conditionally render the dropdown based on isOpen state
+                            {isOpenDrop && (
                                 <ul className="min-w-max absolute bg-stone-900 text-base z-[51] py-2 ps-2 w-full list-none text-start rounded-lg mt-1">
                                     <li>
                                         <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile">
@@ -220,11 +212,11 @@ export default function Header() {
                         <span className="block bg-[#ff5f00] w-6 h-[3px] rounded"></span>
                     </button>
                 </div>
-                {/* <div className="block md:hidden absolute right-6" onClick={() => { setCartDrawer(true) }}>
+                <div className="block md:hidden absolute right-6" onClick={() => { setCartDrawer(true) }}>
                     <button className="bottom-0 bg-orange-500 text-white flex justify-center items-center rounded-full relative">
                         <MdShoppingBasket className="text-4xl p-2" />
                     </button>
-                </div> */}
+                </div>
             </nav>
             {/* Drawer Section  */}
 
@@ -257,8 +249,8 @@ export default function Header() {
                         </div>
                         <div className="bg-[#1c1c1b] w-fit  rounded-lg">
                             <div
-                                className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-orangbg-orange-600 border-orangbg-orange-600">
-                                <div onClick={() => { i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en') }} className="flex flex-row justify-center items-center gap-2">
+                                className="cursor-pointer border-2 !text-white  border-none rounded-lg h-max gap-2 !text-primary-main border-primary-main">
+                                <div onClick={changeLang} className="flex flex-row justify-center items-center gap-2">
                                     <span>
                                         {t("languageButton")}
                                     </span>
@@ -352,11 +344,42 @@ export default function Header() {
             {/* Cart Drawer Section  */}
 
             {cartDrawer && <div className="fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ease-in-out" onClick={closeWindows}></div>}
+            {/* <div dir="rtl" className={`fixed top-0 start-0 w-80 md:w-96 h-screen z-50 bg-white shadow-lg transition-transform duration-500 ease-in-out transform ${cartDrawer ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div dir={i18n.language == 'ar' ? 'rtl' : 'ltr'} className="flex flex-col   -8 bg-white box-content border-none min-w-fit h-screen px-4">
+                    <div className="pr-3 top-14 text-orangbg-orange-600 cursor-pointer "></div>
+                    <div className="flex items-center justify-start py-4 text-black">
+                        <div className="text-2xl flex items-center flex-grow font-bold justify-between cursor-pointer uppercase">
+                            <div className="px-1" onClick={closeWindows}>
+                                <IoIosCloseCircleOutline />
+                            </div>
+                            <p className="">
+                                {t("Cart details")}
 
+                            </p>
+                            <div className="text-xs text-orange-500 hover:text-secondary-main-120"> {t("Go to cart")} </div>
+                            <div className="flex justify-center items-center">
+                                <div className="flex justify-center items-center w-7 h-7 rounded-full text-white text-sm bg-[#1c1c1b] ">{cartCounter}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="scroll-with-no-display overflow-y-scroll flex-grow">
+                        <p className="w-full text-base text-center mx-auto text-black">
+                            {t("There are no items in your cart")}
+                        </p>
+                    </div>
+                    <div className="mb-24 flex items-start justify-evenly bg-orange-600 text-white py-3 md:my-6 mx-4 cursor-pointer font-main rounded-xl text-xl">
+                        <MdShoppingBasket />
+                        <p className="font-roboto justify-start uppercase">
+                            {t("Go to cart")}
+                        </p>
+                        <p>{t("EGP")} 0.00</p>
+                    </div>
+                </div>
+            </div> */}
             <CartDrawer
                 cartDrawer={cartDrawer}
                 closeWindows={closeWindows}
-                
+                cartCounter={cartCounter}
             />
 
             {/* Seconed Header Delivery Address */}

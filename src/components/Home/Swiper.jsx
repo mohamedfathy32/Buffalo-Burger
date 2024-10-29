@@ -29,7 +29,7 @@ export default function SwiperSlider() {
             autoplay={{ delay: 3000, disableOnInteraction: false }}>
             {offersList?.map(offer => (
                 <SwiperSlide key={offer.title.en} onClick={() => { navigate(`/Offer/${offer.title.en.split(' ').join('-')}`, { state: { offer } }) }}>
-                    <img src={isMobile ? offer.swiperMobileImage : offer.swiperWebImage} alt={offer.title[i18n.language]} />
+                    <img src={isMobile ? offer.swiperMobileImage : offer.swiperWebImage} alt={offer.title[i18n.language]} width={'100%'} />
                 </SwiperSlide>
             ))}
         </Swiper >

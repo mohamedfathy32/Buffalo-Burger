@@ -8,14 +8,11 @@ import { collection, addDoc } from "firebase/firestore";
 import { useTranslation } from "react-i18next";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useNavigate } from "react-router-dom";
 
 export default function CartPage() {
     const [cart, setCart] = useState([]);
-    const nav = useNavigate()
-    const { t } = useTranslation()
     const { setCartCounter } = useContext(CartCounterContext)
-    const { i18n } = useTranslation()
+    const { t, i18n } = useTranslation()
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -43,9 +40,9 @@ export default function CartPage() {
         const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
         const date = date1.toLocaleString('en-US', options);
 
-        const totalPrice = getTotalPrice()
+
         try {
-            await addDoc(collection(db, "cart"), { cart, userID, date, totalPrice });
+            await addDoc(collection(db, "cart"), { Cart: cart, userID, Date: date, TotalPrice: getTotalPrice() });
             alert("Cart successfully checked out!");
             setCart([]);
             localStorage.removeItem("cart");
@@ -138,7 +135,7 @@ export default function CartPage() {
                             </div>
                         </div>
                     </div>
-                    <button className="p-3 uppercase border border-orange-500 rounded-lg text-orange-500 font-bold my-1" onClick={() => {nav('/menu') }}>+ add more items</button>
+                    <button className="p-3 uppercase border border-orange-500 rounded-lg text-orange-500 font-bold my-1" onClick={() => { nav('/menu') }}>+ add more items</button>
                     <button className="p-3 uppercase bg-orange-500 rounded-lg font-bold text-white my-1" onClick={handleCheckout}>Checkout</button>
                 </div>
             }

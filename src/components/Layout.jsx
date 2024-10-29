@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer";
@@ -44,12 +44,6 @@ export default function Layout() {
                 onClick={openCartDrawer}
             >
                 <MdShoppingBasket size={24} />
-            </div>
-            <div
-                className="block md:hidden fixed top-4 right-4 bg-orange-600 text-white p-4 rounded-full shadow-lg cursor-pointer z-50"
-                onClick={openCartDrawer}
-            >
-                <MdShoppingBasket size={16} />
             </div>
         </div>
     );
