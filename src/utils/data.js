@@ -685,7 +685,7 @@ export const productList = [
     //Appetizers
     {
         title: {
-            en: "Large French Fries",
+            en: "large french fries",
             ar: "فرينش فرايز لارج"
         },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fea4bf95a863a674e0ae15fe02cafcebd.png&w=256&q=75",
@@ -712,6 +712,19 @@ export const productList = [
         },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F8747ba64511bf652a671d38c60f9b59c.png&w=256&q=75",
         price: 30,
+        category: "appetizers",
+    },
+    {
+        title: {
+            en: "caesar salad",
+            ar: "سلطة سيزر"
+        },
+        description: {
+            en: "Fresh lettuce with pieces of grilled chicken topped with croutons bread and parmesan cheese with Caesar dressing",
+            ar: "شرائح الخس الطازج مع قطع صدور مشوية و الخبز المحمص و الجبنة البارميزان و صوص السيزر"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Fb010ee6cf688d9e057a48cba7fdac8cf.png&w=256&q=75",
+        price: 169,
         category: "appetizers",
     },
     {
@@ -882,6 +895,19 @@ export const productList = [
         price: 75,
         category: "desserts",
     },
+    {
+        title: {
+            en: "apple pie",
+            ar: "فطيرة التفاح"
+        },
+        description: {
+            en: "Apple & cinnamon pie",
+            ar: "فطيرة التفاح والقرفة"
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2Ff5afb2abb2f7e443a2d999d1c13164d2.png&w=384&q=75",
+        price: 30,
+        category: "desserts",
+    },
     //Drinks
     {
         title: {
@@ -894,7 +920,7 @@ export const productList = [
     },
     {
         title: {
-            en: "Pure Apple Juice",
+            en: "pure apple juice",
             ar: "عصير تفاح بيور"
         },
         image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Fmenu_items%2F9f9d227549b8d0c81257dded1ebe0c7d.png&w=256&q=75",
@@ -1055,6 +1081,122 @@ export const drinksList = [
 export const offersList = [
     {
         title: {
+            en: 'app deal',
+            ar: 'أب ديل'
+        },
+        description: {
+            en: 'Your choice of a 150gm sandwich with French Fries',
+            ar: 'ختيارك من ساندوتش 150 جرام مع فرينش فرايز'
+        },
+        image: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Ffc8f15d89e5029fec0a417c48709f586.png&w=256&q=75',
+        swiperWebImage: 'https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/0b6068687b8f066332a32eeb0483eaec.gif',
+        swiperMobileImage: 'https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/95841e456accff2712c48852745a2a78.png',
+        keenImage: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F8530f8ad5908b02c4b0cb0c55d9ef8cf.png&w=640&q=75',
+        price: 99,
+        availableProducts: ['old school', "cholo's", 'grungy', 'charbroiled bbq'],
+        availableFries: [
+            { title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 },
+            { title: { en: 'large french fries', ar: 'رينش فرايز لارج' }, price: 11 }
+        ],
+        tabs: [
+            { title: { en: "choice", ar: 'الاختيار' } },
+            { title: { en: "fries", ar: 'البطاطس' } },
+        ],
+    },
+    {
+        title: {
+            en: 'buff two',
+            ar: 'بف تو'
+        },
+        description: {
+            en: 'Your choice of a 150gm sandwich with regular chicken sandwich, French fries and a Soft Drink',
+            ar: 'إختيارك من ساندوتش 150 جرام مع ساندوتش تشيكن حجم عادي و فرينش فرايز مع مشروب غازي'
+        },
+        image: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F128404621aefddb18dfb39461e4bc1fe.png&w=256&q=75',
+        swiperWebImage: 'https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/d05e5e98b5c6def311ed2af94141f83c.png',
+        swiperMobileImage: 'https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/6edfd9a9328a816090f08ef672b5d138.png',
+        keenImage: 'https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F2a193572c206bd7113450bccbdbadd83.png&w=640&q=75',
+        price: 189,
+        availableProducts: ['old school', "cholo's", 'grungy', 'charbroiled bbq'],
+        availableFries: [
+            { title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 },
+            { title: { en: 'large french fries', ar: 'رينش فرايز لارج' }, price: 11 }
+        ],
+        availableDrinks: [
+            { title: { en: 'big cola', ar: 'بيج كولا' }, price: 0 },
+            { title: { en: 'pure apple juice', ar: 'عصير تفاح بيور' }, price: 6 },
+        ],
+        tabs: [
+            { title: { en: "choice", ar: 'الاختيار' } },
+            { title: { en: "fries", ar: 'البطاطس' } },
+            { title: { en: "drinks", ar: 'المشروبات' } },
+        ],
+    },
+    {
+        title: {
+            en: 'hammer combo - 200gm',
+            ar: 'هامر كومبو - 200 جرام'
+        },
+        description: {
+            en: 'Your choice of a 200gm sandwich with French Fries and a Soft Drink',
+            ar: 'إختيارك من ساندوتش 200 جرام مع فرينش فريز و مشروب غازي'
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fc647c727bf71351b5aa7eb8e44c37a6c.png&w=256&q=75",
+        swiperWebImage: "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/acd2cac7ddb2b15715536f8cdb0f522e.png",
+        swiperMobileImage: "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/5739fd9e390578dc8ad4b7718de120c1.png",
+        keenImage: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F92f03f75881ceeb821bb6dfcccef17ad.png&w=640&q=75",
+        price: 145,
+        availableProducts: ['old school', 'grungy', 'chicken buster', "cholo's", 'charbroiled bbq', 'shiitake mushroom'],
+        availableFries: [
+            { title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 },
+            { title: { en: 'large french fries', ar: 'فرينش فرايز لارج' }, price: 10 }
+        ],
+        availableDrinks: [
+            { title: { en: 'big cola', ar: 'بيج كولا' }, price: 0 },
+            { title: { en: 'pure apple juice', ar: 'عصير تفاح بيور' }, price: 6 },
+            { title: { en: 'orange juice', ar: 'عصير برتقال' }, price: 10 }
+        ],
+        tabs: [
+            { title: { en: "choice 1", ar: 'الاختيار 1' } },
+            { title: { en: "choice 2", ar: 'الاختيار 2' } },
+            { title: { en: "choice 3", ar: 'الاختيار 3' } },
+            { title: { en: "choice 4", ar: 'الاختيار 4' } },
+            { title: { en: "fries", ar: 'البطاطس' } },
+            { title: { en: "drinks", ar: 'المشروبات' } },
+        ],
+    },
+    {
+        title: {
+            en: 'buff three',
+            ar: 'بف ثري'
+        },
+        description: {
+            en: "Your choice from three 150gm sandwiches with three French Fries and three Soft Drinks",
+            ar: 'إختيارك من 3 ساندوتشات 150 جرام مع 3 فرينش فرايز و 3 مشروب'
+        },
+        image: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Feea9ecf7e4a71d599345a0dcbc36b77e.png&w=256&q=75",
+        swiperWebImage: "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/8d23f7f28fc7f2bdff54a2cbcfd5be21.png",
+        swiperMobileImage: "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/d8087c435a9118eadd4f9f03ffae241b.png",
+        keenImage: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F95b7f7059183ce673c4f3dc2041f3d6a.png&w=640&q=75",
+        price: 365,
+        availableProducts: ['old school', "cholo's", 'grungy', 'charbroiled bbq', 'chicken buster', "cholo's chicken"],
+        availableFries: [
+            { title: { en: 'small french fries', ar: 'فرينش فرايز صغير' }, price: 0 }
+        ],
+        availableDrinks: [
+            { title: { en: 'big cola', ar: 'بيج كولا' }, price: 0 },
+            { title: { en: 'water bottle', ar: 'مياه معدنية' }, price: 0 }
+        ],
+        tabs: [
+            { title: { en: "choice 1", ar: 'الاختيار 1' } },
+            { title: { en: "choice 2", ar: 'الاختيار 2' } },
+            { title: { en: "choice 3", ar: 'الاختيار 3' } },
+            { title: { en: "fries", ar: 'البطاطس' } },
+            { title: { en: "drinks", ar: 'المشروبات' } },
+        ],
+    },
+    {
+        title: {
             en: '4 in the box',
             ar: 'فور ان ذا بوكس'
         },
@@ -1114,80 +1256,12 @@ export const offersList = [
             { title: { en: "drinks", ar: 'المشروبات' } },
         ],
     },
-    // {
-    //     title: "Buff One",
-    //     images: {
-    //         swiperWeb:
-    //             "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/c65d20d5c77eb0b08dcb3d2639fd13d1.png",
-    //         swiperMobile:
-    //             "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/e66d5a6bf26725009930c11643a762db.png",
-    //         keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fffaf41774acf69dbf5495e170f3e6347.png&w=640&q=75",
-    //         details:
-    //             "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2Fb645ddd7acf4b9a0cb96aaebd9824b97.png&w=256&q=75",
-    //     },
-    //     description: "Your choice of a 150gm sandwich with French Fries",
-    //     price: 105,
-    //     tab: [
-    //         {
-    //             title: "choice",
-    //             details: {
-    //                 titleL: "Extras",
-    //                 description: "Apple Pie (EGP 20.00)",
-    //                 price: 20,
-    //             },
-    //         },
-    //         {
-    //             title: "fries",
-    //             details: {
-    //                 friseSmail: true,
-    //                 friesLarge: true,
-    //                 quantity: 1,
-    //             },
-    //         },
-    //     ],
-    // },
-    // {
-    //     title: "Buff Two",
-    //     images: {
-    //         swiperWeb:
-    //             "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/a70b771aa3afd58d2b04cb6b348c26b6.png",
-    //         swiperMobile:
-    //             "https://buffalonlineorderingprod.s3.eu-west-1.amazonaws.com/carousels/85be0753aafcd1d7aacaabd15c6cc61b.png",
-    //         keen: "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F2a193572c206bd7113450bccbdbadd83.png&w=640&q=75",
-    //         details:
-    //             "https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingprod.s3.eu-west-1.amazonaws.com%2Foffers%2F128404621aefddb18dfb39461e4bc1fe.png&w=256&q=75",
-    //     },
-    //     description:
-    //         "Your choice of a 150gm sandwich with regular chicken sandwich, French fries and a Soft Drink",
-    //     price: 105,
-    //     tab: [
-    //         { title: "choice" },
-    //         {
-    //             title: "fries",
-    //             details: {
-    //                 friseSmail: true,
-    //                 friesLarge: true,
-    //                 quantity: 1,
-    //             },
-    //         },
-    //         {
-    //             title: "drink",
-    //             details: {
-    //                 quantity: 1,
-    //                 drink: [
-    //                     { title: "Big cola", price: 0 },
-    //                     { title: "Pure Apple Juice (EGP 6.00)", price: 6 },
-    //                 ],
-    //             },
-    //         },
-    //         { title: "extraItem" },
-    //     ],
-    // },
 ]
 
 export const topSellingList = [
     'shiitake mushroom',
     'bacon mashroom jack',
+    'caesar salad',
     'chicken buster',
     'apple pie',
     'chicken fries'

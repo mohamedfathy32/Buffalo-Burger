@@ -71,11 +71,11 @@ export default function ProductPage() {
 
     return (
         <>
-            <section className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
+            <section className="bg-[#1c1c1b] flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={product?.image} alt={product?.title.en} className="w-[150px] h-[150px]" />
                 <div className="lg:text-start text-center md:mx-16">
                     <h2 className="text-orange-600 font-bold text-2xl capitalize">{product?.title[i18n.language]}</h2>
-                    <p className="text-white max-w-[500px]">{product?.description[i18n.language]}</p>
+                    <p className="text-white max-w-[500px]">{product?.description?.[i18n.language]}</p>
                 </div>
             </section>
 
@@ -85,7 +85,7 @@ export default function ProductPage() {
             {!isNoComboSelected && <Drink selectedDrink={drink} onDrinkChange={setDrink} />}
             <Extras selectedExtras={extras} onExtrasChange={setExtras} />
 
-            <section id="total" className="w-full p-4 flex flex-col lg:flex-row-reverse fixed bottom-0 justify-center items-center gap-6 bg-gray-50">
+            <section id="total" className="w-full p-4 flex flex-col lg:flex-row-reverse fixed bottom-0 justify-center items-center gap-6 bg-[#f1f5f9]">
                 <div className="flex justify-center gap-3 items-center">
                     <div>
                         <h2 className="capitalize text-2xl font-bold">Total</h2>

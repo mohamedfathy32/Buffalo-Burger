@@ -4,7 +4,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { CartCounterContext } from "../utils/context";
 import { db } from "../utils/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 import { useTranslation } from "react-i18next";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -39,10 +39,10 @@ export default function CartPage() {
         const date1 = new Date();
         const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
         const date = date1.toLocaleString('en-US', options);
-
+        console.log(date);
 
         try {
-            await addDoc(collection(db, "cart"), { Cart: cart, userID, Date: date, TotalPrice: getTotalPrice() });
+            await setDoc(doc(db, "cart", date.split('/').join('-')), { sortOrder: date, Date: date, id: Date.now(), Cart: cart, userID, TotalPrice: getTotalPrice() });
             alert("Cart successfully checked out!");
             setCart([]);
             localStorage.removeItem("cart");

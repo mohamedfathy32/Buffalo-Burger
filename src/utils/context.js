@@ -8,3 +8,6 @@ export const LoggedProvider = LoggedContext.Provider
 
 export const ProductsContext = createContext();
 export const ProductsProvider = ProductsContext.Provider
+
+export const HistoryContext = createContext();
+export const HistoryProvider = HistoryContext.Provider

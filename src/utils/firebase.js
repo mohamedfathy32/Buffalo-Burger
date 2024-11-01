@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { collection, doc, getDoc, getDocs, getFirestore, orderBy, query, updateDoc, writeBatch } from "firebase/firestore";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
 // const firebaseConfig = {
 //   apiKey: "AIzaSyDF3h_8mHGGs4REC-nJ2Fgk3ofBu5E9cwI",
 //   authDomain: "buffalo-burger-73090.firebaseapp.com",
@@ -11,7 +10,6 @@ import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } f
 //   appId: "1:813583745340:web:1dcf4735da6b53193fde39",
 //   measurementId: "G-NFHVQGTH7D",
 // };
-
 const firebaseConfig = {
   apiKey: "AIzaSyB938mwob15coVUd54hbLJNzBmRbqhK80M",
   authDomain: "buffalo-burger-432d6.firebaseapp.com",
@@ -20,13 +18,12 @@ const firebaseConfig = {
   messagingSenderId: "676912297668",
   appId: "1:676912297668:web:abf14165867ae338363b91"
 };
-
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
-
 /////////////////////////////////////////////////////
-// function for getting all items in any collectionn
+
+// function for getting all documents in collection
 export async function getCollectionByName(collectionName) {
   let collectionArray = [];
   try {
@@ -38,8 +35,22 @@ export async function getCollectionByName(collectionName) {
   } catch (e) { console.log(e.message); }
   return collectionArray;
 }
+////////////////////////////////////
 
+//function to get document from collection
+export async function getDocByDocID(collectionName, docID) {
+  const docRef = doc(db, collectionName, docID);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    return docSnap.data();
+  } else {
+    console.log("No such document!");
+    return null;
+  }
+}
 /////////////////////////////////////////////////////////
+
 // function for adding full list to any collectionn(empty)
 export async function addCollection(collectionArray, collectionName) {
   try {
@@ -54,6 +65,7 @@ export async function addCollection(collectionArray, collectionName) {
 
 
 ////////////////////////////////////
+
 //function to get username by userID
 export async function getUsernameById(userId) {
   const docRef = doc(db, "users", userId);
@@ -68,6 +80,7 @@ export async function getUsernameById(userId) {
 }
 
 ////////////////////////
+
 //function to get user informations by userID
 export async function getUserInfoById(userId) {
   const docRef = doc(db, "users", userId);
@@ -86,8 +99,8 @@ export async function getUserInfoById(userId) {
 }
 
 //////////////
-// function udpate user profile
 
+// function udpate user profile
 export async function updateUserProfile(userId, newUsername) {
   try {
     const userDocRef = doc(db, "users", userId);
@@ -103,6 +116,7 @@ export async function updateUserProfile(userId, newUsername) {
 }
 
 //////
+
 //auth
 export async function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password)

@@ -113,7 +113,7 @@ export default function Header() {
 
     return (
         <>
-            <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white"
+            <nav className="bg-[#1c1c1b] w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white"
                 onClick={() => {
                     if (isOpen) {
                         setNav(false);
@@ -169,7 +169,7 @@ export default function Header() {
                                 </span>
                             </div>
                             {isOpenDrop && (
-                                <ul className="min-w-max absolute bg-stone-900 text-base z-[51] py-2 ps-2 w-full list-none text-start rounded-lg mt-1">
+                                <ul className="min-w-max absolute bg-[#1c1c1b] text-base z-[51] py-2 ps-2 w-full list-none text-start rounded-lg mt-1">
                                     <li>
                                         <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile">
                                             {t("My account")}
@@ -383,7 +383,7 @@ export default function Header() {
             />
 
             {/* Seconed Header Delivery Address */}
-            <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
+            <div className="bg-[#1c1c1b] w-full max-w-full h-12 flex justify-center items-center">
                 <div className="hidden md:flex">
                     <Link className="me-4 hover:text-orange-600" to={'/About'}>About Us</Link>
                     <Link className="me-4 hover:text-orange-600" to={'/Cart'}>CartDetails</Link>
