@@ -3,16 +3,16 @@ import { useTranslation } from 'react-i18next'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { MdShoppingBasket } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
-import { CartCounterContext } from '../utils/context'
+import { CartContext } from '../utils/context'
 
 export default function CartDrawer({ cartDrawer, closeWindows }) {
     const navigate = useNavigate()
     const { t, i18n } = useTranslation()
 
-    const { cartCounter } = useContext(CartCounterContext);
+    const { cart } = useContext(CartContext);
 
     const gotocart = () => {
-        navigate('/cart')
+        navigate('/Cart')
         closeWindows()
     }
     return (
@@ -30,7 +30,7 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
                         </p>
                         <div className="text-xs text-orange-500 hover:text-secondary-main-120"> {t("Go to cart")} </div>
                         <div className="flex justify-center items-center">
-                            <div className="flex justify-center items-center w-7 h-7 rounded-full text-white text-sm bg-[#1c1c1b] ">{cartCounter}</div>
+                            <div className="flex justify-center items-center w-7 h-7 rounded-full text-white text-sm bg-[#1c1c1b] ">{cart.length}</div>
                         </div>
                     </div>
                 </div>

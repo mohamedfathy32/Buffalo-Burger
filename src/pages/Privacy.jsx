@@ -1,30 +1,19 @@
 import { Link } from "react-router-dom";
-import Splash from "../components/Splash";
-
 export default function PrivacyPage() {
     return (
         <>
-            <Splash />
             <div className="w-full flex justify-center items-center uppercase py-2 gap-2">
-
                 <Link className="font-bold" to={'/Terms'}>Terms and conditions</Link>
                 <span className="font-bold text-orange-500">Privacy policy</span>
-
             </div>
-
             <h1 className="text-7xl PSS text-center bg-gray-300 font-medium uppercase p-4">
                 Buffalo Burger Privacy Policy:
             </h1>
-
             <div className="flex flex-col mx-auto p-2 max-w-[750px]">
-
                 <span className="font-bold mb-2">Effective Date: [November 2021]</span>
-
                 <p className="mb-1 break-words">
                     At Buffalo Burger, we respect your concerns about privacy. This Privacy Statement (“Statement”) describes the personal information practices of Buffalo Burger with respect to information about our customers and others who visit our restaurants, Web sites and mobile apps, including the types of personal information we collect, how we may use this information, and with whom we may share it.
                 </p>
-
-                {/* Orange Box VV*/}
                 <div className="flex flex-col p-3 my-2 bg-orange-200">
 
                     <span className="font-bold mb-5 mr-2">Table of contents </span>

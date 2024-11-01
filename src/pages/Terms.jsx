@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import Splash from "../components/Splash";
 
 export default function TermsPage() {
     return (
         <>
-            <Splash />
             <div className="w-full flex justify-center items-center uppercase py-2 gap-2">
 
                 <span className="font-bold text-orange-500">Terms and conditions</span>

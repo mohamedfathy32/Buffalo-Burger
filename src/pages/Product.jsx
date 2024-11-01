@@ -2,24 +2,27 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { MdShoppingCart } from "react-icons/md";
-import { extrasList, comboOptionsList, breadList, drinksList } from "../utils/data";
 import Size from "../components/Product/Size";
 import Bread from "../components/Product/Bread";
 import ComboOption from "../components/Product/ComboOption";
 import Drink from "../components/Product/Drink";
 import Extras from "../components/Product/Extras";
-import { CartCounterContext } from "../utils/context";
+import { CartContext, DataContext } from "../utils/context";
+import { getCollectionByName } from "../utils/firebase";
+import Splash from "../components/Splash";
 
 export default function ProductPage() {
-    const { setCartCounter } = useContext(CartCounterContext);
+    const { data, setData } = useContext(DataContext);
+    const { setCart } = useContext(CartContext);
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const { state } = useLocation();
     const product = state?.product;
+    const [loading, setLoading] = useState(true);
 
     const [size, setSize] = useState(product?.details.size[0]?.title || {});
-    const [bread, setBread] = useState(breadList[0]?.title || {});
-    const [CO, setCO] = useState(comboOptionsList[0]?.title || {});
+    const [bread, setBread] = useState(data.breads?.[0]?.title || {});
+    const [CO, setCO] = useState(data.comboOptions?.[0]?.title || {});
     const [drink, setDrink] = useState({});
     const [extras, setExtras] = useState([]);
     const [totalPrice, setTotalPrice] = useState(product.price);
@@ -28,13 +31,30 @@ export default function ProductPage() {
 
     const calculateTotalPrice = () => {
         const selectedSize = product.details.size.find(s => s.title.en === size.en);
-        const selectedBread = breadList.find(b => b.title.en === bread.en);
-        const selectedComboOption = comboOptionsList.find(c => c.title.en === CO.en);
-        const selectedDrink = !isNoComboSelected ? drinksList.find(d => d.title.en === drink.en) : { price: 0 };
-        const extrasTotal = extras.reduce((acc, extra) => acc + (extrasList.find(e => e.title.en === extra.en)?.price || 0), 0);
-
+        const selectedBread = data.breads?.find(b => b.title.en === bread.en);
+        const selectedComboOption = data.comboOptions?.find(c => c.title.en === CO.en);
+        const selectedDrink = !isNoComboSelected ? data.drinks?.find(d => d.title.en === drink.en) : { price: 0 };
+        const extrasTotal = extras.reduce((acc, extra) => acc + (data.extras?.find(e => e.title.en === extra.en)?.price || 0), 0);
         return (selectedSize?.price || 0) + (selectedBread?.price || 0) + (selectedComboOption?.price || 0) + (selectedDrink?.price || 0) + extrasTotal;
     };
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                if (!data.breads || !data.comboOptions || !data.drinks || !data.extras) {
+                    const breads = await getCollectionByName('breads');
+                    const comboOptions = await getCollectionByName('comboOptions');
+                    const drinks = await getCollectionByName('drinks');
+                    const extras = await getCollectionByName('extras');
+                    setData({ breads, comboOptions, drinks, extras });
+                    setLoading(false)
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+        fetchData();
+    }, []);
 
     useEffect(() => {
         const newTotalPrice = calculateTotalPrice();
@@ -43,6 +63,7 @@ export default function ProductPage() {
 
     function addToCart() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
         const des = {
             en: [drink.en || '', extras.map(extra => extra.en).join(', ') || '', bread.en === 'white' ? '' : bread.en].filter(Boolean).join(' '),
             ar: [drink.ar || '', extras.map(extra => extra.ar).join(', ') || '', bread.ar === 'عيش ابيض' ? '' : bread.ar].filter(Boolean).join(' ')
@@ -63,13 +84,12 @@ export default function ProductPage() {
         if (des.en || des.ar) { cartItem.description = des }
         cart.push(cartItem);
         localStorage.setItem('cart', JSON.stringify(cart));
-        setCartCounter(cart.length);
+        setCart(cart);
         navigate('/Menu')
         window.scrollTo({ top: 0, });
     }
 
-
-    return (
+    return (loading ? <Splash /> :
         <>
             <section className="bg-[#1c1c1b] flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={product?.image} alt={product?.title.en} className="w-[150px] h-[150px]" />

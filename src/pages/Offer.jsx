@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CartCounterContext, ProductsContext } from "../utils/context";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { MdShoppingCart } from "react-icons/md";
+import { CartContext, DataContext } from "../utils/context";
 
 export default function OfferPage() {
-    const { products } = useContext(ProductsContext);
-    const { setCartCounter } = useContext(CartCounterContext);
+    const { data } = useContext(DataContext);
+    const { setCart } = useContext(CartContext);
     const { t, i18n } = useTranslation();
     const lang = i18n.language;
     const navigate = useNavigate();
@@ -22,8 +22,8 @@ export default function OfferPage() {
     const [friesSelection, setFriesSelection] = useState([]);
 
     useEffect(() => {
-        if (products) {
-            const productsInOffer = offer.availableProducts.map(avail => products.find(p => p.title.en === avail));
+        if (data.products) {
+            const productsInOffer = offer.availableProducts.map(avail => data.products?.find(p => p.title.en === avail));
             const initialOrder = offer.tabs.reduce((acc, tab, idx) => {
                 if (tab.title.en.includes('choice')) {
                     acc[`choice${idx + 1}`] = productsInOffer[0]?.title;
@@ -38,7 +38,7 @@ export default function OfferPage() {
             setFriesSelection(Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableFries[0].title[lang]));
         }
         calculateTotalPrice();
-    }, [products, offer, lang]);
+    }, [data, offer, lang]);
 
     function calculateTotalPrice() {
         const friesTotal = Object.keys(order).filter(key => key.includes('fries')).reduce((acc, key) => {
@@ -89,7 +89,7 @@ export default function OfferPage() {
 
             cart.push(cartItem);
             localStorage.setItem('cart', JSON.stringify(cart));
-            setCartCounter(cart.length);
+            setCart(cart.length);
             navigate('/Menu');
             window.scrollTo({ top: 0 });
         }
@@ -150,9 +150,9 @@ export default function OfferPage() {
                                     const selectedFries = offer.availableFries.find(fry => fry.title[lang] === e.target.value);
                                     setOrder({ ...order, [`fries${i + 1}`]: selectedFries.title });
                                 }} defaultValue={offer.availableFries?.[0].title[lang]} name={`fries-${i}`}>
-                                    {offer.availableFries.map((fry) => (
-                                        <div key={fry.title.en} className="flex justify-center items-center">
-                                            <div className="flex flex-col gap-2 lg:gap-8 lg:flex-row ">
+                                    <div className="flex justify-center items-center">
+                                        {offer.availableFries.map((fry) => (
+                                            <div key={fry.title.en} className="flex flex-col gap-2 lg:gap-8 lg:flex-row ">
                                                 <FormControlLabel
                                                     value={fry.title[lang]}
                                                     control={<Radio sx={radioStyles} />}
@@ -160,8 +160,8 @@ export default function OfferPage() {
                                                     label={`${fry.title[lang]} ${fry.price === 0 ? '' : `(${lang === 'en' ? 'EGP' : 'ج.م'} ${fry.price})`}`}
                                                 />
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </RadioGroup>
                             </div>
                         ))}
@@ -169,7 +169,7 @@ export default function OfferPage() {
                 )}
                 {/* bug in drink and fries */}
 
-                {offer.tabs[tabIndex].title.en === "drinks" && (
+                {offer.tabs[tabIndex].title.en === "drinks" ? (
                     <div className="w-full p-6">
                         {offer.tabs.filter(tab => tab.title.en.includes('choice')).map((_, i) => (
                             <div key={i}>
@@ -207,7 +207,7 @@ export default function OfferPage() {
                             </div>
                         ))}
                     </div>
-                )}
+                ) : ''}
             </div>
 
             <section className="w-full p-4 flex flex-col lg:flex-row-reverse fixed bottom-0 justify-center items-center gap-6 bg-gray-50">
