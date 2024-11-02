@@ -20,7 +20,7 @@ export default function Layout() {
 
     return (
         <div dir={i18n.language === 'en' ? 'ltr' : 'rtl'}>
-            <div className="w-full h-28 sticky top-0 z-20 bg-stone-900 text-white">
+            <div className="w-full h-28 sticky top-0 z-20 bg-[#1c1c1b] text-white">
                 <Header />
             </div>
 

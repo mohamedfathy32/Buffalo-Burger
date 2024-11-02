@@ -1,27 +1,29 @@
 import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CartCounterContext, ProductsContext } from "../utils/context";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { MdShoppingCart } from "react-icons/md";
+import { CartContext, DataContext } from "../utils/context";
 
 export default function OfferPage() {
-    const { products } = useContext(ProductsContext)
-    const { setCartCounter } = useContext(CartCounterContext)
-    const { t, i18n } = useTranslation()
-    const lang = i18n.language
-    const navigate = useNavigate()
+    const { data } = useContext(DataContext);
+    const { setCart } = useContext(CartContext);
+    const { t, i18n } = useTranslation();
+    const lang = i18n.language;
+    const navigate = useNavigate();
     const { state } = useLocation();
-    const offer = state?.offer
+    const offer = state?.offer;
 
     const [tabIndex, setTabIndex] = useState(0);
-    const [totalPrice, setTotalPrice] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(0);
     const [availableProducts, setAvailableProducts] = useState([]);
-    const [order, setOrder] = useState({})
+    const [order, setOrder] = useState({});
+    const [drinkSelection, setDrinkSelection] = useState([]);
+    const [friesSelection, setFriesSelection] = useState([]);
 
     useEffect(() => {
-        if (products) {
-            const productsInOffer = offer.availableProducts.map(avail => products.find(p => p.title.en === avail))
+        if (data.products) {
+            const productsInOffer = offer.availableProducts.map(avail => data.products?.find(p => p.title.en === avail));
             const initialOrder = offer.tabs.reduce((acc, tab, idx) => {
                 if (tab.title.en.includes('choice')) {
                     acc[`choice${idx + 1}`] = productsInOffer[0]?.title;
@@ -32,9 +34,11 @@ export default function OfferPage() {
             }, {});
             setAvailableProducts(productsInOffer);
             setOrder(initialOrder);
+            setDrinkSelection(Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableDrinks[0].title[lang]));
+            setFriesSelection(Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableFries[0].title[lang]));
         }
         calculateTotalPrice();
-    }, [products, offer, setOrder]);
+    }, [data, offer, lang]);
 
     function calculateTotalPrice() {
         const friesTotal = Object.keys(order).filter(key => key.includes('fries')).reduce((acc, key) => {
@@ -83,15 +87,13 @@ export default function OfferPage() {
                 totalPrice: totalPrice
             };
 
-
             cart.push(cartItem);
             localStorage.setItem('cart', JSON.stringify(cart));
-            setCartCounter(cart.length);
+            setCart(cart.length);
             navigate('/Menu');
             window.scrollTo({ top: 0 });
         }
     }
-
 
     const radioStyles = {
         '& .MuiSvgIcon-root': { color: '#ff5f00' },
@@ -102,21 +104,9 @@ export default function OfferPage() {
         '& .Mui-checked + .MuiTypography-root': { color: '#ff5f00' }
     };
 
-
-    const [drinkSelection, setDrinkSelection] = useState(
-        Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableDrinks[0].title[lang])
-    );
-
-    // Update `drinkSelection` when `lang` changes
-    useEffect(() => {
-        setDrinkSelection(
-            Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableDrinks[0].title[lang])
-        );
-    }, [lang, offer]);
-
     return (
         <>
-            <section className="bg-stone-900 flex justify-center items-center lg:flex-row flex-col p-4">
+            <section className="bg-[#1c1c1b] flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={offer.image} alt={offer.title[lang]} className="place-items-center w-[150px] h-[150px]" />
                 <div className="lg:text-start text-center md:my md:mx-16">
                     <h2 className="text-orange-600 font-bold text-2xl capitalize">{offer.title[lang]}</h2>
@@ -125,7 +115,7 @@ export default function OfferPage() {
             </section>
 
             <div className="overflow-x-scroll sbw-none">
-                <div className="w-fit min-w-full flex justify-center bg-stone-900 text-white">
+                <div className="w-fit min-w-full flex justify-center bg-[#1c1c1b] text-white">
                     {offer.tabs.map((tab, i) =>
                         <p key={tab.title.en} onClick={() => { setTabIndex(i) }} className={`min-w-28 p-2.5 mx-0.5 my-1.5 text-center font-bold uppercase text-lg text-white cursor-pointer rounded-md ${i === tabIndex && 'bg-orange-600'} hover:bg-orange-600`}>
                             {tab.title[lang]}
@@ -153,30 +143,33 @@ export default function OfferPage() {
 
                 {offer.tabs[tabIndex].title.en === "fries" && (
                     <div className="w-full p-6">
-                        {offer.tabs.filter(tab => tab.title.en.includes('choice')).map((_, i) => (
-                            <div key={i}>
+                        {offer.tabs.filter(tab => tab.title.en.includes('choice')).map((choice, i) => (
+                            <div key={choice.title.en}>
                                 <h2 className="font-bold uppercase text-2xl text-center mb-5">{`${t('fries')} ${i + 1}`}</h2>
                                 <RadioGroup onChange={(e) => {
                                     const selectedFries = offer.availableFries.find(fry => fry.title[lang] === e.target.value);
-                                    setOrder(prevOrder => ({ ...prevOrder, [`fries${i + 1}`]: selectedFries.title }));
-                                }} defaultValue={offer.availableFries[0].title[lang]} name={`fries-${i}`}>
-                                    {offer.availableFries.map((fry) => (
-                                        <div key={fry.title.en} className="flex flex-col gap-2 lg:gap-8 lg:flex-row justify-center items-center">
-                                            <FormControlLabel
-                                                value={fry.title[lang]}
-                                                control={<Radio sx={radioStyles} />}
-                                                sx={labelStyles}
-                                                label={`${fry.title[lang]} ${fry.price === 0 ? '' : `(${lang === 'en' ? 'EGP' : 'ج.م'} ${fry.price})`}`}
-                                            />
-                                        </div>
-                                    ))}
+                                    setOrder({ ...order, [`fries${i + 1}`]: selectedFries.title });
+                                }} defaultValue={offer.availableFries?.[0].title[lang]} name={`fries-${i}`}>
+                                    <div className="flex justify-center items-center">
+                                        {offer.availableFries.map((fry) => (
+                                            <div key={fry.title.en} className="flex flex-col gap-2 lg:gap-8 lg:flex-row ">
+                                                <FormControlLabel
+                                                    value={fry.title[lang]}
+                                                    control={<Radio sx={radioStyles} />}
+                                                    sx={labelStyles}
+                                                    label={`${fry.title[lang]} ${fry.price === 0 ? '' : `(${lang === 'en' ? 'EGP' : 'ج.م'} ${fry.price})`}`}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
                                 </RadioGroup>
                             </div>
                         ))}
                     </div>
                 )}
+                {/* bug in drink and fries */}
 
-                {offer.tabs[tabIndex].title.en === "drinks" && (
+                {offer.tabs[tabIndex].title.en === "drinks" ? (
                     <div className="w-full p-6">
                         {offer.tabs.filter(tab => tab.title.en.includes('choice')).map((_, i) => (
                             <div key={i}>
@@ -214,7 +207,7 @@ export default function OfferPage() {
                             </div>
                         ))}
                     </div>
-                )}
+                ) : ''}
             </div>
 
             <section className="w-full p-4 flex flex-col lg:flex-row-reverse fixed bottom-0 justify-center items-center gap-6 bg-gray-50">

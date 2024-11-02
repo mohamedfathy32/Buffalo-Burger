@@ -1,6 +1,6 @@
 export default function Values() {
     return (
-        <div id="values" className="bg-stone-900">
+        <div id="values" className="bg-[#1c1c1b]">
             <div className="container mx-auto py-10">
                 <div className="flex flex-wrap justify-center items-center pb-5 border-b-4 border-orange-500">
                     <div className="lg:w-6/12 mb-8 lg:mb-0">

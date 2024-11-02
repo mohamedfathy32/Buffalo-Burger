@@ -1,68 +1,57 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { CiCircleMinus } from "react-icons/ci";
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { FaArrowAltCircleRight } from "react-icons/fa";
-import { CartCounterContext } from "../utils/context";
-import { db } from "../utils/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { db, getUserInfoById } from "../utils/firebase";
+import { setDoc, doc } from "firebase/firestore";
 import { useTranslation } from "react-i18next";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import LoginModal from "../components/Header/Login";
+import { CartContext } from "../utils/context";
+import { useNavigate } from "react-router-dom";
 
 export default function CartPage() {
-    const [cart, setCart] = useState([]);
-    const { setCartCounter } = useContext(CartCounterContext)
-    const { t, i18n } = useTranslation()
+    const { cart, setCart } = useContext(CartContext);
+    const { t, i18n } = useTranslation();
+    const navigate = useNavigate()
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(savedCart);
     }, []);
 
-    function handleQuantity(id, change) {
-        const updatedCart = cart.map(item => item.id === id
-            ? { ...item, quantity: item.quantity + change, totalPrice: (item.quantity + change) * item.price }
-            : item).filter(item => item.quantity > 0);
+    const handleQuantity = (id, change) => {
+        const updatedCart = cart.map(item =>
+            item.id === id ? { ...item, quantity: item.quantity + change, totalPrice: (item.quantity + change) * item.price } : item
+        ).filter(item => item.quantity > 0);
 
-        if (updatedCart.length === 0) { localStorage.removeItem("cart"); }
-        else { localStorage.setItem("cart", JSON.stringify(updatedCart)); }
-        setCart(updatedCart);
-        setCartCounter(updatedCart.length);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        setCart(updatedCart.length ? updatedCart : []);
     };
 
-    function getTotalPrice() {
-        return cart.reduce((total, item) => total + item.totalPrice, 0);
-    };
+    const getTotalPrice = () => cart.reduce((total, item) => total + item.totalPrice, 0);
 
-    async function handleCheckout() {
-        const userID = localStorage.getItem('userId')
-        const date1 = new Date();
-        const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
-        const date = date1.toLocaleString('en-US', options);
+    const handleCheckout = async () => {
+        const userID = localStorage.getItem('userId');
+        if (!userID) return alert("Please login first to checkout!"), <LoginModal />;
 
+        const userInfo = await getUserInfoById(userID);
+        if (userInfo) {
+            const date = new Date().toLocaleString('en-US', {
+                day: '2-digit', month: '2-digit', year: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+            });
 
-        try {
-            await addDoc(collection(db, "cart"), { Cart: cart, userID, Date: date, TotalPrice: getTotalPrice() });
-            alert("Cart successfully checked out!");
-            setCart([]);
-            localStorage.removeItem("cart");
-            setCartCounter(0);
-        } catch (error) {
-            console.error("Error checking out: ", error);
+            try {
+                await setDoc(doc(db, "orders", `${userInfo.email} ${date.replace(/\//g, '-')}`), {
+                    Date: date, id: Date.now(), Cart: cart, userID, TotalPrice: getTotalPrice()
+                });
+                alert("Cart successfully checked out!");
+                setCart([]);
+                localStorage.removeItem("cart");
+            } catch (error) {
+                console.error("Error checking out: ", error);
+            }
         }
     };
-
-    const { ...filteredSliderSettings } = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        arrows: true,
-        nextArrow: <FaArrowAltCircleRight className="text-xl text-orange-500" />,
-        prevArrow: <FaArrowAltCircleRight className="text-xl text-orange-500 rotate-180" />,
-    };
-
     return (
         <div className="flex min-h-[100vh] gap-4 mx-4 md:mx-[60px] lg:flex-row flex-col" >
             <div className="lg:w-2/3 flex flex-col md:flex-row w-full justify-between gap-x-8 my-8">
@@ -135,7 +124,7 @@ export default function CartPage() {
                             </div>
                         </div>
                     </div>
-                    <button className="p-3 uppercase border border-orange-500 rounded-lg text-orange-500 font-bold my-1" onClick={() => { nav('/menu') }}>+ add more items</button>
+                    <button className="p-3 uppercase border border-orange-500 rounded-lg text-orange-500 font-bold my-1" onClick={() => { navigate('/menu') }}>+ add more items</button>
                     <button className="p-3 uppercase bg-orange-500 rounded-lg font-bold text-white my-1" onClick={handleCheckout}>Checkout</button>
                 </div>
             }

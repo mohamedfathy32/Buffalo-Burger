@@ -1,17 +1,4 @@
-import { useEffect } from "react";
-
 export default function Splash() {
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            const splash = document.getElementById('splashParent');
-            if (splash) {
-                splash.style.display = 'none';
-            }
-        }, 500);
-
-        return () => clearTimeout(timer);
-    }, []);
-
     return (
         <div id="splashParent" className="fixed inset-0 bg-[#00000094] z-[1000] w-full h-full">
             <div
