@@ -2,13 +2,15 @@ import { useTranslation } from "react-i18next";
 import KeenSlider from "../components/Home/Keen";
 import MenuNav from "../components/Home/Nav";
 import ProductCard from "../components/ProductCard";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../utils/context";
 import { getCollectionByName } from "../utils/firebase";
+import Splash from "../components/Splash";
 
 export default function MenuPage() {
     const { i18n } = useTranslation()
     const { data, setData } = useContext(DataContext)
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         async function fetchData() {
             try {
@@ -17,6 +19,10 @@ export default function MenuPage() {
                     const offers = await getCollectionByName('offers');
                     const categories = await getCollectionByName('categories');
                     setData({ products, offers, categories, });
+                    setLoading(false)
+                }
+                else {
+                    setLoading(false)
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -24,7 +30,7 @@ export default function MenuPage() {
         }
         fetchData();
     }, []);
-    return (
+    return (loading ? <Splash /> :
         <>
             <MenuNav />
             {data.categories?.map(cat => cat.title.en === 'offers'

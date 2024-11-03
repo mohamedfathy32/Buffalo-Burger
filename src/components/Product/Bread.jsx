@@ -27,7 +27,7 @@ export default function Bread({ selectedBread, onBreadChange }) {
                 onChange={(e) => { const selected = data.breads?.find(bread => bread.title[lang] === e.target.value); onBreadChange(selected ? selected.title : {}); }}
                 aria-labelledby="demo-radio-buttons-group-label" defaultValue={data.breads?.[0].title[lang]} name="radio-buttons-group">
                 <div className="flex flex-col gap-2 lg:gap-8 lg:flex-row justify-center items-center">
-                    {data.breads?.map(bread =>
+                    {data.breads?.map(bread => (state.product.category === 'chicken sandwiches' && bread.title.en === 'lettuce bun') ? '' :
                         <div key={bread.title.en} className="bg-white rounded-xl capitalize lg:w-72 w-52 px-4 py-2">
                             <FormControlLabel value={bread.title[lang]} control={<Radio sx={radioStyles} />} sx={labelStyles}
                                 label={`${bread.title[lang]} ${lang === 'en' ? 'Bread' : ''} ${bread.price === 0 ? '' : `(${lang === 'en' ? 'EGP' : 'ج.م'} ${bread.price})`}`} />

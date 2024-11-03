@@ -18,37 +18,43 @@ export default function ProductPage() {
     const navigate = useNavigate();
     const { state } = useLocation();
     const product = state?.product;
-    const [loading, setLoading] = useState(true);
 
-    const [size, setSize] = useState(product?.details.size[0]?.title || {});
-    const [bread, setBread] = useState(data.breads?.[0]?.title || {});
-    const [CO, setCO] = useState(data.comboOptions?.[0]?.title || {});
+    const [size, setSize] = useState({});
+    const [bread, setBread] = useState({});
+    const [CO, setCO] = useState({});
     const [drink, setDrink] = useState({});
     const [extras, setExtras] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(product.price);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     const isNoComboSelected = CO?.en === 'no combo' || CO?.ar === 'لا اضافة';
 
     const calculateTotalPrice = () => {
-        const selectedSize = product.details.size.find(s => s.title.en === size.en);
-        const selectedBread = data.breads?.find(b => b.title.en === bread.en);
-        const selectedComboOption = data.comboOptions?.find(c => c.title.en === CO.en);
-        const selectedDrink = !isNoComboSelected ? data.drinks?.find(d => d.title.en === drink.en) : { price: 0 };
+        const selectedSize = product?.details.size.find(s => s.title.en === size?.en);
+        const selectedBread = data?.breads?.find(b => b.title.en === bread?.en);
+        const selectedComboOption = data?.comboOptions?.find(c => c.title.en === CO?.en);
+        const selectedDrink = !isNoComboSelected ? data.drinks?.find(d => d.title.en === drink?.en) : { price: 0 };
         const extrasTotal = extras.reduce((acc, extra) => acc + (data.extras?.find(e => e.title.en === extra.en)?.price || 0), 0);
         return (selectedSize?.price || 0) + (selectedBread?.price || 0) + (selectedComboOption?.price || 0) + (selectedDrink?.price || 0) + extrasTotal;
     };
 
     useEffect(() => {
         async function fetchData() {
+            if (data.breads && data.comboOptions && data.drinks && data.extras) return;
             try {
-                if (!data.breads || !data.comboOptions || !data.drinks || !data.extras) {
-                    const breads = await getCollectionByName('breads');
-                    const comboOptions = await getCollectionByName('comboOptions');
-                    const drinks = await getCollectionByName('drinks');
-                    const extras = await getCollectionByName('extras');
-                    setData({ breads, comboOptions, drinks, extras });
-                    setLoading(false)
-                }
+                const [breads, comboOptions, drinks, extras] = await Promise.all([
+                    getCollectionByName('breads'),
+                    getCollectionByName('comboOptions'),
+                    getCollectionByName('drinks'),
+                    getCollectionByName('extras')
+                ]);
+                setData({ ...data, breads, comboOptions, drinks, extras });
+                setCO(comboOptions[0]?.title);
+                setBread(breads[0]?.title);
+                setDrink(drinks[0]?.title);
+                setSize(product.details.size[0]?.title);
+
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -86,7 +92,7 @@ export default function ProductPage() {
         localStorage.setItem('cart', JSON.stringify(cart));
         setCart(cart);
         navigate('/Menu')
-        window.scrollTo({ top: 0, });
+        window.scrollTo({ top: 0 });
     }
 
     return (loading ? <Splash /> :
