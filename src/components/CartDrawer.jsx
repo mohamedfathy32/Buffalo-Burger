@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
