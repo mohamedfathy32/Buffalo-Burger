@@ -1416,8 +1416,6 @@
 //     },
 // ]
 
-
-
 // export const breadList = [
 //     {
 //         title: { en: 'white', ar: 'عيش ابيض' },
