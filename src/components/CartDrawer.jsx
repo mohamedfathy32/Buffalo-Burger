@@ -157,7 +157,7 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
                                         <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
                                             <MdRemoveCircleOutline onClick={() => handleQuantityChange(item.id, -1)} className="text-2xl" />
                                             <span>{item.quantity}</span>
-                                            <MdAddCircleOutline onClick={() => handleQuantityChange(item.id, 1)} className="text-2xl" />
+                                            <MdAddCircleOutline onClick={() => handleQuantityChange(item.id,1)} className="text-2xl" />
                                         </div>
                                     </div>
                                 </div>
