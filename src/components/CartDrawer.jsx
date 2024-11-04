@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import { useTranslation } from "react-i18next";
 // import { IoMdClose } from "react-icons/io";
 // import { MdShoppingBasket, MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";
@@ -149,10 +150,10 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
                                 <div className='flex flex-col justify-around ms-5 w-full'>
                                     <div className='flex justify-between'>
                                         <p className='text-x font-bold'>{item.title.en}</p>
-                                        <IoMdClose onClick={()=> {removeItem(item.id)} } className='bg-gray-300 text-orange-600 rounded-full w-8 h-8 p-2' />
+                                        <IoMdClose onClick={() => { removeItem(item.id) }} className='bg-gray-300 text-orange-600 rounded-full w-8 h-8 p-2' />
                                     </div>
                                     <div className='flex justify-between'>
-                                        <p className='text-sm'>{t("EGP")} {item.price}</p>
+                                        <p className='text-sm'>{t("EGP")} {item.totalPrice}</p>
                                         <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
                                             <MdRemoveCircleOutline onClick={() => handleQuantityChange(item.id, -1)} className="text-2xl" />
                                             <span>{item.quantity}</span>

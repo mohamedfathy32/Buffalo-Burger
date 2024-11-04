@@ -1,17 +1,20 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { CiCircleMinus } from "react-icons/ci";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { db, getUserInfoById } from "../utils/firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { useTranslation } from "react-i18next";
-import LoginModal from "../components/Header/Login";
 import { CartContext } from "../utils/context";
 import { useNavigate } from "react-router-dom";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText } from "@mui/material";
+import { FaCheckCircle } from "react-icons/fa";
 
 export default function CartPage() {
     const { cart, setCart } = useContext(CartContext);
     const { t, i18n } = useTranslation();
     const navigate = useNavigate()
+    const [checkoutAlert, setCheckoutAlert] = useState(false);
+    const [loginAlert, setLoginAlert] = useState(false);
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -31,7 +34,7 @@ export default function CartPage() {
 
     const handleCheckout = async () => {
         const userID = localStorage.getItem('userId');
-        if (!userID) return alert("Please login first to checkout!"), <LoginModal />;
+        if (!userID) setLoginAlert(true);
 
         const userInfo = await getUserInfoById(userID);
         if (userInfo) {
@@ -42,13 +45,14 @@ export default function CartPage() {
 
             try {
                 await setDoc(doc(db, "orders", `${userInfo.email} ${date.split('/').join('-')}`), {
-                    date,
-                    id: `${userInfo.email} ${date.split('/').join('-')}`,
-                    cart,
-                    userID,
-                    totalPrice: getTotalPrice()
+                    date, id: `${Date.now()}`, cart, userID, totalPrice: getTotalPrice()
                 });
-                alert("Cart successfully checked out!");
+                // alert("Cart successfully checked out!");
+
+                setCheckoutAlert(true);
+                setTimeout(() => {
+                    setCheckoutAlert(false);
+                }, 3000)
                 setCart([]);
                 localStorage.removeItem("cart");
             } catch (error) {
@@ -62,7 +66,7 @@ export default function CartPage() {
                 <div className="w-full">
                     <div className="bg-gray-100 flex flex-col pb-6 rounded-[20px] lg:min-w-[512px] w-[100%] lg:w-full">
                         <div className="w-full px-4 py-6 md:p-6 rounded-2xl flex justify-between">
-                            <div className="flex items-center w-1/3">
+                            <div className="flex items-center ">
                                 <span className="uppercase text-3xl font-bold">CART</span>
                                 <span className="flex items-center justify-center bg-black rounded-full h-6 w-6 text-white text-sm mx-2">{cart.length}</span>
                             </div>
@@ -82,7 +86,7 @@ export default function CartPage() {
                                     </div>
                                 </div>
                                 <div className="w-1/3 flex justify-around">
-                                    <div className="w-1/3 flex items-center">
+                                    <div className=" flex items-center">
                                         <button onClick={() => { handleQuantity(item.id, -1) }}>
                                             <CiCircleMinus className="text-2xl" />
                                         </button>
@@ -131,6 +135,50 @@ export default function CartPage() {
                     <button className="p-3 uppercase border border-orange-500 rounded-lg text-orange-500 font-bold my-1" onClick={() => { navigate('/menu') }}>+ add more items</button>
                     <button className="p-3 uppercase bg-orange-500 rounded-lg font-bold text-white my-1" onClick={handleCheckout}>Checkout</button>
                 </div>
+            }
+            {checkoutAlert &&
+                <Dialog
+                    open={open}
+                    //   onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                    className="m-2 shadow"
+                >
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            <p className="font-bold">Your order has been placed successfully!</p>
+                        </DialogContentText>
+                        <DialogContentText className="flex justify-center">
+                            <FaCheckCircle className="m-4 text-4xl text-orange-600" />
+                        </DialogContentText>
+                    </DialogContent>
+                    {/* <DialogActions>
+                    <Button onClick={handleClose}>Go to Cart</Button>
+                  </DialogActions> */}
+                </Dialog>
+            }
+            {
+                loginAlert &&
+                <Dialog
+                    open={open}
+                    //   onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            <p className="font-bold text-black my-3 mx-10">
+                                please login first to checked out
+                            </p>
+                        </DialogContentText>
+                        <DialogContentText className="flex justify-center">
+                            {/* <FaCheckCircle className="m-4 text-4xl text-orange-600" /> */}
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => { setLoginAlert(false) }}>Ok</Button>
+                    </DialogActions>
+                </Dialog>
             }
         </div >
     );

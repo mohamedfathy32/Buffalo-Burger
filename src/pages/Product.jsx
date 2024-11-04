@@ -40,7 +40,9 @@ export default function ProductPage() {
 
     useEffect(() => {
         async function fetchData() {
-            if (data.breads && data.comboOptions && data.drinks && data.extras) setLoading(false);
+            if (data.breads && data.comboOptions && data.drinks && data.extras){
+                setLoading(false);
+            };
             try {
                 const [breads, comboOptions, drinks, extras] = await Promise.all([
                     getCollectionByName('breads'),
@@ -61,7 +63,6 @@ export default function ProductPage() {
         }
         fetchData();
     }, []);
-
 
     useEffect(() => {
         const newTotalPrice = calculateTotalPrice();

@@ -235,12 +235,12 @@ export default function Header() {
                                 </p>
                             </div>
                         </div>
-                        <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
+                        {/* <div className="hidden h-max p-[2px] text-black bg-white rounded-full mt-4 cursor-pointer">
                             <div className="text-white font-main font-bold">
-                                <Link className="p-1 undefined" href="/Loyalty">
+                                <Link className="p-1 undefined" to="/Loyalty">
                                 </Link>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="text-white flex flex-row justify-between items-center font-bold font-main ">
                         <div className="gap-x-1 text-white flex flex-row">
@@ -278,7 +278,7 @@ export default function Header() {
                                         <img
                                             className="w-7 inline-block mr-2"
                                             src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/my-orders-icon.svg" />
-                                        <Link className="p-1 undefined" to="/OrderHistory">{t("Order history")}
+                                        <Link className="p-1 undefined" onClick={closeWindows} to="/OrderHistory">{t("Order history")}
 
                                         </Link>
                                     </div>
@@ -286,14 +286,14 @@ export default function Header() {
                                         <img
                                             className="w-7 inline-block mr-2"
                                             src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/saved-address-icon.svg" />
-                                        <Link className="p-1 undefined" to="/Profile">{t("Saved addresses")}
+                                        <Link className="p-1 undefined" onClick={closeWindows} to="/Profile">{t("Saved addresses")}
 
                                         </Link>
                                     </div>
                                     <div className="text-white font-main font-bold">
                                         <IoSettingsSharp className="inline-block mr-2 text-2xl text-[#ff5f00]" />
 
-                                        <Link className="p-1 undefined" to="/Profile">{t("My account")}
+                                        <Link className="p-1 undefined" onClick={closeWindows} to="/Profile">{t("My account")}
 
                                         </Link>
                                     </div>
@@ -301,16 +301,16 @@ export default function Header() {
                                 }
                                 <div className="text-white font-main font-bold ">
                                     <MdShoppingBasket className="inline-block mr-2 text-2xl text-[#ff5f00]" />
-                                    <Link className="p-1 undefined" href="/CartDetails">{t("Cart")}</Link>
+                                    <Link className="p-1 undefined" to="/cart" onClick={closeWindows}>{t("Cart")}</Link>
                                 </div>
-                                <div className="text-white font-main font-bold">
+                                {/* <div className="text-white font-main font-bold">
                                     <img
                                         className="w-7 inline-block mr-2"
                                         src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
                                     <Link className="p-1 undefined" to="/Loyalty">{t("My Loyalty Points")}
 
                                     </Link>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
                                 <div className="text-white font-main font-bold">

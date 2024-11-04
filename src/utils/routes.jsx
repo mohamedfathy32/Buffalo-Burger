@@ -14,6 +14,7 @@ import ProductPage from "../pages/Product";
 import ProfilePage from "../pages/Profile";
 import TermsPage from "../pages/Terms";
 import NotFoundPage from "../pages/NotFound";
+import Reorder from "../components/Reorder";
 
 export const router = createBrowserRouter([{
     path: '/', element: <Layout />, children: [
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([{
         { path: 'Menu', element: <MenuPage /> },
         { path: 'Offer/:id', element: <OfferPage /> },
         { path: 'OrderHistory', element: <OrderHistoryPage /> },
+        { path: 'OrderHistory/:id', element: <Reorder /> },
         { path: 'Privacy', element: <PrivacyPage /> },
         { path: 'Product/:id', element: <ProductPage /> },
         { path: 'Profile', element: <ProfilePage /> },
