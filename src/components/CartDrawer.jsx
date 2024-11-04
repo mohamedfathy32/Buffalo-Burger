@@ -128,9 +128,9 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
     };
     return (
         <div dir="rtl" className={`fixed top-0 start-0 w-80 md:w-96 h-screen z-[51] shadow-lg transition-transform duration-500 ease-in-out transform ${cartDrawer ? 'translate-x-0' : 'translate-x-full'}`}>
-            <div dir={i18n.language == 'ar' ? 'rtl' : 'ltr'} className="flex flex-col justify-between bg-white text-black box-content border-none min-w-fit h-screen px-4">
+            <div dir={i18n.language == 'ar' ? 'rtl' : 'ltr'} className="flex flex-col justify-between  bg-white text-black box-content border-none min-w-fit h-screen px-4">
                 <div className="flex items-center justify-start py-4">
-                    <div className="text-2xl flex items-center flex-grow font-bold justify-between cursor-pointer uppercase">
+                    <div className="text-xl flex items-center flex-grow font-bold justify-between cursor-pointer uppercase">
                         <div className="px-1" onClick={closeWindows}><IoMdClose /></div>
                         <p>{t("Cart details")}</p>
                         <div onClick={goToCart} className="text-xs text-orange-500 hover:text-secondary-main-120 hover:text-black"> {t("Go to cart")} </div>
@@ -150,14 +150,14 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
                                 <div className='flex flex-col justify-around ms-5 w-full'>
                                     <div className='flex justify-between'>
                                         <p className='text-x font-bold'>{item.title.en}</p>
-                                        <IoMdClose onClick={()=> {removeItem(item.id)} } className='bg-gray-300 text-orange-600 rounded-full w-8 h-8 p-2' />
+                                        <IoMdClose onClick={() => { removeItem(item.id) }} className='bg-gray-300 text-orange-600 rounded-full w-8 h-8 p-2' />
                                     </div>
                                     <div className='flex justify-between'>
-                                        <p className='text-sm'>{t("EGP")} {item.price}</p>
+                                        <p className='text-sm'>{t("EGP")} {item.totalPrice}</p>
                                         <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
                                             <MdRemoveCircleOutline onClick={() => handleQuantityChange(item.id, -1)} className="text-2xl" />
                                             <span>{item.quantity}</span>
-                                            <MdAddCircleOutline onClick={() => handleQuantityChange(item.id, 1)} className="text-2xl" />
+                                            <MdAddCircleOutline onClick={() => handleQuantityChange(item.id,1)} className="text-2xl" />
                                         </div>
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
                         )}
                     </div>
                 }
-                <div onClick={goToCart} className="w-full flex items-start justify-evenly bg-orange-600 text-white py-3 md:my-6 mx-4 cursor-pointer font-main rounded-xl text-xl">
+                <div onClick={goToCart} className="flex items-start justify-evenly bg-orange-600 text-white py-3 px-2 mb-2 md:mx-4 cursor-pointer font-main rounded-xl text-xl">
                     <MdShoppingBasket />
                     <p className="justify-start uppercase">
                         {t("Go to cart")}
