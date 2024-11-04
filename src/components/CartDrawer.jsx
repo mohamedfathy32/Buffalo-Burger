@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import { useTranslation } from "react-i18next";
 // import { IoMdClose } from "react-icons/io";
 // import { MdShoppingBasket, MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";

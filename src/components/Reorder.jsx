@@ -54,7 +54,7 @@ export default function Reorder() {
       localStorage.setItem('cart', JSON.stringify(order.cart))
     } else {
       savedCart.push(...order.cart)
-      localStorage.setItem('cart', JSON.stringify([...savedCart, ...order.cart]))
+      localStorage.setItem('cart', JSON.stringify(savedCart))
 
     }
     setOpenAlert(true)

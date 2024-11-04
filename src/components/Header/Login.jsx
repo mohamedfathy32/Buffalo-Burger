@@ -4,6 +4,7 @@ import ResetPassModal from "./ResetPass";
 import { login } from "../../utils/firebase";
 import { useTranslation } from "react-i18next";
 
+// eslint-disable-next-line react/prop-types
 export default function LoginModal({ onClose, onLoginSuccess }) {
     const [email, setEmail] = useState(""); // State for storing the email
     const [password, setPassword] = useState(""); // State for storing the password

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { CartContext, DataContext } from "../utils/context";
+import { DataContext } from "../utils/context";
 import { getCollectionByName } from "../utils/firebase";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { MdShoppingCart } from "react-icons/md";
@@ -9,7 +9,7 @@ import Splash from "../components/Splash";
 
 export default function OfferPage() {
     const { data, setData } = useContext(DataContext);
-    const { setCart } = useContext(CartContext);
+    // const { setCart } = useContext(CartContext);
     const { t, i18n } = useTranslation();
     const { state } = useLocation();
     const navigate = useNavigate();
@@ -82,11 +82,11 @@ export default function OfferPage() {
         setTotalPrice(offer.price + friesTotal + drinksTotal + choicesTotal);
     };
 
-    const handleChange = (selectionType, index, value) => {
-        const updatedOrder = { ...order, [`${selectionType}${index + 1}`]: value };
-        setOrder(updatedOrder);
-        calculateTotalPrice(updatedOrder);
-    };
+    // const handleChange = (selectionType, index, value) => {
+    //     const updatedOrder = { ...order, [`${selectionType}${index + 1}`]: value };
+    //     setOrder(updatedOrder);
+    //     calculateTotalPrice(updatedOrder);
+    // };
 
     function addToCart() {
         if (tabIndex < offer.tabs.length - 1) {
