@@ -42,7 +42,11 @@ export default function CartPage() {
 
             try {
                 await setDoc(doc(db, "orders", `${userInfo.email} ${date.split('/').join('-')}`), {
-                    date, id: `${userInfo.email} ${date.split('/').join('-')}`, cart, userID, totalPrice: getTotalPrice()
+                    date,
+                    id: `${userInfo.email} ${date.split('/').join('-')}`,
+                    cart,
+                    userID,
+                    totalPrice: getTotalPrice()
                 });
                 alert("Cart successfully checked out!");
                 setCart([]);
