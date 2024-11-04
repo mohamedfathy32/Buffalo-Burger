@@ -1,15 +1,16 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { offersList } from "../../utils/data";
 import { useTranslation } from "react-i18next";
+import { DataContext } from "../../utils/context";
 
 export default function KeenSlider() {
     const { pathname } = useLocation();
     const { i18n } = useTranslation();
     const navigate = useNavigate();
     const [slidesPerView, setSlidesPerView] = useState(4);
+    const { data } = useContext(DataContext);
 
     const [sliderRef] = useKeenSlider({
         loop: true,
@@ -39,7 +40,7 @@ export default function KeenSlider() {
             </div>
             <div>
                 <div ref={sliderRef} className="keen-slider mt-1.5">
-                    {offersList.map(offer => (
+                    {data.offers?.map(offer => (
                         <div key={offer.title.en} className="keen-slider__slide" onClick={() => { navigate(`/Offer/${offer.title.en.split(' ').join('-')}`, { state: { offer } }) }}>
                             <img src={offer.keenImage} alt={offer.title[i18n.language]} className="rounded-[20px]" width='450' height='300' />
                         </div>))}

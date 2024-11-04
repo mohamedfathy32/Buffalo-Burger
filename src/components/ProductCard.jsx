@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { CartCounterContext } from "../utils/context";
+import { CartContext } from "../utils/context";
 
 export default function ProductCard({ product }) {
-    const { setCartCounter } = useContext(CartCounterContext);
+    const { setCart } = useContext(CartContext);
     const { i18n } = useTranslation();
     const navigate = useNavigate();
     const [productQuantity, setProductQuantity] = useState(0);
@@ -39,7 +39,7 @@ export default function ProductCard({ product }) {
             ? localStorage.setItem('cart', JSON.stringify(cart))
             : localStorage.removeItem('cart');
         setProductQuantity(prev => prev + change);
-        setCartCounter(cart.length);
+        setCart(cart);
     };
 
     return (

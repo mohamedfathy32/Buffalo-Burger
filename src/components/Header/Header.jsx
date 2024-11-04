@@ -7,14 +7,14 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { MdLoyalty } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
-import { CartCounterContext, LoggedContext } from "../../utils/context";
+import { CartContext, LoggedContext } from "../../utils/context";
 import { getUserInfoById } from "../../utils/firebase";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
 import CartDrawer from "../CartDrawer";
 
 export default function Header() {
-    const { cartCounter, setCartCounter } = useContext(CartCounterContext)
+    const { cart, setCart } = useContext(CartContext)
     const { isLoggedIn, setIsLoggedIn } = useContext(LoggedContext);
     const { t, i18n } = useTranslation()
     const [nav, setNav] = useState(false);
@@ -63,7 +63,7 @@ export default function Header() {
 
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem("cart")) || []
-        setCartCounter(cart.length);
+        setCart(cart);
     }, []);
 
     useEffect(() => {
@@ -113,7 +113,7 @@ export default function Header() {
 
     return (
         <>
-            <nav className="bg-stone-900 w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white"
+            <nav className="bg-[#1c1c1b] w-full flex relative justify-center md:justify-between items-center h-16 px-12 shadow-white"
                 onClick={() => {
                     if (isOpen) {
                         setNav(false);
@@ -143,7 +143,7 @@ export default function Header() {
                         {t("Cart")}
                     </Link>
                     <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
-                        {cartCounter}
+                        {cart.length}
                     </div>
                 </div>
                 <div className="flex justify-center absolute left-0 right-0 mx-auto w-52">
@@ -169,7 +169,7 @@ export default function Header() {
                                 </span>
                             </div>
                             {isOpenDrop && (
-                                <ul className="min-w-max absolute bg-stone-900 text-base z-[51] py-2 ps-2 w-full list-none text-start rounded-lg mt-1">
+                                <ul className="min-w-max absolute bg-[#1c1c1b] text-base z-[51] py-2 ps-2 w-full list-none text-start rounded-lg mt-1">
                                     <li>
                                         <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile">
                                             {t("My account")}
@@ -358,7 +358,7 @@ export default function Header() {
                             </p>
                             <div className="text-xs text-orange-500 hover:text-secondary-main-120"> {t("Go to cart")} </div>
                             <div className="flex justify-center items-center">
-                                <div className="flex justify-center items-center w-7 h-7 rounded-full text-white text-sm bg-[#1c1c1b] ">{cartCounter}</div>
+                                <div className="flex justify-center items-center w-7 h-7 rounded-full text-white text-sm bg-[#1c1c1b] ">{cart.length}</div>
                             </div>
                         </div>
                     </div>
@@ -379,11 +379,11 @@ export default function Header() {
             <CartDrawer
                 cartDrawer={cartDrawer}
                 closeWindows={closeWindows}
-                cartCounter={cartCounter}
+                cartCounter={cart.length}
             />
 
             {/* Seconed Header Delivery Address */}
-            <div className="bg-stone-900 w-full max-w-full h-12 flex justify-center items-center">
+            <div className="bg-[#1c1c1b] w-full max-w-full h-12 flex justify-center items-center">
                 <div className="hidden md:flex">
                     <Link className="me-4 hover:text-orange-600" to={'/About'}>About Us</Link>
                     <Link className="me-4 hover:text-orange-600" to={'/Cart'}>CartDetails</Link>

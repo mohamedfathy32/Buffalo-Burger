@@ -68,6 +68,7 @@ export default function ProfilePage() {
     useEffect(() => {
         if (!isLoggedIn) {
             navigate('/');
+            // console.log('Hi')
         }
     }, [isLoggedIn, navigate]);
 

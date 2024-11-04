@@ -1,6 +1,6 @@
 export default function Quality() {
     return (
-        <div id="quality" className="bg-stone-900">
+        <div id="quality" className="bg-[#1c1c1b]">
             <div className="container mx-auto py-10 ">
                 <div className="flex flex-col pt-12 px-4 lg:px-24">
 
