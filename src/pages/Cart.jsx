@@ -4,10 +4,9 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { db, getUserInfoById } from "../utils/firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { useTranslation } from "react-i18next";
-import LoginModal from "../components/Header/Login";
 import { CartContext } from "../utils/context";
 import { useNavigate } from "react-router-dom";
-import { Dialog, DialogContent, DialogContentText } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText } from "@mui/material";
 import { FaCheckCircle } from "react-icons/fa";
 
 export default function CartPage() {
@@ -15,6 +14,7 @@ export default function CartPage() {
     const { t, i18n } = useTranslation();
     const navigate = useNavigate()
     const [checkoutAlert, setCheckoutAlert] = useState(false);
+    const [loginAlert, setLoginAlert] = useState(false);
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -34,7 +34,7 @@ export default function CartPage() {
 
     const handleCheckout = async () => {
         const userID = localStorage.getItem('userId');
-        if (!userID) return alert("Please login first to checkout!"), <LoginModal />;
+        if (!userID) setLoginAlert(true);
 
         const userInfo = await getUserInfoById(userID);
         if (userInfo) {
@@ -155,6 +155,29 @@ export default function CartPage() {
                     {/* <DialogActions>
                     <Button onClick={handleClose}>Go to Cart</Button>
                   </DialogActions> */}
+                </Dialog>
+            }
+            {
+                loginAlert &&
+                <Dialog
+                    open={open}
+                    //   onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            <p className="font-bold text-black my-3 mx-10">
+                                please login first to checked out
+                            </p>
+                        </DialogContentText>
+                        <DialogContentText className="flex justify-center">
+                            {/* <FaCheckCircle className="m-4 text-4xl text-orange-600" /> */}
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => { setLoginAlert(false) }}>Ok</Button>
+                    </DialogActions>
                 </Dialog>
             }
         </div >

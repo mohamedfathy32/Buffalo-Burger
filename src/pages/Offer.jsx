@@ -1,90 +1,111 @@
 import { useContext, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { DataContext } from "../utils/context";
+import { getCollectionByName } from "../utils/firebase";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { MdShoppingCart } from "react-icons/md";
-import { CartContext, DataContext } from "../utils/context";
+import Splash from "../components/Splash";
 
 export default function OfferPage() {
-    const { data } = useContext(DataContext);
-    const { setCart } = useContext(CartContext);
+    const { data, setData } = useContext(DataContext);
+    // const { setCart } = useContext(CartContext);
     const { t, i18n } = useTranslation();
-    const lang = i18n.language;
-    const navigate = useNavigate();
     const { state } = useLocation();
+    const navigate = useNavigate();
     const offer = state?.offer;
+    const lang = i18n.language;
 
     const [tabIndex, setTabIndex] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [availableProducts, setAvailableProducts] = useState([]);
     const [order, setOrder] = useState({});
+    const [loading, setLoading] = useState(true);
     const [drinkSelection, setDrinkSelection] = useState([]);
     const [friesSelection, setFriesSelection] = useState([]);
 
     useEffect(() => {
-        if (data.products) {
-            const productsInOffer = offer.availableProducts.map(avail => data.products?.find(p => p.title.en === avail));
-            const initialOrder = offer.tabs.reduce((acc, tab, idx) => {
-                if (tab.title.en.includes('choice')) {
-                    acc[`choice${idx + 1}`] = productsInOffer[0]?.title;
-                    acc[`fries${idx + 1}`] = offer.availableFries[0]?.title;
-                    acc[`drink${idx + 1}`] = offer.availableDrinks[0]?.title;
+        (async () => {
+            try {
+                if (!data.products) {
+                    const products = await getCollectionByName('products');
+                    setData({ products });
                 }
-                return acc;
-            }, {});
-            setAvailableProducts(productsInOffer);
-            setOrder(initialOrder);
-            setDrinkSelection(Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableDrinks[0].title[lang]));
-            setFriesSelection(Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableFries[0].title[lang]));
-        }
-        calculateTotalPrice();
-    }, [data, offer, lang]);
+            } catch (e) {
+                console.log(e);
+            } finally {
+                setLoading(false);
+            }
+        })();
+    }, []);
 
-    function calculateTotalPrice() {
-        const friesTotal = Object.keys(order).filter(key => key.includes('fries')).reduce((acc, key) => {
-            const selectedFries = offer.availableFries.find(f => f.title.en === order[key].en);
+    useEffect(() => {
+        if (!offer || !data.products) return;
+
+        const productsInOffer = offer.availableProducts.map(avail =>
+            data.products?.find(p => p.title?.en === avail)
+        );
+
+        const initialOrder = offer.tabs.reduce((acc, tab, idx) => {
+            if (tab.title.en.includes('choice')) {
+                acc[`choice${idx + 1}`] = productsInOffer[0]?.title;
+                acc[`fries${idx + 1}`] = offer.availableFries[0]?.title;
+                acc[`drink${idx + 1}`] = offer.availableDrinks[0]?.title;
+            }
+            return acc;
+        }, {});
+
+        setAvailableProducts(productsInOffer);
+        setOrder(initialOrder);
+        setDrinkSelection(Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableDrinks[0].title[lang]));
+        setFriesSelection(Array(offer.tabs.filter(tab => tab.title.en.includes('choice')).length).fill(offer.availableFries[0].title[lang]));
+
+        calculateTotalPrice(initialOrder);
+    }, [offer, data]);
+
+    const calculateTotalPrice = (currentOrder) => {
+        const friesTotal = Object.keys(currentOrder).filter(key => key.includes('fries')).reduce((acc, key) => {
+            const selectedFries = offer.availableFries.find(f => f.title[lang] === currentOrder[key][lang]);
             return acc + (selectedFries ? selectedFries.price : 0);
         }, 0);
 
-        const drinksTotal = Object.keys(order).filter(key => key.includes('drink')).reduce((acc, key) => {
-            const selectedDrink = offer.availableDrinks.find(d => d.title.en === order[key].en);
+        const drinksTotal = Object.keys(currentOrder).filter(key => key.includes('drink')).reduce((acc, key) => {
+            const selectedDrink = offer.availableDrinks.find(d => d.title[lang] === currentOrder[key][lang]);
             return acc + (selectedDrink ? selectedDrink.price : 0);
         }, 0);
 
-        setTotalPrice(offer.price + friesTotal + drinksTotal);
-    }
+        const choicesTotal = Object.keys(currentOrder).filter(key => key.includes('choice')).reduce((acc, key) => {
+            const selectedProduct = availableProducts.find(p => p?.title[lang] === currentOrder[key][lang]);
+            return acc + (selectedProduct ? selectedProduct.price : 0);
+        }, 0);
+
+        setTotalPrice(offer.price + friesTotal + drinksTotal + choicesTotal);
+    };
+
+    // const handleChange = (selectionType, index, value) => {
+    //     const updatedOrder = { ...order, [`${selectionType}${index + 1}`]: value };
+    //     setOrder(updatedOrder);
+    //     calculateTotalPrice(updatedOrder);
+    // };
 
     function addToCart() {
         if (tabIndex < offer.tabs.length - 1) {
             setTabIndex(prev => prev + 1);
         } else {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const des = { ar: '', en: '' };
-            const choices = [];
-            const fries = [];
-            const drinks = [];
-
-            Object.keys(order).forEach(key => {
-                if (key.includes('choice')) {
-                    choices.push(order[key]);
-                } else if (key.includes('fries')) {
-                    fries.push(order[key]);
-                } else if (key.includes('drink')) {
-                    drinks.push(order[key]);
-                }
-            });
-
-            des.en = `${choices.map(choice => choice?.en).join('+ ')} , ${fries.map(fry => fry?.en).join('+ ')} , ${drinks.map(drink => drink?.en).join('+ ')}`;
-            des.ar = `${choices.map(choice => choice?.ar).join('+ ')} , ${fries.map(fry => fry?.ar).join('+ ')} , ${drinks.map(drink => drink?.ar).join('+ ')}`;
+            const description = {
+                en: `${Object.values(order).map(item => item?.en).join(', ')}`,
+                ar: `${Object.values(order).map(item => item?.ar).join(', ')}`,
+            };
 
             const cartItem = {
                 id: Date.now(),
                 image: offer.image || '/images/not-found.webp',
                 title: offer.title,
-                description: des,
+                description,
                 quantity: 1,
                 price: totalPrice,
-                totalPrice: totalPrice
+                totalPrice: totalPrice,
             };
 
             cart.push(cartItem);
@@ -104,7 +125,7 @@ export default function OfferPage() {
         '& .Mui-checked + .MuiTypography-root': { color: '#ff5f00' }
     };
 
-    return (
+    return (loading ? <Splash /> :
         <>
             <section className="bg-[#1c1c1b] flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={offer.image} alt={offer.title[lang]} className="place-items-center w-[150px] h-[150px]" />
@@ -143,30 +164,44 @@ export default function OfferPage() {
 
                 {offer.tabs[tabIndex].title.en === "fries" && (
                     <div className="w-full p-6">
-                        {offer.tabs.filter(tab => tab.title.en.includes('choice')).map((choice, i) => (
-                            <div key={choice.title.en}>
+                        {offer.tabs.filter(tab => tab.title.en.includes('choice')).map((_, i) => (
+                            <div key={i}>
                                 <h2 className="font-bold uppercase text-2xl text-center mb-5">{`${t('fries')} ${i + 1}`}</h2>
-                                <RadioGroup onChange={(e) => {
-                                    const selectedFries = offer.availableFries.find(fry => fry.title[lang] === e.target.value);
-                                    setOrder({ ...order, [`fries${i + 1}`]: selectedFries.title });
-                                }} defaultValue={offer.availableFries?.[0].title[lang]} name={`fries-${i}`}>
+                                <RadioGroup
+                                    value={friesSelection[i]}
+                                    name={`fries-${i}`}
+                                    onChange={(e) => {
+                                        const selectedFries = offer.availableFries.find(fry => fry.title[lang] === e.target.value);
+                                        setFriesSelection(prev => {
+                                            const newSelection = [...prev];
+                                            newSelection[i] = selectedFries.title[lang];
+                                            return newSelection;
+                                        });
+                                        setOrder(prevOrder => ({
+                                            ...prevOrder,
+                                            [`fries${i + 1}`]: selectedFries.title
+                                        }));
+                                    }}
+                                >
                                     <div className="flex justify-center items-center">
-                                        {offer.availableFries.map((fry) => (
-                                            <div key={fry.title.en} className="flex flex-col gap-2 lg:gap-8 lg:flex-row ">
+                                        <div className="flex flex-col gap-2 lg:gap-8 lg:flex-row">
+                                            {offer.availableFries.map((fry) => (
                                                 <FormControlLabel
+                                                    key={fry.title.en}
                                                     value={fry.title[lang]}
                                                     control={<Radio sx={radioStyles} />}
                                                     sx={labelStyles}
                                                     label={`${fry.title[lang]} ${fry.price === 0 ? '' : `(${lang === 'en' ? 'EGP' : 'ج.م'} ${fry.price})`}`}
                                                 />
-                                            </div>
-                                        ))}
+                                            ))}
+                                        </div>
                                     </div>
                                 </RadioGroup>
                             </div>
                         ))}
                     </div>
                 )}
+
                 {/* bug in drink and fries */}
 
                 {offer.tabs[tabIndex].title.en === "drinks" ? (
@@ -210,7 +245,7 @@ export default function OfferPage() {
                 ) : ''}
             </div>
 
-            <section className="w-full p-4 flex flex-col lg:flex-row-reverse fixed bottom-0 justify-center items-center gap-6 bg-gray-50">
+            <section className="w-full p-4 fixed bottom-0 flex justify-center items-center gap-6 bg-gray-50">
                 <div className="flex justify-center gap-3 items-center">
                     <div>
                         <h2 className="capitalize text-2xl font-bold">Total</h2>
@@ -219,10 +254,10 @@ export default function OfferPage() {
                     <span className="text-lg font-bold mt-auto mb-2">EGP {totalPrice}</span>
                 </div>
                 <button onClick={addToCart} className="px-12 py-3 flex justify-center items-center gap-1 bg-orange-600 rounded-lg text-white text-xl uppercase">
-                    {tabIndex !== offer.tabs.length - 1 ? 'next' : <><MdShoppingCart className="text-2xl" /> {t('addToCart')}</>}
+                    {tabIndex !== offer.tabs.length - 1 ? 'Next' : <><MdShoppingCart className="text-2xl" /> {t('addToCart')}</>}
                 </button>
             </section>
-
         </>
     );
 }
+
