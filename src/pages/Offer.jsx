@@ -89,8 +89,8 @@ export default function OfferPage() {
 
             cart.push(cartItem);
             localStorage.setItem('cart', JSON.stringify(cart));
-            setCart(cart.length);
-            navigate('/Menu');
+            // setCart(cart.length);
+            navigate('/cart');
             window.scrollTo({ top: 0 });
         }
     }

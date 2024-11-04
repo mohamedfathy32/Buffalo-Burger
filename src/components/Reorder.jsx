@@ -1,15 +1,18 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { db } from "../utils/firebase";
 import Splash from "./Splash";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText } from "@mui/material";
+import { FaCheckCircle } from 'react-icons/fa';
+
 
 export default function Reorder() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [openAlert, setOpenAlert] = useState(false);
   const { id } = useParams()
-
+  const nav = useNavigate()
 
 
   useEffect(() => {
@@ -30,7 +33,7 @@ export default function Reorder() {
           // Get the data of the first matching document
           const docData = querySnapshot.docs[0].data();
           setOrder(docData); // Set the document data to state
-          setLoading(false); 
+          setLoading(false);
         } else {
           console.log("Document not found!"); // Log if no document matches the criteria
         }
@@ -45,16 +48,26 @@ export default function Reorder() {
 
 
 
-  const Reorder=()=>{
-    localStorage.setItem('cart', JSON.stringify(order.cart));
+  const Reorder = () => {
+    let savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (savedCart.length == 0) {
+      localStorage.setItem('cart', JSON.stringify(order.cart))
+    } else {
+      savedCart.push(...order.cart)
+      localStorage.setItem('cart', JSON.stringify([...savedCart, ...order.cart]))
+
+    }
+    setOpenAlert(true)
   }
 
+  const handleClose = () => {
+    setOpenAlert(false);
+    nav('/cart')
+  };
 
 
-
-  return (loading ? <Splash />:
+  return (loading ? <Splash /> :
     <>
-      {console.log(order)}
 
       <div className="w-full flex justify-center px-2 md:px-10 pt-7 pb-2">
 
@@ -82,15 +95,15 @@ export default function Reorder() {
                 <p className="text-lg">Cash</p>
                 <div className="flex flex-col items-start md:flex-row md:items-center my-[5px]">
                   <p className="text-md md:w-1/4">Sub total:</p>
-                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">EGP {order.totalPrice - order.totalPrice * 0.14}</p>
+                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">EGP {(order.totalPrice - order.totalPrice * 0.14).toFixed(2)}</p>
                 </div>
                 <div className="flex flex-col items-start md:flex-row md:items-center my-[5px]">
                   <p className="text-md md:w-1/4">VAT</p>
-                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">EGP {order.totalPrice * 0.14} </p>
+                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">EGP {(order.totalPrice * 0.14).toFixed(2)} </p>
                 </div>
                 <div className="flex flex-col items-start md:flex-row md:items-center my-[5px]">
                   <p className="text-md md:w-1/4">Total</p>
-                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">EGP {order.totalPrice} </p>
+                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">EGP {(order.totalPrice).toFixed(2)} </p>
                 </div>
                 <p>Including VAT</p>
               </div>
@@ -100,7 +113,7 @@ export default function Reorder() {
               <div className="flex flex-col bg-white">
 
                 <div className="flex items-center justify-start">
-                  <h3 className="font-secondary font-normal tracking-wide mr-2">Items</h3>
+                  <h3 className="PPS font-bold tracking-wide mr-2">Items</h3>
                 </div>
 
                 <div className="w-full bg-[#f7f7f7] flex flex-col p-1 md:grid md:grid-cols-3 justify-between">
@@ -119,7 +132,7 @@ export default function Reorder() {
                       </div>
                       <div className="bg-white rounded-b-[10px] md:bg-[#f7f7f7] flex flex-row col-span-1 justify-around items-center">
                         <h5 className="hidden md:block"> {product.quantity}</h5>
-                        <h5 className="hidden md:block">{product.price}</h5>
+                        <h5 className="hidden md:block">{(product.price).toFixed(2)}</h5>
                       </div>
                     </>
                   ))}
@@ -128,7 +141,7 @@ export default function Reorder() {
                   <div className="sm:w-2/5 ">
                   </div>
                   <div className="sm:w-3/5 flex justify-end gap-2">
-                    <button className="bg-[#ff5f00] text-white h-9 px-4 font-main text-lg rounded-[10px] disabled:bg-secondary-main-30 " onClick={()=>Reorder()} type="button">
+                    <button className="bg-[#ff5f00] text-white h-9 px-4 font-main text-lg rounded-[10px] disabled:bg-secondary-main-30 " onClick={() => Reorder()} type="button">
                       Reorder
                     </button>
                   </div>
@@ -140,6 +153,27 @@ export default function Reorder() {
           </div>
         </div>
       </div>
+      {openAlert &&
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+          className="m-2 shadow"
+        >
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description" className="text-center">
+              <p className="font-bold text-black"> Your previous order has been added to the cart successfully!</p>
+            </DialogContentText>
+            <DialogContentText className="flex justify-center">
+              <FaCheckCircle className="m-4 text-4xl text-orange-600" />
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Go to Cart</Button>
+          </DialogActions>
+        </Dialog>
+      }
     </>
   )
 }
