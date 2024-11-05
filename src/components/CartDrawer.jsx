@@ -89,6 +89,7 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
     const [totalPrice, setTotalPrice] = useState(0);
+    const lang = i18n.language
 
     const updateCartInLocalStorage = (updatedCart) => {
         if (updatedCart.length) {
@@ -149,7 +150,7 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
                                 <img src={item.image} alt={item.title.en} className='w-20 h-20' />
                                 <div className='flex flex-col justify-around ms-5 w-full'>
                                     <div className='flex justify-between'>
-                                        <p className='text-x font-bold'>{item.title.en}</p>
+                                        <p className='text-x font-bold'>{item.title[lang]}</p>
                                         <IoMdClose onClick={() => { removeItem(item.id) }} className='bg-gray-300 text-orange-600 rounded-full w-8 h-8 p-2' />
                                     </div>
                                     <div className='flex justify-between'>
