@@ -6,6 +6,7 @@ import { getCollectionByName } from "../utils/firebase";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { MdShoppingCart } from "react-icons/md";
 import Splash from "../components/Splash";
+import Swal from "sweetalert2";
 
 export default function OfferPage() {
     const { data, setData } = useContext(DataContext);
@@ -110,8 +111,14 @@ export default function OfferPage() {
 
             cart.push(cartItem);
             localStorage.setItem('cart', JSON.stringify(cart));
-            // setCart(cart.length);
-            navigate('/cart');
+            Swal.fire({
+                title: `${t("Offer Added")}`,
+                text: `${t("The offer has been added to your cart.")}`,
+                icon: "success",
+                confirmButtonText: `${t("OK")}`
+            }).then(() => {
+                navigate('/cart')
+            });
             window.scrollTo({ top: 0 });
         }
     }

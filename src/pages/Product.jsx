@@ -10,6 +10,7 @@ import Extras from "../components/Product/Extras";
 import { CartContext, DataContext } from "../utils/context";
 import { getCollectionByName } from "../utils/firebase";
 import Splash from "../components/Splash";
+import Swal from "sweetalert2";
 
 export default function ProductPage() {
     const { data, setData } = useContext(DataContext);
@@ -40,7 +41,7 @@ export default function ProductPage() {
 
     useEffect(() => {
         async function fetchData() {
-            if (data.breads && data.comboOptions && data.drinks && data.extras){
+            if (data.breads && data.comboOptions && data.drinks && data.extras) {
                 setLoading(false);
             };
             try {
@@ -93,7 +94,14 @@ export default function ProductPage() {
         cart.push(cartItem);
         localStorage.setItem('cart', JSON.stringify(cart));
         setCart(cart);
-        navigate('/Menu')
+        Swal.fire({
+            title: `${t("Product Added")}`,
+            text: `${t("The product has been added to your cart.")}`,
+            icon: "success",
+            confirmButtonText: `${t("OK")}`
+        }).then(() => {
+            navigate('/menu')
+        });
         window.scrollTo({ top: 0 });
     }
 

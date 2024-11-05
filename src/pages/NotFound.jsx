@@ -1,18 +1,21 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function NotFoundPage() {
+    const { t } = useTranslation()
     return <>
         <div className=" bg-[#1c1c1b] relative z-10">
             <div className="container flex flex-col-reverse lg:flex-row justify-between items-center py-12">
                 <div className="mx-12">
                     <h4 className="mb-3 text-4xl md:text-5xl font-bold w-[250px]  smd:w-max md:!w-[500px] leading-tight text-orange-600 uppercase">
-                        We couldn’t find a page with this link.
+                        {t("We couldn’t find a page with this link.")}
                     </h4>
-                    <p className="mb-8 text-2xl md:w-max text-white">But we found good offers and delicious sandwiches.</p>
-                    <Link className="uppercase hover:bg-orange-700 text-base inline-block rounded-lg bg-orange-600 border border-orange-600 px-8 py-3 text-center font-semibold  text-white w-full" to="/">Discover our menu</Link>
+                    <p className="mb-8 text-2xl md:w-max text-white">{t("But we found good offers and delicious sandwiches.")}</p>
+                    <Link className="uppercase hover:bg-orange-700 text-base inline-block rounded-lg bg-orange-600 border border-orange-600 px-8 py-3 text-center font-semibold  text-white w-full" to="/">{t("Discover our menu")}</Link>
                 </div>
                 <div className=" w-[288px] h-[276px] md:w-[500px] md:h-[500px]  md:mr-6">
-                    <div className="w-100 h-100">
+                    <img src="../buffalo-burger-unscreen.gif" alt="Animated GIF" style={{ width: "100%", height: "auto" }} />
+                    {/* <div className="w-100 h-100">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -55,7 +58,8 @@ export default function NotFoundPage() {
                                 </g>
                             </g>
                         </svg>
-                    </div>
+
+                    </div> */}
                 </div>
             </div>
         </div>

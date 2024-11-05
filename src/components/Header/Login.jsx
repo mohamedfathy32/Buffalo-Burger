@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import ResetPassModal from "./ResetPass";
 import { login } from "../../utils/firebase";
 import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types
 export default function LoginModal({ onClose, onLoginSuccess }) {
@@ -49,6 +50,12 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                 localStorage.setItem("userId", res.uid);
                 onLoginSuccess();
                 onClose(); // Close modal on successful login
+                Swal.fire({
+                    title: `${t("Logged In!")}`,
+                    text: `${t("You have logged in successfully.")} ${t("Welcome back!")}`,
+                    icon: "success",
+                    confirmButtonText: `${t("OK")}`
+                  })
             }
         }
     };

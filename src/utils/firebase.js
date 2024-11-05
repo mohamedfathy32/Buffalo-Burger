@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { collection, doc, getDoc, getDocs, getFirestore, updateDoc, writeBatch } from "firebase/firestore";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import Swal from "sweetalert2";
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 const firebaseConfig = {
   apiKey: "AIzaSyDF3h_8mHGGs4REC-nJ2Fgk3ofBu5E9cwI",
@@ -84,8 +85,12 @@ export async function login(email, password) {
       const user = userCredential.user;
       return user;
     })
-    .catch((error) => {
-      alert(error.message);
+    .catch(() => {
+      Swal.fire({
+        title: "Login Error",
+        text: "Incorrect email or password. Please try again.",
+        icon: "error",
+    })
     });
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////

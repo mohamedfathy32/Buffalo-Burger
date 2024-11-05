@@ -12,6 +12,7 @@ import { getUserInfoById } from "../../utils/firebase";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
 import CartDrawer from "../CartDrawer";
+import Swal from "sweetalert2";
 
 export default function Header() {
     const { cart, setCart } = useContext(CartContext)
@@ -103,6 +104,12 @@ export default function Header() {
         localStorage.removeItem("userId");
         setIsLoggedIn(false);
         setIsOpenDrop(false);
+        Swal.fire({
+            title: `${t("Logged Out!")}`, 
+            text: `${t("You have logged out successfully.")} ${t("See you soon!")}`, 
+            icon: "info", 
+            confirmButtonText: `${t("OK")}` 
+          });
     };
 
     function changeLang() {

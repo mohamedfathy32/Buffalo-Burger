@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { db, register } from "../../utils/firebase";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 
 export default function SignupModal({ onClose, onSignupSuccess }) {
     const [username, setUsername] = useState(""); // State for username
@@ -68,6 +70,11 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
                     localStorage.setItem("userId", res.uid);
                     onSignupSuccess();
                     onClose();
+                    Swal.fire({
+                        title: "Registration Successful",
+                        text: "Your account has been created successfully. Welcome!",
+                        icon: "success",
+                    });
                 }
             } catch (error) {
                 console.log(error)
