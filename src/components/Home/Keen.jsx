@@ -7,7 +7,7 @@ import { DataContext } from "../../utils/context";
 
 export default function KeenSlider() {
     const { pathname } = useLocation();
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const [slidesPerView, setSlidesPerView] = useState(4);
     const { data } = useContext(DataContext);
@@ -36,7 +36,7 @@ export default function KeenSlider() {
     return (
         <section className="mx-3 mt-3">
             <div>
-                {!pathname.includes('Menu') && <h3 className="text-xl h-fit font-bold uppercase text-orange-600 ">Hot offers</h3>}
+                {!pathname.includes('Menu') && <h3 className="text-xl h-fit font-bold uppercase text-orange-600 ">{t("Hot offers")}</h3>}
             </div>
             <div>
                 <div ref={sliderRef} className="keen-slider mt-1.5">

@@ -385,10 +385,10 @@ export default function Header() {
             {/* Seconed Header Delivery Address */}
             <div className="bg-[#1c1c1b] w-full max-w-full h-12 flex justify-center items-center">
                 <div className="hidden md:flex">
-                    <Link className="me-4 hover:text-orange-600" to={'/About'}>About Us</Link>
-                    <Link className="me-4 hover:text-orange-600" to={'/Cart'}>CartDetails</Link>
-                    <Link className="me-4 hover:text-orange-600" to={'/Menu'}>Menu</Link>
-                    <Link className="me-4 hover:text-orange-600" to={'/'}>Home</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/About'}>{t("About us")}</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/Cart'}>{t("Cart details")}</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/Menu'}>{t("Menu")}</Link>
+                    <Link className="me-4 hover:text-orange-600" to={'/'}>{t("Home")}</Link>
                 </div>
             </div>
             {/* Login and SignUp المربع (Modal) */}
