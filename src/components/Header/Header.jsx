@@ -83,7 +83,7 @@ export default function Header() {
         };
 
         fetchUserInfo();
-    }, []);
+    }, [localStorage.getItem("userId")]);
 
     useEffect(() => {
         const handleEsc = (event) => {
@@ -418,7 +418,7 @@ export default function Header() {
                             >
                                 {t("Create an account")}
                             </button>
-                        </div>
+                        </div>  
 
                         {activeTab === 'login' && <LoginModal onClose={handleClose} onLoginSuccess={() => successfulUser()} />}
                         {activeTab === 'signup' && <SignupModal onClose={handleClose} onSignupSuccess={() => successfulUser()} />}

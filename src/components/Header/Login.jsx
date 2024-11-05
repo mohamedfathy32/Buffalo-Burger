@@ -49,7 +49,7 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
             if (res.uid) {
                 localStorage.setItem("userId", res.uid);
                 onLoginSuccess();
-                onClose(); // Close modal on successful login
+                onClose(); 
                 Swal.fire({
                     title: `${t("Logged In!")}`,
                     text: `${t("You have logged in successfully.")} ${t("Welcome back!")}`,
