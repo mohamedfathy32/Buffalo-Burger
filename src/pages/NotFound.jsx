@@ -5,7 +5,7 @@ export default function NotFoundPage() {
     const { t } = useTranslation()
     return <>
         <div className=" bg-[#1c1c1b] relative z-10">
-            <div className="container flex flex-col-reverse lg:flex-row justify-between items-center py-12">
+            <div className="container flex flex-col-reverse lg:flex-row justify-between items-center py-12 min-h-full">
                 <div className="mx-12">
                     <h4 className="mb-3 text-4xl md:text-5xl font-bold w-[250px]  smd:w-max md:!w-[500px] leading-tight text-orange-600 uppercase">
                         {t("We couldn’t find a page with this link.")}

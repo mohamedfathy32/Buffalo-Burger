@@ -71,10 +71,15 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
                     onSignupSuccess();
                     onClose();
                     Swal.fire({
-                        title: "Registration Successful",
-                        text: "Your account has been created successfully. Welcome!",
+                        title: `${t("Registration Successful")}`,
+                        text: `${t("Your account has been created successfully. Welcome!")}`,
                         icon: "success",
+                        confirmButtonText: `${t("OK")}`,
+                        customClass: {
+                            confirmButton: 'custom-confirm-button'
+                        }
                     });
+
                 }
             } catch (error) {
                 console.log(error)

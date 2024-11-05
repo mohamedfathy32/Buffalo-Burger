@@ -115,7 +115,10 @@ export default function OfferPage() {
                 title: `${t("Offer Added")}`,
                 text: `${t("The offer has been added to your cart.")}`,
                 icon: "success",
-                confirmButtonText: `${t("OK")}`
+                confirmButtonText: `${t("OK")}`,
+                customClass: {
+                    confirmButton: 'custom-confirm-button' 
+                  }
             }).then(() => {
                 navigate('/cart')
             });

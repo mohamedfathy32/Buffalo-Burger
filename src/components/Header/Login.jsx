@@ -54,7 +54,10 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                     title: `${t("Logged In!")}`,
                     text: `${t("You have logged in successfully.")} ${t("Welcome back!")}`,
                     icon: "success",
-                    confirmButtonText: `${t("OK")}`
+                    confirmButtonText: `${t("OK")}`,
+                    customClass: {
+                        confirmButton: 'custom-confirm-button' 
+                      }
                   })
             }
         }

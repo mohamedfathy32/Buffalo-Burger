@@ -62,7 +62,10 @@ export default function Reorder() {
       title: `${t('Reorder Successful')}`,
       text: `${t('Your previous order has been added to your cart again.')}`,
       icon: "success",
-      confirmButtonText: `${t("OK")}`
+      confirmButtonText: `${t("OK")}`,
+      customClass: {
+        confirmButton: 'custom-confirm-button' 
+      }
     }).then(() => {
 
       nav('/cart')

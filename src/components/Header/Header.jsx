@@ -108,7 +108,10 @@ export default function Header() {
             title: `${t("Logged Out!")}`, 
             text: `${t("You have logged out successfully.")} ${t("See you soon!")}`, 
             icon: "info", 
-            confirmButtonText: `${t("OK")}` 
+            confirmButtonText: `${t("OK")}`, 
+            customClass: {
+                confirmButton: 'custom-confirm-button' 
+              }
           });
     };
 

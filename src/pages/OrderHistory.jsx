@@ -27,21 +27,7 @@ export default function OrderHistoryPage() {
                 setLoading(false);
             }
         }
-
-        // async function fetchUserInfo() {
-        //     try {
-        //         if (userID) {
-        //             const userInfo = await getUserInfoById(userID);
-        //             setEmail(userInfo.email);
-
-        //         }
-        //     } catch (error) {
-        //         console.error("Error fetching user info:", error);
-        //     }
-        // }
-
         fetchOrders();
-        // fetchUserInfo();
     }, [data, setData]);
 
     const Reorder = (id) => {
@@ -65,7 +51,7 @@ export default function OrderHistoryPage() {
                 <div className="w-full flex justify-center px-2 md:px-10 pt-7 pb-2 min-h-screen">
                     <div className="w-full flex flex-col items-center md:w-3/5 bg-white rounded-lg p-8">
                         <p className="text-2xl font-bold text-gray-500">{t("You haven't placed any orders yet.")}</p>
-                        <p className="text-gray-400 mt-2">{t("Explore our menu and place your first order!")}</p>
+                        <p className="text-gray-400 mt-2">{t("Explore our menu!")}</p>
 
                         <button
                             onClick={() => nav("/menu")}

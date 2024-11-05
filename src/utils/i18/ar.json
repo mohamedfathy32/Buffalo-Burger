@@ -85,5 +85,12 @@
   "OK": "حسنا",
   "Logged Out!": "تم تسجيل الخروج!",
   "You have logged out successfully.": "لقد تم تسجيل خروجك بنجاح.",
-  "See you soon!": "نراك قريبًا!"
+  "See you soon!": "نراك قريبًا!",
+  "Registration Successful": "تم التسجيل بنجاح",
+  "Your account has been created successfully. Welcome!": "لقد تم إنشاء حسابك بنجاح. مرحبًا بك!",
+  "Order Placed!": "تم تقديم الطلب!",
+  "Your order has been placed successfully!": "لقد تم تقديم طلبك بنجاح!",
+  "Explore our menu!": "استكشف قائمتنا وقدم طلبك الأول!",
+  "You haven't placed any orders yet.": "لم تقم بتقديم أي طلبات بعد.",
+  "Go to Menu": "اذهب إلى القائمة"
 }

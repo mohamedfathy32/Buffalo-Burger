@@ -98,7 +98,10 @@ export default function ProductPage() {
             title: `${t("Product Added")}`,
             text: `${t("The product has been added to your cart.")}`,
             icon: "success",
-            confirmButtonText: `${t("OK")}`
+            confirmButtonText: `${t("OK")}`,
+            customClass: {
+                confirmButton: 'custom-confirm-button'
+              }
         }).then(() => {
             navigate('/menu')
         });

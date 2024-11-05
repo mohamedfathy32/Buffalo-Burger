@@ -87,5 +87,13 @@
   "OK": "OK",
   "Logged Out!": "Logged Out!",
   "You have logged out successfully.": "You have logged out successfully.",
-  "See you soon!": "See you soon!"
+  "See you soon!": "See you soon!",
+  "Registration Successful": "Registration Successful",
+  "Your account has been created successfully. Welcome!": "Your account has been created successfully. Welcome!",
+  "Order Placed!": "Order Placed!",
+  "Your order has been placed successfully!": "Your order has been placed successfully!",
+  "Explore our menu!": "Explore our menu and place your first order!",
+  "You haven't placed any orders yet.": "You haven't placed any orders yet.",
+  "Go to Menu": "Go to Menu"
+
 }

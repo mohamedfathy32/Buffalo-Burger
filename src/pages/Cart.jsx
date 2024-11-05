@@ -51,9 +51,15 @@ export default function CartPage() {
                     date, id: `${Date.now()}`, cart, userID, totalPrice: getTotalPrice()
                 });
                 Swal.fire({
+                    title: `${t("Order Placed!")}`, // إضافة عنوان للطلب
                     text: `${t("Your order has been placed successfully!")}`,
-                    icon: "success"
-                })
+                    icon: "success",
+                    confirmButtonText: `${t("OK")}`,
+                    customClass: {
+                        confirmButton: 'custom-confirm-button'
+                    }
+                });
+
 
                 setCart([]);
                 localStorage.removeItem("cart");
@@ -126,7 +132,7 @@ export default function CartPage() {
                                 <span>{t("EGP")} {(getTotalPrice() * 0.14).toFixed(2)}</span>
                             </div>
                             <div className="flex justify-between border-t border-dashed border-t-gray-400 pt-3 my-1">
-                                <span className="text-xl text-orange-500 font-bold">{t("TOTAL")} </span>
+                                <span className="text-xl text-orange-500 font-bold">{t("Total")} </span>
                                 <span className="text-xl text-orange-500 font-bold">{t("EGP")} {(getTotalPrice().toFixed(2))}</span>
                             </div>
                             <div>
