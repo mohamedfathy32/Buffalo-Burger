@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { DataContext } from "../../utils/context";
 import { useContext } from "react";
 
+// eslint-disable-next-line react/prop-types
 export default function Bread({ selectedBread, onBreadChange }) {
     const { t, i18n } = useTranslation();
     const lang = i18n.language

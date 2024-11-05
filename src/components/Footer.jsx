@@ -1,13 +1,19 @@
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
     const location = useLocation()
-
+    const { t, i18n } = useTranslation()
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
         });
+    }
+    function changeLang() {
+        const lang = i18n.language === 'en' ? 'ar' : 'en'
+        i18n.changeLanguage(lang)
+        localStorage.setItem('lang', lang)
     }
     return (
         <>
@@ -28,43 +34,46 @@ export default function Footer() {
                     <div className="border-b border-secondary-gray-100 mr-0 md:w-1/12 md:mr-24 md:border-0 lg:border-0 lg:w-1/12 lg:mr-24 mainFooGroup rtl:lg:text-right">
                         <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
-                            to="/Menu">Menu
+                            to="/Menu">
+                            {t("Menu")}
                         </Link>
                         <Link onClick={scrollToTop}
-                            className="p-1 block text-white hover:text-orange-500" to="/">Home
+                            className="p-1 block text-white hover:text-orange-500"
+                            to="/">
+                            {t("Home")}
                         </Link>
                         <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
                             to="/Cart">
-                            Cart details
+                            {t("Cart details")}
                         </Link>
                         <Link onClick={scrollToTop}
                             className="p-1 block text-white hover:text-orange-500"
                             to="/Loyalty">
-                            Loyalty
+                            {t("Loyalty")}
                         </Link>
                     </div>
 
                     <div className="border-b border-secondary-gray-100 mr-0 md:w-1/12 md:mr-24 md:border-0 lg:border-0 lg:w-1/12 lg:mr-24 rtl:lg:text-right">
                         <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/About">
-                            About us
+                            {t("About us")}
                         </Link>
                         <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/Franchise">
-                            Franchise Request
+                            {t("Franchise Request")}
                         </Link>
                         <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/Branches">
-                            Our Branches
+                            {t("Our Branches")}
                         </Link>
                         <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/Privacy">
-                            Privacy policy
+                            {t("Privacy policy")}
                         </Link>
                         <Link onClick={scrollToTop} className="p-1 block text-white hover:text-orange-500" to="/Terms">
-                            Terms and conditions
+                            {t("Terms and conditions")}
                         </Link>
                     </div>
 
                     <div className="mr-0 lg:w-1/12 lg:mr-24 rtl:lg:text-right block">
-                        <p className="py-1">Talk to us</p>
+                        <p className="py-1">{t("Talk to us")}</p>
                         <p className="text-white hover:text-orange-500">
                             <a href="tel:19914">
                                 <span className="hot-line" style={{ fontSize: 30 }}>19914</span>
@@ -75,57 +84,58 @@ export default function Footer() {
                     <div className="hidden w-max lg:block ">
                         <div className="absolute right-24 w-max rtl:right-[90%] bg-primary-gray">
                             <div className="cursor-pointer border-2 !text-white border-none rounded-lg h-max gap-2">
-                                <div className="flex flex-row justify-center items-center gap-2">
-                                    <span>العربية</span>
+                                <div onClick={changeLang} className="flex flex-row justify-center items-center gap-2">
+                                    <span>{t('languageButton')}</span>
                                     <img
                                         className="w-4 h-4 rounded-full"
-                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png"
+                                        src={i18n.language == 'en' ? "https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/eg-flag.png" : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/uk-flag.png'}
                                         alt="" />
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="text-center mt-10 md:flex md:justify-between md:ml-8 md:mt-16 lg:flex lg:justify-between lg:ml-8 lg:mt-16">
-                        <p>© 2022 Buffalo Burger inc.</p>
-                        <div
-                            id="socialWrapper"
-                            className="p-4 md:p-0 w-full justify-center gap-4 flex md:w-36 md:justify-evenly lg:flex lg:w-36 lg:justify-evenly">
-                            <a
-                                target="_blank"
-                                className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
-                                href="https://www.facebook.com/BuffaloBurger">
-                                <img
-                                    src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/facebook.png"
-                                    alt="facebook" />
-                            </a>
-                            <a
-                                target="_blank"
-                                className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
-                                href="https://www.instagram.com/buffalo_burger">
-                                <img
-                                    src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/inst.png"
-                                    alt="instagram" />
-                            </a>
-                            <a
-                                target="_blank"
-                                className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
-                                href="https://twitter.com/buffalo_burger">
-                                <img
-                                    src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/newTwitter.png"
-                                    alt="twitter" />
-                            </a>
-                            <a
-                                target="_blank"
-                                className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
-                                href="https://www.linkedin.com/company/35516936/admin">
-                                <img
-                                    src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/linkedin.png"
-                                    alt="linkedin" />
-                            </a>
-                        </div>
+                </div>
+                <div className="text-center mt-10 md:flex md:justify-between md:ml-8 md:mt-16 lg:flex lg:justify-between lg:ml-8 lg:mt-16">
+                    <p>© 2022 Buffalo Burger inc.</p>
+                    <div
+                        id="socialWrapper"
+                        className="p-4 md:p-0 w-full justify-center gap-4 flex md:w-36 md:justify-evenly lg:flex lg:w-36 lg:justify-evenly">
+                        <a
+                            target="_blank"
+                            className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
+                            href="https://www.facebook.com/BuffaloBurger">
+                            <img
+                                src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/facebook.png"
+                                alt="facebook" />
+                        </a>
+                        <a
+                            target="_blank"
+                            className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
+                            href="https://www.instagram.com/buffalo_burger">
+                            <img
+                                src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/inst.png"
+                                alt="instagram" />
+                        </a>
+                        <a
+                            target="_blank"
+                            className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
+                            href="https://twitter.com/buffalo_burger">
+                            <img
+                                src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/newTwitter.png"
+                                alt="twitter" />
+                        </a>
+                        <a
+                            target="_blank"
+                            className="hover:border-orange-500 hover:border-2 hover:rounded-full max-w-[30px] max-h-[30px]"
+                            href="https://www.linkedin.com/company/35516936/admin">
+                            <img
+                                src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/linkedin.png"
+                                alt="linkedin" />
+                        </a>
                     </div>
                 </div>
+
             </footer>
         </>
     );

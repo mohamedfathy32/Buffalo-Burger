@@ -12,15 +12,7 @@ const firebaseConfig = {
   measurementId: "G-NFHVQGTH7D",
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-// const firebaseConfig = {
-//   apiKey: "AIzaSyB938mwob15coVUd54hbLJNzBmRbqhK80M",
-//   authDomain: "buffalo-burger-432d6.firebaseapp.com",
-//   projectId: "buffalo-burger-432d6",
-//   storageBucket: "buffalo-burger-432d6.appspot.com",
-//   messagingSenderId: "676912297668",
-//   appId: "1:676912297668:web:abf14165867ae338363b91"
-// };
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
