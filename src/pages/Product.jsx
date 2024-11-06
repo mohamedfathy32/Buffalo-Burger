@@ -40,7 +40,7 @@ export default function ProductPage() {
 
     useEffect(() => {
         async function fetchData() {
-            if (data.breads && data.comboOptions && data.drinks && data.extras){
+            if (data.breads && data.comboOptions && data.drinks && data.extras) {
                 setLoading(false);
             };
             try {
@@ -102,7 +102,7 @@ export default function ProductPage() {
             <section className="bg-[#1c1c1b] flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={product?.image} alt={product?.title.en} className="w-[150px] h-[150px]" />
                 <div className="lg:text-start text-center md:mx-16">
-                    <h2 className="text-orange-600 font-bold text-2xl capitalize">{product?.title[i18n.language]}</h2>
+                    <h2 className="text-[#ff5f00] font-bold text-2xl capitalize">{product?.title[i18n.language]}</h2>
                     <p className="text-white max-w-[500px]">{product?.description?.[i18n.language]}</p>
                 </div>
             </section>
@@ -121,7 +121,7 @@ export default function ProductPage() {
                     </div>
                     <span className="text-lg font-bold mt-auto mb-2">EGP {totalPrice}</span>
                 </div>
-                <button onClick={addToCart} className="px-12 py-3 flex justify-center items-center gap-1 bg-orange-600 rounded-lg text-white text-xl uppercase">
+                <button onClick={addToCart} className="px-12 py-3 flex justify-center items-center gap-1 bg-[#ff5f00] rounded-lg text-white text-xl uppercase">
                     <MdShoppingCart className="text-2xl" /> {t('addToCart')}
                 </button>
             </section>

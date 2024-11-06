@@ -92,7 +92,7 @@ export default function CartPage() {
                                         </button>
                                         <span className="mx-5 font-bold">{item.quantity}</span>
                                         <button onClick={() => { handleQuantity(item.id, 1) }}>
-                                            <IoIosAddCircleOutline className="text-2xl text-orange-600" />
+                                            <IoIosAddCircleOutline className="text-2xl text-[#ff5f00]" />
                                         </button>
                                     </div>
                                     <div className="w-1/3 lg:flex justify-center font-bold">
@@ -149,7 +149,7 @@ export default function CartPage() {
                             <p className="font-bold">Your order has been placed successfully!</p>
                         </DialogContentText>
                         <DialogContentText className="flex justify-center">
-                            <FaCheckCircle className="m-4 text-4xl text-orange-600" />
+                            <FaCheckCircle className="m-4 text-4xl text-[#ff5f00]" />
                         </DialogContentText>
                     </DialogContent>
                     {/* <DialogActions>
@@ -172,7 +172,7 @@ export default function CartPage() {
                             </p>
                         </DialogContentText>
                         <DialogContentText className="flex justify-center">
-                            {/* <FaCheckCircle className="m-4 text-4xl text-orange-600" /> */}
+                            {/* <FaCheckCircle className="m-4 text-4xl text-[#ff5f00]" /> */}
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>

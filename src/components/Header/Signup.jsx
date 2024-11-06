@@ -139,9 +139,9 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
 
             <div className="mt-4 text-center text-sm text-gray-500">
                 {i18n.language == 'en' ? "By continuing, I agree to the" : "أوافق على "}
-                <Link to="/Terms" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Terms of Service' : 'شروط الخدمة'}</Link>
+                <Link to="/Terms" className="text-[#ff5f00] mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Terms of Service' : 'شروط الخدمة'}</Link>
                 {i18n.language == 'en' ? 'and' : 'و'}
-                <Link to="/Privacy" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}</Link>.
+                <Link to="/Privacy" className="text-[#ff5f00] mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}</Link>.
             </div>
         </div>
     );

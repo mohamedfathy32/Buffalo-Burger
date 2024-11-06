@@ -59,7 +59,7 @@ export default function Size({ selectedSize, onSizeChange }) {
                         <p className={`text-white text-xs absolute top-7 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'}`}>
                             {size.title[i18n.language]}
                         </p>
-                        <div className={`absolute w-3 h-3 rounded-full top-1.5 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'} ${size.title[i18n.language] === selectedSize?.[i18n.language] ? 'bg-orange-600' : 'bg-white'}`}></div>
+                        <div className={`absolute w-3 h-3 rounded-full top-1.5 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'} ${size.title[i18n.language] === selectedSize?.[i18n.language] ? 'bg-[#ff5f00]' : 'bg-white'}`}></div>
                         <p className="text-center mt-3">
                             {size.price === 155 ? <br /> : size.price > 0 ? `+${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${size.price - 155}` : ''}
                         </p>
@@ -104,7 +104,7 @@ export default function Size({ selectedSize, onSizeChange }) {
 //                     <div key={size.title.en} className="relative cursor-pointer" onClick={() => onSizeChange(size.title[i18n.language])}>
 //                         <img src={size.title[i18n.language] === selectedSize ? 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/weight.svg' : 'https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/weight-1.svg'} alt={size.title[i18n.language]} />
 //                         <p className={`text-white text-xs absolute top-7 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'}`}>{size.title[i18n.language]}</p>
-//                         <div className={`absolute w-3 h-3 rounded-full top-1.5 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'} ${size.title[i18n.language] === selectedSize ? 'bg-orange-600' : 'bg-white'}`}></div>
+//                         <div className={`absolute w-3 h-3 rounded-full top-1.5 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'} ${size.title[i18n.language] === selectedSize ? 'bg-[#ff5f00]' : 'bg-white'}`}></div>
 //                         <p className="text-center mt-3">{size.price === 155 ? <br /> : size.price > 0 ? `+${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${size.price - 155}` : ''}</p>
 //                     </div>))}
 //             </div>

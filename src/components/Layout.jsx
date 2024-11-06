@@ -40,7 +40,7 @@ export default function Layout() {
             <Footer />
 
             <div
-                className="hidden md:block fixed bottom-4 right-4 bg-orange-600 text-white p-4 rounded-full shadow-lg cursor-pointer z-50"
+                className="hidden md:block fixed bottom-4 right-4 bg-[#ff5f00] text-white p-4 rounded-full shadow-lg cursor-pointer z-50"
                 onClick={openCartDrawer}
             >
                 <MdShoppingBasket size={24} />

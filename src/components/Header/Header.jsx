@@ -142,7 +142,7 @@ export default function Header() {
                         <FaCartShopping className="text-2xl mr-1" />
                         {t("Cart")}
                     </Link>
-                    <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
+                    <div className="flex items-center justify-center w-7 h-7 bg-white text-[#1c1c1b] rounded-full">
                         {cart.length}
                     </div>
                 </div>
@@ -160,9 +160,9 @@ export default function Header() {
                     </Link>
                 </div>
                 {isLoggedIn ? <div className="hidden md:flex items-center gap-4">
-                    <div className="cursor-pointer text-white font-bold text-lg hover:text-orange-600" onClick={toggleDropdown}>
+                    <div className="cursor-pointer text-white font-bold text-lg hover:text-[#ff5f00]" onClick={toggleDropdown}>
                         <div className="dropdown relative">
-                            <div className="dropdown-toggle px-1 py-2.5 text-white hover:text-orange-600 text-base font-bold leading-tight uppercase 
+                            <div className="dropdown-toggle px-1 py-2.5 text-white hover:text-[#ff5f00] text-base font-bold leading-tight uppercase 
                             rounded transition duration-150 ease-in-out flex items-center whitespace-nowrap">
                                 <span className="truncate max-w-[14rem]">
                                     {t("Hello")}, {username}
@@ -171,23 +171,23 @@ export default function Header() {
                             {isOpenDrop && (
                                 <ul className="min-w-max absolute bg-[#1c1c1b] text-base z-[51] py-2 ps-2 w-full list-none text-start rounded-lg mt-1">
                                     <li>
-                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile">
+                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-[#ff5f00]" to="/profile">
                                             {t("My account")}
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/OrderHistory">
+                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-[#ff5f00]" to="/OrderHistory">
                                             {t("Order history")}
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600" to="/profile#addresses">
+                                        <Link className="text-base py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-[#ff5f00]" to="/profile#addresses">
                                             {t("Saved addresses")}
                                         </Link>
                                     </li>
                                     <li>
                                         <span
-                                            className="text-base border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-orange-600 py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
+                                            className="text-base border-b-white hover:border-b-orange-600 border-b-[1px] text-white hover:text-[#ff5f00] py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent"
                                             onClick={handleLogout}
                                         >
                                             {t("Logout")}
@@ -346,7 +346,7 @@ export default function Header() {
             {cartDrawer && <div className="fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ease-in-out" onClick={closeWindows}></div>}
             {/* <div dir="rtl" className={`fixed top-0 start-0 w-80 md:w-96 h-screen z-50 bg-white shadow-lg transition-transform duration-500 ease-in-out transform ${cartDrawer ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div dir={i18n.language == 'ar' ? 'rtl' : 'ltr'} className="flex flex-col   -8 bg-white box-content border-none min-w-fit h-screen px-4">
-                    <div className="pr-3 top-14 text-orangbg-orange-600 cursor-pointer "></div>
+                    <div className="pr-3 top-14 text-orangbg-[#ff5f00] cursor-pointer "></div>
                     <div className="flex items-center justify-start py-4 text-black">
                         <div className="text-2xl flex items-center flex-grow font-bold justify-between cursor-pointer uppercase">
                             <div className="px-1" onClick={closeWindows}>
@@ -367,7 +367,7 @@ export default function Header() {
                             {t("There are no items in your cart")}
                         </p>
                     </div>
-                    <div className="mb-24 flex items-start justify-evenly bg-orange-600 text-white py-3 md:my-6 mx-4 cursor-pointer font-main rounded-xl text-xl">
+                    <div className="mb-24 flex items-start justify-evenly bg-[#ff5f00] text-white py-3 md:my-6 mx-4 cursor-pointer font-main rounded-xl text-xl">
                         <MdShoppingBasket />
                         <p className="font-roboto justify-start uppercase">
                             {t("Go to cart")}
@@ -385,10 +385,10 @@ export default function Header() {
             {/* Seconed Header Delivery Address */}
             <div className="bg-[#1c1c1b] w-full max-w-full h-12 flex justify-center items-center">
                 <div className="hidden md:flex">
-                    <Link className="me-4 hover:text-orange-600" to={'/About'}>About Us</Link>
-                    <Link className="me-4 hover:text-orange-600" to={'/Cart'}>CartDetails</Link>
-                    <Link className="me-4 hover:text-orange-600" to={'/Menu'}>Menu</Link>
-                    <Link className="me-4 hover:text-orange-600" to={'/'}>Home</Link>
+                    <Link className="me-4 hover:text-[#ff5f00]" to={'/About'}>About Us</Link>
+                    <Link className="me-4 hover:text-[#ff5f00]" to={'/Cart'}>CartDetails</Link>
+                    <Link className="me-4 hover:text-[#ff5f00]" to={'/Menu'}>Menu</Link>
+                    <Link className="me-4 hover:text-[#ff5f00]" to={'/'}>Home</Link>
                 </div>
             </div>
             {/* Login and SignUp المربع (Modal) */}
@@ -397,13 +397,13 @@ export default function Header() {
                     <div className="bg-white rounded-lg p-6 w-[80%] sm:w-[40%] ">
                         <div className="flex justify-between mb-4">
                             <button
-                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'login' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
+                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'login' ? 'border-b-2 border-orange-500 text-[#ff5f00]' : 'text-gray-500'}`}
                                 onClick={() => setActiveTab('login')}
                             >
                                 {t("Login")}
                             </button>
                             <button
-                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'signup' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
+                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'signup' ? 'border-b-2 border-orange-500 text-[#ff5f00]' : 'text-gray-500'}`}
                                 onClick={() => setActiveTab('signup')}
                             >
                                 {t("Create an account")}

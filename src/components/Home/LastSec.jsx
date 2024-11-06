@@ -12,7 +12,7 @@ export default function LastSection() {
                         <div className="flex justify-center h-[362px] overflow-hidden lg:hidden relative w-full">
                             <img className="  flex h-[155%] w-full max-w-[288px]  " src='/images/Home/buffalo-app-CTA-img.png' alt="" />
                         </div>
-                        <h1 className="  text-2xl lg:text-[32px] text-orange-600 font-bold uppercase md:max-w-[50%]  ">
+                        <h1 className="  text-2xl lg:text-[32px] text-[#ff5f00] font-bold uppercase md:max-w-[50%]  ">
                             Download our mobile application now!!!
                         </h1>
                         <p className="  text-base lg:text-xl text-white md:max-w-[50%]">

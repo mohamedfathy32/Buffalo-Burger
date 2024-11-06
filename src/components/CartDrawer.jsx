@@ -51,11 +51,11 @@
 //                                 <div className='flex flex-col justify-around ms-5 w-full'>
 //                                     <div className='flex justify-between'>
 //                                         <p className='text-x font-bold'>{item.title.en}</p>
-//                                         <IoMdClose className='bg-gray-300 text-orange-600 rounded-full w-8 h-8 p-2' />
+//                                         <IoMdClose className='bg-gray-300 text-[#ff5f00] rounded-full w-8 h-8 p-2' />
 //                                     </div>
 //                                     <div className='flex justify-between'>
 //                                         <p className='text-sm'>{t("EGP")} {item.totalPrice}</p>
-//                                         <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
+//                                         <div className="bg-[#ff5f00] rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
 //                                             <MdRemoveCircleOutline onClick={() => { handleQuantity(item.id, -1) }} className="text-2xl" />
 //                                             <span>{item.quantity}</span>
 //                                             <MdAddCircleOutline onClick={() => { handleQuantity(item.id, 1) }} className="text-2xl" />
@@ -66,7 +66,7 @@
 //                         )}
 //                     </div>
 //                 }
-//                 <div className="fixed bottom-10 w-full flex items-start justify-evenly bg-orange-600 text-white py-3 md:my-6 mx-4 cursor-pointer font-main rounded-xl text-xl">
+//                 <div className="fixed bottom-10 w-full flex items-start justify-evenly bg-[#ff5f00] text-white py-3 md:my-6 mx-4 cursor-pointer font-main rounded-xl text-xl">
 //                     <MdShoppingBasket />
 //                     <p className="justify-start uppercase">
 //                         {t("Go to cart")}
@@ -150,11 +150,11 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
                                 <div className='flex flex-col justify-around ms-5 w-full'>
                                     <div className='flex justify-between'>
                                         <p className='text-x font-bold'>{item.title.en}</p>
-                                        <IoMdClose onClick={() => { removeItem(item.id) }} className='bg-gray-300 text-orange-600 rounded-full w-8 h-8 p-2' />
+                                        <IoMdClose onClick={() => { removeItem(item.id) }} className='bg-gray-300 text-[#ffffff] rounded-full w-8 h-8 p-2' />
                                     </div>
                                     <div className='flex justify-between'>
                                         <p className='text-sm'>{t("EGP")} {item.totalPrice}</p>
-                                        <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
+                                        <div className="bg-[#ff5f00] rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
                                             <MdRemoveCircleOutline onClick={() => handleQuantityChange(item.id, -1)} className="text-2xl" />
                                             <span>{item.quantity}</span>
                                             <MdAddCircleOutline onClick={() => handleQuantityChange(item.id, 1)} className="text-2xl" />
@@ -165,7 +165,7 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
                         )}
                     </div>
                 }
-                <div onClick={goToCart} className="w-full flex items-start justify-evenly bg-orange-600 text-white py-3 md:my-6 mx-4 cursor-pointer font-main rounded-xl text-xl">
+                <div onClick={goToCart} className="w-full flex items-start justify-evenly bg-[#ff5f00] text-white py-3 md:my-6 mx-4 cursor-pointer font-main rounded-xl text-xl">
                     <MdShoppingBasket />
                     <p className="justify-start uppercase">
                         {t("Go to cart")}

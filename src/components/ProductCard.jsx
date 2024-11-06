@@ -55,9 +55,9 @@ export default function ProductCard({ product }) {
                     {productQuantity === 0 || product?.details ?
                         <MdAddCircleOutline onClick={() => {
                             product?.details ? navigate(`/Product/${product?.title?.en?.split(' ').join('-')}`, { state: { product } }) : updateCart(1);
-                        }} className="text-white bg-orange-600 rounded-full p-1 text-[32px]" />
+                        }} className="text-white bg-[#ff5f00] rounded-full p-1 text-[32px]" />
                         :
-                        <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
+                        <div className="bg-[#ff5f00] rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
                             <MdRemoveCircleOutline onClick={() => updateCart(-1)} className="text-2xl" />
                             <span>{productQuantity}</span>
                             <MdAddCircleOutline onClick={() => updateCart(1)} className="text-2xl" />

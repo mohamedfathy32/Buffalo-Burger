@@ -5,11 +5,11 @@ export default function NotFoundPage() {
         <div className=" bg-[#1c1c1b] relative z-10">
             <div className="container flex flex-col-reverse lg:flex-row justify-between items-center py-12">
                 <div className="mx-12">
-                    <h4 className="mb-3 text-4xl md:text-5xl font-bold w-[250px]  smd:w-max md:!w-[500px] leading-tight text-orange-600 uppercase">
+                    <h4 className="mb-3 text-4xl md:text-5xl font-bold w-[250px]  smd:w-max md:!w-[500px] leading-tight text-[#ff5f00] uppercase">
                         We couldn’t find a page with this link.
                     </h4>
                     <p className="mb-8 text-2xl md:w-max text-white">But we found good offers and delicious sandwiches.</p>
-                    <Link className="uppercase hover:bg-orange-700 text-base inline-block rounded-lg bg-orange-600 border border-orange-600 px-8 py-3 text-center font-semibold  text-white w-full" to="/">Discover our menu</Link>
+                    <Link className="uppercase hover:bg-orange-700 text-base inline-block rounded-lg bg-[#ff5f00] border border-[#ff5f00] px-8 py-3 text-center font-semibold  text-white w-full" to="/">Discover our menu</Link>
                 </div>
                 <div className=" w-[288px] h-[276px] md:w-[500px] md:h-[500px]  md:mr-6">
                     <div className="w-100 h-100">

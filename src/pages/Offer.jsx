@@ -130,7 +130,7 @@ export default function OfferPage() {
             <section className="bg-[#1c1c1b] flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={offer.image} alt={offer.title[lang]} className="place-items-center w-[150px] h-[150px]" />
                 <div className="lg:text-start text-center md:my md:mx-16">
-                    <h2 className="text-orange-600 font-bold text-2xl capitalize">{offer.title[lang]}</h2>
+                    <h2 className="text-[#ff5f00] font-bold text-2xl capitalize">{offer.title[lang]}</h2>
                     <p className="text-white max-w-[500px]">{offer.description[lang]}</p>
                 </div>
             </section>
@@ -138,7 +138,7 @@ export default function OfferPage() {
             <div className="overflow-x-scroll sbw-none">
                 <div className="w-fit min-w-full flex justify-center bg-[#1c1c1b] text-white">
                     {offer.tabs.map((tab, i) =>
-                        <p key={tab.title.en} onClick={() => { setTabIndex(i) }} className={`min-w-28 p-2.5 mx-0.5 my-1.5 text-center font-bold uppercase text-lg text-white cursor-pointer rounded-md ${i === tabIndex && 'bg-orange-600'} hover:bg-orange-600`}>
+                        <p key={tab.title.en} onClick={() => { setTabIndex(i) }} className={`min-w-28 p-2.5 mx-0.5 my-1.5 text-center font-bold uppercase text-lg text-white cursor-pointer rounded-md ${i === tabIndex && 'bg-[#ff5f00]'} hover:bg-[#ff5f00]`}>
                             {tab.title[lang]}
                         </p>)}
                 </div>
@@ -151,7 +151,7 @@ export default function OfferPage() {
                             <button
                                 key={avail?.title.en}
                                 onClick={() => setOrder({ ...order, [`choice${tabIndex + 1}`]: avail?.title })}
-                                className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${avail?.title[lang] === order[`choice${tabIndex + 1}`]?.[lang] ? 'border-orange-600 bg-orange-50' : 'border-white bg-stone-50'}`}>
+                                className={`sm:w-96 w-full px-4 py-3 flex items-center border rounded-2xl ${avail?.title[lang] === order[`choice${tabIndex + 1}`]?.[lang] ? 'border-[#ff5f00] bg-orange-50' : 'border-white bg-stone-50'}`}>
                                 <img src={avail?.image || '/images/not-found.webp'} alt={avail?.title[lang]} className="w-20 h-20" />
                                 <div className="text-start ms-4">
                                     <h3 className="font-bold text-sm capitalize">{avail?.title[lang]}</h3>
@@ -253,7 +253,7 @@ export default function OfferPage() {
                     </div>
                     <span className="text-lg font-bold mt-auto mb-2">EGP {totalPrice}</span>
                 </div>
-                <button onClick={addToCart} className="px-12 py-3 flex justify-center items-center gap-1 bg-orange-600 rounded-lg text-white text-xl uppercase">
+                <button onClick={addToCart} className="px-12 py-3 flex justify-center items-center gap-1 bg-[#ff5f00] rounded-lg text-white text-xl uppercase">
                     {tabIndex !== offer.tabs.length - 1 ? 'Next' : <><MdShoppingCart className="text-2xl" /> {t('addToCart')}</>}
                 </button>
             </section>

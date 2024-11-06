@@ -166,7 +166,7 @@ export default function Reorder() {
               <p className="font-bold text-black"> Your previous order has been added to the cart successfully!</p>
             </DialogContentText>
             <DialogContentText className="flex justify-center">
-              <FaCheckCircle className="m-4 text-4xl text-orange-600" />
+              <FaCheckCircle className="m-4 text-4xl text-[#ff5f00]" />
             </DialogContentText>
           </DialogContent>
           <DialogActions>

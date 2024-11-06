@@ -32,7 +32,7 @@ export default function MenuPage() {
             <MenuNav />
             {data.categories?.map(cat => (
                 <div key={cat.title.en}>
-                    <h1 id={cat.title.en?.split(' ').join('')} className="PSS text-7xl uppercase text-orange-600 text-center m-6">
+                    <h1 id={cat.title.en?.split(' ').join('')} className="PSS text-7xl uppercase text-[#ff5f00] text-center m-6">
                         {cat.title[i18n.language]}
                     </h1>
                     {cat.title.en === 'offers' ?
