@@ -50,7 +50,7 @@
   "Privacy policy": "سياسة الخصوصية",
   "Terms and conditions": " الشروط والأحكام ",
   "Talk to us": "تحدث معنا",
-  "Hot offers": "عروض ساخنه 🥵🥵",
+  "Hot offers": "عروض ساخنه",
   "Top Selling": "مميز",
   "Including VAT": "شامل الضريبة المضافه",
   "Order ID": "رقم الطلب",
@@ -89,10 +89,11 @@
   "Registration Successful": "تم التسجيل بنجاح",
   "Your account has been created successfully. Welcome!": "لقد تم إنشاء حسابك بنجاح. مرحبًا بك!",
   "Order Placed!": "تم تقديم الطلب!",
-  "Your order has been placed successfully!": "لقد تم تقديم طلبك بنجاح!",
+  "Your order has been placed successfully! We will contact you soon at your provided number.": "لقد تم تقديم طلبك بنجام ! سيتم التواصل معك على الرقم",
   "Explore our menu!": "استكشف قائمتنا وقدم طلبك الأول!",
   "You haven't placed any orders yet.": "لم تقم بتقديم أي طلبات بعد.",
   "Go to Menu": "اذهب إلى القائمة",
   "Attention!": "تنبيه!",
-  "Please login first to check out.": "يرجى تسجيل الدخول أولاً للمتابعة."
+  "Please login first to check out.": "يرجى تسجيل الدخول أولاً للمتابعة.",
+  "Are you sure you want to remove this item from the cart?": "هل انت متاكد من ازاله هذا العنصر من السلة ؟"
 }

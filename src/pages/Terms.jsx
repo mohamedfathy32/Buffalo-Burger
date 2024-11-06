@@ -5,7 +5,7 @@ export default function TermsPage() {
         <>
             <div className="w-full flex justify-center items-center uppercase py-2 gap-2">
 
-                <span className="font-bold text-orange-500">Terms and conditions</span>
+                <span className="font-bold text-[#ff5f00]">Terms and conditions</span>
                 <Link className="font-bold" to={'/Privacy'}>Privacy policy</Link>
             </div>
 
@@ -36,7 +36,7 @@ export default function TermsPage() {
                 </p>
 
                 <p className="mb-6 break-words">
-                    If you or your parent or guardian do not agree to these terms, then you must immediately stop using the online services and request that Buffalo Burger close any online services account that you have created. You can request account deletion by sending an email to <span className="text-orange-500">info@saalinvest.com</span>, please include the email address of the account that you want deleted.
+                    If you or your parent or guardian do not agree to these terms, then you must immediately stop using the online services and request that Buffalo Burger close any online services account that you have created. You can request account deletion by sending an email to <span className="text-[#ff5f00]">info@saalinvest.com</span>, please include the email address of the account that you want deleted.
                 </p>
 
                 <span className="font-bold mb-5 mr-2">About the online services.</span>
@@ -58,7 +58,7 @@ export default function TermsPage() {
                 </p>
 
                 <p className="mb-8 break-words">
-                    Updates to these terms. Buffalo Burger may also update these terms at any time and at its sole discretion. If Buffalo Burger makes material changes to the terms, we will notify you by any reasonable means such as by posting the new terms in the online service. If you do not agree to the changed terms, then you must immediately stop using the online services and request that Buffalo Burger close any online services account that you have created. To close your account, you can email us at <span className="text-orange-500">info@saalinvest.com</span>.
+                    Updates to these terms. Buffalo Burger may also update these terms at any time and at its sole discretion. If Buffalo Burger makes material changes to the terms, we will notify you by any reasonable means such as by posting the new terms in the online service. If you do not agree to the changed terms, then you must immediately stop using the online services and request that Buffalo Burger close any online services account that you have created. To close your account, you can email us at <span className="text-[#ff5f00]">info@saalinvest.com</span>.
                 </p>
 
                 <p className="mb-8 break-words">
@@ -66,17 +66,17 @@ export default function TermsPage() {
                 </p>
 
                 <p className="mb-8 break-words">
-                    How to contact us. If you have any questions or comments regarding the online services, please see the Contact Us section in the online services or you can always email us at: <span className="text-orange-500">info@saalinvest.com</span>.
+                    How to contact us. If you have any questions or comments regarding the online services, please see the Contact Us section in the online services or you can always email us at: <span className="text-[#ff5f00]">info@saalinvest.com</span>.
                 </p>
 
                 <span className="font-bold mb-5 mr-2">Our information practices and communications with you. </span>
 
                 <p className="mb-8 break-words">
-                    Buffalo Burger Privacy Statement. The Buffalo Burger Privacy Statement <span className="text-orange-500">https://www.buffaloburger.com/PrivacyPolicy</span> describes our information practices, including how we collect, use and share information.
+                    Buffalo Burger Privacy Statement. The Buffalo Burger Privacy Statement <span className="text-[#ff5f00]">https://www.buffaloburger.com/PrivacyPolicy</span> describes our information practices, including how we collect, use and share information.
                 </p>
 
                 <p className="mb-8 break-words">
-                    How we communicate with you. Through the online services, you may opt in to receive emails, text messages to the mobile number you provide to us or push notifications from Buffalo Burger. When you opt in to any of these types of communications, you understand and consent that that you will receive marketing, transactional and other messages from Buffalo Burger. Buffalo Burger may use the information you have provided to us to communicate with you in accordance with Buffalo Burger Privacy Statement <span className="text-orange-500">https://www.buffaloburger.com/PrivacyPolicy</span>
+                    How we communicate with you. Through the online services, you may opt in to receive emails, text messages to the mobile number you provide to us or push notifications from Buffalo Burger. When you opt in to any of these types of communications, you understand and consent that that you will receive marketing, transactional and other messages from Buffalo Burger. Buffalo Burger may use the information you have provided to us to communicate with you in accordance with Buffalo Burger Privacy Statement <span className="text-[#ff5f00]">https://www.buffaloburger.com/PrivacyPolicy</span>
                 </p>
 
                 <p className="mb-8 break-words">
@@ -84,7 +84,7 @@ export default function TermsPage() {
                 </p>
 
                 <p className="mb-8 break-words">
-                    [Additional information on text messages. When you opt in to any of our text message programs, you understand and consent that you will receive text messages from an automated system. You further understand that your consent is not required to make any purchase. If you wish to withdraw your consent and unsubscribe, please email us at: <span className="text-orange-500">info@saalinvest.com</span>.
+                    [Additional information on text messages. When you opt in to any of our text message programs, you understand and consent that you will receive text messages from an automated system. You further understand that your consent is not required to make any purchase. If you wish to withdraw your consent and unsubscribe, please email us at: <span className="text-[#ff5f00]">info@saalinvest.com</span>.
                 </p>
 
                 <span className="font-bold mb-5 mr-2">Offers and Loyalty Programme</span>
@@ -272,7 +272,7 @@ export default function TermsPage() {
                 <span className="font-bold mb-5 mr-2 ">Apple Applications</span>
 
                 <p className="mb-8 break-words">
-                    These terms incorporate and supplement the Apple, Inc. (“Apple”) terms and Conditions (available at <span className="text-orange-500">http://www.apple.com/legal/itunes/us/terms.html#service</span>), including the Licensed Application End User terms therein (“Apple terms”). If you are using the online services through Apple application (“Apple Application”), you also acknowledge and agree:
+                    These terms incorporate and supplement the Apple, Inc. (“Apple”) terms and Conditions (available at <span className="text-[#ff5f00]">http://www.apple.com/legal/itunes/us/terms.html#service</span>), including the Licensed Application End User terms therein (“Apple terms”). If you are using the online services through Apple application (“Apple Application”), you also acknowledge and agree:
                 </p>
 
                 <p className="mb-8 break-words">

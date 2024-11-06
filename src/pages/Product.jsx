@@ -98,10 +98,11 @@ export default function ProductPage() {
             title: `${t("Product Added")}`,
             text: `${t("The product has been added to your cart.")}`,
             icon: "success",
+            iconColor: '#ff5f00',
             confirmButtonText: `${t("OK")}`,
             customClass: {
                 confirmButton: 'custom-confirm-button'
-              }
+            }
         }).then(() => {
             navigate('/menu')
         });
@@ -113,7 +114,7 @@ export default function ProductPage() {
             <section className="bg-[#1c1c1b] flex justify-center items-center lg:flex-row flex-col p-4">
                 <img src={product?.image} alt={product?.title.en} className="w-[150px] h-[150px]" />
                 <div className="lg:text-start text-center md:mx-16">
-                    <h2 className="text-orange-600 font-bold text-2xl capitalize">{product?.title[i18n.language]}</h2>
+                    <h2 className="text-[#ff5f00] font-bold text-2xl capitalize">{product?.title[i18n.language]}</h2>
                     <p className="text-white max-w-[500px]">{product?.description?.[i18n.language]}</p>
                 </div>
             </section>
@@ -130,9 +131,9 @@ export default function ProductPage() {
                         <h2 className="capitalize text-2xl font-bold">Total</h2>
                         <span className="capitalize text-sm text-gray-500">Including VAT</span>
                     </div>
-                    <span className="text-lg font-bold mt-auto mb-2">EGP {totalPrice}</span>
+                    <span className="text-lg font-bold mt-auto mb-2">{totalPrice}</span>
                 </div>
-                <button onClick={addToCart} className="px-12 py-3 flex justify-center items-center gap-1 bg-orange-600 rounded-lg text-white text-xl uppercase">
+                <button onClick={addToCart} className="px-12 py-3 flex justify-center items-center gap-1 bg-[#ff5f00] rounded-lg text-white text-xl uppercase">
                     <MdShoppingCart className="text-2xl" /> {t('addToCart')}
                 </button>
             </section>

@@ -25,28 +25,56 @@ export default function CartPage() {
         setCart(savedCart);
     }, []);
 
-
     const successfulUser = async () => {
         const userId = localStorage.getItem("userId");
-
         if (userId) {
-
             setIsLoggedIn(true);
         } else {
             setIsLoggedIn(false);
         }
     }
 
-
-
     const handleQuantity = (id, change) => {
-        const updatedCart = cart.map(item =>
-            item.id === id ? { ...item, quantity: item.quantity + change, totalPrice: (item.quantity + change) * item.price } : item
-        ).filter(item => item.quantity > 0);
+        const itemToChange = cart.find(item => item.id === id);
+
+        if (itemToChange && itemToChange.quantity + change <= 0) {
+            Swal.fire({
+                title: `${t("Attention!")}`,
+                text: `${t("Are you sure you want to remove this item from the cart?")}`,
+                icon: "warning",
+                iconColor: '#ff5f00',
+                showCancelButton: true,
+                confirmButtonText: `${t("Yes, remove it")}`,
+                cancelButtonText: `${t("Cancel")}`,
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Proceed with removing the item
+                    updateCartQuantity(id, change);
+                }
+            });
+        } else {
+            // Update quantity directly if no confirmation is needed
+            updateCartQuantity(id, change);
+        }
+    };
+
+    // Helper function to update cart quantity
+    const updateCartQuantity = (id, change) => {
+        const updatedCart = cart
+            .map(item =>
+                item.id === id
+                    ? { ...item, quantity: item.quantity + change, totalPrice: (item.quantity + change) * item.price }
+                    : item
+            )
+            .filter(item => item.quantity > 0);
 
         localStorage.setItem("cart", JSON.stringify(updatedCart));
         setCart(updatedCart.length ? updatedCart : []);
     };
+
 
     const getTotalPrice = () => cart.reduce((total, item) => total + item.totalPrice, 0);
 
@@ -57,6 +85,7 @@ export default function CartPage() {
                 title: `${t("Attention!")}`,
                 text: `${t("Please login first to check out.")}`,
                 icon: "warning",
+                iconColor: '#ff5f00',
                 confirmButtonText: `${t("Login")}`,
                 customClass: {
                     confirmButton: 'custom-confirm-button'
@@ -79,8 +108,9 @@ export default function CartPage() {
                 });
                 Swal.fire({
                     title: `${t("Order Placed!")}`, // إضافة عنوان للطلب
-                    text: `${t("Your order has been placed successfully!")}`,
+                    text: `${t("Your order has been placed successfully! We will contact you soon at your provided number.")} ${userInfo.phoneNumber}`,
                     icon: "success",
+                    iconColor: '#ff5f00',
                     confirmButtonText: `${t("OK")}`,
                     customClass: {
                         confirmButton: 'custom-confirm-button'
@@ -129,7 +159,7 @@ export default function CartPage() {
                                             </button>
                                             <span className="mx-5 font-bold">{item.quantity}</span>
                                             <button onClick={() => { handleQuantity(item.id, 1) }}>
-                                                <IoIosAddCircleOutline className="text-2xl text-orange-600" />
+                                                <IoIosAddCircleOutline className="text-2xl text-[#ff5f00]" />
                                             </button>
                                         </div>
                                         <div className="w-1/3 lg:flex justify-center font-bold">
@@ -154,23 +184,23 @@ export default function CartPage() {
                             <div className="w-full flex flex-col">
                                 <div className="flex justify-between">
                                     <span>{t("Sub total")} :</span>
-                                    <span>{t("EGP")} {(getTotalPrice() - getTotalPrice() * 0.14).toFixed(2)}</span>
+                                    <span>{(getTotalPrice() - getTotalPrice() * 0.14).toFixed(2)} {t("EGP")}</span>
                                 </div>
                                 <div className="flex justify-between">
                                     <span>{t("VAT")} :</span>
-                                    <span>{t("EGP")} {(getTotalPrice() * 0.14).toFixed(2)}</span>
+                                    <span>{(getTotalPrice() * 0.14).toFixed(2)} {t("EGP")}</span>
                                 </div>
                                 <div className="flex justify-between border-t border-dashed border-t-gray-400 pt-3 my-1">
-                                    <span className="text-xl text-orange-500 font-bold">{t("Total")} </span>
-                                    <span className="text-xl text-orange-500 font-bold">{t("EGP")} {(getTotalPrice().toFixed(2))}</span>
+                                    <span className="text-xl text-[#ff5f00] font-bold">{t("Total")} </span>
+                                    <span className="text-xl text-[#ff5f00] font-bold">{(getTotalPrice().toFixed(2))} {t("EGP")}</span>
                                 </div>
                                 <div>
                                     <span className="text-gray-400 text-xs">{t("Including VAT")}</span>
                                 </div>
                             </div>
                         </div>
-                        <button className="p-3 uppercase border border-orange-500 rounded-lg text-orange-500 font-bold my-1" onClick={() => { navigate('/menu') }}>+ {t("add more items")}</button>
-                        <button className="p-3 uppercase bg-orange-500 rounded-lg font-bold text-white my-1" onClick={handleCheckout}>{t("Checkout")}</button>
+                        <button className="p-3 uppercase border text-[#ff5f00] rounded-lg text-[#ff5f00] font-bold my-1" onClick={() => { navigate('/menu') }}>+ {t("add more items")}</button>
+                        <button className="p-3 uppercase bg-[#ff5f00] rounded-lg font-bold text-white my-1" onClick={handleCheckout}>{t("Checkout")}</button>
                     </div>
                 }
             </div >
@@ -179,20 +209,20 @@ export default function CartPage() {
                     <div className="bg-white rounded-lg p-6 w-[80%] sm:w-[40%] ">
                         <div className="flex justify-between mb-4">
                             <button
-                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'login' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
+                                className={`w - [50 %] text - center px - 4 py - 2 ${activeTab === 'login' ? 'border-b-2 text-[#ff5f00] text-[#ff5f00]' : 'text-gray-500'}`}
                                 onClick={() => setActiveTab('login')}
                             >
                                 {t("Login")}
                             </button>
                             <button
-                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'signup' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
+                                className={`w - [50 %] text - center px - 4 py - 2 ${activeTab === 'signup' ? 'border-b-2 text-[#ff5f00] text-[#ff5f00]' : 'text-gray-500'} `}
                                 onClick={() => setActiveTab('signup')}
                             >
                                 {t("Create an account")}
                             </button>
                         </div>
                         {activeTab == 'login' && <LoginModal onClose={() => setLoginModalOpen(false)} onLoginSuccess={() => successfulUser()} />}
-                        {activeTab == 'signup' && <SignupModal onClose={()=>setLoginModalOpen(false)} onSignupSuccess={() => successfulUser()} />}
+                        {activeTab == 'signup' && <SignupModal onClose={() => setLoginModalOpen(false)} onSignupSuccess={() => successfulUser()} />}
                     </div>
                 </div>
             }

@@ -74,6 +74,7 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
                         title: `${t("Registration Successful")}`,
                         text: `${t("Your account has been created successfully. Welcome!")}`,
                         icon: "success",
+                        iconColor: '#ff5f00',
                         confirmButtonText: `${t("OK")}`,
                         customClass: {
                             confirmButton: 'custom-confirm-button'
@@ -131,7 +132,7 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
                     type={showPassword ? "text" : "password"}
                     placeholder={i18n.language == 'en' ? "Enter your password" : "أدخل كلمة المرور الخاصة بك"}
                     className={`text-black border rounded-[10px] w-full py-2 px-3 focus:outline-none
-                     ${error.password ? 'border-red-500 bg-red-100' : 'focus:border-orange-500'}`}
+                     ${error.password ? 'border-red-500 bg-red-100' : 'focus:text-[#ff5f00]'}`}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)} // Update password state on change
                 />
@@ -145,15 +146,15 @@ export default function SignupModal({ onClose, onSignupSuccess }) {
             </div>
             {error.password && <div className="text-red-500 text-sm mb-3">{error.password}</div>} {/* Display password error message */}
 
-            <button onClick={handleSignup} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">
+            <button onClick={handleSignup} className="bg-[#ff5f00] text-white font-bold py-2 px-4 w-full rounded mt-4">
                 {t("Create an account")}
             </button>
 
             <div className="mt-4 text-center text-sm text-gray-500">
                 {i18n.language == 'en' ? "By continuing, I agree to the" : "أوافق على "}
-                <Link to="/Terms" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Terms of Service' : 'شروط الخدمة'}</Link>
+                <Link to="/Terms" className="text-[#ff5f00] mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Terms of Service' : 'شروط الخدمة'}</Link>
                 {i18n.language == 'en' ? 'and' : 'و'}
-                <Link to="/Privacy" className="text-orange-600 mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}</Link>.
+                <Link to="/Privacy" className="text-[#ff5f00] mx-1 hover:underline" onClick={onClose}>{i18n.language == 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}</Link>.
             </div>
         </div>
     );

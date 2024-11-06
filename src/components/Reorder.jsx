@@ -63,8 +63,9 @@ export default function Reorder() {
       text: `${t('Your previous order has been added to your cart again.')}`,
       icon: "success",
       confirmButtonText: `${t("OK")}`,
+      iconColor: '#ff5f00',
       customClass: {
-        confirmButton: 'custom-confirm-button' 
+        confirmButton: 'custom-confirm-button'
       }
     }).then(() => {
 
@@ -104,15 +105,15 @@ export default function Reorder() {
                 <p className="text-lg">{t("Cash")}</p>
                 <div className="flex flex-col items-start md:flex-row md:items-center my-[5px]">
                   <p className="text-md md:w-1/4">{t("Sub total")}:</p>
-                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">{t("EGP")} {(order.totalPrice - order.totalPrice * 0.14).toFixed(2)}</p>
+                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">{(order.totalPrice - order.totalPrice * 0.14).toFixed(2)} {t("EGP")}</p>
                 </div>
                 <div className="flex flex-col items-start md:flex-row md:items-center my-[5px] border-b-2 border-gray-200">
                   <p className="text-md md:w-1/4">{t("VAT")}</p>
-                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">{t("EGP")} {(order.totalPrice * 0.14).toFixed(2)} </p>
+                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">{(order.totalPrice * 0.14).toFixed(2)} {t("EGP")} </p>
                 </div>
                 <div className="flex flex-col items-start md:flex-row md:items-center my-[5px]">
                   <p className="text-md md:w-1/4">{t("Total")}</p>
-                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">{t("EGP")} {(order.totalPrice).toFixed(2)} </p>
+                  <p className="text-lg text-left md:w-3/4 ml-1 font-bold">{(order.totalPrice).toFixed(2)} {t("EGP")} </p>
                 </div>
                 <p>{t("Including VAT")}</p>
               </div>
@@ -158,12 +159,9 @@ export default function Reorder() {
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
-
     </>
   )
 }

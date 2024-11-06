@@ -80,7 +80,6 @@
   "Product Added": "Product Added",
   "Offer Added": "Offer Added",
   "The offer has been added to your cart.": "The offer has been added to your cart.",
-
   "Logged In!": "Logged In!",
   "You have logged in successfully.": "You have logged in successfully.",
   "Welcome back!": "Welcome back!",
@@ -91,11 +90,11 @@
   "Registration Successful": "Registration Successful",
   "Your account has been created successfully. Welcome!": "Your account has been created successfully. Welcome!",
   "Order Placed!": "Order Placed!",
-  "Your order has been placed successfully!": "Your order has been placed successfully!",
+  "Your order has been placed successfully! We will contact you soon at your provided number.": "Your order has been placed successfully! We will contact you soon at your provided number.",
   "Explore our menu!": "Explore our menu and place your first order!",
   "You haven't placed any orders yet.": "You haven't placed any orders yet.",
   "Go to Menu": "Go to Menu",
   "Attention!": "Attention!",
-  "Please login first to check out.": "Please login first to check out."
-
+  "Please login first to check out.": "Please login first to check out.",
+  "Are you sure you want to remove this item from the cart?": "Are you sure you want to remove this item from the cart?"
 }

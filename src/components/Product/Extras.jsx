@@ -33,7 +33,9 @@ export default function Extras({ selectedExtras, onExtrasChange }) {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 justify-items-start bg-stone-50 rounded-xl p-8">
                     {data.extras?.map((extra) => (
                         <div key={extra.title.en} className="w-full p-4 capitalize bg-white rounded-lg">
-                            <FormControlLabel control={<Checkbox checked={selectedExtras.find((item) => item.en === extra.title.en)} onChange={(e) => handleExtraChange(extra.title, e.target.checked)} sx={checkboxStyles} />} label={`${extra.title[i18n.language]} (${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${extra.price})`} sx={labelStyles} />
+                            <FormControlLabel control={<Checkbox checked={selectedExtras.find((item) => item.en === extra.title.en)}
+                                onChange={(e) => handleExtraChange(extra.title, e.target.checked)} sx={checkboxStyles} />}
+                                label={`${extra.title[i18n.language]} (${extra.price} ${t('EGP')})`} sx={labelStyles} />
                         </div>))
                     }
                 </div>

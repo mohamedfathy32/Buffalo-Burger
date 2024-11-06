@@ -8,30 +8,30 @@ export default function Careers() {
             <div className="flex flex-col lg:flex-row mb-3">
                 {/* Left Section */}
                 <div className="w-full lg:w-1/2 bg-white text-black p-5 lg:p-10">
-                    <h3 className="text-6xl tracking-wider font-thin mb-4 text-orange-500 PSS" >
+                    <h3 className="text-6xl tracking-wider font-thin mb-4 text-[#ff5f00] PSS" >
                         APPLY NOW
                     </h3>
                     <div className="space-y-4">
                         <div className="flex items-start">
-                            <i className="fa-solid fa-diamond text-2xl text-orange-500"></i>
+                            <i className="fa-solid fa-diamond text-2xl text-[#ff5f00]"></i>
                             <p className="ml-2">
                                 A different kind of burger requires a different kind of person.
                             </p>
                         </div>
                         <div className="flex items-start">
-                            <i className="fa-solid fa-diamond text-2xl text-orange-500"></i>
+                            <i className="fa-solid fa-diamond text-2xl text-[#ff5f00]"></i>
                             <p className="ml-2">
                                 Each Buffalo Addict who joins our team builds our culture by never leaving their personality at the door.
                             </p>
                         </div>
                         <div className="flex items-start">
-                            <i className="fa-solid fa-diamond text-2xl text-orange-500"></i>
+                            <i className="fa-solid fa-diamond text-2xl text-[#ff5f00]"></i>
                             <p className="ml-2">
                                 We don’t just look for passion to serve food, but we are looking for individuals that have a desire to serve our community and people.
                             </p>
                         </div>
                         <div className="flex items-start">
-                            <i className="fa-solid fa-diamond text-2xl text-orange-500"></i>
+                            <i className="fa-solid fa-diamond text-2xl text-[#ff5f00]"></i>
                             <p className="ml-2">
                                 We want every person to leave our doors with a smile on their faces, and that includes our team!
                             </p>
@@ -39,7 +39,7 @@ export default function Careers() {
                     </div>
                     {/* Apply Button */}
                     <div className="flex justify-center mt-5">
-                        <button className="bg-orange-500 text-white py-2 px-8 rounded">
+                        <button className="bg-[#ff5f00] text-white py-2 px-8 rounded">
                             APPLY NOW
                         </button>
                     </div>
@@ -55,7 +55,7 @@ export default function Careers() {
                 >
                     <div className="text-center space-y-3">
                         <h6 className="text-white">JOIN OUR FAMILY</h6>
-                        <button className="bg-orange-500 text-white py-2 px-8 rounded">
+                        <button className="bg-[#ff5f00] text-white py-2 px-8 rounded">
                             APPLY NOW
                         </button>
                     </div>
@@ -64,10 +64,10 @@ export default function Careers() {
 
             {/* Employee Training Section */}
             <div className="p-5 lg:p-10">
-                <h1 className="text-7xl font-thin mb-4 text-orange-500 PSS tracking-wider">
+                <h1 className="text-7xl font-thin mb-4 text-[#ff5f00] PSS tracking-wider">
                     EMPLOYEE TRAINING
                 </h1>
-                <p className="text-orange-500">
+                <p className="text-[#ff5f00]">
                     As part of our family, we invest in employee training as a cornerstone of our key values, and as the key ingredient to our success.
                 </p>
                 <p className="mt-2">

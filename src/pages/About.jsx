@@ -13,7 +13,7 @@ export default function AboutPage() {
     };
     return (
         <>
-            <div className="bg-orange-500 p-4 d-inline-block flex justify-center text-white">
+            <div className="bg-[#ff5f00] p-4 d-inline-block flex justify-center text-white">
                 <div className={`nav-item d-inline-block mx-2 cursor-pointer ${index !== 0 ? 'opacity-50' : ''}`} onClick={() => { changeIndex(0) }}>
                     OUR STORY
                 </div>

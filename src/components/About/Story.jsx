@@ -7,7 +7,7 @@ export default function Story() {
                 <div className="flex flex-wrap items-center justify-between">
                     {/* Text Section */}
                     <div className="lg:w-6/12">
-                        <h1 className="py-5 text-orange-500 font-thin tracking-wider text-4xl PSS">
+                        <h1 className="py-5 text-[#ff5f00] font-thin tracking-wider text-4xl PSS">
                             OUR STORY
                         </h1>
                         <h6 className="text-lg mb-4">

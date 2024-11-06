@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 import { DataContext } from "../../utils/context";
 import { useContext } from "react";
 
-// eslint-disable-next-line react/prop-types
 export default function Bread({ selectedBread, onBreadChange }) {
     const { t, i18n } = useTranslation();
     const lang = i18n.language
@@ -31,7 +30,7 @@ export default function Bread({ selectedBread, onBreadChange }) {
                     {data.breads?.map(bread => (state.product.category === 'chicken sandwiches' && bread.title.en === 'lettuce bun') ? '' :
                         <div key={bread.title.en} className="bg-white rounded-xl capitalize lg:w-72 w-52 px-4 py-2">
                             <FormControlLabel value={bread.title[lang]} control={<Radio sx={radioStyles} />} sx={labelStyles}
-                                label={`${bread.title[lang]} ${lang === 'en' ? 'Bread' : ''} ${bread.price === 0 ? '' : `(${lang === 'en' ? 'EGP' : 'ج.م'} ${bread.price})`}`} />
+                                label={`${bread.title[lang]} ${lang === 'en' ? 'Bread' : ''} ${bread.price === 0 ? '' : `( ${bread.price} ${t('EGP')} )`}`} />
                         </div>)
                     }
                 </div>

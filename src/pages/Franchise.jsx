@@ -3,7 +3,7 @@ export default function FranchisePage() {
         <div className="bg-black min-h-screen">
             <div className="container mx-auto flex flex-col items-start px-5 lg:px-0">
                 <h1
-                    className="mt-5 text-3xl font-bold text-orange-500"
+                    className="mt-5 text-3xl font-bold text-[#ff5f00]"
                     style={{ fontFamily: 'Piedra, serif' }}
                 >
                     DEAR PROSPECTIVE FRANCHISEE

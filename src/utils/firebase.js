@@ -13,7 +13,6 @@ const firebaseConfig = {
   measurementId: "G-NFHVQGTH7D",
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
@@ -88,9 +87,10 @@ export async function login(email, password) {
     .catch(() => {
       Swal.fire({
         title: "Login Error",
+        iconColor: '#ff5f00',
         text: "Incorrect email or password. Please try again.",
         icon: "error",
-    })
+      })
     });
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////

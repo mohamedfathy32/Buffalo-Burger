@@ -55,7 +55,7 @@ export default function OrderHistoryPage() {
 
                         <button
                             onClick={() => nav("/menu")}
-                            className="mt-6 px-6 py-3 text-white font-semibold bg-orange-500 hover:bg-orange-600 rounded-lg shadow-md transition duration-300 ease-in-out"
+                            className="mt-6 px-6 py-3 text-white font-semibold bg-[#ff5f00] hover:bg-[#ff5f00] rounded-lg shadow-md transition duration-300 ease-in-out"
                         >
                             {t("Go to Menu")}
                         </button>
@@ -79,7 +79,7 @@ export default function OrderHistoryPage() {
 
                                                         <p className="font-main text-lg font-bold text-black">{order.date}</p>
                                                         <p className="font-main text-sm  leading-6 tracking-wide text-[#707070] ">{t("Order ID")}: {order.id}</p>
-                                                        <p className="font-main text-sm text-primary-black md:text-base lg:text-base">{t("Total")} {t("EGP")} {order.totalPrice}</p>
+                                                        <p className="font-main text-sm text-primary-black md:text-base lg:text-base">{`${t("Total")} ${order.totalPrice} ${t("EGP")}`}</p>
                                                         <p className="font-main text-xs md:text-xs text-[#707070]">{t("Orders can be edited or cancelled within 7 minutes of order time")}</p>
                                                     </div>
                                                     <div className="flex flex-col justify-between w-[40%] md:w-[30%] lg:w-[20%]">

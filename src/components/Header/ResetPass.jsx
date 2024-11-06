@@ -29,7 +29,7 @@ export default function ResetPassModal() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)} // تحديث البريد الإلكتروني
             />
-            <button onClick={handleResetPassword} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">
+            <button onClick={handleResetPassword} className="bg-[#ff5f00] text-white font-bold py-2 px-4 w-full rounded mt-4">
                 Reset Password
             </button>
             {message && <div className="mt-4 text-gray-700">{message}</div>} {/* عرض الرسالة */}

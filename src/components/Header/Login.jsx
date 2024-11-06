@@ -49,16 +49,17 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
             if (res.uid) {
                 localStorage.setItem("userId", res.uid);
                 onLoginSuccess();
-                onClose(); 
+                onClose();
                 Swal.fire({
                     title: `${t("Logged In!")}`,
                     text: `${t("You have logged in successfully.")} ${t("Welcome back!")}`,
                     icon: "success",
+                    iconColor: '#ff5f00',
                     confirmButtonText: `${t("OK")}`,
                     customClass: {
-                        confirmButton: 'custom-confirm-button' 
-                      }
-                  })
+                        confirmButton: 'custom-confirm-button'
+                    }
+                })
             }
         }
     };
@@ -77,7 +78,7 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                     <input
                         type="email"
                         placeholder={i18n.language == 'en' ? "Enter your email" : "أدخل بريدك الإلكتروني"}
-                        className={`text-black border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none ${error.email ? 'border-red-500 bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'}`}
+                        className={`text-black border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none ${error.email ? 'border-[#ff5f00] bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'}`}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)} // Update email state on change
                     />
@@ -88,7 +89,7 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                         <input
                             type={showPassword ? "text" : "password"}
                             placeholder={i18n.language == 'en' ? "Enter your password" : "أدخل كلمة المرور الخاصة بك"}
-                            className={`text-black border rounded-[10px] w-full py-2 px-3 focus:outline-none ${error.password ? 'border-red-500 bg-red-100' : 'focus:border-orange-500'}`}
+                            className={`text-black border rounded-[10px] w-full py-2 px-3 focus:outline-none ${error.password ? 'border-[#ff5f00] bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'}`}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)} // Update password state on change
                         />
@@ -102,9 +103,9 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                     </div>
                     {error.password && <div className="text-red-500 text-sm mb-3">{error.password}</div>} {/* Display password error message */}
                     <div className="flex items-center justify-end">
-                        <p onClick={handleResetPasswordClick} className="text-sm cursor-pointer text-black hover:text-orange-500 text-end">{i18n.language == 'en' ? "Forgot Password?" : 'نسيت كلمة السر ؟'}</p>
+                        <p onClick={handleResetPasswordClick} className="text-sm cursor-pointer text-black hover:text-[#ff5f00] text-end">{i18n.language == 'en' ? "Forgot Password?" : 'نسيت كلمة السر ؟'}</p>
                     </div>
-                    <button onClick={handleLogin} className="bg-orange-500 text-white font-bold py-2 px-4 w-full rounded mt-4">
+                    <button onClick={handleLogin} className="bg-[#ff5f00] text-white font-bold py-2 px-4 w-full rounded mt-4">
                         {t("Login")}
                     </button>
                 </>

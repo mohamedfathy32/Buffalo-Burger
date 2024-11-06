@@ -3,12 +3,12 @@ export default function FindUs() {
         <div className="bg-black min-h-screen">
             <div className="container mx-auto flex flex-col items-center">
                 <h1
-                    className="mt-4 mb-6 text-7xl font-thin tracking-wider PSS text-orange-500"
+                    className="mt-4 mb-6 text-7xl font-thin tracking-wider PSS text-[#ff5f00]"
                 >
                     FIND US
                 </h1>
 
-                <div className="text-white mb-3 border-b border-orange-500">
+                <div className="text-white mb-3 border-b text-[#ff5f00]">
                     <p className="text-2xl text-center max-w-2xl">
                         Buffalo Burger is constantly expanding to deliver an unmatched gourmet experience at every customers’ doorstep. Today, we take pride in boasting flagship restaurants across Egypt, bringing the ‘real deal’ closer to your home. Looking for the branch closest to you? Find us wherever you are.
                     </p>

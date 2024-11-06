@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next"
 
 export default function LastSection() {
-    const { t , i18n } = useTranslation()
+    const { t, i18n } = useTranslation()
 
     return <>
         <div className="w-full">
@@ -16,12 +16,12 @@ export default function LastSection() {
                         <div className="flex justify-center h-[362px] overflow-hidden lg:hidden relative w-full">
                             <img className="  flex h-[155%] w-full max-w-[288px]  " src='/images/Home/buffalo-app-CTA-img.png' alt="" />
                         </div>
-                        <h1 className="  text-2xl lg:text-[32px] text-orange-600 font-bold uppercase md:max-w-[50%]  ">
-                           {i18n.language=='en'?"Download our mobile application now!!!":"قم بتنزيل تطبيقنا المحمول الآن!!!"} 
+                        <h1 className="  text-2xl lg:text-[32px] text-[#ff5f00] font-bold uppercase md:max-w-[50%]  ">
+                            {i18n.language == 'en' ? "Download our mobile application now!!!" : "قم بتنزيل تطبيقنا المحمول الآن!!!"}
                         </h1>
                         <p className="  text-base lg:text-xl text-white md:max-w-[50%]">
-                           {i18n.language=='en'? "Supercharge your experience with our mobile app! Unbeatable deals, personalized food suggestions, easy address management, loyalty points, and a user-friendly interface."
-                           :'استمتع بتجربة سهلة وممتعة! احصل على عروض لا تُقاوَم، اقتراحات طعام شخصية، إدارة عناوينك بسهولة، نقاط الخصم، وواجهة سهلة الاستخدام. قم بالتحميل الآن.'}
+                            {i18n.language == 'en' ? "Supercharge your experience with our mobile app! Unbeatable deals, personalized food suggestions, easy address management, loyalty points, and a user-friendly interface."
+                                : 'استمتع بتجربة سهلة وممتعة! احصل على عروض لا تُقاوَم، اقتراحات طعام شخصية، إدارة عناوينك بسهولة، نقاط الخصم، وواجهة سهلة الاستخدام. قم بالتحميل الآن.'}
                         </p>
                         <div className="flex flex-row pt-6 gap-x-4">
                             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.thebuffaloburger&pli=1">

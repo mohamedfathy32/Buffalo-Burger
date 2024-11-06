@@ -6,7 +6,7 @@ import { CartContext } from "../utils/context";
 
 export default function ProductCard({ product }) {
     const { setCart } = useContext(CartContext);
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const [productQuantity, setProductQuantity] = useState(0);
 
@@ -51,13 +51,13 @@ export default function ProductCard({ product }) {
                 <h2 className="font-bold text-lg uppercase">{product?.title?.[i18n.language]}</h2>
                 <p className="text-neutral-400 capitalize line-clamp-3">{product?.description?.[i18n.language]}</p>
                 <div className="flex justify-between items-center mt-auto">
-                    <span className="font-bold">{i18n.language === 'en' ? 'EGP' : 'ج.م'} {product?.price}</span>
+                    <span className="font-bold">{product?.price} {t('EGP')}</span>
                     {productQuantity === 0 || product?.details ?
                         <MdAddCircleOutline onClick={() => {
                             product?.details ? navigate(`/Product/${product?.title?.en?.split(' ').join('-')}`, { state: { product } }) : updateCart(1);
-                        }} className="text-white bg-orange-600 rounded-full p-1 text-[32px]" />
+                        }} className="text-white bg-[#ff5f00] rounded-full p-1 text-[32px]" />
                         :
-                        <div className="bg-orange-600 rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
+                        <div className="bg-[#ff5f00] rounded-md font-bold flex justify-center items-center gap-5 p-2 text-white">
                             <MdRemoveCircleOutline onClick={() => updateCart(-1)} className="text-2xl" />
                             <span>{productQuantity}</span>
                             <MdAddCircleOutline onClick={() => updateCart(1)} className="text-2xl" />
