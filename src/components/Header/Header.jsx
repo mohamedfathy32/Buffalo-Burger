@@ -362,6 +362,7 @@ export default function Header() {
                 <div className="fixed top-16 w-[100%] h-screen items-center flex  justify-center z-50 bg-black bg-opacity-50 ">
                     <div className="bg-white rounded-lg p-6 w-[80%] sm:w-[40%] ">
                         <div className="flex justify-between mb-4">
+                            
                             <button
                                 className={`w-[50%] text-center px-4 py-2 ${activeTab === 'login' ? 'border-b-2 border-[#ff5f00]  text-[#ff5f00]' : 'text-gray-500'}`}
                                 onClick={() => setActiveTab('login')}
