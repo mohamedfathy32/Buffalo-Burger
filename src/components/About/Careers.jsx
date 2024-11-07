@@ -4,7 +4,6 @@ export default function Careers() {
     useEffect(() => { return }, [])
     return (
         <div className="bg-black text-white font-sans">
-            {/* Apply Now Section */}
             <div className="flex flex-col lg:flex-row mb-3">
                 {/* Left Section */}
                 <div className="w-full lg:w-1/2 bg-white text-black p-5 lg:p-10">

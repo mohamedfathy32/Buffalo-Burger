@@ -1,13 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../utils/context";
-import {getCollectionByName } from "../utils/firebase";
+import { getCollectionByName } from "../utils/firebase";
 import KeenSlider from "../components/Home/Keen";
 import LastSection from "../components/Home/LastSec";
 import SwiperSlider from "../components/Home/Swiper";
 import TopSelling from "../components/Home/TopSelling";
 import MenuNav from "../components/Home/Nav";
 import Splash from "../components/Splash";
-
 
 export default function HomePage() {
     const { data, setData } = useContext(DataContext);
@@ -33,7 +32,7 @@ export default function HomePage() {
     //             index++;
     //         }, 500);
     //     }
-    //     addItemsWithCustomID(menuCategoriesList, 'categories')
+    //     addItemsWithCustomID(topSellingList, 'topSellings')
     // }, []);
     useEffect(() => {
         (async () => {
@@ -59,7 +58,7 @@ export default function HomePage() {
             <KeenSlider />
             <TopSelling />
             <LastSection />
-            
+
         </>
     );
 }

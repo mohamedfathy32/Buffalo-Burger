@@ -2,10 +2,7 @@ export default function Story() {
     return (
         <div id="story" className="content bg-[#1c1c1b] text-white py-10">
             <div className="pt-12 px-24 md:x-24 flex flex-col md:w-full md:flex-row">
-                {/* container mx-auto px-4 lg:px-0 */}
-                {/* pt-12 px-2 md:x-24 flex flex-col md:w-full md:flex-row */}
                 <div className="flex flex-wrap items-center justify-between">
-                    {/* Text Section */}
                     <div className="lg:w-6/12">
                         <h1 className="py-5 text-[#ff5f00] font-thin tracking-wider text-4xl PSS">
                             OUR STORY
@@ -29,8 +26,6 @@ export default function Story() {
                         <h1 className="my-4 text-light font-thin tracking-wider md:text-6xl text-3xl PSS">
                             WHERE WE ARE NOW
                         </h1>
-
-                        {/* Icons Section */}
                         <div className="flex flex-col sm:flex-row gap-8 md:gap-24 mb-4 justify-start items-center">
                             <img
                                 className="w-20"
@@ -49,11 +44,9 @@ export default function Story() {
                             />
                         </div>
                     </div>
-
-                    {/* Image Section */}
                     <div className="lg:w-4/12 mt-8 lg:mt-0">
                         <img
-                            src="https://buffaloburger.com/_next/image?url=https%3A%2F%2Fbuffalonlineorderingapp.s3-accelerate.amazonaws.com%2Fstatic_images%2FBM-Jack.png&w=384&q=75"
+                            src="https://i.ibb.co/BCgn8Zp/Pngtree-food-delicious-burger-9113995-1.png"
                             alt="Buffalo Burger"
                             className="w-full"
                         />

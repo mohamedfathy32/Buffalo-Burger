@@ -33,10 +33,8 @@ export default function ProfilePage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Perform the save operation (you can implement your save logic here)
         console.log("Saving changes...", formData);
 
-        // After saving, reset isChanged to false
         setIsChanged(false);
         updateUserProfile(userId, formData.fullName);
         alert("Saved changes");
@@ -68,7 +66,6 @@ export default function ProfilePage() {
     useEffect(() => {
         if (!isLoggedIn) {
             navigate('/');
-            // console.log('Hi')
         }
     }, [isLoggedIn, navigate]);
 
