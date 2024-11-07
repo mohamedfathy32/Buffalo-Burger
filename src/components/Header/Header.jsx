@@ -53,7 +53,6 @@ export default function Header() {
             const userInfo = await getUserInfoById(userId);
             if (userInfo) {
                 setUsername(userInfo.username);
-                console.log(userInfo.username)
                 setUserphone(userInfo.phoneNumber);
                 setIsLoggedIn(true);
             }
@@ -312,14 +311,6 @@ export default function Header() {
                                     <MdShoppingBasket className="inline-block mr-2 text-2xl text-[#ff5f00]" />
                                     <Link className="p-1 undefined" to="/cart" onClick={closeWindows}>{t("Cart")}</Link>
                                 </div>
-                                {/* <div className="text-white font-main font-bold">
-                                    <img
-                                        className="w-7 inline-block mr-2"
-                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
-                                    <Link className="p-1 undefined" to="/Loyalty">{t("My Loyalty Points")}
-
-                                    </Link>
-                                </div> */}
                             </div>
                             <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
                                 <div className="text-white font-main font-bold">

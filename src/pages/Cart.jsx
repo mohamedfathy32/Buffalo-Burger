@@ -51,17 +51,14 @@ export default function CartPage() {
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Proceed with removing the item
                     updateCartQuantity(id, change);
                 }
             });
         } else {
-            // Update quantity directly if no confirmation is needed
             updateCartQuantity(id, change);
         }
     };
 
-    // Helper function to update cart quantity
     const updateCartQuantity = (id, change) => {
         const updatedCart = cart
             .map(item =>
@@ -107,7 +104,7 @@ export default function CartPage() {
                     date, id: `${Date.now()}`, cart, userID, totalPrice: getTotalPrice()
                 });
                 Swal.fire({
-                    title: `${t("Order Placed!")}`, // إضافة عنوان للطلب
+                    title: `${t("Order Placed!")}`,
                     text: `${t("Your order has been placed successfully! We will contact you soon at your provided number.")} ${userInfo.phoneNumber}`,
                     icon: "success",
                     iconColor: '#ff5f00',
@@ -116,7 +113,6 @@ export default function CartPage() {
                         confirmButton: 'custom-confirm-button'
                     }
                 });
-
 
                 setCart([]);
                 localStorage.removeItem("cart");
@@ -199,7 +195,7 @@ export default function CartPage() {
                                 </div>
                             </div>
                         </div>
-                        <button className="p-3 uppercase border text-[#ff5f00] rounded-lg text-[#ff5f00] font-bold my-1" onClick={() => { navigate('/menu') }}>+ {t("add more items")}</button>
+                        <button className="p-3 uppercase border text-[#ff5f00] rounded-lg border-[#ff5f00] font-bold my-1" onClick={() => { navigate('/menu') }}>+ {t("add more items")}</button>
                         <button className="p-3 uppercase bg-[#ff5f00] rounded-lg font-bold text-white my-1" onClick={handleCheckout}>{t("Checkout")}</button>
                     </div>
                 }
@@ -209,13 +205,13 @@ export default function CartPage() {
                     <div className="bg-white rounded-lg p-6 w-[80%] sm:w-[40%] ">
                         <div className="flex justify-between mb-4">
                             <button
-                                className={`w - [50 %] text - center px - 4 py - 2 ${activeTab === 'login' ? 'border-b-2 text-[#ff5f00] text-[#ff5f00]' : 'text-gray-500'}`}
+                                className={`w - [50 %] text - center px - 4 py - 2 ${activeTab === 'login' ? 'border-b-2 text-[#ff5f00] border-[#ff5f00]' : 'text-gray-500'}`}
                                 onClick={() => setActiveTab('login')}
                             >
                                 {t("Login")}
                             </button>
                             <button
-                                className={`w - [50 %] text - center px - 4 py - 2 ${activeTab === 'signup' ? 'border-b-2 text-[#ff5f00] text-[#ff5f00]' : 'text-gray-500'} `}
+                                className={`w - [50 %] text - center px - 4 py - 2 ${activeTab === 'signup' ? 'border-b-2 text-[#ff5f00] border-[#ff5f00]' : 'text-gray-500'} `}
                                 onClick={() => setActiveTab('signup')}
                             >
                                 {t("Create an account")}

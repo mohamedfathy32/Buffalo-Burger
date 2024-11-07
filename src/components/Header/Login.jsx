@@ -5,47 +5,42 @@ import { login } from "../../utils/firebase";
 import { useTranslation } from "react-i18next";
 import Swal from "sweetalert2";
 
-// eslint-disable-next-line react/prop-types
 export default function LoginModal({ onClose, onLoginSuccess }) {
-    const [email, setEmail] = useState(""); // State for storing the email
-    const [password, setPassword] = useState(""); // State for storing the password
-    const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
-    const [error, setError] = useState({ email: "", password: "" }); // State for storing error messages
-    const [isResetPasswordVisible, setResetPasswordVisible] = useState(false); // حالة لعرض نموذج إعادة تعيين كلمة المرور
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState({ email: "", password: "" });
+    const [isResetPasswordVisible, setResetPasswordVisible] = useState(false);
     const { t, i18n } = useTranslation()
 
-    // Function to validate inputs
     const validateInputs = () => {
-        let isValid = true; // Variable to track validity
-        const newError = { email: "", password: "" }; // Reset error messages
+        let isValid = true;
+        const newError = { email: "", password: "" };
 
-        // Validate email
         if (!email) {
-            newError.email = "Email is required"; // Error for empty email
-            isValid = false; // Mark inputs as invalid
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { // Check email format
+            newError.email = "Email is required";
+            isValid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             newError.email = "Please enter a valid email address";
-            isValid = false; // Mark inputs as invalid
+            isValid = false;
         }
 
-        // Validate password
         if (!password) {
-            newError.password = "Password is required"; // Error for empty password
-            isValid = false; // Mark inputs as invalid
-        } else if (password.length < 6) { // Check password length
+            newError.password = "Password is required";
+            isValid = false;
+        } else if (password.length < 6) {
             newError.password = "Password must be at least 6 characters long";
-            isValid = false; // Mark inputs as invalid
+            isValid = false;
         }
 
-        setError(newError); // Update error state
-        return isValid; // Return overall validity
+        setError(newError);
+        return isValid;
     };
 
-    // Function to handle login
     const handleLogin = async () => {
-        setError({ email: "", password: "" }); // Reset errors
-        if (validateInputs()) { // Validate inputs
-            const res = await login(email, password); // Attempt to log in
+        setError({ email: "", password: "" });
+        if (validateInputs()) {
+            const res = await login(email, password);
             if (res.uid) {
                 localStorage.setItem("userId", res.uid);
                 onLoginSuccess();
@@ -65,7 +60,7 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
     };
 
     const handleResetPasswordClick = () => {
-        setResetPasswordVisible(true); // تغيير الحالة لعرض نموذج إعادة تعيين كلمة المرور
+        setResetPasswordVisible(true);
     };
 
     return (
@@ -80,9 +75,9 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                         placeholder={i18n.language == 'en' ? "Enter your email" : "أدخل بريدك الإلكتروني"}
                         className={`text-black border rounded-[10px] w-full py-2 px-3 mb-3 focus:outline-none ${error.email ? 'border-[#ff5f00] bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'}`}
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)} // Update email state on change
+                        onChange={(e) => setEmail(e.target.value)}
                     />
-                    {error.email && <div className="text-red-500 text-sm mb-3">{error.email}</div>} {/* Display email error message */}
+                    {error.email && <div className="text-red-500 text-sm mb-3">{error.email}</div>}
 
                     <label className="block text-gray-700 text-sm font-bold mb-2">{t("Password")}</label>
                     <div className="relative mb-3">
@@ -91,7 +86,7 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                             placeholder={i18n.language == 'en' ? "Enter your password" : "أدخل كلمة المرور الخاصة بك"}
                             className={`text-black border rounded-[10px] w-full py-2 px-3 focus:outline-none ${error.password ? 'border-[#ff5f00] bg-red-100' : 'focus:border-black focus:bg-[#ffefe6]'}`}
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)} // Update password state on change
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                         <button
                             type="button"
@@ -101,7 +96,7 @@ export default function LoginModal({ onClose, onLoginSuccess }) {
                             {showPassword ? <FaEyeSlash className="text-gray-500" /> : <FaEye className="text-gray-500" />}
                         </button>
                     </div>
-                    {error.password && <div className="text-red-500 text-sm mb-3">{error.password}</div>} {/* Display password error message */}
+                    {error.password && <div className="text-red-500 text-sm mb-3">{error.password}</div>}
                     <div className="flex items-center justify-end">
                         <p onClick={handleResetPasswordClick} className="text-sm cursor-pointer text-black hover:text-[#ff5f00] text-end">{i18n.language == 'en' ? "Forgot Password?" : 'نسيت كلمة السر ؟'}</p>
                     </div>

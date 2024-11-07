@@ -5,7 +5,6 @@ export default function Careers() {
     return (
         <div className="bg-black text-white font-sans">
             <div className="flex flex-col lg:flex-row mb-3">
-                {/* Left Section */}
                 <div className="w-full lg:w-1/2 bg-white text-black p-5 lg:p-10">
                     <h3 className="text-6xl tracking-wider font-thin mb-4 text-[#ff5f00] PSS" >
                         APPLY NOW
@@ -36,15 +35,12 @@ export default function Careers() {
                             </p>
                         </div>
                     </div>
-                    {/* Apply Button */}
                     <div className="flex justify-center mt-5">
                         <button className="bg-[#ff5f00] text-white py-2 px-8 rounded">
                             APPLY NOW
                         </button>
                     </div>
                 </div>
-
-                {/* Right Section */}
                 <div
                     className="w-full lg:w-1/2 flex justify-center items-center bg-cover bg-center"
                     style={{
@@ -60,7 +56,6 @@ export default function Careers() {
                     </div>
                 </div>
             </div>
-
             {/* Employee Training Section */}
             <div className="p-5 lg:p-10">
                 <h1 className="text-7xl font-thin mb-4 text-[#ff5f00] PSS tracking-wider">

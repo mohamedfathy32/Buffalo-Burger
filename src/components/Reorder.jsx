@@ -10,40 +10,31 @@ import Swal from "sweetalert2";
 export default function Reorder() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const [openAlert, setOpenAlert] = useState(false);
   const { id } = useParams()
   const nav = useNavigate()
   const { t, i18n } = useTranslation()
   const lang = i18n.language
 
   useEffect(() => {
-    // Function to fetch the document based on the field value of 'id'
     const fetchDocumentByFieldId = async (collectionName, fieldId) => {
       try {
-        // Create a query to search for documents with the specified field ID
         const q = query(
           collection(db, collectionName),
-          where("id", "==", fieldId) // Look for documents where the 'id' field matches fieldId
+          where("id", "==", fieldId)
         );
-
-        // Execute the query and get the results
         const querySnapshot = await getDocs(q);
 
-        // Check if any documents were found
         if (!querySnapshot.empty) {
-          // Get the data of the first matching document
           const docData = querySnapshot.docs[0].data();
-          setOrder(docData); // Set the document data to state
+          setOrder(docData);
           setLoading(false);
         } else {
-          console.log("Document not found!"); // Log if no document matches the criteria
+          console.log("Document not found!");
         }
       } catch (error) {
-        console.error("Error fetching document:", error); // Handle any errors that occur during fetch
+        console.error("Error fetching document:", error);
       }
     };
-
-    // Call the fetch function with the collection name and the specific ID
     fetchDocumentByFieldId("orders", id);
   }, [id]);
 
@@ -72,13 +63,8 @@ export default function Reorder() {
       nav('/cart')
     });
   }
-
-
-
-
   return (loading ? <Splash /> :
     <>
-
       <div className="w-full flex justify-center px-2 md:px-10 pt-7 pb-2">
 
         <div className="w-full flex flex-col md:w-3/5">
@@ -129,7 +115,6 @@ export default function Reorder() {
                 <div className="w-full bg-[#f7f7f7] flex flex-col p-1 md:grid md:grid-cols-3 justify-between">
                   {order.cart.map((product) => (
                     <>
-                      {console.log(product)}
                       <div key={product.title[lang]} className="bg-white flex flex-row col-span-2 mb-0 md:mb-2 p-2 rounded-[10px] rounded-b-none md:rounded-b-[10px]">
                         <div>
                           <img alt="Mix N' Match" loading="lazy" width="70" height="70" decoding="async" data-nimg="1" src={product.image} />

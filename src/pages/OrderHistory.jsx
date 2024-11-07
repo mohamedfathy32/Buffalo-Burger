@@ -40,7 +40,6 @@ export default function OrderHistoryPage() {
         <Splash />
     ) : (
         <>
-            {console.log(data.orders.length)}
             {data.orders?.map(
                 (order) => order?.userID?.toString().includes(userID) &&
                     <>

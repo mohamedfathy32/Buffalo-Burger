@@ -78,7 +78,6 @@ export default function CartDrawer({ cartDrawer, closeWindows }) {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                // If confirmed, proceed with item removal
                 const updatedCart = cart.filter(item => item.id !== id);
                 updateCartInLocalStorage(updatedCart);
             }
