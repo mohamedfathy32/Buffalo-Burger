@@ -61,7 +61,7 @@ export default function Size({ selectedSize, onSizeChange }) {
                         </p>
                         <div className={`absolute w-3 h-3 rounded-full top-1.5 start-1/2 ${i18n.language === 'en' ? '-translate-x-1/2' : 'translate-x-1/2'} ${size.title[i18n.language] === selectedSize?.[i18n.language] ? 'bg-[#ff5f00]' : 'bg-white'}`}></div>
                         <p className="text-center mt-3">
-                            {size.price === 155 ? <br /> : size.price > 0 ? `+${size.price - 155} ${t('EGP')}` : ''}
+                            {size.price === sizesList[0].price ? <br /> : size.price > 0 ? `+${size.price - sizesList[0].price} ${t('EGP')}` : ''}
                         </p>
                     </div>
                 ))}
