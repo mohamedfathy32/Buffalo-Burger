@@ -12,6 +12,7 @@ const firebaseConfig = {
   measurementId: "G-NFHVQGTH7D",
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 // const firebaseConfig = {
 //   apiKey: "AIzaSyB938mwob15coVUd54hbLJNzBmRbqhK80M",
 //   authDomain: "buffalo-burger-432d6.firebaseapp.com",
@@ -21,6 +22,9 @@ const firebaseConfig = {
 //   appId: "1:676912297668:web:abf14165867ae338363b91"
 // };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+=======
+
+>>>>>>> 0cc4f81e3961ed25ec419a910741ed717ffb2612
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);

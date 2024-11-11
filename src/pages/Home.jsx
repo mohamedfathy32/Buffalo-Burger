@@ -1,6 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../utils/context";
+<<<<<<< HEAD
 import { db, getCollectionByName } from "../utils/firebase";
+=======
+import {getCollectionByName } from "../utils/firebase";
+>>>>>>> 0cc4f81e3961ed25ec419a910741ed717ffb2612
 import KeenSlider from "../components/Home/Keen";
 import LastSection from "../components/Home/LastSec";
 import SwiperSlider from "../components/Home/Swiper";
@@ -9,10 +13,33 @@ import MenuNav from "../components/Home/Nav";
 import Splash from "../components/Splash";
 import { collection, doc, setDoc } from "firebase/firestore";
 
+
 export default function HomePage() {
     const { data, setData } = useContext(DataContext);
     const [loading, setLoading] = useState(true);
-
+    // useEffect(() => {
+    //     async function addItemsWithCustomID(arrayOfObjects, collectionName) {
+    //         const collectionRef = collection(db, collectionName);
+    //         let index = 0;
+    //         const intervalId = setInterval(async () => {
+    //             if (index >= arrayOfObjects.length) {
+    //                 clearInterval(intervalId);
+    //                 return;
+    //             }
+    //             const item = arrayOfObjects[index];
+    //             const customID = `${index + 10}_${item.title.en}`; // Custom ID format: timestamp_title.en
+    //             try {
+    //                 const docRef = doc(collectionRef, customID); // Create document reference with custom ID
+    //                 await setDoc(docRef, item); // Add the item with the custom ID
+    //                 console.log(`Added item ${index + 1} with ID ${customID} to ${collectionName} collection`);
+    //             } catch (error) {
+    //                 console.error("Error adding document: ", error);
+    //             }
+    //             index++;
+    //         }, 500);
+    //     }
+    //     addItemsWithCustomID(menuCategoriesList, 'categories')
+    // }, []);
     useEffect(() => {
         (async () => {
             try {
@@ -63,7 +90,11 @@ export default function HomePage() {
             <KeenSlider />
             <TopSelling />
             <LastSection />
+            
         </>
     );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0cc4f81e3961ed25ec419a910741ed717ffb2612

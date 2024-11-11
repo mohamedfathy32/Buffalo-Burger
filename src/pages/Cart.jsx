@@ -149,7 +149,11 @@ export default function CartPage() {
                             <p className="font-bold">Your order has been placed successfully!</p>
                         </DialogContentText>
                         <DialogContentText className="flex justify-center">
+<<<<<<< HEAD
                             <FaCheckCircle className="m-4 text-4xl text-[#ff5f00]" />
+=======
+                            <FaCheckCircle className="m-4 text-4xl text-orange-600" />
+>>>>>>> 0cc4f81e3961ed25ec419a910741ed717ffb2612
                         </DialogContentText>
                     </DialogContent>
                     {/* <DialogActions>
@@ -172,7 +176,11 @@ export default function CartPage() {
                             </p>
                         </DialogContentText>
                         <DialogContentText className="flex justify-center">
+<<<<<<< HEAD
                             {/* <FaCheckCircle className="m-4 text-4xl text-[#ff5f00]" /> */}
+=======
+                            {/* <FaCheckCircle className="m-4 text-4xl text-orange-600" /> */}
+>>>>>>> 0cc4f81e3961ed25ec419a910741ed717ffb2612
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>

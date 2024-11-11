@@ -40,7 +40,11 @@ export default function ProductPage() {
 
     useEffect(() => {
         async function fetchData() {
+<<<<<<< HEAD
             if (data.breads && data.comboOptions && data.drinks && data.extras) {
+=======
+            if (data.breads && data.comboOptions && data.drinks && data.extras){
+>>>>>>> 0cc4f81e3961ed25ec419a910741ed717ffb2612
                 setLoading(false);
             };
             try {
