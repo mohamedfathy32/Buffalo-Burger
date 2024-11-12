@@ -4,7 +4,7 @@ export default function PrivacyPage() {
         <>
             <div className="w-full flex justify-center items-center uppercase py-2 gap-2">
                 <Link className="font-bold" to={'/Terms'}>Terms and conditions</Link>
-                <span className="font-bold text-orange-500">Privacy policy</span>
+                <span className="font-bold text-[#ff5f00]">Privacy policy</span>
             </div>
             <h1 className="text-7xl PSS text-center bg-gray-300 font-medium uppercase p-4">
                 Buffalo Burger Privacy Policy:
@@ -314,7 +314,7 @@ export default function PrivacyPage() {
                     60 Abdullah El Araby St., Nasr City, Cairo, Egypt
                 </p>
 
-                <span className="text-orange-500">info@saalinvest.com</span>
+                <span className="text-[#ff5f00]">info@saalinvest.com</span>
 
                 <p className="mb-6 break-words">
                     19914
@@ -460,7 +460,7 @@ export default function PrivacyPage() {
                     60 Abdullah El Araby St., Nasr City, Cairo, Egypt
                 </p>
 
-                <span className="mb-8 text-orange-500">info@saalinvest.com</span>
+                <span className="mb-8 text-[#ff5f00]">info@saalinvest.com</span>
 
                 <p className="mb-8 break-words">
                     19914

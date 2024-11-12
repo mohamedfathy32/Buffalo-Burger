@@ -20,7 +20,6 @@ export default function MenuPage() {
                     const offers = await getCollectionByName('offers');
                     const categories = await getCollectionByName('categories');
                     setData({ products, offers, categories });
-                    console.log('get from menu')
                 }
             }
             catch (e) { console.log(e) }

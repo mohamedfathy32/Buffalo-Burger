@@ -20,7 +20,7 @@ export default function ComboOption({ selectedComboOption, onComobOptionChange, 
                         <div className="text-start ms-4">
                             <h3 className="font-bold text-sm capitalize">{co?.title?.en !== 'no combo' && co?.title?.[i18n.language]}</h3>
                             <p className="text-sm">{co?.description[i18n.language]}
-                                <span>{co?.price === 0 ? '' : ` (${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${co?.price})`}</span>
+                                <span>{co?.price === 0 ? '' : ` ( ${co?.price} ${t('EGP')} )`}</span>
                             </p>
                         </div>
                     </button>)

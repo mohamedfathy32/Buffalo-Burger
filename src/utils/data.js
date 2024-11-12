@@ -1207,7 +1207,6 @@
 //         title: { en: "pickles", ar: "مخلل" },
 //         price: 5
 //     },
-
 // ]
 
 // export const drinksList = [

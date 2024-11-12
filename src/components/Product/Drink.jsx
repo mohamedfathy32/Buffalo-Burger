@@ -29,7 +29,7 @@ export default function Drink({ selectedDrink, onDrinkChange }) {
                     <div className="flex flex-col capitalize lg:flex-wrap xl:flex-row gap-3">
                         {data.drinks?.map(drink => (
                             <FormControlLabel key={drink.title.en} value={drink.title[i18n.language]} control={<Radio sx={radioStyles} />}
-                                sx={labelStyles} label={`${drink.title[i18n.language]} ${drink.price === 0 ? '' : `(${i18n.language === 'en' ? 'EGP' : 'ج.م'} ${drink.price})`}`} />))
+                                sx={labelStyles} label={`${drink.title[i18n.language]} ${drink.price === 0 ? '' : `( ${drink.price} ${t('EGP')} )`}`} />))
                         }
                     </div>
                 </RadioGroup>

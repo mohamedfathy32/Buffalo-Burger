@@ -10,6 +10,7 @@ import Extras from "../components/Product/Extras";
 import { CartContext, DataContext } from "../utils/context";
 import { getCollectionByName } from "../utils/firebase";
 import Splash from "../components/Splash";
+import Swal from "sweetalert2";
 
 export default function ProductPage() {
     const { data, setData } = useContext(DataContext);
@@ -93,7 +94,18 @@ export default function ProductPage() {
         cart.push(cartItem);
         localStorage.setItem('cart', JSON.stringify(cart));
         setCart(cart);
-        navigate('/Menu')
+        Swal.fire({
+            title: `${t("Product Added")}`,
+            text: `${t("The product has been added to your cart.")}`,
+            icon: "success",
+            iconColor: '#ff5f00',
+            confirmButtonText: `${t("OK")}`,
+            customClass: {
+                confirmButton: 'custom-confirm-button'
+            }
+        }).then(() => {
+            navigate('/menu')
+        });
         window.scrollTo({ top: 0 });
     }
 
@@ -119,7 +131,7 @@ export default function ProductPage() {
                         <h2 className="capitalize text-2xl font-bold">Total</h2>
                         <span className="capitalize text-sm text-gray-500">Including VAT</span>
                     </div>
-                    <span className="text-lg font-bold mt-auto mb-2">EGP {totalPrice}</span>
+                    <span className="text-lg font-bold mt-auto mb-2">{totalPrice}</span>
                 </div>
                 <button onClick={addToCart} className="px-12 py-3 flex justify-center items-center gap-1 bg-[#ff5f00] rounded-lg text-white text-xl uppercase">
                     <MdShoppingCart className="text-2xl" /> {t('addToCart')}

@@ -4,7 +4,7 @@ export default function Quality() {
             <div className="container mx-auto py-10 ">
                 <div className="flex flex-col pt-12 px-4 lg:px-24">
 
-                    <h3 className="font-thin mb-6 mt-4 mx-auto tracking-wider text-center text-6xl PSS text-orange-500">
+                    <h3 className="font-thin mb-6 mt-4 mx-auto tracking-wider text-center text-6xl PSS text-[#ff5f00]">
                         QUALITY CONTROL
                     </h3>
 
@@ -30,7 +30,7 @@ export default function Quality() {
                         <div className="col-lg-6 d-flex flex-column align-items-start">
                             <p className="text-white text-2xl md:max-w-1/2 mb-6 w-1/2 mx-auto">
                                 Starting from day one, we’ve been committed to
-                                <span className="text-orange-500"> maintaining our exceptional quality </span>
+                                <span className="text-[#ff5f00]"> maintaining our exceptional quality </span>
                                 by implementing a strict and consistent quality control cycle,
                                 we guarantee fresh, wholesome ingredients are served each and
                                 every time.
@@ -133,7 +133,7 @@ export default function Quality() {
                                 width={60}
                                 height={58}
                             />
-                            <h3 className="text-orange-500 text-4xl">Supply Chain</h3>
+                            <h3 className="text-[#ff5f00] text-4xl">Supply Chain</h3>
                             <p className="text-light">
                                 Our cycle starts by monitoring the production and supply
                                 chain. We closely work with leading local and international
@@ -165,7 +165,7 @@ export default function Quality() {
                                 width={60}
                                 height={58}
                             />
-                            <h3 className="text-orange-500 text-4xl">In-store Handling</h3>
+                            <h3 className="text-[#ff5f00] text-4xl">In-store Handling</h3>
                             <p className="text-light">
                                 Every employee at Buffalo Burger is critical in the delivery of high quality and safe products. That’s why we invest in employee training as an integral part of our on-going commitment to exceed all quality, food safety and regulatory requirements.
                             </p>
@@ -193,7 +193,7 @@ export default function Quality() {
                                 width={60}
                                 height={58}
                             />
-                            <h3 className="text-orange-500 text-4xl">Enhanced Restaurant Procedures</h3>
+                            <h3 className="text-[#ff5f00] text-4xl">Enhanced Restaurant Procedures</h3>
                             <p className="text-light">
                                 Buffalo Burger is keen on maintaining a hygienic and clean environment at all its kitchens to ensure safe food handling and ultimate quality. Therefore, we implement strict sanitization procedures that involve our food preparation to guarantee that our outlets, as well as our employees do not become a source of contamination for our guests.
                             </p>
@@ -221,7 +221,7 @@ export default function Quality() {
                                 width={60}
                                 height={58}
                             />
-                            <h3 className="text-orange-500 text-4xl">Transportation</h3>
+                            <h3 className="text-[#ff5f00] text-4xl">Transportation</h3>
                             <p className="text-light">
                                 Buffalo Burger boasts a well-equipped fleet that ensures all ingredients are hygienically packaged, stored in ideal temperatures and delivered to our restaurants in the most efficient and speedy manner.
 

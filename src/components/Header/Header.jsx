@@ -12,6 +12,7 @@ import { getUserInfoById } from "../../utils/firebase";
 import LoginModal from "./Login";
 import SignupModal from "./Signup";
 import CartDrawer from "../CartDrawer";
+import Swal from "sweetalert2";
 
 export default function Header() {
     const { cart, setCart } = useContext(CartContext)
@@ -52,7 +53,6 @@ export default function Header() {
             const userInfo = await getUserInfoById(userId);
             if (userInfo) {
                 setUsername(userInfo.username);
-                console.log(userInfo.username)
                 setUserphone(userInfo.phoneNumber);
                 setIsLoggedIn(true);
             }
@@ -82,7 +82,7 @@ export default function Header() {
         };
 
         fetchUserInfo();
-    }, []);
+    }, [localStorage.getItem("userId")]);
 
     useEffect(() => {
         const handleEsc = (event) => {
@@ -103,6 +103,16 @@ export default function Header() {
         localStorage.removeItem("userId");
         setIsLoggedIn(false);
         setIsOpenDrop(false);
+        Swal.fire({
+            title: `${t("Logged Out!")}`,
+            text: `${t("You have logged out successfully.")} ${t("See you soon!")}`,
+            icon: "info",
+            iconColor: '#ff5f00',
+            confirmButtonText: `${t("OK")}`,
+            customClass: {
+                confirmButton: 'custom-confirm-button'
+            }
+        });
     };
 
     function changeLang() {
@@ -121,7 +131,7 @@ export default function Header() {
                     }
                 }}
             >
-                <div className="hidden md:flex items-center gap-4">
+                <div className="hidden md:flex items-center gap-5">
                     <div className="flex items-center cursor-pointer border-none rounded-lg">
                         <div onClick={changeLang} className="flex items-center gap-2">
                             <span className="font-main">{t('languageButton')}</span>
@@ -130,19 +140,17 @@ export default function Header() {
                                 alt="Arabic language" />
                         </div>
                     </div>
-
                     <div className="hidden lg:block bg-[#ff5f00] p-2 text-white rounded-md cursor-pointer">
                         <span className="text-base flex items-center">
                             <MdLoyalty className="text-lg" />
                             {t("My Loyalty Points")}
                         </span>
                     </div>
-
                     <Link to="/Cart" className="flex items-center text-white hover:text-[#ff5f00] font-bold text-lg uppercase">
                         <FaCartShopping className="text-2xl mr-1" />
                         {t("Cart")}
                     </Link>
-                    <div className="flex items-center justify-center w-7 h-7 bg-white text-[#1c1c1b] rounded-full">
+                    <div className="flex items-center justify-center w-7 h-7 bg-white text-stone-900 rounded-full">
                         {cart.length}
                     </div>
                 </div>
@@ -213,7 +221,7 @@ export default function Header() {
                     </button>
                 </div>
                 <div className="block md:hidden absolute right-6" onClick={() => { setCartDrawer(true) }}>
-                    <button className="bottom-0 bg-orange-500 text-white flex justify-center items-center rounded-full relative">
+                    <button className="bottom-0 bg-[#ff5f00] text-white flex justify-center items-center rounded-full relative">
                         <MdShoppingBasket className="text-4xl p-2" />
                     </button>
                 </div>
@@ -223,7 +231,7 @@ export default function Header() {
             {nav && <div className="fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ease-in-out" onClick={closeWindows}></div>}
             <div className={`block md:hidden fixed top-0 start-0 w-64 h-full z-50 bg-[#1c1c1b] shadow-lg transition-transform duration-500 ease-in-out transform ${nav ? 'translate-x-0' : i18n.language == 'ar' ? 'translate-x-full' : '-translate-x-full'}`}>
                 <div className="h-screen flex flex-col gap-4 bg-[#1c1c1b] px-4 w-[260px]">
-                    <div className="pr-3 top-14 text-orange-500 cursor-pointer "></div>
+                    <div className="pr-3 top-14 text-[#ff5f00] cursor-pointer "></div>
                     <div className=" flex flex-row justify-between">
                         <div className="flex flex-col gap-2">
                             <div className="flex flex-col gap-1">
@@ -303,14 +311,6 @@ export default function Header() {
                                     <MdShoppingBasket className="inline-block mr-2 text-2xl text-[#ff5f00]" />
                                     <Link className="p-1 undefined" to="/cart" onClick={closeWindows}>{t("Cart")}</Link>
                                 </div>
-                                {/* <div className="text-white font-main font-bold">
-                                    <img
-                                        className="w-7 inline-block mr-2"
-                                        src="https://buffalonlineorderingapp.s3-accelerate.amazonaws.com/static_images/loyalty-icon.svg" />
-                                    <Link className="p-1 undefined" to="/Loyalty">{t("My Loyalty Points")}
-
-                                    </Link>
-                                </div> */}
                             </div>
                             <div className="flex flex-col !space-y-4 border-b py-3 border-b-secondary-gray-50">
                                 <div className="text-white font-main font-bold">
@@ -340,42 +340,8 @@ export default function Header() {
                 </div>
             </div>
 
-
-            {/* Cart Drawer Section  */}
-
             {cartDrawer && <div className="fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ease-in-out" onClick={closeWindows}></div>}
-            {/* <div dir="rtl" className={`fixed top-0 start-0 w-80 md:w-96 h-screen z-50 bg-white shadow-lg transition-transform duration-500 ease-in-out transform ${cartDrawer ? 'translate-x-0' : 'translate-x-full'}`}>
-                <div dir={i18n.language == 'ar' ? 'rtl' : 'ltr'} className="flex flex-col   -8 bg-white box-content border-none min-w-fit h-screen px-4">
-                    <div className="pr-3 top-14 text-orangbg-[#ff5f00] cursor-pointer "></div>
-                    <div className="flex items-center justify-start py-4 text-black">
-                        <div className="text-2xl flex items-center flex-grow font-bold justify-between cursor-pointer uppercase">
-                            <div className="px-1" onClick={closeWindows}>
-                                <IoIosCloseCircleOutline />
-                            </div>
-                            <p className="">
-                                {t("Cart details")}
 
-                            </p>
-                            <div className="text-xs text-orange-500 hover:text-secondary-main-120"> {t("Go to cart")} </div>
-                            <div className="flex justify-center items-center">
-                                <div className="flex justify-center items-center w-7 h-7 rounded-full text-white text-sm bg-[#1c1c1b] ">{cart.length}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="scroll-with-no-display overflow-y-scroll flex-grow">
-                        <p className="w-full text-base text-center mx-auto text-black">
-                            {t("There are no items in your cart")}
-                        </p>
-                    </div>
-                    <div className="mb-24 flex items-start justify-evenly bg-[#ff5f00] text-white py-3 md:my-6 mx-4 cursor-pointer font-main rounded-xl text-xl">
-                        <MdShoppingBasket />
-                        <p className="font-roboto justify-start uppercase">
-                            {t("Go to cart")}
-                        </p>
-                        <p>{t("EGP")} 0.00</p>
-                    </div>
-                </div>
-            </div> */}
             <CartDrawer
                 cartDrawer={cartDrawer}
                 closeWindows={closeWindows}
@@ -385,10 +351,10 @@ export default function Header() {
             {/* Seconed Header Delivery Address */}
             <div className="bg-[#1c1c1b] w-full max-w-full h-12 flex justify-center items-center">
                 <div className="hidden md:flex">
-                    <Link className="me-4 hover:text-[#ff5f00]" to={'/About'}>About Us</Link>
-                    <Link className="me-4 hover:text-[#ff5f00]" to={'/Cart'}>CartDetails</Link>
-                    <Link className="me-4 hover:text-[#ff5f00]" to={'/Menu'}>Menu</Link>
-                    <Link className="me-4 hover:text-[#ff5f00]" to={'/'}>Home</Link>
+                    <Link className="me-4 hover:text-[#ff5f00]" to={'/About'}>{t("About us")}</Link>
+                    <Link className="me-4 hover:text-[#ff5f00]" to={'/Cart'}>{t("Cart details")}</Link>
+                    <Link className="me-4 hover:text-[#ff5f00]" to={'/Menu'}>{t("Menu")}</Link>
+                    <Link className="me-4 hover:text-[#ff5f00]" to={'/'}>{t("Home")}</Link>
                 </div>
             </div>
             {/* Login and SignUp المربع (Modal) */}
@@ -396,14 +362,15 @@ export default function Header() {
                 <div className="fixed top-16 w-[100%] h-screen items-center flex  justify-center z-50 bg-black bg-opacity-50 ">
                     <div className="bg-white rounded-lg p-6 w-[80%] sm:w-[40%] ">
                         <div className="flex justify-between mb-4">
+                            
                             <button
-                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'login' ? 'border-b-2 border-orange-500 text-[#ff5f00]' : 'text-gray-500'}`}
+                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'login' ? 'border-b-2 border-[#ff5f00]  text-[#ff5f00]' : 'text-gray-500'}`}
                                 onClick={() => setActiveTab('login')}
                             >
                                 {t("Login")}
                             </button>
                             <button
-                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'signup' ? 'border-b-2 border-orange-500 text-[#ff5f00]' : 'text-gray-500'}`}
+                                className={`w-[50%] text-center px-4 py-2 ${activeTab === 'signup' ? 'border-b-2 border-[#ff5f00]  text-[#ff5f00]' : 'text-gray-500'}`}
                                 onClick={() => setActiveTab('signup')}
                             >
                                 {t("Create an account")}

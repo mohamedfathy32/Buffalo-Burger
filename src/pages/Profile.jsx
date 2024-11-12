@@ -23,8 +23,6 @@ export default function ProfilePage() {
             ...formData,
             [name]: value,
         });
-
-        // Check if the form data has been changed
         setIsChanged(
             value !== (name === "fullName" ? username : name === "phoneNumber" ? userphone : useremail)
         );
@@ -32,11 +30,6 @@ export default function ProfilePage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Perform the save operation (you can implement your save logic here)
-        console.log("Saving changes...", formData);
-
-        // After saving, reset isChanged to false
         setIsChanged(false);
         updateUserProfile(userId, formData.fullName);
         alert("Saved changes");
@@ -142,7 +135,7 @@ export default function ProfilePage() {
                                             <div className="flex mt-4">
                                                 <button
                                                     type="submit"
-                                                    disabled={!isChanged} // Enable button only if the data has been changed
+                                                    disabled={!isChanged}
                                                     className="bg-[#ff5f00] text-white h-9 px-4 font-main text-lg rounded-[10px] disabled:bg-[#ffcfb3]"
                                                 >
                                                     {t("Save changes")}

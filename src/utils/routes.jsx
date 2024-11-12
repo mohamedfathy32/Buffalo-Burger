@@ -5,7 +5,6 @@ import AboutPage from "../pages/About";
 import BranchesPage from "../pages/Branches";
 import CartPage from "../pages/Cart";
 import FranchisePage from "../pages/Franchise";
-import LoyaltyPage from "../pages/Loyalty";
 import MenuPage from "../pages/Menu";
 import OfferPage from "../pages/Offer";
 import OrderHistoryPage from "../pages/OrderHistory";
@@ -23,7 +22,6 @@ export const router = createBrowserRouter([{
         { path: 'Branches', element: <BranchesPage /> },
         { path: 'Cart', element: <CartPage /> },
         { path: 'Franchise', element: <FranchisePage /> },
-        { path: 'Loyalty', element: <LoyaltyPage /> },
         { path: 'Menu', element: <MenuPage /> },
         { path: 'Offer/:id', element: <OfferPage /> },
         { path: 'OrderHistory', element: <OrderHistoryPage /> },
